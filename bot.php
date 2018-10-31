@@ -127,6 +127,26 @@ if (!is_null($events['events'])) {
 				];
 			}
 
+
+			else if(preg_match('(#1|#2)', $text) === 1){ 
+
+				//$lineid = $uid;
+
+				$split = explode("#1", $text);
+				$p = $split[0];
+				$s = $split[1];
+				$split1 = explode("#2", $s);
+				$namebuild = $split1[0];
+				$address = $split1[1];
+
+				$messages = [
+				'type' => 'text',
+				"text" => $namebuild." || ".$address
+				];
+			}
+			
+			
+			
 			else {
 			
 
