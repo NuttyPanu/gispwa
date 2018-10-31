@@ -9,6 +9,15 @@ $channelAccessToken = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLi
 $channelSecret = '1d50de27a0f29d9728c29ba9ccc495b0';
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
+
+$lineid;
+
+$namebuild;
+$address;
+
+$latitude;
+$longitude;
+
 //-----------auto send----push message------------------//
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test&id=R058c5b58c97773c8d032eef585b
 //---------------------------------------------------------//
@@ -31,13 +40,7 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		
-		$lineid;
 
-		$namebuild;
-		$address;
-
-		$latitude;
-		$longitude;
 		
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
