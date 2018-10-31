@@ -30,6 +30,15 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
+		
+		$lineid;
+
+		$namebuild;
+		$address;
+
+		$latitude;
+		$longitude;
+		
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
@@ -72,7 +81,7 @@ if (!is_null($events['events'])) {
 					];
 			}
 	
-			if(preg_match('(ขอรูป|ดูรูป|รูป|รูปภาพ)', $text) === 1) {	
+			else if(preg_match('(ขอรูป|ดูรูป|รูป|รูปภาพ)', $text) === 1) {	
 					$gid = $event['source']['groupId'];
 					$uid = $event['source']['userId'];
 					//$url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid; //กลุ่ม
@@ -149,13 +158,12 @@ if (!is_null($events['events'])) {
 		    $latitude = $event['message']['latitude'];
 		    $longitude = $event['message']['longitude'];
 		    $title = $event['message']['title'];
-		    $address = $event['message']['address'];
+		    //$address = $event['message']['address'];
 		    $uid = $event['source']['userId'];
 
 		    $messages = [
-
 			"type"=> "location",
-			"title"=> 'ตำแหน่งที่ต้องการตรวจสอบ',
+			"title"=> $namebuild,
 			"address"=> $address,
 			"latitude"=> $latitude,
 			"longitude"=> $longitude
