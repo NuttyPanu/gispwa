@@ -131,6 +131,15 @@ if (!is_null($events['events'])) {
 				"text" => $uid." || ".$gid
 				];
 			}
+			
+			else if ($text == 'ทดสอบ') {
+				
+				// Build message to reply back
+				$messages = [
+				'type' => 'text',
+				"text" => $SESSION["namebuild"]." || ".$SESSION["address"]
+				];
+			}
 
 
 			else if(preg_match('(#1|#2)', $text) === 1){ 
