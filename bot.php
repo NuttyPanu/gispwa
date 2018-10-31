@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 date_default_timezone_set('Asia/Bangkok');
 header('Content-Type: text/html; charset=utf-8');
 //ini_set("log_errors", 1);
@@ -134,7 +136,7 @@ if (!is_null($events['events'])) {
 			else if(preg_match('(#1|#2)', $text) === 1){ 
 
 				//$lineid = $uid;
-
+				
 				$split = explode("#1", $text);
 				$p = $split[0];
 				$s = $split[1];
@@ -142,9 +144,12 @@ if (!is_null($events['events'])) {
 				$namebuild = $split1[0];
 				$address = $split1[1];
 
+				$SESSION["namebuild"] = $namebuild;
+				$SESSION["address"] = $address;	
+				
 				$messages = [
 				'type' => 'text',
-				"text" => $namebuild." || ".$address
+				"text" => $SESSION["namebuild"]." || ".$SESSION["address"]
 				];
 			}
 			
@@ -154,6 +159,7 @@ if (!is_null($events['events'])) {
 			
 
 			}
+			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Make a POST Request to Messaging API to reply to sender
@@ -183,11 +189,11 @@ if (!is_null($events['events'])) {
 		    $title = $event['message']['title'];
 		    //$address = $event['message']['address'];
 		    $uid = $event['source']['userId'];
-
+			
 		    $messages = [
 			"type"=> "location",
-			"title"=> $namebuild,
-			"address"=> $address,
+			"title"=> $SESSION["namebuild"],
+			"address"=> $SESSION["address"],
 			"latitude"=> $latitude,
 			"longitude"=> $longitude
 		    ];  
