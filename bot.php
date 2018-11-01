@@ -11,6 +11,15 @@ $channelSecret = '1d50de27a0f29d9728c29ba9ccc495b0';
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
 
+if ($_GET['send'] == 'push')
+{
+	$text = array(
+			'type' => 'text',
+			'text' => $_GET['text']
+		);
+	$uid = $_GET['id']; // id auto
+	$client->pushMessage($uid, $text);
+}
 
 //---------------------------------------------------------//
 // Get POST body content
@@ -150,8 +159,8 @@ if (!is_null($events['events'])) {
 			
 
 		    // Get replyToken
-		    //$replyToken = $event['replyToken'];
-		    $replyToken = "b8d16867c3b0428dad726529876301ef";			
+		    $replyToken = $event['replyToken'];
+		    //$replyToken = "b8d16867c3b0428dad726529876301ef";			
 			
 		    // Make a POST Request to Messaging API to reply to sender
 		    $url = 'https://api.line.me/v2/bot/message/reply';
