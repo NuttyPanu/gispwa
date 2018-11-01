@@ -12,18 +12,6 @@ $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
 
 
-//-----------auto send----push message------------------//
-// Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test&id=R058c5b58c97773c8d032eef585b
-//---------------------------------------------------------//
-if ($_GET['send'] == 'push')
-{
-	$text = array(
-			'type' => 'text',
-			'text' => $_GET['text']
-		);
-	$uid = $_GET['id']; // id auto
-	$client->pushMessage($uid, $text);
-}
 //---------------------------------------------------------//
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -78,43 +66,7 @@ if (!is_null($events['events'])) {
 					];
 			}
 	
-			else if(preg_match('(ขอรูป|ดูรูป|รูป|รูปภาพ)', $text) === 1) {	
-					$gid = $event['source']['groupId'];
-					$uid = $event['source']['userId'];
-					//$url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid; //กลุ่ม
-					$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
-					$channelAccessToken2 = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
-					$header = array(
-						"Content-Type: application/json",
-						'Authorization: Bearer '.$channelAccessToken2,
-					);
-					$ch = curl_init();
-					//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
-					//curl_setopt($ch, CURLOPT_VERBOSE, 1);
-					//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-					//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-					curl_setopt($ch, CURLOPT_FAILONERROR, 0);		;
-					//curl_setopt($ch, CURLOPT_HTTPGET, 1);
-					//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
-					//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-					curl_setopt($ch, CURLOPT_HEADER, 0);
-					curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-					curl_setopt($ch, CURLOPT_URL, $url);
-					
-					$profile =  curl_exec($ch);
-					curl_close($ch);
-					$obj = json_decode($profile);
-					$pathpic = explode("cdn.net/", $obj->pictureUrl);
-					$messages = [
-								'type' => 'image',
-								'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
-								'previewImageUrl' => 'https://obs.line-apps.com/'.$pathpic[1].'/large'
-					];
-			}
 	
-
 			else if ($text == 'id') {
 				
 				// Build message to reply back
@@ -124,15 +76,6 @@ if (!is_null($events['events'])) {
 				];
 			}
 			
-			else if ($text == 'ทดสอบ') {
-				
-				// Build message to reply back
-				$messages = [
-				'type' => 'text',
-				"text" => $SESSION["namebuild"]." || ".$SESSION["address"]
-				];
-			}
-
 
 			else if(preg_match('(#1|#2)', $text) === 1){ 
 
@@ -155,7 +98,7 @@ if (!is_null($events['events'])) {
 			}
 			
 			
-			
+		
 			else {
 			
 
