@@ -145,13 +145,13 @@ if (!is_null($events['events'])) {
 			*/
 		    $messages = [
 			'type' => 'text',
-			"text" => $event['replyToken']
+			"text" => 'พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid
 		    ];	
 			
 
 		    // Get replyToken
-		    $replyToken = $event['replyToken'];
-		    //$replyToken = "Uf8e0fa9ddb37ad7d92989e1b80d855d5";			
+		    //$replyToken = $event['replyToken'];
+		    $replyToken = "b8d16867c3b0428dad726529876301ef";			
 			
 		    // Make a POST Request to Messaging API to reply to sender
 		    $url = 'https://api.line.me/v2/bot/message/reply';
