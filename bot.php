@@ -145,7 +145,8 @@ if (!is_null($events['events'])) {
 
 			
 			//$id_t = $uid;
-		    $id_t = 'Ud28e6a312cb9816218fc44edef9c2f3d';			
+		    //$id_t = 'Ud28e6a312cb9816218fc44edef9c2f3d';
+		    $id_t = 'C3959e1e52fb0b16f3f9d08c4ad2b0a97';			
 			
 		    $detail = 'ชื่อสถานที่: '.$title.' พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid;	
 			
