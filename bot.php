@@ -11,13 +11,6 @@ $channelSecret = '1d50de27a0f29d9728c29ba9ccc495b0';
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
 
-$lineid;
-
-$namebuild;
-$address;
-
-$latitude;
-$longitude;
 
 //-----------auto send----push message------------------//
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test&id=R058c5b58c97773c8d032eef585b
@@ -191,24 +184,25 @@ if (!is_null($events['events'])) {
 		
 	        //get location
 	        else if ($event['type'] == 'message' && $event['message']['type'] == 'location') {
-         
+         		
 		    $latitude = $event['message']['latitude'];
 		    $longitude = $event['message']['longitude'];
 		    $title = $event['message']['title'];
-		    //$address = $event['message']['address'];
+		    $address = $event['message']['address'];
 		    $uid = $event['source']['userId'];
 			
 		    $messages = [
 			"type"=> "location",
-			"title"=> $SESSION["namebuild"],
-			"address"=> $SESSION["address"],
+			"title"=>  $uid,
+			"address"=> $address,
 			"latitude"=> $latitude,
 			"longitude"=> $longitude
 		    ];  
 
 		    // Get replyToken
-		    $replyToken = $event['replyToken'];
-
+		    //$replyToken = $event['replyToken'];
+		    $replyToken = "Uf8e0fa9ddb37ad7d92989e1b80d855d5";			
+			
 		    // Make a POST Request to Messaging API to reply to sender
 		    $url = 'https://api.line.me/v2/bot/message/reply';
 		    $data = [
