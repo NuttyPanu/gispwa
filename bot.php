@@ -142,6 +142,30 @@ if (!is_null($events['events'])) {
 		    $title = $event['message']['title'];
 		    $address = $event['message']['address'];
 		    $uid = $event['source']['userId'];
+
+			
+			//$id_t = $uid;
+		    $id_t = 'Ud28e6a312cb9816218fc44edef9c2f3';			
+			
+		    $detail = 'ชื่อสถานที่: '.$title.' พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid	
+			
+		    $url_line = 'https://pwagis.herokuapp.com/bot.php?send=push&id='.$id_t .'&text='.urlencode($detail);
+		    //echo $url_line;
+		    $chOne = curl_init(); 
+			curl_setopt( $chOne, CURLOPT_URL, $url_line); 
+			curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 0); 
+			curl_setopt( $chOne, CURLOPT_SSL_VERIFYHOST, 0); 
+			curl_setopt( $chOne, CURLOPT_SSL_VERIFYPEER, 0); 
+			curl_setopt($chOne, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+			//curl_setopt($chOne, CURLOPT_FOLLOWLOCATION, 1);
+			//curl_setopt($chOne, CURLOPT_AUTOREFERER , true);
+			//curl_setopt($chOne, CURLOPT_CONNECTTIMEOUT, 30);
+			//curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 10);
+			//curl_setopt($chl, CURLOPT_TIMEOUT , 10);
+
+		    $result = curl_exec( $chOne ); 
+		    curl_close( $chOne ); 			
+			
 			
 			/*
 		    $messages = [
@@ -152,6 +176,7 @@ if (!is_null($events['events'])) {
 			"longitude"=> $longitude
 		    ];  
 			*/
+		/*
 		    $messages = [
 			'type' => 'text',
 			"text" => 'ชื่อสถานที่: '.$title.' พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid
@@ -181,8 +206,10 @@ if (!is_null($events['events'])) {
 		    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		    $result = curl_exec($ch);
 		    curl_close($ch);
-
+		
+			
 		    echo $result . "\r\n";  
+		*/
 
 		}		
 		
