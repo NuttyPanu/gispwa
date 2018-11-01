@@ -134,6 +134,7 @@ if (!is_null($events['events'])) {
 		    $address = $event['message']['address'];
 		    $uid = $event['source']['userId'];
 			
+			/*
 		    $messages = [
 			"type"=> "location",
 			"title"=>  $uid,
@@ -141,6 +142,12 @@ if (!is_null($events['events'])) {
 			"latitude"=> $latitude,
 			"longitude"=> $longitude
 		    ];  
+			*/
+		    $messages = [
+			'type' => 'text',
+			"text" => $event['replyToken']
+		    ];	
+			
 
 		    // Get replyToken
 		    $replyToken = $event['replyToken'];
