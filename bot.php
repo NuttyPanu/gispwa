@@ -147,7 +147,7 @@ if (!is_null($events['events'])) {
 			//$id_t = $uid;
 		    $id_t = 'Ud28e6a312cb9816218fc44edef9c2f3';			
 			
-		    $detail = 'ชื่อสถานที่: '.$title.' พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid	
+		    $detail = 'ชื่อสถานที่: '.$title.' พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid;	
 			
 		    $url_line = 'https://pwagis.herokuapp.com/bot.php?send=push&id='.$id_t .'&text='.urlencode($detail);
 		    //echo $url_line;
