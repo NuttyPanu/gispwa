@@ -154,7 +154,7 @@ if (!is_null($events['events'])) {
 			*/
 		    $messages = [
 			'type' => 'text',
-			"text" => 'พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid
+			"text" => 'ชื่อสถานที่: '.$title.' พิกัด: '.$latitude.','.$longitude.' ที่อยู่: '.$address.' แชร์ตำแหน่งโดย: '. $uid
 		    ];	
 			
 
