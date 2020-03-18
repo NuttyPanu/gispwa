@@ -268,7 +268,7 @@ if (!is_null($events['events'])) {
 	
 
 
-			if (preg_match('(วิธีการเพิ่มสิทธิ์|วิธีเพิ่มสิทธิ์)', $text) === 1) {
+			else if (preg_match('(วิธีการเพิ่มสิทธิ์|วิธีเพิ่มสิทธิ์)', $text) === 1) {
 				$text_reply = "วิธีการเพิ่มสิทธิ์ระบบติดตามมาตรวัดน้ำ 
 				\n ใช้คีย์เวิร์ดในการเพิ่ม ดังนี้ #เพิ่มสิทธิ์ หรือ #เพิ่มสิทธิ์มาตร หรือ #เพิ่มสิทธิ์ระบบมาตร หรือ #เพิ่มสิทธิ์ระบบมาตรฯ 
 				\n ***(เพิ่มสิทธิ์ได้มากสุด ครั้งละไม่เกิน 59 user)
@@ -447,8 +447,8 @@ if (!is_null($events['events'])) {
 
 
 			else if ($text == 'id') {
-				
 				$gid = $event['source']['groupId'];
+				$uid = $event['source']['userId'];
 				// Build message to reply back
 				$messages = [
 				'type' => 'text',
