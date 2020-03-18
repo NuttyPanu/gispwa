@@ -452,7 +452,7 @@ if (!is_null($events['events'])) {
 				// Build message to reply back
 				$messages = [
 				'type' => 'text',
-				"text" => 'uid:'$uid.'\n'.'gid'.$gid
+				"text" => 'uid:'.$uid.'\n'.'gid'.$gid
 				];
 			}
 
