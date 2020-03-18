@@ -10,11 +10,11 @@ require_once('LINEBotTiny.php');
 
 
 
-$access_token = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
+$access_token = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
 
 
-$channelAccessToken = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
-$channelSecret = '5583947f4adfd2b151a0ce166b201bd1';
+$channelAccessToken = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '1d50de27a0f29d9728c29ba9ccc495b0';
 
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
@@ -36,7 +36,7 @@ function get_url($urllink) {
 
 function get_profile($fullurl) 
 {
-        $channelAccessToken2 = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
+        $channelAccessToken2 = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
  
         $header = array(
             "Content-Type: application/json",
@@ -197,7 +197,7 @@ if (!is_null($events['events'])) {
 
 					//$url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid; //กลุ่ม
 					$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
-					$channelAccessToken2 = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
+					$channelAccessToken2 = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
 
 					$header = array(
 						"Content-Type: application/json",
@@ -1070,7 +1070,7 @@ function replyMsg($event, $client)
  
 						$id = $event['source']['userId'];
                         $urlp = 'https://api.line.me/v2/bot/profile/'.$id;
-                        $channelAccessToken2 = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
+                        $channelAccessToken2 = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
  
                         $header = array(
                             "Content-Type: application/json",
@@ -1233,7 +1233,7 @@ function replyMsg($event, $client)
                     if ($ty == 'user'){
  
                         $url = 'https://api.line.me/v2/bot/profile/'.$uid;
-                        $channelAccessToken2 = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
+                        $channelAccessToken2 = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
  
                         $header = array(
                             "Content-Type: application/json",
@@ -1308,7 +1308,7 @@ function replyMsg($event, $client)
                         //$gid =  'Cd495e0ee56720de9b2b914dff0eabc16';
                         $url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
                         //$url = 'https://api.line.me/v2/bot/profile/'.$uid;
-                        $channelAccessToken2 = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
+                        $channelAccessToken2 = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
  
                         $header = array(
                             "Content-Type: application/json",
@@ -1446,7 +1446,7 @@ function replyMsg($event, $client)
 					///*
 
 					$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
-					$channelAccessToken2 = '4D1qNJmm0xAaMRZCABdcz8+X/IH2eMKuKqD/1nSrWdPCQLiOZGlaD6tY4FUQ9spusBUSwAPR7D2W1hmnRHuPEk0X6a1YOKZfNYXFxAWvSKmH1ORbJ9vt6bW6HKAckdjKT6FYmQcJ9U95orRuBD1QTgdB04t89/1O/w1cDnyilFU=';
+					$channelAccessToken2 = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
 
 					$header = array(
 						"Content-Type: application/json",
