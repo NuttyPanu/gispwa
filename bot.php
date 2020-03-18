@@ -1009,13 +1009,13 @@ echo "OK";
 //echo "OK2";
 
 
-//C67c2d145ca7be1b591c50c3b3831ada1 gis
-//C73f5877749efe6c4ef99f193242f44fb metergis
- //C2ae1bc977c69e8d2596a41fd5fe33c88 gis+pjoe
+//------------ gis
+//C0258185eadd1aef77466dfb30d189e56 metergis
+ //Cbb266cca8a0e0b7ae940dec7f3dc15dc gis+pjoe
 //ฟังก์ชั่น ReplyMessage-------------------------------------------------------------//
 function replyMsg($event, $client)
 {
-  if($event['source']['groupId'] == 'C2ae1bc977c69e8d2596a41fd5fe33c88' || $event['source']['groupId'] == 'C67c2d145ca7be1b591c50c3b3831ada1' || $event['source']['groupId'] == 'C73f5877749efe6c4ef99f193242f44fb' || $event['source']['userId'] == 'U08f8f734c798d00fb72aaaa02dd15da7'){
+  if($event['source']['groupId'] == 'Cbb266cca8a0e0b7ae940dec7f3dc15dc' || $event['source']['groupId'] == 'C0258185eadd1aef77466dfb30d189e56' || $event['source']['userId'] == 'Ud28e6a312cb9816218fc44edef9c2f3d'){
     $uid;
     $gid;
     $ty  = $event['source']['type'];    //user,group
