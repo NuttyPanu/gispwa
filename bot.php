@@ -444,17 +444,18 @@ if (!is_null($events['events'])) {
 */
 
 
-/*
+
 
 			else if ($text == 'id') {
 				
+				$gid = $event['source']['groupId'];
 				// Build message to reply back
 				$messages = [
 				'type' => 'text',
-				"text" => $uid
+				"text" => 'uid:'$uid.'\n'.'gid'.$gid
 				];
 			}
-*/
+
 
 			else {
 				
