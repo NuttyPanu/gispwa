@@ -23,7 +23,8 @@ class GoogleDriveApi{
   public function __construct($strClientId, $strClientSecret){
     $this->strClientId = $strClientId;
     $this->strClientSecret = $strClientSecret;
-    $this->strScriptUrl = "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}{$_SERVER['PHP_SELF']}";
+    //$this->strScriptUrl = "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}{$_SERVER['PHP_SELF']}";
+	$this->strScriptUrl = 'https://gispwa.herokuapp.com/google-drive-api-master/authorize.php';
   }
 
   public function getAuthorizetUrl($scope){
