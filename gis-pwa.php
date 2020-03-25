@@ -63,46 +63,20 @@ function get_profile($fullurl)
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test&uid=R058c5b58c97773c8d032eef585b9dbd0
 
-if ( $_GET['send'] == 'm_group' )
+if ( $_GET['send'] == 'text' )
 {
 	$text = array(
 			'type' => 'text',
 			'text' => $_GET['text']
 		);
-	$uid = "C73f5877749efe6c4ef99f193242f44fb"; // meter group
-	$client->pushMessage($uid, $text);
-}
-
-if ( $_GET['send'] == 'g_group' )
-{
-	$text = array(
-			'type' => 'text',
-			'text' => $_GET['text']
-		);
-	$uid = "C2ae1bc977c69e8d2596a41fd5fe33c88"; // gis_group
-	$client->pushMessage($uid, $text);
-}
-
-
-//---------------------------------------------------------//
-
-
-if ( $_GET['send'] == 'auto' )
-{
-	$text = array(
-			'type' => 'text',
-			'text' => $_GET['text']
-		);
-	$uid = $_GET['id']; // id auto
+	$uid = $_GET['id'];
 	$client->pushMessage($uid, $text);
 }
 //---------------------------------------------------------//
-
 
 //ส่งแบบข้อความแบบ-multi----แบบ array มี sub array-------------//
 if ( $_GET['send'] == 'location' )
 {
-
 	$text = array(
 		            array(
 			                'type' => 'image',
@@ -116,14 +90,10 @@ if ( $_GET['send'] == 'location' )
 							"latitude"=> $_GET['Latuse'],
 							"longitude"=> $_GET['Lonuse']		
 						)
-			);  
-	//$uid = "U08f8f734c798d00fb72aaaa02dd15da7";	  // id group GIS	
+			);  	
 	$uid = $_GET['id'];
 	$client->pushMessage1($uid, $text);
 }
-
-
-
 
 
 
@@ -1015,7 +985,7 @@ echo "OK";
 //ฟังก์ชั่น ReplyMessage-------------------------------------------------------------//
 function replyMsg($event, $client)
 {
-  if($event['source']['groupId'] == 'Cbb266cca8a0e0b7ae940dec7f3dc15dc' || $event['source']['groupId'] == 'C0258185eadd1aef77466dfb30d189e56' || $event['source']['userId'] == 'Ud28e6a312cb9816218fc44edef9c2f3d'){
+  //if($event['source']['groupId'] == 'Cbb266cca8a0e0b7ae940dec7f3dc15dc' || $event['source']['groupId'] == 'C0258185eadd1aef77466dfb30d189e56' || $event['source']['userId'] == 'Ud28e6a312cb9816218fc44edef9c2f3d'){
     $uid;
     $gid;
     $ty  = $event['source']['type'];    //user,group
@@ -2308,7 +2278,7 @@ function replyMsg($event, $client)
     }
 
 
-  }
+  //}//endif
 }
 //----------------------------จบฟังก์ชั่น ReplyMessage----------------------------------//
  
