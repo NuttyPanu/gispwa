@@ -144,12 +144,11 @@ if (!is_null($events['events'])) {
 			$gid = $event['source']['groupId'];
 
 			$timestamp = $event['timestamp'];
-
-			if ($text == 'EGA' || $text == 'ega') {
+			if (preg_match('(หิวจัง|หิวแล้ว|หิวมาก|หิว)', $text) === 1) {
 
 				$messages = [
 				'type' => 'text',
-				'text' => 'สำนักงานรัฐบาลอิเล็กทรอนิกส์ (องค์การมหาชน) : EGA เปลี่ยนชื่อเป็น สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) (ใช้ชื่อย่อ "สพร.") และเปลี่ยนชื่อภาษาอังกฤษเป็น "Digital Government Development Agency (Public Organization)" (ย่อว่า "DGA")'
+				'text' => 'หิวหรอ ... พี่ต๊อบครับ \nลูกชิ้น หมู:5 เนื้อ:5 ไส้กรอกชีส(เยิ้มๆ):5 \nให้ไวนะครับ มีคนหิว\n เก็บเงินหัวหน้าได้เลยครับ'
 				];
 
 			}
