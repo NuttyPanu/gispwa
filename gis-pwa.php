@@ -999,9 +999,9 @@ echo "OK";
 //C0258185eadd1aef77466dfb30d189e56 metergis
  //Cbb266cca8a0e0b7ae940dec7f3dc15dc gis+pjoe
 //ฟังก์ชั่น ReplyMessage-------------------------------------------------------------//
-function replyMsg($event, $client)
+
+function replyMsg1($event, $client)
 {
-  //if($event['source']['groupId'] == 'Cbb266cca8a0e0b7ae940dec7f3dc15dc' || $event['source']['groupId'] == 'C0258185eadd1aef77466dfb30d189e56' || $event['source']['userId'] == 'Ud28e6a312cb9816218fc44edef9c2f3d'){
     $uid;
     $gid;
     $ty  = $event['source']['type'];    //user,group
@@ -1089,7 +1089,26 @@ function replyMsg($event, $client)
 		$client->replyMessage1($event['replyToken'],$a);
 	}
 
+}
 
+
+function replyMsg($event, $client)
+{
+  //if($event['source']['groupId'] == 'Cbb266cca8a0e0b7ae940dec7f3dc15dc' || $event['source']['groupId'] == 'C0258185eadd1aef77466dfb30d189e56' || $event['source']['userId'] == 'Ud28e6a312cb9816218fc44edef9c2f3d'){
+    $uid;
+    $gid;
+    $ty  = $event['source']['type'];    //user,group
+    //$uid = $event['source']['userId'];
+    //$gid = $event['source']['groupId'];
+    if($event['source']['userId']){
+        $uid = $event['source']['userId'];
+    }
+    if($event['source']['groupId']){
+        $uid = $event['source']['groupId'];
+    }
+ 
+    $id = $event['message']['id'];
+ 
 
     //-----ถ้ามีการส่งข้อความText------------------------------------------------------------//
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
@@ -2382,9 +2401,6 @@ foreach ($client->parseEvents() as $event) {
         case 'message':
             $message = $event['message'];
             switch ($message['type']) {
-                case 'follow':
-                    replyMsg($event, $client);                  
-                    break;
                 case 'text':
                     replyMsg($event, $client);                  
                     break;
@@ -2402,6 +2418,28 @@ foreach ($client->parseEvents() as $event) {
                     break;
             }
             break;
+		case 'follow':
+			replyMsg1($event, $client);                  
+			break;
+		case 'unfollow':
+			replyMsg1($event, $client);                  
+			break;
+		case 'join':
+			replyMsg1($event, $client);                  
+			break;
+		case 'leave':
+			replyMsg1($event, $client);                  
+			break;
+		case 'memberJoined':
+			replyMsg1($event, $client);                  
+			break;
+		case 'memberLeft':
+			replyMsg1($event, $client);                  
+			break;
+		case 'postback':
+			replyMsg1($event, $client);                  
+			break;
+
         default:
             error_log("Unsupporeted event type: " . $event['type']);
             break;
