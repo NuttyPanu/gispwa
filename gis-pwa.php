@@ -1677,8 +1677,8 @@ function replyMsg($event, $client)
                                     'type' => 'text',
                                     'text' => 'ดีจ้า '.$obj->displayName,
 									'sender' => {
-										'name' : $obj->displayName,
-										'iconUrl' : 'https://obs.line-apps.com/'.$pathpic[1]
+										'name' => $obj->displayName,
+										'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
 									}
                                 ),
                                 array(
@@ -1753,8 +1753,8 @@ function replyMsg($event, $client)
                                     'type' => 'text',
                                     'text' => 'ดีจ้า '.$obj->displayName,
 									'sender' => {
-										'name' : $obj->displayName,
-										'iconUrl' : 'https://obs.line-apps.com/'.$pathpic[1]
+										'name' => $obj->displayName,
+										'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
 									}
                                 ),
                                 array(
