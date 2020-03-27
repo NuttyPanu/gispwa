@@ -1675,7 +1675,11 @@ function replyMsg($event, $client)
  
                                 array(
                                     'type' => 'text',
-                                    'text' => 'ดีจ้า '.$obj->displayName
+                                    'text' => 'ดีจ้า '.$obj->displayName,
+									'sender' => {
+										'name' : $obj->displayName,
+										'iconUrl' : 'https://obs.line-apps.com/'.$pathpic[1]
+									}
                                 ),
                                 array(
                                     'type' => 'image',
@@ -1747,7 +1751,11 @@ function replyMsg($event, $client)
  
                                 array(
                                     'type' => 'text',
-                                    'text' => 'ดีจ้า '.$obj->displayName
+                                    'text' => 'ดีจ้า '.$obj->displayName,
+									'sender' => {
+										'name' : $obj->displayName,
+										'iconUrl' : 'https://obs.line-apps.com/'.$pathpic[1]
+									}
                                 ),
                                 array(
                                     'type' => 'image',
