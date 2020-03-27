@@ -33,6 +33,33 @@ function get_url($urllink) {
     return $data;
 }
 //---------------------------------//
+function chk_friend($uid){
+
+	$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+	$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
+
+	//$lineid_encode = urlencode($uid);
+	$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+	$q_msg = json_decode($json_cmsg); 
+	if($q_msg){
+		foreach($q_msg as $rec){
+			if($rec->status == 'add_friend'){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+	}
+	else{
+		return false;
+	}
+
+
+}
+
+
+
 
 function get_profile($fullurl) 
 {
@@ -120,8 +147,14 @@ if (!is_null($events['events'])) {
 			$timestamp = $event['timestamp'];
 
 
+			if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
+					$messages = [
+					'type' => 'text',
+					'text' => chk_friend($uid)
+					];
 
-	
+			}
+
 			if (preg_match('(เช็ค|check)', $text) === 1) {
 
 				$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
