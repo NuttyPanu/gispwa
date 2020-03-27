@@ -105,8 +105,68 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
+		$uid = $event['source']['userId'];
+		$gid = $event['source']['groupId'];
+
+		if ($event['type'] == 'follow') {
+		 //U87b618904b23471df5c43312458c016b
+				$messages = [
+				'type' => 'text',
+				'text' => 'ขอบคุณที่แอดเราเป็นเพื่อนนะ'
+				];
+
+		}
+		else if ($event['type'] == 'unfollow') {
+		 //U87b618904b23471df5c43312458c016b
+				$messages = [
+				'type' => 'text',
+				'text' => 'เสียใจบล็อคเราทำไม'
+				];
+
+		}
+		else if ($event['type'] == 'join') {
+		 //U87b618904b23471df5c43312458c016b
+				$messages = [
+				'type' => 'text',
+				'text' => 'ขอบคุณที่รับผมเข้ากลุ่ม'
+				];
+
+		}
+		else if ($event['type'] == 'leave') {
+		 //U87b618904b23471df5c43312458c016b
+				$messages = [
+				'type' => 'text',
+				'text' => 'โดนถีบออกจากกลุ่ม'
+				];
+
+		}
+		else if ($event['type'] == 'memberJoined') {
+		 //U87b618904b23471df5c43312458c016b
+				$messages = [
+				'type' => 'text',
+				'text' => 'ฮัลโหลๆ แนะนำตัวหน่อย สมาชิกใหม่'
+				];
+
+		}
+		else if ($event['type'] == 'memberLeft') {
+		 //U87b618904b23471df5c43312458c016b
+				$messages = [
+				'type' => 'text',
+				'text' => 'RIP. เสียใจด้วย คุณไม่ได้ไปต่อ'
+				];
+
+		}
+		else if ($event['type'] == 'postback') {
+		 //U87b618904b23471df5c43312458c016b
+				$messages = [
+				'type' => 'text',
+				'text' => $event['postback']['data']
+				];
+
+		}
+
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+		else if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 
 			$text = $event['message']['text'];
@@ -115,7 +175,19 @@ if (!is_null($events['events'])) {
 
 			$timestamp = $event['timestamp'];
 
-			if ($text == 'EGA' || $text == 'ega') {
+
+			if($event['source']['groupId'] == 'pwa_GIS' || $event['source']['groupId'] == 'GIS' || $event['source']['groupId'] == 'Dev'){
+				if (preg_match('(หิวจัง|หิวแล้ว|หิวมาก|หิวจุง|หิว)', $text) === 1) {
+
+					$messages = [
+					'type' => 'text',
+					'text' => 'หิวหรอ ... พี่ต๊อบครับ ลูกชิ้น หมู:5 เนื้อ:5 ไส้กรอกชีส(เยิ้มๆ):5 ให้ไวนะครับ...มีคนหิว เก็บเงินหัวหน้าได้เลยครับ'
+					];
+
+				}
+			}
+
+			else if ($text == 'EGA' || $text == 'ega') {
 
 				$messages = [
 				'type' => 'text',
