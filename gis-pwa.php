@@ -150,7 +150,11 @@ if (!is_null($events['events'])) {
 			if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
 					$messages = [
 					'type' => 'text',
-					'text' => chk_friend($uid)
+					'text' => chk_friend($uid),
+					'sender' => {
+						'name' => 'Bot',
+						'iconUrl' => 'https://line.me/conyprof'
+					}
 					];
 
 			}
@@ -1675,11 +1679,7 @@ function replyMsg($event, $client)
  
                                 array(
                                     'type' => 'text',
-                                    'text' => 'ดีจ้า '.$obj->displayName,
-									'sender' => {
-										'name' => $obj->displayName,
-										'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
-									}
+                                    'text' => 'ดีจ้า '.$obj->displayName
                                 ),
                                 array(
                                     'type' => 'image',
@@ -1751,11 +1751,7 @@ function replyMsg($event, $client)
  
                                 array(
                                     'type' => 'text',
-                                    'text' => 'ดีจ้า '.$obj->displayName,
-									'sender' => {
-										'name' => $obj->displayName,
-										'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
-									}
+                                    'text' => 'ดีจ้า '.$obj->displayName
                                 ),
                                 array(
                                     'type' => 'image',
