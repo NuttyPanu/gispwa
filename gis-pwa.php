@@ -1033,14 +1033,14 @@ function replyMsg1($event, $client)
 	 //U87b618904b23471df5c43312458c016b
 
 		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key;
+		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
 
 		//$lineid_encode = urlencode($uid);
-		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
+		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
 		//$q_msg = json_decode($json_cmsg); 
 	 
 		//count-question---------//
-		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
+		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
 		$count = json_decode($json_c);  //จำนวนที่นับได้
 		//count-question---------//
 	 
@@ -1121,7 +1121,7 @@ function replyMsg1($event, $client)
 		else if ($count == 1){  
 
 			//query-คำถามที่เคยถามในdb----------------------------------//
-			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
 			$q_json_f = json_decode($json_f); 
 			$q_json_id = $q_json_f[0]->_id;
 			$q_json_oid = '';
@@ -1131,7 +1131,7 @@ function replyMsg1($event, $client)
 
 			//update-----------------------------------//
 			//$_id = '59fb2268bd966f7657da67cc';
-			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
+			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
 
 			$newupdate = json_encode(
 				array(
@@ -1176,14 +1176,14 @@ function replyMsg1($event, $client)
 	 //U87b618904b23471df5c43312458c016b
 
 		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key;
+		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
 
 		//$lineid_encode = urlencode($uid);
-		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
+		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
 		//$q_msg = json_decode($json_cmsg); 
 	 
 		//count-question---------//
-		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
+		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
 		$count = json_decode($json_c);  //จำนวนที่นับได้
 		//count-question---------//
 	 
@@ -1264,7 +1264,7 @@ function replyMsg1($event, $client)
 		else if ($count == 1){  
 
 			//query-คำถามที่เคยถามในdb----------------------------------//
-			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
 			$q_json_f = json_decode($json_f); 
 			$q_json_id = $q_json_f[0]->_id;
 			$q_json_oid = '';
@@ -1274,7 +1274,7 @@ function replyMsg1($event, $client)
 
 			//update-----------------------------------//
 			//$_id = '59fb2268bd966f7657da67cc';
-			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
+			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
 
 			$newupdate = json_encode(
 				array(
