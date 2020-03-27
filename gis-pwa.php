@@ -123,6 +123,37 @@ if (!is_null($events['events'])) {
 	
 			if (preg_match('(เช็ค|check)', $text) === 1) {
 
+				$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+				$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
+
+				//$lineid_encode = urlencode($uid);
+				$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+				$q_msg = json_decode($json_cmsg); 
+				if($q_msg){
+					foreach($q_msg as $rec){
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => $rec->status            
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
+					}
+				}
+				else{
+					$a = array(
+								array(
+									'type' => 'text',
+									'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'            
+								)
+							);
+					$client->replyMessage1($event['replyToken'],$a);
+				}
+            }
+ 
+
+
+
 					$messages = [
 					'type' => 'text',
 					'text' => 'หิวหรอ ... พี่ต๊อบครับ ลูกชิ้น หมู:5 เนื้อ:5 ไส้กรอกชีส(เยิ้มๆ):5 ให้ไวนะครับ...มีคนหิว เก็บเงินหัวหน้าได้เลยครับ'
