@@ -120,7 +120,19 @@ if (!is_null($events['events'])) {
 			$timestamp = $event['timestamp'];
 
 
-			if($event['source']['groupId'] == 'pwa_GIS' || $event['source']['groupId'] == 'GIS' || $event['source']['groupId'] == 'Dev'){
+	
+			if (preg_match('(เช็ค|check)', $text) === 1) {
+
+					$messages = [
+					'type' => 'text',
+					'text' => 'หิวหรอ ... พี่ต๊อบครับ ลูกชิ้น หมู:5 เนื้อ:5 ไส้กรอกชีส(เยิ้มๆ):5 ให้ไวนะครับ...มีคนหิว เก็บเงินหัวหน้าได้เลยครับ'
+					];
+
+			}
+
+
+
+			else if($event['source']['groupId'] == 'pwa_GIS' || $event['source']['groupId'] == 'GIS' || $event['source']['groupId'] == 'Dev'){
 				if (preg_match('(หิวจัง|หิวแล้ว|หิวมาก|หิวจุง|หิว)', $text) === 1) {
 
 					$messages = [
@@ -1019,24 +1031,289 @@ function replyMsg1($event, $client)
 
 	if ($event['type'] == 'follow') {
 	 //U87b618904b23471df5c43312458c016b
-		$a = array(
-					array(
-						'type' => 'text',
-						'text' => 'ขอบคุณที่แอดเราเป็นเพื่อนนะ'            
-					)
-				);
-		$client->replyMessage1($event['replyToken'],$a);
+
+		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key;
+
+		//$lineid_encode = urlencode($uid);
+		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
+		//$q_msg = json_decode($json_cmsg); 
+	 
+		//count-question---------//
+		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
+		$count = json_decode($json_c);  //จำนวนที่นับได้
+		//count-question---------//
+	 
+		$id = $event['source']['userId'];
+		$urlp = 'https://api.line.me/v2/bot/profile/'.$id;
+		$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+
+		$header = array(
+			"Content-Type: application/json",
+			'Authorization: Bearer '.$channelAccessToken2,
+		);
+
+		$ch = curl_init();
+		//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
+		//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_FAILONERROR, 0);       ;
+		//curl_setopt($ch, CURLOPT_HTTPGET, 1);
+		//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+		//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_URL, $urlp);
+		 
+		$profile =  curl_exec($ch);
+		curl_close($ch);
+		$obj = json_decode($profile);
+
+
+		$pathpic = explode("cdn.net/", $obj->pictureUrl);
+	 
+		if ($count == 0){
+
+			//Post New Data--------------------------//
+			$newData = json_encode(
+			  array(
+				'lineid'=> $uid,
+				'name'=> $obj->displayName,
+				'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+				'datetime'=> date("Y-m-d h:i:sa"),
+				'status' => 'add_friend'
+			  )
+			);
+
+			$opts = array(
+			  'http' => array(
+				  'method' => "POST",
+				  'header' => "Content-type: application/json",
+				  'content' => $newData
+			   )
+			);
+			$context = stream_context_create($opts);
+			$returnValue = file_get_contents($url,false,$context);
+			//Post New Data--------------------------//
+
+
+			$sec = explode('"$oid" : "', $returnValue);
+			$sec_id = explode('"', $sec[1]);
+
+			 
+			$t=array("ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ");
+			$random_keys=array_rand($t,1);
+			$txt = $t[$random_keys];
+			$a = array(
+						array(
+							'type' => 'text',
+							//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
+							'text' => $txt
+						)
+					);
+			$client->replyMessage1($event['replyToken'],$a);
+
+
+		}
+		else if ($count == 1){  
+
+			//query-คำถามที่เคยถามในdb----------------------------------//
+			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+			$q_json_f = json_decode($json_f); 
+			$q_json_id = $q_json_f[0]->_id;
+			$q_json_oid = '';
+			foreach ($q_json_id as $k=>$v){
+				$q_json_oid = $v; // etc.
+			}
+
+			//update-----------------------------------//
+			//$_id = '59fb2268bd966f7657da67cc';
+			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
+
+			$newupdate = json_encode(
+				array(
+					'$set' => array('lineid'=> $uid),
+					'$set' => array('name'=> $obj->displayName),
+					'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+					'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+					'$set' => array('status'=> 'add_friend')
+
+				)
+			);
+
+			$optsu = array(
+				'http' => array(
+					'method' => "PUT",
+					'header' => "Content-type: application/json",
+					'content' => $newupdate
+				)
+			);
+
+			$contextu = stream_context_create($optsu);
+			$returnValup = file_get_contents($url_up, false, $contextu);
+
+
+			$t=array("ยินดีต้อนรับกลับมาเป็นเพื่อนครับ","อย่าบล็อคผมอีกนะครับ");
+			$random_keys=array_rand($t,1);
+			$txt = $t[$random_keys];
+			//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
+			$a = array(
+						array(
+							'type' => 'text',
+							//'text' => $txt." อัพเดท id:".$q_json_oid." count:".$count
+							'text' => $txt
+						)
+					);
+			$client->replyMessage1($event['replyToken'],$a);
+		}
+	
 
 	}
 	else if ($event['type'] == 'unfollow') {
 	 //U87b618904b23471df5c43312458c016b
-		$a = array(
-					array(
-						'type' => 'text',
-						'text' => 'เสียใจ บล็อคเราทำไม'            
-					)
-				);
-		$client->replyMessage1($event['replyToken'],$a);
+
+		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key;
+
+		//$lineid_encode = urlencode($uid);
+		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
+		//$q_msg = json_decode($json_cmsg); 
+	 
+		//count-question---------//
+		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
+		$count = json_decode($json_c);  //จำนวนที่นับได้
+		//count-question---------//
+	 
+		$id = $event['source']['userId'];
+		$urlp = 'https://api.line.me/v2/bot/profile/'.$id;
+		$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+
+		$header = array(
+			"Content-Type: application/json",
+			'Authorization: Bearer '.$channelAccessToken2,
+		);
+
+		$ch = curl_init();
+		//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
+		//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_FAILONERROR, 0);       ;
+		//curl_setopt($ch, CURLOPT_HTTPGET, 1);
+		//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+		//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_URL, $urlp);
+		 
+		$profile =  curl_exec($ch);
+		curl_close($ch);
+		$obj = json_decode($profile);
+
+
+		$pathpic = explode("cdn.net/", $obj->pictureUrl);
+	 
+		if ($count == 0){
+
+			//Post New Data--------------------------//
+			$newData = json_encode(
+			  array(
+				'lineid'=> $uid,
+				'name'=> $obj->displayName,
+				'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+				'datetime'=> date("Y-m-d h:i:sa"),
+				'status' => 'unfriend'
+			  )
+			);
+
+			$opts = array(
+			  'http' => array(
+				  'method' => "POST",
+				  'header' => "Content-type: application/json",
+				  'content' => $newData
+			   )
+			);
+			$context = stream_context_create($opts);
+			$returnValue = file_get_contents($url,false,$context);
+			//Post New Data--------------------------//
+
+
+			$sec = explode('"$oid" : "', $returnValue);
+			$sec_id = explode('"', $sec[1]);
+
+			 
+			$t=array("Unfriend เราไปแล้ว","เสียใจ");
+			$random_keys=array_rand($t,1);
+			$txt = $t[$random_keys];
+			$a = array(
+						array(
+							'type' => 'text',
+							//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
+							'text' => $txt
+						)
+					);
+			$client->replyMessage1($event['replyToken'],$a);
+
+
+		}
+		else if ($count == 1){  
+
+			//query-คำถามที่เคยถามในdb----------------------------------//
+			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+			$q_json_f = json_decode($json_f); 
+			$q_json_id = $q_json_f[0]->_id;
+			$q_json_oid = '';
+			foreach ($q_json_id as $k=>$v){
+				$q_json_oid = $v; // etc.
+			}
+
+			//update-----------------------------------//
+			//$_id = '59fb2268bd966f7657da67cc';
+			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
+
+			$newupdate = json_encode(
+				array(
+					'$set' => array('lineid'=> $uid),
+					'$set' => array('name'=> $obj->displayName),
+					'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+					'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+					'$set' => array('status'=> 'unfriend')
+
+				)
+			);
+
+			$optsu = array(
+				'http' => array(
+					'method' => "PUT",
+					'header' => "Content-type: application/json",
+					'content' => $newupdate
+				)
+			);
+
+			$contextu = stream_context_create($optsu);
+			$returnValup = file_get_contents($url_up, false, $contextu);
+
+
+			$t=array("Unfriendเราทำไม","โดนบล็อคแล้ว");
+			$random_keys=array_rand($t,1);
+			$txt = $t[$random_keys];
+			//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
+			$a = array(
+						array(
+							'type' => 'text',
+							//'text' => $txt." อัพเดท id:".$q_json_oid." count:".$count
+							'text' => $txt
+						)
+					);
+			$client->replyMessage1($event['replyToken'],$a);
+		}
+	
+
 	}
 	else if ($event['type'] == 'join') {
 	 //U87b618904b23471df5c43312458c016b
