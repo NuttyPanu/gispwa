@@ -151,10 +151,10 @@ if (!is_null($events['events'])) {
 					$messages = [
 					'type' => 'text',
 					'text' => chk_friend($uid),
-					'sender' => {
+					'sender' => [
 						'name' => 'Bot',
 						'iconUrl' => 'https://line.me/conyprof'
-					}
+					]
 					];
 
 			}
