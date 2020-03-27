@@ -152,8 +152,8 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => chk_friend($uid),
 					'sender' => [
-						'name' => 'Bot',
-						'iconUrl' => 'https://line.me/conyprof'
+						'name' => 'Nutty',
+						'iconUrl' => 'https://obs.line-apps.com/0hEAEgLpScGm54HjFfbl1lOURbFAMPMBwmAHlRWw8ZQQkBfQo8QyoBDlgeTFgAKAlqEHsBDlwcE15T'
 					]
 					];
 
