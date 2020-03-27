@@ -1786,6 +1786,7 @@ function replyMsg($event, $client)
 					if(chk_friend($uid) == false){
 						exit();
 					}
+					else{
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
@@ -1950,7 +1951,7 @@ function replyMsg($event, $client)
                                 ),
                             );
 					$client->replyMessage1($event['replyToken'],$a_);
-					
+					}
 				}
 
 				else if(preg_match('(#ลบสิทธิ|#เพิ่มสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
