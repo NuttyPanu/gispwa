@@ -108,65 +108,9 @@ if (!is_null($events['events'])) {
 		$uid = $event['source']['userId'];
 		$gid = $event['source']['groupId'];
 
-		if ($event['type'] == 'follow') {
-		 //U87b618904b23471df5c43312458c016b
-				$messages = [
-				'type' => 'text',
-				'text' => 'ขอบคุณที่แอดเราเป็นเพื่อนนะ'
-				];
-
-		}
-		else if ($event['type'] == 'unfollow') {
-		 //U87b618904b23471df5c43312458c016b
-				$messages = [
-				'type' => 'text',
-				'text' => 'เสียใจบล็อคเราทำไม'
-				];
-
-		}
-		else if ($event['type'] == 'join') {
-		 //U87b618904b23471df5c43312458c016b
-				$messages = [
-				'type' => 'text',
-				'text' => 'ขอบคุณที่รับผมเข้ากลุ่ม'
-				];
-
-		}
-		else if ($event['type'] == 'leave') {
-		 //U87b618904b23471df5c43312458c016b
-				$messages = [
-				'type' => 'text',
-				'text' => 'โดนถีบออกจากกลุ่ม'
-				];
-
-		}
-		else if ($event['type'] == 'memberJoined') {
-		 //U87b618904b23471df5c43312458c016b
-				$messages = [
-				'type' => 'text',
-				'text' => 'ฮัลโหลๆ แนะนำตัวหน่อย สมาชิกใหม่'
-				];
-
-		}
-		else if ($event['type'] == 'memberLeft') {
-		 //U87b618904b23471df5c43312458c016b
-				$messages = [
-				'type' => 'text',
-				'text' => 'RIP. เสียใจด้วย คุณไม่ได้ไปต่อ'
-				];
-
-		}
-		else if ($event['type'] == 'postback') {
-		 //U87b618904b23471df5c43312458c016b
-				$messages = [
-				'type' => 'text',
-				'text' => $event['postback']['data']
-				];
-
-		}
 
 		// Reply only when message sent is in 'text' format
-		else if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 
 			$text = $event['message']['text'];
@@ -1072,6 +1016,81 @@ function replyMsg($event, $client)
  
     $id = $event['message']['id'];
  
+
+	if ($event['type'] == 'follow') {
+	 //U87b618904b23471df5c43312458c016b
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => 'ขอบคุณที่แอดเราเป็นเพื่อนนะ'            
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+
+	}
+	else if ($event['type'] == 'unfollow') {
+	 //U87b618904b23471df5c43312458c016b
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => 'เสียใจ บล็อคเราทำไม'            
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+	}
+	else if ($event['type'] == 'join') {
+	 //U87b618904b23471df5c43312458c016b
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => 'ขอบคุณที่รับผมเข้ากลุ่ม'            
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+	}
+	else if ($event['type'] == 'leave') {
+	 //U87b618904b23471df5c43312458c016b
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => 'โดนถีบออกจากกลุ่ม'            
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+	}
+	else if ($event['type'] == 'memberJoined') {
+	 //U87b618904b23471df5c43312458c016b
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => 'ฮัลโหลๆ แนะนำตัวหน่อย สมาชิกใหม่'            
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+	}
+	else if ($event['type'] == 'memberLeft') {
+	 //U87b618904b23471df5c43312458c016b
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => 'RIP. เสียใจด้วย คุณไม่ได้ไปต่อ'            
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+	}
+	else if ($event['type'] == 'postback') {
+	 //U87b618904b23471df5c43312458c016b
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => $event['postback']['data']           
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+	}
+
+
+
     //-----ถ้ามีการส่งข้อความText------------------------------------------------------------//
     if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
         //ข้อความtext ที่ได้รับ
@@ -2363,6 +2382,9 @@ foreach ($client->parseEvents() as $event) {
         case 'message':
             $message = $event['message'];
             switch ($message['type']) {
+                case 'follow':
+                    replyMsg($event, $client);                  
+                    break;
                 case 'text':
                     replyMsg($event, $client);                  
                     break;
