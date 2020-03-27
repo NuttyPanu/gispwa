@@ -1782,6 +1782,10 @@ function replyMsg($event, $client)
  
 
 				else if(preg_match('(#เพิ่มสิทธิ|#เพิ่มสิทธิ์|#เพิ่มสิทธิ์มาตร|#เพิ่มสิทธิ์ระบบมาตร|#เพิ่มสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
+					
+					if(chk_friend($uid) == false){
+						exit();
+					}
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
