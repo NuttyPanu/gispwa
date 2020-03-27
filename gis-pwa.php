@@ -1040,7 +1040,7 @@ function replyMsg1($event, $client)
 		//$q_msg = json_decode($json_cmsg); 
 	 
 		//count-question---------//
-		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
+		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
 		$count = json_decode($json_c);  //จำนวนที่นับได้
 		//count-question---------//
 	 
@@ -1179,11 +1179,11 @@ function replyMsg1($event, $client)
 		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
 
 		//$lineid_encode = urlencode($uid);
-		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
+		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
 		//$q_msg = json_decode($json_cmsg); 
 	 
 		//count-question---------//
-		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}&c=true');
+		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
 		$count = json_decode($json_c);  //จำนวนที่นับได้
 		//count-question---------//
 	 
