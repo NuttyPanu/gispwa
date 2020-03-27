@@ -1784,7 +1784,14 @@ function replyMsg($event, $client)
 				else if(preg_match('(#เพิ่มสิทธิ|#เพิ่มสิทธิ์|#เพิ่มสิทธิ์มาตร|#เพิ่มสิทธิ์ระบบมาตร|#เพิ่มสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
 					
 					if(chk_friend($uid) == false){
-						exit();
+					   $a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ' 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
 					}
 					else{
 
