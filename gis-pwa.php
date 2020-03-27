@@ -120,6 +120,7 @@ if (!is_null($events['events'])) {
 			$timestamp = $event['timestamp'];
 
 
+
 	
 			if (preg_match('(เช็ค|check)', $text) === 1) {
 
@@ -131,35 +132,20 @@ if (!is_null($events['events'])) {
 				$q_msg = json_decode($json_cmsg); 
 				if($q_msg){
 					foreach($q_msg as $rec){
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => $rec->status            
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
+						$messages = [
+						'type' => 'text',
+						'text' => $rec->status
+						];
 					}
 				}
 				else{
-					$a = array(
-								array(
-									'type' => 'text',
-									'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'            
-								)
-							);
-					$client->replyMessage1($event['replyToken'],$a);
+					$messages = [
+					'type' => 'text',
+					'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
+					];
 				}
             }
  
-
-
-
-					$messages = [
-					'type' => 'text',
-					'text' => 'หิวหรอ ... พี่ต๊อบครับ ลูกชิ้น หมู:5 เนื้อ:5 ไส้กรอกชีส(เยิ้มๆ):5 ให้ไวนะครับ...มีคนหิว เก็บเงินหัวหน้าได้เลยครับ'
-					];
-
-			}
 
 
 
