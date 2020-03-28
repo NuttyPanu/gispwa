@@ -197,74 +197,6 @@ if (!is_null($events['events'])) {
 
 			}
 
-			else if ($text == 'ระบบ') {
-				$messages = [
-				  "type"=> "carousel",
-				  "contents"=> [
-					[
-					  "type"=> "bubble",
-					  "hero"=> [
-						"type"=> "image",
-						"size"=> "full",
-						"aspectRatio"=> "20:13",
-						"aspectMode"=> "cover",
-						"url"=> "https://gisweb1.pwa.co.th/meterstat/img/carousel/0_0.jpg"
-					  ],
-					  "body"=> [
-						"type"=> "box",
-						"layout"=> "vertical",
-						"spacing"=> "sm",
-						"contents"=> [
-						  [
-							"type"=> "text",
-							"text"=> "ระบบติดตามมาตรวัดน้ำ",
-							"wrap"=> true,
-							"weight"=> "bold",
-							"size"=> "xl"
-						  ],
-						  [
-							"type"=> "box",
-							"layout"=> "baseline",
-							"contents"=> [
-							  [
-								"type"=> "text",
-								"text"=> "- สำหรับพนักงานที่ขอเปิดสิทธิ์การใช้งานแล้วเท่านั้น",
-								"wrap"=> true,
-								"weight"=> "regular",
-								"size"=> "xxs",
-								"flex"=> 0,
-								"color"=> "#ff5551"
-							  ]
-							]
-						  ]
-						]
-					  ],
-					  "footer"=> [
-						"type"=> "box",
-						"layout"=> "vertical",
-						"spacing"=> "sm",
-						"contents"=> [
-						  [
-							"type"=> "button",
-							"style"=> "primary",
-							"action"=> [
-							  "type"=> "uri",
-							  "label"=> "Link",
-							  "uri"=> "https://gisweb1.pwa.co.th/meterstat/"
-							]
-						  ]
-						]
-					  ]
-					]
-				  ]
-				];
-
-
-			}
-
-
-
-
 
 			else if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
 
@@ -2517,7 +2449,7 @@ function replyMsg($event, $client)
                             );
                     $client->replyMessage1($event['replyToken'],$a);
                 }
- 
+
                 else if (preg_match('(นอนละ|ไปนอน|นอนแล้ว|ฝันดี)', $msg) === 1) {
  
                     $a = array(
@@ -2542,8 +2474,8 @@ function replyMsg($event, $client)
                             );
                     $client->replyMessage1($event['replyToken'],$a);
                 }
- 
-                 else if (preg_match('(กอล์ฟอยู่ไหน|กอล์ฟมายัง)', $msg) === 1) {
+
+                else if (preg_match('(กอล์ฟอยู่ไหน|กอล์ฟมายัง)', $msg) === 1) {
  
 					$sticker=array("2,502","2,512","4,290");
 					$random_keys=array_rand($sticker,1);
