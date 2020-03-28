@@ -139,13 +139,13 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			/*
+
 			$text = $event['message']['text'];
 			$uid = $event['source']['userId'];
 			$gid = $event['source']['groupId'];
 
 			$timestamp = $event['timestamp'];
-
+			/*
 			if ($text == 'rich1') {
 
 				$url = 'https://api.line.me/v2/bot/richmenu';
@@ -181,18 +181,14 @@ if (!is_null($events['events'])) {
 						//"text" =>  "สวัสดี คุณ ".$obj->displayName
 						"text" =>  "สวัสดี คุณ ".$obj->displayName."(".$obj->statusMessage.")"
 				];
-
-			*/
 			}
 			else if ($text == 'rich2') {
 
 
-
-
 			}
+			*/
 
-
-			else if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
+			if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
 					$messages = [
 					'type' => 'text',
 					'text' => chk_friend($uid),
