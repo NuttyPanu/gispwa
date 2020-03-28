@@ -245,6 +245,11 @@ if (!is_null($events['events'])) {
 				$uid = $event['source']['userId'];
 				//$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 				//$str ='line://app/1653970390-EDvl28PQ';
+					$messages = [
+					'type' => 'text',
+					'text' => $useragent
+					];
+				/*
 				$messages = [
 					'type' => 'flex',
 					'altText' => 'This is a Flex Message',
@@ -268,7 +273,7 @@ if (!is_null($events['events'])) {
 					]
 					]
 				];
-
+				*/
 			}
 
 			else if (preg_match('(เช็ค|check)', $text) === 1) {
