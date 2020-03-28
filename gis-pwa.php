@@ -260,7 +260,7 @@ if (!is_null($events['events'])) {
 					   'height'=> "sm",
 					   'action'=> [
 						'type'=> "uri",
-						'label'=> "Register",
+						'label'=> "Register for ".$DEVICE,
 						'uri'=> $str
 					   ]
 					  ]
