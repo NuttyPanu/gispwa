@@ -1812,7 +1812,6 @@ function replyMsg($event, $client)
  
                  if (preg_match('(ระบบกภส.)', $msg) === 1) {
 
-
                         $a = array(
 							  "type"=> "carousel",
 							  "contents"=> array(
@@ -1866,72 +1865,6 @@ function replyMsg($event, $client)
 										  "type"=> "uri",
 										  "label"=> "Link",
 										  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
-										)
-									  )
-									)
-								  )
-								),
-								array(
-								  "type"=> "bubble",
-								  "hero"=> array(
-									"type"=> "image",
-									"size"=> "full",
-									"aspectRatio"=> "20=>13",
-									"aspectMode"=> "cover",
-									"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png"
-								  ),
-								  "body"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"spacing"=> "sm",
-									"contents"=> array(
-									  array(
-										"type"=> "text",
-										"text"=> "ระบบพื้นที่ให้บริการ",
-										"wrap"=> true,
-										"weight"=> "bold",
-										"size"=> "xl"
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "baseline",
-										"flex"=> 1,
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "- สำหรับพนักงาน",
-											"wrap"=> true,
-											"weight"=> "regular",
-											"size"=> "xxs",
-											"flex"=> 0
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "text",
-										"text"=> "ยังไม่เปิดใช้งาน",
-										"wrap"=> true,
-										"size"=> "xxs",
-										"margin"=> "md",
-										"color"=> "#ff5551",
-										"flex"=> 0
-									  )
-									)
-								  ),
-								  "footer"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"spacing"=> "sm",
-									"contents"=> array(
-									  array(
-										"type"=> "button",
-										"flex"=> 2,
-										"style"=> "primary",
-										"color"=> "#aaaaaa",
-										"action"=> array(
-										  "type"=> "uri",
-										  "label"=> "Link",
-										  "uri"=> "https=>//linecorp.com"
 										)
 									  )
 									)
