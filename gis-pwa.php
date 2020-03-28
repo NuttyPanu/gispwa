@@ -158,7 +158,29 @@ if (!is_null($events['events'])) {
 					];
 
 			}
+			else if ($text == 'วัน') {
+				$messages = [
+				   "type"=> "text",
+				   "text"=> "Hello Quick Reply!",
+				   "quickReply"=> [
+					"items"=> [
+					 [
+					  "type"=> "action",
+					  "action"=> [
+					   "type"=> "datetimepicker",
+					   "label"=> "Datetime Picker",
+					   "data"=> "storeId=12345",
+					   "mode"=> "datetime",
+					   "initial"=> "2018-09-11T00:00",
+					   "max"=> "2018-12-31T23:59",
+					   "min"=> "2018-01-01T00:00"
+					  ]
+					 ]
+					]
+				   ]
+				];
 
+			}
 			else if ($text == 'ลงทะเบียน') {
 				$messages = [
 					'type' => 'flex',
@@ -175,7 +197,7 @@ if (!is_null($events['events'])) {
 					   'height'=> "sm",
 					   'action'=> [
 						'type'=> "uri",
-						'label'=> "Add to Cart",
+						'label'=> "Register",
 						'uri'=> "https://developers.line.me"
 					   ]
 					  ]
@@ -184,7 +206,7 @@ if (!is_null($events['events'])) {
 					]
 				];
 
-		}
+			}
 
 			else if (preg_match('(เช็ค|check)', $text) === 1) {
 
