@@ -1813,87 +1813,36 @@ function replyMsg($event, $client)
                  if (preg_match('(ระบบกภส.)', $msg) === 1) {
 
 					$client->replyMessage1($event['replyToken'],array(
-						   array(
-							  "type"=> "carousel",
-							  "contents"=> array(
-								array(
-								  "type"=> "bubble",
-								  "hero"=> array(
-									"type"=> "image",
-									"size"=> "full",
-									"aspectRatio"=> "20=>13",
-									"aspectMode"=> "cover",
-									"url"=> "https=>//gisweb1.pwa.co.th/meterstat/img/carousel/0_0.jpg"
-								  ),
-								  "body"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"spacing"=> "sm",
-									"contents"=> array(
+						array(
+							"type"=> "template",
+							  "altText"=> "this is a image carousel template",
+							  "template"=> 
+							  array(
+								  "type"=> "image_carousel",
+								  "columns"=> 
+								  array ( 
 									  array(
-										"type"=> "text",
-										"text"=> "ระบบติดตามมาตรวัดน้ำ",
-										"wrap"=> true,
-										"weight"=> "bold",
-										"size"=> "xl"
+										"imageUrl"=> "https://swls.pwa.co.th/dmaline/imgToei/logo-PWA.jpg",
+										"action"=> 
+										array(
+										  "type"=> "message",
+										  "label"=> "PWA",
+										  "text"=> "PWA"
+										)
 									  ),
 									  array(
-										"type"=> "box",
-										"layout"=> "baseline",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "- สำหรับพนักงานที่ขอเปิดสิทธิ์การใช้งานแล้วเท่านั้น",
-											"wrap"=> true,
-											"weight"=> "regular",
-											"size"=> "xxs",
-											"flex"=> 0,
-											"color"=> "#ff5551"
-										  )
-										)
-									  )
-									)
-								  ),
-								  "footer"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"spacing"=> "sm",
-									"contents"=> array(
-									  array(
-										"type"=> "button",
-										"style"=> "primary",
-										"action"=> array(
+										"imageUrl"=> "https://swls.pwa.co.th/dmaline/imgToei/sadness200.jpg",
+										"action"=> 
+										array(
 										  "type"=> "uri",
-										  "label"=> "Link",
-										  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
+										  "label"=> "Sadness",
+										  "uri"=> "https://swls.pwa.co.th/dmaline/imgToei/sadness.jpg"
 										)
 									  )
-									)
 								  )
-								),
-								array(
-								  "type"=> "bubble",
-								  "body"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"spacing"=> "sm",
-									"contents"=> array(
-									  array(
-										"type"=> "button",
-										"flex"=> 1,
-										"gravity"=> "center",
-										"action"=> array(
-										  "type"=> "uri",
-										  "label"=> "See more",
-										  "uri"=> "https=>//linecorp.com"
-										)
-									  )
-									)
-								  )
-								)
 							  )
-							)
-						));
+						))
+					);
 
 				 }
 
