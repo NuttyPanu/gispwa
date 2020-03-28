@@ -139,15 +139,60 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-
+			/*
 			$text = $event['message']['text'];
 			$uid = $event['source']['userId'];
 			$gid = $event['source']['groupId'];
 
 			$timestamp = $event['timestamp'];
 
+			if ($text == 'rich1') {
 
-			if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
+				$url = 'https://api.line.me/v2/bot/richmenu';
+				$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+
+				$header = array(
+					"Content-Type: application/json",
+					'Authorization: Bearer '.$channelAccessToken2,
+				);
+				$ch = curl_init();
+				//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
+				//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+				//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+				//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+				curl_setopt($ch, CURLOPT_FAILONERROR, 0);		;
+				//curl_setopt($ch, CURLOPT_HTTPGET, 1);
+				//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+				//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+				curl_setopt($ch, CURLOPT_HEADER, 0);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+				curl_setopt($ch, CURLOPT_URL, $url);
+				
+				$profile =  curl_exec($ch);
+				curl_close($ch);
+				$obj = json_decode($profile);
+
+				$pathpic = explode("cdn.net/", $obj->pictureUrl);
+
+				$messages = [
+						"type" => "text",
+						//"text" =>  "สวัสดี คุณ ".$obj->displayName
+						"text" =>  "สวัสดี คุณ ".$obj->displayName."(".$obj->statusMessage.")"
+				];
+
+			*/
+			}
+			else if ($text == 'rich2') {
+
+
+
+
+			}
+
+
+			else if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
 					$messages = [
 					'type' => 'text',
 					'text' => chk_friend($uid),
@@ -182,10 +227,28 @@ if (!is_null($events['events'])) {
 
 			}
 			else if ($text == 'ลงทะเบียน') {
+				$str;
+				//-- Very simple way
+				$useragent = $_SERVER['HTTP_USER_AGENT']; 
+				$iPod = stripos($useragent, "iPod"); 
+				$iPad = stripos($useragent, "iPad"); 
+				$iPhone = stripos($useragent, "iPhone");
+				$Android = stripos($useragent, "Android"); 
+				$iOS = stripos($useragent, "iOS");
+				//-- You can add billion devices 
+
+				$DEVICE = ($iPod||$iPad||$iPhone||$Android||$iOS);
+
+				if (!$DEVICE) {
+					$str ='https://nuttypanu.github.io/line-liff-v2-starter/public/';	
+				}
+				else{
+					$str ='line://app/1653970390-EDvl28PQ';
+				}
 
 				$uid = $event['source']['userId'];
 				//$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-				$str ='line://app/1653970390-EDvl28PQ';
+				//$str ='line://app/1653970390-EDvl28PQ';
 				$messages = [
 					'type' => 'flex',
 					'altText' => 'This is a Flex Message',
