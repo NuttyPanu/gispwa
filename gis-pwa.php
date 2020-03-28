@@ -197,6 +197,159 @@ if (!is_null($events['events'])) {
 
 			}
 
+			else if ($text == 'ระบบ') {
+				$messages = [
+				  "type"=> "carousel",
+				  "contents"=> [
+					[
+					  "type"=> "bubble",
+					  "hero"=> [
+						"type"=> "image",
+						"size"=> "full",
+						"aspectRatio"=> "20:13",
+						"aspectMode"=> "cover",
+						"url"=> "https://gisweb1.pwa.co.th/meterstat/img/carousel/0_0.jpg"
+					  ],
+					  "body"=> [
+						"type"=> "box",
+						"layout"=> "vertical",
+						"spacing"=> "sm",
+						"contents"=> [
+						  [
+							"type"=> "text",
+							"text"=> "ระบบติดตามมาตรวัดน้ำ",
+							"wrap"=> true,
+							"weight"=> "bold",
+							"size"=> "xl"
+						  ],
+						  [
+							"type"=> "box",
+							"layout"=> "baseline",
+							"contents"=> [
+							  [
+								"type"=> "text",
+								"text"=> "- สำหรับพนักงานที่ขอเปิดสิทธิ์การใช้งานแล้วเท่านั้น",
+								"wrap"=> true,
+								"weight"=> "regular",
+								"size"=> "xxs",
+								"flex"=> 0,
+								"color"=> "#ff5551"
+							  ]
+							]
+						  ]
+						]
+					  ],
+					  "footer"=> [
+						"type"=> "box",
+						"layout"=> "vertical",
+						"spacing"=> "sm",
+						"contents"=> [
+						  [
+							"type"=> "button",
+							"style"=> "primary",
+							"action"=> [
+							  "type"=> "uri",
+							  "label"=> "Link",
+							  "uri"=> "https://gisweb1.pwa.co.th/meterstat/"
+							]
+						  ]
+						]
+					  ]
+					],
+					[
+					  "type"=> "bubble",
+					  "hero"=> [
+						"type"=> "image",
+						"size"=> "full",
+						"aspectRatio"=> "20:13",
+						"aspectMode"=> "cover",
+						"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png"
+					  ],
+					  "body"=> [
+						"type"=> "box",
+						"layout"=> "vertical",
+						"spacing"=> "sm",
+						"contents"=> [
+						  [
+							"type"=> "text",
+							"text"=> "ระบบพื้นที่ให้บริการ",
+							"wrap"=> true,
+							"weight"=> "bold",
+							"size"=> "xl"
+						  ],
+						  [
+							"type"=> "box",
+							"layout"=> "baseline",
+							"flex"=> 1,
+							"contents"=> [
+							  [
+								"type"=> "text",
+								"text"=> "- สำหรับพนักงาน",
+								"wrap"=> true,
+								"weight"=> "regular",
+								"size"=> "xxs",
+								"flex"=> 0
+							  ]
+							]
+						  ],
+						  [
+							"type"=> "text",
+							"text"=> "ยังไม่เปิดใช้งาน",
+							"wrap"=> true,
+							"size"=> "xxs",
+							"margin"=> "md",
+							"color"=> "#ff5551",
+							"flex"=> 0
+						  ]
+						]
+					  ],
+					  "footer"=> [
+						"type"=> "box",
+						"layout"=> "vertical",
+						"spacing"=> "sm",
+						"contents"=> [
+						  [
+							"type"=> "button",
+							"flex"=> 2,
+							"style"=> "primary",
+							"color"=> "#aaaaaa",
+							"action"=> [
+							  "type"=> "uri",
+							  "label"=> "Link",
+							  "uri"=> "https://linecorp.com"
+							]
+						  ]
+						]
+					  ]
+					],
+					[
+					  "type"=> "bubble",
+					  "body"=> [
+						"type"=> "box",
+						"layout"=> "vertical",
+						"spacing"=> "sm",
+						"contents"=> [
+						  [
+							"type"=> "button",
+							"flex"=> 1,
+							"gravity"=> "center",
+							"action"=> [
+							  "type"=> "uri",
+							  "label"=> "See more",
+							  "uri"=> "https://linecorp.com"
+							]
+						  ]
+						]
+					  ]
+					]
+				  ]
+				];
+
+
+			}
+
+
+
 
 
 			else if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
@@ -1570,6 +1723,28 @@ function replyMsg1($event, $client)
 		$client->replyMessage1($event['replyToken'],$a);
 	}
 
+	elseif ($event['type'] == 'beacon') {	
+		$txt;
+		if($event['beacon']['type'] == 'enter'){
+			$txt = 'in '.'hwid='.$event['beacon']['hwid'].'   '.'type='.$event['beacon']['type'];	
+		}
+		elseif($event['beacon']['type'] == 'leave'){
+			$txt = 'out '.'hwid='.$event['beacon']['hwid'].'   '.'type='.$event['beacon']['type'];	
+		}
+		
+		$a = array(
+					array(
+						'type' => 'text',
+						'text' => $txt           
+					)
+				);
+		$client->replyMessage1($event['replyToken'],$a);
+
+	}
+
+
+
+
 }
 
 
@@ -2934,7 +3109,9 @@ foreach ($client->parseEvents() as $event) {
 		case 'postback':
 			replyMsg1($event, $client);                  
 			break;
-
+		case 'beacon':
+			replyMsg1($event, $client);                  
+			break;
         default:
             error_log("Unsupporeted event type: " . $event['type']);
             break;
