@@ -188,15 +188,53 @@ if (!is_null($events['events'])) {
 			}
 			*/
 
-			if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
+			if ($text == 'EGA' || $text == 'ega') {
+
+				$messages = [
+				'type' => 'text',
+				'text' => 'สำนักงานรัฐบาลอิเล็กทรอนิกส์ (องค์การมหาชน) : EGA เปลี่ยนชื่อเป็น สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) (ใช้ชื่อย่อ "สพร.") และเปลี่ยนชื่อภาษาอังกฤษเป็น "Digital Government Development Agency (Public Organization)" (ย่อว่า "DGA")'
+				];
+
+			}
+
+
+
+			else if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
+
+				if (chk_friend($uid) == true){
+					$gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
+
+					$url = 'https://api.line.me/v2/bot/profile/'.$uid;
+					//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+					$profile = get_profile($url);
+					$obj = json_decode($profile);
+
+					$nameid = $obj->displayName;
+					$status = $obj->statusMessage;
+					$pathpic = explode("cdn.net/", $obj->pictureUrl);
+
 					$messages = [
 					'type' => 'text',
-					'text' => chk_friend($uid),
+					'text' => 'แน่นอน เราเพื่อนกัน-'.chk_friend($uid),
 					'sender' => [
-						'name' => 'Nutty',
-						'iconUrl' => 'https://obs.line-apps.com/0hEAEgLpScGm54HjFfbl1lOURbFAMPMBwmAHlRWw8ZQQkBfQo8QyoBDlgeTFgAKAlqEHsBDlwcE15T'
+						'name' => $nameid,
+						'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
 					]
 					];
+
+				}
+				else{
+					$messages = [
+					'type' => 'text',
+					'text' => 'โปรดเพิ่มผมเป็นเพื่อนก่อนนะครับ-'.chk_friend($uid),
+					];
+
+				}
+
+
+
+
 
 			}
 			else if ($text == 'วัน') {
@@ -312,16 +350,6 @@ if (!is_null($events['events'])) {
 
 				}
 			}
-
-			else if ($text == 'EGA' || $text == 'ega') {
-
-				$messages = [
-				'type' => 'text',
-				'text' => 'สำนักงานรัฐบาลอิเล็กทรอนิกส์ (องค์การมหาชน) : EGA เปลี่ยนชื่อเป็น สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) (ใช้ชื่อย่อ "สพร.") และเปลี่ยนชื่อภาษาอังกฤษเป็น "Digital Government Development Agency (Public Organization)" (ย่อว่า "DGA")'
-				];
-
-			}
-
 
 			else if ($text == 'ตรวจสอบพื้นที่ให้บริการ') {
 
