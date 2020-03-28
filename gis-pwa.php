@@ -159,7 +159,34 @@ if (!is_null($events['events'])) {
 
 			}
 
-			if (preg_match('(เช็ค|check)', $text) === 1) {
+			else if ($text == 'ลงทะเบียน') {
+				$messages = [
+					'type' => 'flex',
+					'altText' => 'This is a Flex Message',
+					'contents'=> [
+					'type'=> 'bubble',
+					'body'=> [
+					 'type'=> "box",
+					 'layout'=> "vertical",
+					 'contents'=> [
+					  [
+					   'type'=> "button",
+					   'style'=> "primary",
+					   'height'=> "sm",
+					   'action'=> [
+						'type'=> "uri",
+						'label'=> "Add to Cart",
+						'uri'=> "https://developers.line.me"
+					   ]
+					  ]
+					 ]
+					]
+					]
+				];
+
+		}
+
+			else if (preg_match('(เช็ค|check)', $text) === 1) {
 
 				$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 				$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
