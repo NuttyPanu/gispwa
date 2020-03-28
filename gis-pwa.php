@@ -182,6 +182,10 @@ if (!is_null($events['events'])) {
 
 			}
 			else if ($text == 'ลงทะเบียน') {
+
+				$uid = $event['source']['userId'];
+				$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+
 				$messages = [
 					'type' => 'flex',
 					'altText' => 'This is a Flex Message',
@@ -198,7 +202,7 @@ if (!is_null($events['events'])) {
 					   'action'=> [
 						'type'=> "uri",
 						'label'=> "Register",
-						'uri'=> "https://developers.line.me"
+						'uri'=> $str
 					   ]
 					  ]
 					 ]
