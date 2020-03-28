@@ -223,6 +223,7 @@ if (!is_null($events['events'])) {
 
 			}
 			else if ($text == 'ลงทะเบียน') {
+				/*
 				$str;
 				//-- Very simple way
 				$useragent = $_SERVER['HTTP_USER_AGENT']; 
@@ -241,15 +242,13 @@ if (!is_null($events['events'])) {
 				else{
 					$str ='line://app/1653970390-EDvl28PQ';
 				}
-
+				*/
 				$uid = $event['source']['userId'];
 				//$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-				//$str ='line://app/1653970390-EDvl28PQ';
-					$messages = [
-					'type' => 'text',
-					'text' => $useragent
-					];
-				/*
+				$str ='https://nuttypanu.github.io/line-liff-v2-starter/public/';//for linepc &movile
+				//$str ='line://app/1653970390-EDvl28PQ'; // for mobile only
+
+				
 				$messages = [
 					'type' => 'flex',
 					'altText' => 'This is a Flex Message',
@@ -265,7 +264,7 @@ if (!is_null($events['events'])) {
 					   'height'=> "sm",
 					   'action'=> [
 						'type'=> "uri",
-						'label'=> "Register for ".$useragent,
+						'label'=> "Register",
 						'uri'=> $str
 					   ]
 					  ]
@@ -273,7 +272,7 @@ if (!is_null($events['events'])) {
 					]
 					]
 				];
-				*/
+				
 			}
 
 			else if (preg_match('(เช็ค|check)', $text) === 1) {
