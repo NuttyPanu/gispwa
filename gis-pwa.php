@@ -1813,6 +1813,270 @@ function replyMsg($event, $client)
                  if (preg_match('(ระบบกภส.)', $msg) === 1) {
 
 					$client->replyMessage1($event['replyToken'],array(
+
+array(
+  "type" => "carousel",
+  "contents" => array(
+    array(
+      "type" => "bubble",
+      "size" => "micro",
+      "hero" => array(
+        "type" => "image",
+        "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
+        "size" => "full",
+        "aspectMode" => "cover",
+        "aspectRatio" => "320 =>213"
+      ),
+      "body" => array(
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => array(
+          array(
+            "type" => "text",
+            "text" => "Brown Cafe",
+            "weight" => "bold",
+            "size" => "sm",
+            "wrap" => true
+          ),
+          array(
+            "type" => "box",
+            "layout" => "baseline",
+            "contents" => array(
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+              ),
+              array(
+                "type" => "text",
+                "text" => "4.0",
+                "size" => "xs",
+                "color" => "#8c8c8c",
+                "margin" => "md",
+                "flex" => 0
+              )
+            )
+          ),
+          array(
+            "type" => "box",
+            "layout" => "vertical",
+            "contents" => array(
+              array(
+                "type" => "box",
+                "layout" => "baseline",
+                "spacing" => "sm",
+                "contents" => array(
+                  array(
+                    "type" => "text",
+                    "text" => "東京旅行",
+                    "wrap" => true,
+                    "color" => "#8c8c8c",
+                    "size" => "xs",
+                    "flex" => 5
+                  )
+                )
+              )
+            )
+          )
+        ),
+        "spacing" => "sm",
+        "paddingAll" => "13px"
+      )
+    ),
+    array(
+      "type" => "bubble",
+      "size" => "micro",
+      "hero" => array(
+        "type" => "image",
+        "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
+        "size" => "full",
+        "aspectMode" => "cover",
+        "aspectRatio" => "320 =>213"
+      ),
+      "body" => array(
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => array(
+          array(
+            "type" => "text",
+            "text" => "Brow&Cony's Restaurant",
+            "weight" => "bold",
+            "size" => "sm",
+            "wrap" => true
+          ),
+          array(
+            "type" => "box",
+            "layout" => "baseline",
+            "contents" => array(
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+              ),
+              array(
+                "type" => "text",
+                "text" => "4.0",
+                "size" => "sm",
+                "color" => "#8c8c8c",
+                "margin" => "md",
+                "flex" => 0
+              )
+            )
+          ),
+          array(
+            "type" => "box",
+            "layout" => "vertical",
+            "contents" => array(
+              array(
+                "type" => "box",
+                "layout" => "baseline",
+                "spacing" => "sm",
+                "contents" => array(
+                  array(
+                    "type" => "text",
+                    "text" => "東京旅行",
+                    "wrap" => true,
+                    "color" => "#8c8c8c",
+                    "size" => "xs",
+                    "flex" => 5
+                  )
+                )
+              )
+            )
+          )
+        ),
+        "spacing" => "sm",
+        "paddingAll" => "13px"
+      )
+    ),
+    array(
+      "type" => "bubble",
+      "size" => "micro",
+      "hero" => array(
+        "type" => "image",
+        "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
+        "size" => "full",
+        "aspectMode" => "cover",
+        "aspectRatio" => "320 =>213"
+      ),
+      "body" => array(
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => array(
+          array(
+            "type" => "text",
+            "text" => "Tata",
+            "weight" => "bold",
+            "size" => "sm"
+          ),
+          array(
+            "type" => "box",
+            "layout" => "baseline",
+            "contents" => array(
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              ),
+              array(
+                "type" => "icon",
+                "size" => "xs",
+                "url" => "https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+              ),
+              array(
+                "type" => "text",
+                "text" => "4.0",
+                "size" => "sm",
+                "color" => "#8c8c8c",
+                "margin" => "md",
+                "flex" => 0
+              )
+            )
+          ),
+          array(
+            "type" => "box",
+            "layout" => "vertical",
+            "contents" => array(
+              array(
+                "type" => "box",
+                "layout" => "baseline",
+                "spacing" => "sm",
+                "contents" => array(
+                  array(
+                    "type" => "text",
+                    "text" => "東京旅行",
+                    "wrap" => true,
+                    "color" => "#8c8c8c",
+                    "size" => "xs",
+                    "flex" => 5
+                  )
+                )
+              )
+            )
+          )
+        ),
+        "spacing" => "sm",
+        "paddingAll" => "13px"
+      )
+    )
+  )
+)
+						/*
 						array(
 							"type"=> "template",
 							  "altText"=> "this is a image carousel template",
@@ -1841,8 +2105,9 @@ function replyMsg($event, $client)
 									  )
 								  )
 							  )
-						))
-					);
+						)
+						*/
+					));
 
 				 }
 
