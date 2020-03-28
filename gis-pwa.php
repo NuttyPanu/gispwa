@@ -1812,7 +1812,8 @@ function replyMsg($event, $client)
  
                  if (preg_match('(ระบบกภส.)', $msg) === 1) {
 
-                        $a = array(
+					$client->replyMessage1($event['replyToken'],array(
+						   array(
 							  "type"=> "carousel",
 							  "contents"=> array(
 								array(
@@ -1891,10 +1892,8 @@ function replyMsg($event, $client)
 								  )
 								)
 							  )
-
-                            );
-                        $client->replyMessage1($event['replyToken'],$a);
-
+							)
+						));
 
 				 }
 
