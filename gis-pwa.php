@@ -3190,7 +3190,7 @@ function replyMsg($event, $client)
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $event['message']['contentProvider']['type']
+                    'text' => json_encode($event['message']);
                 ),
 
                 array(
