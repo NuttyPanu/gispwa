@@ -411,7 +411,96 @@ if (!is_null($events['events'])) {
 				}
 				*/
 
-
+				$messages = [
+					'type' => 'flex',
+					'altText' => 'This is a Flex Message',
+					'contents'=> [
+					  "type"=> "bubble",
+					  "header"=> [
+						"type"=> "box",
+						"layout"=> "horizontal",
+						"contents"=> [
+						  [
+							"type"=> "text",
+							"text"=> "Mung Nonthaburi",
+							"color"=> "#414141",
+							"gravity"=> "center",
+							"size"=> "xl",
+							"wrap"=> true,
+							"flex"=> 3
+						  ],
+						  [
+							"type"=> "image",
+							"url"=> "https://airvisual.com/images/01d.png",
+							"size"=> "xs",
+							"flex"=> 1
+						  ],
+						  [
+							"type"=> "text",
+							"text"=> "22 °C",
+							"color"=> "#414141",
+							"size"=> "lg",
+							"align"=> "end",
+							"gravity"=> "center",
+							"flex"=> 1
+						  ]
+						]
+					  ],
+					  "body"=> [
+						"type"=> "box",
+						"layout"=> "vertical",
+						"contents"=> [
+						  [
+							"type"=> "box",
+							"layout"=> "horizontal",
+							"contents"=> [
+							  [
+								"type"=> "image",
+								"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+								"size"=> "md",
+								"align"=> "start"
+							  ],
+							  [
+								"type"=> "text",
+								"text"=> "Moderate",
+								"wrap"=> true,
+								"size"=> "lg",
+								"color"=> "#a57f23",
+								"gravity"=> "center"
+							  ]
+							],
+							"margin"=> "xxl"
+						  ],
+						  [
+							"type"=> "box",
+							"layout"=> "baseline",
+							"contents"=> [
+							  [
+								"type"=> "text",
+								"text"=> "85",
+								"color"=> "#a57f23",
+								"size"=> "5xl",
+								"align"=> "center"
+							  ],
+							  [
+								"type"=> "text",
+								"text"=> "US AQI",
+								"color"=> "#a57f23",
+								"size"=> "xs",
+								"margin"=> "sm"
+							  ]
+							]
+						  ]
+						]
+					  ],
+					  "styles"=> [
+						"body"=> [
+						  "backgroundColor"=> "#fdd74b"
+						]
+					  ]
+					]
+				];
+				/*
 				$messages = [
 				  "type"=> "bubble",
 				  "header"=> [
@@ -497,6 +586,8 @@ if (!is_null($events['events'])) {
 					]
 				  ]
 				];
+				*/
+
 
 				/*
 				$text_reply = $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius;
