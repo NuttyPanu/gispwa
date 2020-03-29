@@ -241,7 +241,11 @@ if (!is_null($events['events'])) {
 			}
 
 			else if ($text == 'อากาศ' || $text == 'คุณภาพอากาศ') {
-				$url = 'https://api.airvisual.com/v2/nearest_city?key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				
+				$url = 'https://api.airvisual.com/v2/nearest_city?lat=13.829582090333&lon=100.69883982127&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				//$url = 'https://api.airvisual.com/v2/nearest_city?key=271d36a7-3efd-4a54-9864-554ea6203750';
 				//$url = 'https://api.airvisual.com/v2/city?city=Mueang%20Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
 
 				//$url = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
