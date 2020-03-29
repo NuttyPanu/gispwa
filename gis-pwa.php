@@ -3186,11 +3186,11 @@ function replyMsg($event, $client)
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
-                    'text' => 'video'.$event['message']['contentProvider']
+                    'text' => $event['message']['type']
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $event['message']['contentProvider']['originalContentUrl']
+                    'text' => $event['message']['duration']['type']
                 ),
 
                 array(
