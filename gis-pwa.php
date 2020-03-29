@@ -3122,24 +3122,22 @@ function replyMsg($event, $client)
      //-----ถ้ามีการส่งimage------------------------------------------------------------//
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 
-		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
-		$random_keys=array_rand($sticker,1);
-		$txt = $sticker[$random_keys];
-
-		$split = explode(",", $txt);
-		$p = $split[0];
-		$s = $split[1];
-		//echo $split[0];
-
+		$message = $event['message'];
+		$url = $_SERVER['HTTP_HOST'];
+		 
+		$imagepath = 'img/';  
+		$imagename = 'img_'.date('Ymdhis').'.jpg';
+		$imageData = $client->getImage($message['id']);
+		$save_result = file_put_contents($imagepath.$imagename, $imageData);
+		  
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
                     'text' => 'image'
                 ),
                 array(
-                    'type' => 'sticker',
-                    'packageId' => $p,
-                    'stickerId' => $s
+                    'type' => 'text',
+                    'text' => $save_result
                 )
              
                 /*,
@@ -3450,6 +3448,13 @@ foreach ($client->parseEvents() as $event) {
                 case 'video':
                     replyMsg($event, $client);                  
                     break;
+                case 'audio':
+                    replyMsg($event, $client);                  
+                    break;
+                case 'file':
+                    replyMsg($event, $client);                  
+                    break;
+
                 default:
                     //error_log("Unsupporeted message type: " . $message['type']);
                     break;
