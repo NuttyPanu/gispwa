@@ -278,9 +278,30 @@ if (!is_null($events['events'])) {
 					}
 					*/
 				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
+				/*
+				{"status":"success","data":{"city":"Bangkok","state":"Bangkok","country":"Thailand","location":{"type":"Point","coordinates":[100.4888394,13.7292915]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T08:00:00.000Z","aqius":102,"mainus":"p2","aqicn":51,"maincn":"p2"}}}}
+
+
+				{"status":"success","data":{"city":"Mueang Nonthaburi","state":"Nonthaburi","country":"Thailand","location":{"type":"Point","coordinates":[100.51477,13.86075]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T09:00:00.000Z","aqius":111,"mainus":"p2","aqicn":56,"maincn":"p2"}}}}
+				*/
+				/*
+				"ts": "2017-02-01T03:00:00.000Z",  //timestamp
+				"aqius": 21, //AQI value based on US EPA standard
+				"aqicn": 7, //AQI value based on China MEP standard
+				"tp": 8, //temperature in Celsius
+				"tp_min": 6, //minimum temperature in Celsius
+				"pr": 976,  //atmospheric pressure in hPa
+				"hu": 100, //humidity %
+				"ws": 3, //wind speed (m/s)
+				"wd": 313, //wind direction, as an angle of 360° (N=0, E=90, S=180, W=270)
+				"ic": "10n" //weather icon code, see below for icon index
+				*/
+
+				$text_reply = $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius;
+
 				$messages = [
 				'type' => 'text',
-				'text' => $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius
+				'text' => $text_reply
 				];
 
 			}
