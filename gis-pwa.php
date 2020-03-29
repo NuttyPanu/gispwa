@@ -2170,13 +2170,9 @@ function replyMsg($event, $client)
 					
 					$client->replyMessage1($event['replyToken'],array(
 							array(
-								'type' => 'text',
-								'text' => $p.",".$s
-							),
-							array(
 								'type' => 'sticker',
-								'packageId' => '11539',
-								'stickerId' => '52114144',
+								'packageId' => $p,
+								'stickerId' => $s,
 								'stickerResourceType'=> 'ANIMATION'
 							)
 							/*
@@ -2185,9 +2181,7 @@ function replyMsg($event, $client)
 								'packageId' => $p,
 								'stickerId' => $s,
 								//'stickerResourceType'=> 'STATIC'
-							)
-							 */
-							/*,
+							),
 							array(
 								'type' => 'sticker',
 								'packageId' => 3,
