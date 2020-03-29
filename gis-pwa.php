@@ -3126,18 +3126,18 @@ function replyMsg($event, $client)
 		//$url = $_SERVER['HTTP_HOST'];
 		 
 		//$imagepath = 'img/';  
-		//$imagename = 'img_'.date('Ymdhis').'.jpg';
-		$imageData = $client->getImage($message['id']);
+		$imagename = 'img_'.date('Ymdhis').'.jpg';
+		//$imageData = $client->getImage($message['id']);
 		//$save_result = file_put_contents($imagepath.$imagename, $imageData);
 		  
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
-                    'text' => 'image'
+                    'text' => $event['message']['type']
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $imageData
+                    'text' => $imagename
                 )
              
                 /*,
