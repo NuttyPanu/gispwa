@@ -264,19 +264,34 @@ if (!is_null($events['events'])) {
 				/*
 				var level = "";
 					if (AQI < 50) {
-					  level = "Good";
+					  level = "Good";  //https://www.iqair.com/assets/aqi/ic-face-green.svg
 					} else if (AQI < 100) {
-					  level = "Moderate";
+					  level = "Moderate"; //https://www.iqair.com/assets/aqi/ic-face-yellow.svg
 					} else if (AQI < 150) {
-					  level = "Unhealthy for Sensitive Groups";
+					  level = "Unhealthy for Sensitive Groups"; //https://www.iqair.com/assets/aqi/ic-face-orange.svg
 					} else if (AQI < 200) {
-					  level = "Unhealthy";
+					  level = "Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-red.svg
 					} else if (AQI < 300) {
-					  level = "Very Unhealthy";
+					  level = "Very Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-purple.svg
 					} else {
-					  level = "Hazardous";
+					  level = "Hazardous"; //https://www.iqair.com/assets/aqi/ic-face-maroon.svg
 					}
 					*/
+
+					//Description			Name		Icon
+					//clear sky (day)		01d.png		https://airvisual.com/images/01d.png
+					//clear sky (night)		01n.png		https://airvisual.com/images/01n.png
+					//few clouds (day)		02d.png		https://airvisual.com/images/02d.png
+					//few clouds (night)	02n.png		https://airvisual.com/images/02n.png
+					//scattered clouds		03d.png		https://airvisual.com/images/03d.png
+					//broken clouds			04d.png		https://airvisual.com/images/04d.png
+					//shower rain			09d.png		https://airvisual.com/images/09d.png
+					//rain (day time)		10d.png		https://airvisual.com/images/10d.png
+					//rain (night time)		10n.png		https://airvisual.com/images/10n.png
+					//thunderstorm			11d.png		https://airvisual.com/images/11d.png
+					//snow					13d.png		https://airvisual.com/images/13d.png
+					//mist					50d.png		https://airvisual.com/images/50d.png
+
 				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
 				/*
 				{"status":"success","data":{"city":"Bangkok","state":"Bangkok","country":"Thailand","location":{"type":"Point","coordinates":[100.4888394,13.7292915]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T08:00:00.000Z","aqius":102,"mainus":"p2","aqicn":51,"maincn":"p2"}}}}
@@ -295,15 +310,202 @@ if (!is_null($events['events'])) {
 				"ws": 3, //wind speed (m/s)
 				"wd": 313, //wind direction, as an angle of 360° (N=0, E=90, S=180, W=270)
 				"ic": "10n" //weather icon code, see below for icon index
+
+
+				"units": { //object containing units information
+				  "p2": "ugm3", //pm2.5
+				  "p1": "ugm3", //pm10
+				  "o3": "ppb", //Ozone O3
+				  "n2": "ppb", //Nitrogen dioxide NO2 
+				  "s2": "ppb", //Sulfur dioxide SO2 
+				  "co": "ppm" //Carbon monoxide CO 
+				}
+
 				*/
 
+				/*
+				{
+				  "type": "bubble",
+				  "header": {
+					"type": "box",
+					"layout": "horizontal",
+					"contents": [
+					  {
+						"type": "text",
+						"text": "Mung Nonthaburi",
+						"color": "#414141",
+						"gravity": "center",
+						"size": "xl",
+						"wrap": true,
+						"flex": 3
+					  },
+					  {
+						"type": "image",
+						"url": "https://airvisual.com/images/01d.png",
+						"size": "xs",
+						"flex": 1
+					  },
+					  {
+						"type": "text",
+						"text": "22 °C",
+						"color": "#414141",
+						"size": "lg",
+						"align": "end",
+						"gravity": "center",
+						"flex": 1
+					  }
+					]
+				  },
+				  "body": {
+					"type": "box",
+					"layout": "vertical",
+					"contents": [
+					  {
+						"type": "box",
+						"layout": "horizontal",
+						"contents": [
+						  {
+							"type": "image",
+							"url": "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+							"size": "md",
+							"align": "start"
+						  },
+						  {
+							"type": "text",
+							"text": "Moderate",
+							"wrap": true,
+							"size": "lg",
+							"color": "#a57f23",
+							"gravity": "center"
+						  }
+						],
+						"margin": "xxl"
+					  },
+					  {
+						"type": "box",
+						"layout": "baseline",
+						"contents": [
+						  {
+							"type": "text",
+							"text": "85",
+							"color": "#a57f23",
+							"size": "5xl",
+							"align": "center"
+						  },
+						  {
+							"type": "text",
+							"text": "US AQI",
+							"color": "#a57f23",
+							"size": "xs",
+							"margin": "sm"
+						  }
+						]
+					  }
+					]
+				  },
+				  "styles": {
+					"body": {
+					  "backgroundColor": "#fdd74b"
+					}
+				  }
+				}
+				*/
+
+
+				$messages = [
+				  "type": "bubble",
+				  "header": [
+					"type": "box",
+					"layout": "horizontal",
+					"contents": [
+					  [
+						"type": "text",
+						"text": "Mung Nonthaburi",
+						"color": "#414141",
+						"gravity": "center",
+						"size": "xl",
+						"wrap": true,
+						"flex": 3
+					  ],
+					  [
+						"type": "image",
+						"url": "https://airvisual.com/images/01d.png",
+						"size": "xs",
+						"flex": 1
+					  ],
+					  [
+						"type": "text",
+						"text": "22 °C",
+						"color": "#414141",
+						"size": "lg",
+						"align": "end",
+						"gravity": "center",
+						"flex": 1
+					  ]
+					]
+				  ],
+				  "body": [
+					"type": "box",
+					"layout": "vertical",
+					"contents": [
+					  [
+						"type": "box",
+						"layout": "horizontal",
+						"contents": [
+						  [
+							"type": "image",
+							"url": "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+							"size": "md",
+							"align": "start"
+						  ],
+						  [
+							"type": "text",
+							"text": "Moderate",
+							"wrap": true,
+							"size": "lg",
+							"color": "#a57f23",
+							"gravity": "center"
+						  ]
+						],
+						"margin": "xxl"
+					  ],
+					  [
+						"type": "box",
+						"layout": "baseline",
+						"contents": [
+						  [
+							"type": "text",
+							"text": "85",
+							"color": "#a57f23",
+							"size": "5xl",
+							"align": "center"
+						  ],
+						  [
+							"type": "text",
+							"text": "US AQI",
+							"color": "#a57f23",
+							"size": "xs",
+							"margin": "sm"
+						  ]
+						]
+					  ]
+					]
+				  ],
+				  "styles": [
+					"body": [
+					  "backgroundColor": "#fdd74b"
+					]
+				  ]
+				];
+
+				/*
 				$text_reply = $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius;
 
 				$messages = [
 				'type' => 'text',
 				'text' => $text_reply
 				];
-
+				*/
 			}
 			else if (preg_match('(นัดหมาย|นัดหมาย)', $text) === 1) {
 				$key_noti =$key_notify['Nutty'];
