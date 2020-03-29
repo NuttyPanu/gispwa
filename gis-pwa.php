@@ -3127,7 +3127,7 @@ function replyMsg($event, $client)
 		 
 		//$imagepath = 'img/';  
 		$imagename = 'img_'.date('Ymdhis').'.jpg';
-		$imageData = $client->getImage($event['message']['id']);
+		//$imageData = $client->getImage($event['message']['id']);
 		//$save_result = file_put_contents($imagepath.$imagename, $imageData);
 		
 
@@ -3141,11 +3141,7 @@ function replyMsg($event, $client)
                 array(
                     'type' => 'text',
                     'text' => $event['message']['id']
-                ),
-                   array(
-                    'type' => 'text',
-                    'text' => $imageData
-                )          
+                )        
                 /*,
                 array(
                     'type' => 'sticker',
@@ -3190,7 +3186,11 @@ function replyMsg($event, $client)
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
-                    'text' => 'video'.$event['message']['duration'].$event['message']['contentProvider']['originalContentUrl']
+                    'text' => 'video'.$event['message']['duration']
+                ),
+                array(
+                    'type' => 'text',
+                    'text' => $event['message']['contentProvider']['type']
                 ),
 
                 array(
