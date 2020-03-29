@@ -3108,27 +3108,27 @@ $s1d = date("d-m-Y",strtotime("+1 days",strtotime($today_)));
 if(array_key_exists($s7d, $memo_))  // holiday;
 //else if(in_array($today, $holiday))  // holiday;
 {
-	$detail .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
+	$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
 }
 if(array_key_exists($s3d, $memo_))  // holiday;
 //else if(in_array($today, $holiday))  // holiday;
 {
-	$detail .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
+	$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
 }
 if(array_key_exists($s2d, $memo_))  // holiday;
 //else if(in_array($today, $holiday))  // holiday;
 {
-	$detail .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
+	$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
 }
 if(array_key_exists($s1d, $memo_))  // holiday;
 //else if(in_array($today, $holiday))  // holiday;
 {
-	$detail .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
+	$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
 }
 
 if(array_key_exists($today_, $memo_))
 {
-	$detail .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
+	$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
 }				
 
 notify($key_noti,$message);
