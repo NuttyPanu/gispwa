@@ -246,10 +246,10 @@ if (!is_null($events['events'])) {
 				$res = get_url($urllink); 
 				//$str = trim($res); 
 
-				const city = $res.data.city;
-				const temp = $res.data.current.weather.tp;
-				const AQI = $res.data.current.pollution.aqius;
-				
+				//const city = $res.data.city;
+				//const temp = $res.data.current.weather.tp;
+				//const AQI = $res.data.current.pollution.aqius;
+				/*
 				var level = "";
 					if (AQI < 50) {
 					  level = "Good";
@@ -264,9 +264,10 @@ if (!is_null($events['events'])) {
 					} else {
 					  level = "Hazardous";
 					}
+					*/
 				$messages = [
 				'type' => 'text',
-				'text' => city.temp.AQI.level
+				'text' => $res
 				];
 
 			}
