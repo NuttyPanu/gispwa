@@ -275,7 +275,7 @@ if (!is_null($events['events'])) {
 				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
 				$messages = [
 				'type' => 'text',
-				'text' => $obj->status
+				'text' => $obj['status']
 				];
 
 			}
