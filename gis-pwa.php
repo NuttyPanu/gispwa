@@ -228,7 +228,11 @@ if (!is_null($events['events'])) {
 			*/
 
 			if ($text == 'EGA' || $text == 'ega') {
-					notify('key','EGA');
+
+				$key_noti= 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';
+				$message= 'EGA';
+				notify($key_noti,$message);
+
 				$messages = [
 				'type' => 'text',
 				'text' => 'สำนักงานรัฐบาลอิเล็กทรอนิกส์ (องค์การมหาชน) : EGA เปลี่ยนชื่อเป็น สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) (ใช้ชื่อย่อ "สพร.") และเปลี่ยนชื่อภาษาอังกฤษเป็น "Digital Government Development Agency (Public Organization)" (ย่อว่า "DGA")'
