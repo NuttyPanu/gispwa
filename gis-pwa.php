@@ -241,8 +241,8 @@ if (!is_null($events['events'])) {
 			}
 
 			else if ($text == 'อากาศ' || $text == 'คุณภาพอากาศ') {
-				
-				$url = 'https://api.airvisual.com/v2/city?city=Mueang%20Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
+				$url = 'https://api.airvisual.com/v2/nearest_city?key=271d36a7-3efd-4a54-9864-554ea6203750';
+				//$url = 'https://api.airvisual.com/v2/city?city=Mueang%20Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
 
 				//$url = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
 
@@ -253,10 +253,6 @@ if (!is_null($events['events'])) {
 				$result = curl_exec($ch);
 				curl_close($ch);
 				$obj = json_decode($result);
-				//echo $result;
-				//echo '<br>';
-
-				//echo $obj->status;
 
 				//const city = $res.data.city;
 				//const temp = $res.data.current.weather.tp;
@@ -280,7 +276,7 @@ if (!is_null($events['events'])) {
 				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
 				$messages = [
 				'type' => 'text',
-				'text' => $obj->status
+				'text' => $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius
 				];
 
 			}
