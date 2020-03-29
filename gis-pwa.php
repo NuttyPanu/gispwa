@@ -244,6 +244,8 @@ if (!is_null($events['events'])) {
 				
 				$urllink = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750'; 
 				$res = get_url($urllink); 
+
+				$obj = json_decode($res);
 				//$str = trim($res); 
 
 				//const city = $res.data.city;
@@ -268,7 +270,7 @@ if (!is_null($events['events'])) {
 				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
 				$messages = [
 				'type' => 'text',
-				'text' => $res['status']
+				'text' => $obj->status;
 				];
 
 			}
