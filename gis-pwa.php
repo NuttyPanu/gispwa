@@ -21,6 +21,45 @@ $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
 
 
+function notify($key_noti,$message){
+
+	$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
+
+	$message = $_REQUEST['message'];
+	$chOne = curl_init(); 
+	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
+	// SSL USE 
+	curl_setopt( $chOne, CURLOPT_SSL_VERIFYHOST, 0); 
+	curl_setopt( $chOne, CURLOPT_SSL_VERIFYPEER, 0); 
+	//POST 
+	curl_setopt( $chOne, CURLOPT_POST, 1); 
+	// Message 
+	curl_setopt( $chOne, CURLOPT_POSTFIELDS, $message); 
+	//ถ้าต้องการใส่รุป ให้ใส่ 2 parameter imageThumbnail และimageFullsize
+	curl_setopt( $chOne, CURLOPT_POSTFIELDS, "message=$message&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg"); 
+	// follow redirects 
+	curl_setopt( $chOne, CURLOPT_FOLLOWLOCATION, 1); 
+	//ADD header array 
+	$headers = array( 'Content-type: application/x-www-form-urlencoded', "Authorization: Bearer $key_noti", ); 
+	curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers); 
+	//RETURN 
+	curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
+	$result = curl_exec( $chOne ); 
+	//Check error 
+	if(curl_error($chOne)) { echo 'error:' . curl_error($chOne); } 
+	else { $result_ = json_decode($result, true); 
+	echo "status : ".$result_['status']; echo "message : ". $result_['message']; } 
+	//Close connect 
+	curl_close( $chOne ); 
+
+
+
+
+
+}
+
+
+
 //----------function--114------------//
 function get_url($urllink) {
   $curl = curl_init();
@@ -189,7 +228,7 @@ if (!is_null($events['events'])) {
 			*/
 
 			if ($text == 'EGA' || $text == 'ega') {
-
+					notify('key','EGA');
 				$messages = [
 				'type' => 'text',
 				'text' => 'สำนักงานรัฐบาลอิเล็กทรอนิกส์ (องค์การมหาชน) : EGA เปลี่ยนชื่อเป็น สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) (ใช้ชื่อย่อ "สพร.") และเปลี่ยนชื่อภาษาอังกฤษเป็น "Digital Government Development Agency (Public Organization)" (ย่อว่า "DGA")'
@@ -1286,6 +1325,17 @@ function replyMsg1($event, $client)
 				'lineid'=> $uid,
 				'name'=> $obj->displayName,
 				'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+
+				'user_id'=> '-',
+				'pwacode'=> '-',
+
+				'manage_db'=> 'no',
+				'chk_db'=> 'no',
+
+				'servicearea'=> 'no',
+				'lat'=> '-',
+				'lng'=> '-',
+
 				'datetime'=> date("Y-m-d h:i:sa"),
 				'status' => 'add_friend'
 			  )
@@ -1341,6 +1391,16 @@ function replyMsg1($event, $client)
 					'$set' => array('lineid'=> $uid),
 					'$set' => array('name'=> $obj->displayName),
 					'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+
+					//'$set' => array('user_id'=> '-'),
+					//'$set' => array('pwacode'=> '-'),
+					//'$set' => array('manage_db'=> 'no'),
+					//'$set' => array('chk_db'=> 'no'),
+
+					//'$set' => array('servicearea'=> 'no'),
+					//'$set' => array('lat'=> '-'),
+					//'$set' => array('lng'=> '-'),
+
 					'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
 					'$set' => array('status'=> 'add_friend')
 
@@ -1429,6 +1489,17 @@ function replyMsg1($event, $client)
 				'lineid'=> $uid,
 				'name'=> $obj->displayName,
 				'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+
+				'user_id'=> '-',
+				'pwacode'=> '-',
+
+				'manage_db'=> 'no',
+				'chk_db'=> 'no',
+
+				'servicearea'=> 'no',
+				'lat'=> '-',
+				'lng'=> '-',
+
 				'datetime'=> date("Y-m-d h:i:sa"),
 				'status' => 'unfriend'
 			  )
@@ -1484,6 +1555,16 @@ function replyMsg1($event, $client)
 					'$set' => array('lineid'=> $uid),
 					'$set' => array('name'=> $obj->displayName),
 					'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+
+					//'$set' => array('user_id'=> '-'),
+					//'$set' => array('pwacode'=> '-'),
+					//'$set' => array('manage_db'=> 'no'),
+					//'$set' => array('chk_db'=> 'no'),
+
+					//'$set' => array('servicearea'=> 'no'),
+					//'$set' => array('lat'=> '-'),
+					//'$set' => array('lng'=> '-'),
+
 					'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
 					'$set' => array('status'=> 'unfriend')
 
@@ -1502,7 +1583,7 @@ function replyMsg1($event, $client)
 			$returnValup = file_get_contents($url_up, false, $contextu);
 
 
-			$t=array("Unfriendเราทำไม","โดนบล็อคแล้ว");
+			$t=array("Unfriend เราทำไม","โดนบล็อคแล้ว");
 			$random_keys=array_rand($t,1);
 			$txt = $t[$random_keys];
 			//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
@@ -1523,7 +1604,7 @@ function replyMsg1($event, $client)
 		$a = array(
 					array(
 						'type' => 'text',
-						'text' => 'ขอบคุณที่รับผมเข้ากลุ่ม'            
+						'text' => 'ขอบคุณที่รับผมเข้ากลุ่มครับ'            
 					)
 				);
 		$client->replyMessage1($event['replyToken'],$a);
