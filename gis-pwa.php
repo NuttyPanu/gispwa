@@ -3129,7 +3129,7 @@ function replyMsg($event, $client)
 		$imagename = 'img_'.date('Ymdhis').'.jpg';
 		//$imageData = $client->getImage($message['id']);
 		//$save_result = file_put_contents($imagepath.$imagename, $imageData);
-		  
+		/*  
 		$url = 'https://api.line.me/v2/bot/message/'.$event['message']['id'].'/content';
         $channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
  
@@ -3152,7 +3152,7 @@ function replyMsg($event, $client)
         $returned =  curl_exec($ch);
         curl_close($ch);
 
-
+		*/
 
 
 
@@ -3163,7 +3163,7 @@ function replyMsg($event, $client)
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $event['message']['id'].' '.$returned
+                    'text' => $event['message']['id']
                 )
              
                 /*,
