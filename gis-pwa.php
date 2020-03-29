@@ -3190,7 +3190,7 @@ function replyMsg($event, $client)
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $event['message']['duration']['type']
+                    'text' => $event['message']['contentProvider']['type']
                 ),
 
                 array(
