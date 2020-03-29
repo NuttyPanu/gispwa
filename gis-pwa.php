@@ -241,6 +241,56 @@ if (!is_null($events['events'])) {
 			}
 
 
+			else if (preg_match('(นัดหมาย|นัดหมาย)', $text) === 1) {
+
+				$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
+				$message = '';
+				$memo_=array(
+					"31-03-2020"=>"ไปทำงานด้วย (อังคาร 31 มี.ค. 63) ",
+					"01-03-2020"=>"ไปทำงานด้วย (พุธ 1 เม.ย. 63) ",
+					"02-03-2020"=>"ไปทำงานด้วย (พฤหัส 2 เม.ย. 63) ",
+					"03-03-2020"=>"ไปทำงานด้วย (ศุกร์ 3 เม.ย. 63) ",
+				);				
+
+				$today_ = date("d-m-Y");
+
+				$s7d = date("d-m-Y",strtotime("+7 days",strtotime($today_)));
+				$s3d = date("d-m-Y",strtotime("+3 days",strtotime($today_)));
+				$s2d = date("d-m-Y",strtotime("+2 days",strtotime($today_)));
+				$s1d = date("d-m-Y",strtotime("+1 days",strtotime($today_)));
+
+
+				if(array_key_exists($s7d, $memo_))  // holiday;
+				//else if(in_array($today, $holiday))  // holiday;
+				{
+					$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
+				}
+				if(array_key_exists($s3d, $memo_))  // holiday;
+				//else if(in_array($today, $holiday))  // holiday;
+				{
+					$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
+				}
+				if(array_key_exists($s2d, $memo_))  // holiday;
+				//else if(in_array($today, $holiday))  // holiday;
+				{
+					$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
+				}
+				if(array_key_exists($s1d, $memo_))  // holiday;
+				//else if(in_array($today, $holiday))  // holiday;
+				{
+					$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
+				}
+
+				if(array_key_exists($today_, $memo_))
+				{
+					$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
+				}				
+
+				notify($key_noti,$message);
+
+			}
+
+
 			else if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
 
 				if (chk_friend($uid) == true){
@@ -3087,51 +3137,6 @@ foreach ($client->parseEvents() as $event) {
 };
 //----------------------------------------------------------//
  
-
-$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
-$message = '';
-$memo_=array(
-	"31-03-2020"=>"ไปทำงานด้วย (อังคาร 31 มี.ค. 63) ",
-	"01-03-2020"=>"ไปทำงานด้วย (พุธ 1 เม.ย. 63) ",
-	"02-03-2020"=>"ไปทำงานด้วย (พฤหัส 2 เม.ย. 63) ",
-	"03-03-2020"=>"ไปทำงานด้วย (ศุกร์ 3 เม.ย. 63) ",
-);				
-
-$today_ = date("d-m-Y");
-
-$s7d = date("d-m-Y",strtotime("+7 days",strtotime($today_)));
-$s3d = date("d-m-Y",strtotime("+3 days",strtotime($today_)));
-$s2d = date("d-m-Y",strtotime("+2 days",strtotime($today_)));
-$s1d = date("d-m-Y",strtotime("+1 days",strtotime($today_)));
-
-
-if(array_key_exists($s7d, $memo_))  // holiday;
-//else if(in_array($today, $holiday))  // holiday;
-{
-	$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
-}
-if(array_key_exists($s3d, $memo_))  // holiday;
-//else if(in_array($today, $holiday))  // holiday;
-{
-	$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
-}
-if(array_key_exists($s2d, $memo_))  // holiday;
-//else if(in_array($today, $holiday))  // holiday;
-{
-	$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
-}
-if(array_key_exists($s1d, $memo_))  // holiday;
-//else if(in_array($today, $holiday))  // holiday;
-{
-	$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
-}
-
-if(array_key_exists($today_, $memo_))
-{
-	$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
-}				
-
-notify($key_noti,$message);
 
 
 ?>
