@@ -240,7 +240,36 @@ if (!is_null($events['events'])) {
 
 			}
 
+			else if ($text == 'อากาศ' || $text == 'คุณภาพอากาศ') {
+				
+				$urllink = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750'; 
+				$res = get_url($urllink); 
+				//$str = trim($res); 
 
+				const city = $res.data.city;
+				const temp = $res.data.current.weather.tp;
+				const AQI = $res.data.current.pollution.aqius;
+				
+				var level = "";
+					if (AQI < 50) {
+					  level = "Good";
+					} else if (AQI < 100) {
+					  level = "Moderate";
+					} else if (AQI < 150) {
+					  level = "Unhealthy for Sensitive Groups";
+					} else if (AQI < 200) {
+					  level = "Unhealthy";
+					} else if (AQI < 300) {
+					  level = "Very Unhealthy";
+					} else {
+					  level = "Hazardous";
+					}
+				$messages = [
+				'type' => 'text',
+				'text' => city.temp.AQI.level
+				];
+
+			}
 			else if (preg_match('(นัดหมาย|นัดหมาย)', $text) === 1) {
 				$key_noti =$key_notify['Nutty'];
 				//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
