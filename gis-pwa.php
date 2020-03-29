@@ -265,9 +265,10 @@ if (!is_null($events['events'])) {
 					  level = "Hazardous";
 					}
 					*/
+				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
 				$messages = [
 				'type' => 'text',
-				'text' => $res
+				'text' => $res['status']
 				];
 
 			}
