@@ -3119,7 +3119,99 @@ function replyMsg($event, $client)
         }
     }
     //----------------------------จบเงื่อนไขข้อความtext-----------------------------------//
+     //-----ถ้ามีการส่งimage------------------------------------------------------------//
+    elseif ($event['type'] == 'message' && $event['message']['type'] == 'image') {
+
+		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
+		$random_keys=array_rand($sticker,1);
+		$txt = $sticker[$random_keys];
+
+		$split = explode(",", $txt);
+		$p = $split[0];
+		$s = $split[1];
+		//echo $split[0];
+
+        $client->replyMessage1($event['replyToken'],array(
+                array(
+                    'type' => 'text',
+                    'text' => 'image'
+                ),
+                array(
+                    'type' => 'sticker',
+                    'packageId' => $p,
+                    'stickerId' => $s
+                )
+             
+                /*,
+                array(
+                    'type' => 'sticker',
+                    'packageId' => 3,
+                    'stickerId' => 232
+                ),
+                    array(
+                    'type' => 'sticker',
+                    'packageId' => 3,
+                    'stickerId' => 233
+                )       
+                */
+         
+        )
+            );
+    }
+    //----------------------------จบเงื่อนไขimage------------------------------------//
  
+     //-----ถ้ามีการส่งvideo------------------------------------------------------------//
+    elseif ($event['type'] == 'message' && $event['message']['type'] == 'video') {
+		/*
+		  "message": {
+			"id": "325708",
+			"type": "video",
+			"duration": 60000,
+			"contentProvider": {
+			  "type": "external",
+			  "originalContentUrl": "https://example.com/original.mp4",
+			  "previewImageUrl": "https://example.com/preview.jpg"
+			}
+		*/
+
+		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
+		$random_keys=array_rand($sticker,1);
+		$txt = $sticker[$random_keys];
+
+		$split = explode(",", $txt);
+		$p = $split[0];
+		$s = $split[1];
+		//echo $split[0];
+
+        $client->replyMessage1($event['replyToken'],array(
+                array(
+                    'type' => 'text',
+                    'text' => 'video'.$event['message']['duration'].$event['message']['contentProvider']['originalContentUrl']
+                ),
+
+                array(
+                    'type' => 'sticker',
+                    'packageId' => $p,
+                    'stickerId' => $s
+                )
+             
+                /*,
+                array(
+                    'type' => 'sticker',
+                    'packageId' => 3,
+                    'stickerId' => 232
+                ),
+                    array(
+                    'type' => 'sticker',
+                    'packageId' => 3,
+                    'stickerId' => 233
+                )       
+                */
+         
+        )
+            );
+    }
+    //----------------------------จบเงื่อนไขvideo------------------------------------//
  
  
     //-----ถ้ามีการส่งสติ๊กเกอร์------------------------------------------------------------//
@@ -3353,6 +3445,9 @@ foreach ($client->parseEvents() as $event) {
                     replyMsg($event, $client);                  
                     break;
                 case 'location':
+                    replyMsg($event, $client);                  
+                    break;
+                case 'video':
                     replyMsg($event, $client);                  
                     break;
                 default:
