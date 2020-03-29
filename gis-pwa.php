@@ -22,10 +22,9 @@ $botName = "BOT";
 
 
 function notify($key_noti,$message){
+	//$message = $message.'&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg'.'&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg';
 
 	$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
-
-	$message = $_REQUEST['message'];
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
 	// SSL USE 
@@ -36,7 +35,8 @@ function notify($key_noti,$message){
 	// Message 
 	curl_setopt( $chOne, CURLOPT_POSTFIELDS, $message); 
 	//ถ้าต้องการใส่รุป ให้ใส่ 2 parameter imageThumbnail และimageFullsize
-	curl_setopt( $chOne, CURLOPT_POSTFIELDS, "message=$message&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg"); 
+	curl_setopt( $chOne, CURLOPT_POSTFIELDS, //"message=$message&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg"); 
+	"message=$message");
 	// follow redirects 
 	curl_setopt( $chOne, CURLOPT_FOLLOWLOCATION, 1); 
 	//ADD header array 
