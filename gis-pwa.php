@@ -2170,10 +2170,16 @@ function replyMsg($event, $client)
 					$client->replyMessage1($event['replyToken'],array(
 							array(
 								'type' => 'sticker',
+								'packageId' => 11537,
+								'stickerId' => 52114132
+							)
+							/*
+							array(
+								'type' => 'sticker',
 								'packageId' => $p,
 								'stickerId' => $s
 							)
-						 
+							 */
 							/*,
 							array(
 								'type' => 'sticker',
