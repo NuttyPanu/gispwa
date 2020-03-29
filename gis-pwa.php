@@ -3123,12 +3123,12 @@ function replyMsg($event, $client)
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 
 		$message = $event['message'];
-		$url = $_SERVER['HTTP_HOST'];
+		//$url = $_SERVER['HTTP_HOST'];
 		 
-		$imagepath = 'img/';  
-		$imagename = 'img_'.date('Ymdhis').'.jpg';
+		//$imagepath = 'img/';  
+		//$imagename = 'img_'.date('Ymdhis').'.jpg';
 		$imageData = $client->getImage($message['id']);
-		$save_result = file_put_contents($imagepath.$imagename, $imageData);
+		//$save_result = file_put_contents($imagepath.$imagename, $imageData);
 		  
         $client->replyMessage1($event['replyToken'],array(
                 array(
@@ -3137,7 +3137,7 @@ function replyMsg($event, $client)
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $save_result
+                    'text' => $imageData
                 )
              
                 /*,
