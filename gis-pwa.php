@@ -242,16 +242,21 @@ if (!is_null($events['events'])) {
 
 			else if ($text == 'อากาศ' || $text == 'คุณภาพอากาศ') {
 				
-				$urllink = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750'; 
-				$curl = curl_init();
-				curl_setopt($curl, CURLOPT_URL, $urllink);
-				curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-				curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-				$data = curl_exec($curl);
-				curl_close($curl);
-				$obj = json_decode($data);
-				//$str = trim($res); 
+				$url = 'https://api.airvisual.com/v2/city?city=Mueang%20Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				//$url = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_URL, $url);
+				$result = curl_exec($ch);
+				curl_close($ch);
+				$obj = json_decode($result);
+				//echo $result;
+				//echo '<br>';
+
+				//echo $obj->status;
 
 				//const city = $res.data.city;
 				//const temp = $res.data.current.weather.tp;
@@ -275,7 +280,7 @@ if (!is_null($events['events'])) {
 				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
 				$messages = [
 				'type' => 'text',
-				'text' => $obj[0]['status']
+				'text' => $obj->status
 				];
 
 			}
