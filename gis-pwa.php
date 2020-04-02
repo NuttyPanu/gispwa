@@ -23,8 +23,8 @@ $botName = "BOT";
 
 $GISPWA= 'C6c9793d99e321e4659397c52365a68d3';
 $METER= 'C6cf4977144b0d1c6aa8b5be22b04272c';
-$NUT='U8e6135700ada0c9baa52708005a8d528';
-$GISSYS= 'C6d63e07eb0065b5019b861f11073fc41';
+$NUT='U87b618904b23471df5c43312458c016b';
+$GISDEV= 'C6d63e07eb0065b5019b861f11073fc41';
 
 
 
@@ -2682,7 +2682,7 @@ function replyMsg($event, $client)
 
 
 
-					$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/user_line.php';
+					$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
 							$chl = curl_init();
 							curl_setopt( $chl, CURLOPT_URL, $urllink); 
 							curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
