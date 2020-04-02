@@ -2511,22 +2511,6 @@ function replyMsg($event, $client)
 					];
 					*/
 					
-					if($name == ''){
-						$speak=array("เป็นเพื่อนกับผมก่อนสิครับ","ถ้าจะใช้ฟังก์ชั่นนี้ต้องเป็นเพื่อนกับผมก่อนนะครับ","คุณยังไม่ได้แอดบอทเป็นเพื่อนครับ","ผมเป็นคนรักพวกพ้อง เป็นเพื่อนกับผมก่อนนะครับ","การเพิ่มสิทธิ์จำเป็นต้องยืนยันตัวตน โปรดแอดบอทเป็นเพื่อนก่อนครับ");
-						$random_keys=array_rand($speak,1);
-						$txt = $speak[$random_keys];
-					
-						$a_ = array(
-									array(
-										'type' => 'text',
-										'text' => $txt         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a_);
-						
-					}
-					else{
-
 						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
 								$chl = curl_init();
 								curl_setopt( $chl, CURLOPT_URL, $urllink); 
@@ -2581,14 +2565,24 @@ function replyMsg($event, $client)
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
-						
 					}
-
-
 				}
 
 				else if(preg_match('(#ลบสิทธิ|#เพิ่มสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
+					$chk = chk_friend($uid);
+					if($chk == false){
+					   $a_ = array(
 
+									array(
+										'type' => 'text',
+										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ'.$chk 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+					}
+					else{
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
@@ -2615,7 +2609,6 @@ function replyMsg($event, $client)
 						$txt = $speak[$random_keys];
 						//echo "$today = <font color=blue>No Holiday</font><br>";
 					}
-
 
 
 					//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
@@ -2695,22 +2688,6 @@ function replyMsg($event, $client)
 					];
 					*/
 
-					if($name == ''){
-						$speak=array("เป็นเพื่อนกับผมก่อนสิครับ","ถ้าจะใช้ฟังก์ชั่นนี้ต้องเป็นเพื่อนกับผมก่อนนะครับ","คุณยังไม่ได้แอดบอทเป็นเพื่อนครับ","ผมเป็นคนรักพวกพ้อง เป็นเพื่อนกับผมก่อนนะครับ","การเพิ่มสิทธิ์จำเป็นต้องยืนยันตัวตน โปรดแอดบอทเป็นเพื่อนก่อนครับ");
-						$random_keys=array_rand($speak,1);
-						$txt = $speak[$random_keys];
-					
-						$a_ = array(
-									array(
-										'type' => 'text',
-										'text' => $txt         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a_);
-						
-					}
-					else{
-
 						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
 								$chl = curl_init();
 								curl_setopt( $chl, CURLOPT_URL, $urllink); 
@@ -2766,7 +2743,6 @@ function replyMsg($event, $client)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
-
 				}
 
 				else if(preg_match('(#ลบ|#ลบข้อมูล)', $msg) === 1) {
