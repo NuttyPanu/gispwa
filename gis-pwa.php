@@ -2510,65 +2510,81 @@ function replyMsg($event, $client)
 					'text' => 'คุณ '.$obj->displayName.' โปรดรอสักครู่... ระบบกำลังเพิ่มสิทธิ์'
 					];
 					*/
-
-
-
-
-					$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
-							$chl = curl_init();
-							curl_setopt( $chl, CURLOPT_URL, $urllink); 
-							curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
-							curl_setopt($chl, CURLOPT_POST, 1);
-							//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
-							//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
-							//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
-							//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
-							curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
-							curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
-
-							  $values = array(
-								'gid' => $gid,
-								'uid' => $uid,
-								'name' => $name,
-								'type' => 'meter_add',
-								'data' => $data
-							  );
-							$params = http_build_query($values);
-							curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
-							$res = curl_exec($chl);		
-							curl_close($chl);
-
-
-					/*	
-					$messages = [
-					'type' => 'text',
-					'text' => $res
-					];
-					*/
-
-					/*
-					$messages = [					
-					'type' => 'sticker',
-					 'packageId' => 1,
-					 'stickerId' => 1
-					];
-					*/
-
 					
-                   $a_ = array(
-
-                                array(
-                                    'type' => 'text',
-                                    'text' => $obj->displayName." ".$txt          
-                                ),
-
-                                array(
-                                    'type' => 'text',
-                                    'text' => $res . '' 
-                                ),
-                            );
-					$client->replyMessage1($event['replyToken'],$a_);
+					if($name == ''){
+						$speak=array("เป็นเพื่อนกับผมก่อนสิครับ","ถ้าจะใช้ฟังก์ชั่นนี้ต้องเป็นเพื่อนกับผมก่อนนะครับ","คุณยังไม่ได้แอดบอทเป็นเพื่อนครับ","ผมเป็นคนรักพวกพ้อง เป็นเพื่อนกับผมก่อนนะครับ","การเพิ่มสิทธิ์จำเป็นต้องยืนยันตัวตน โปรดแอดบอทเป็นเพื่อนก่อนครับ");
+						$random_keys=array_rand($speak,1);
+						$txt = $speak[$random_keys];
+					
+						$a_ = array(
+									array(
+										'type' => 'text',
+										'text' => $txt         
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+						}
 					}
+					else{
+
+						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
+								$chl = curl_init();
+								curl_setopt( $chl, CURLOPT_URL, $urllink); 
+								curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
+								curl_setopt($chl, CURLOPT_POST, 1);
+								//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
+								//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
+								//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
+								//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
+								curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
+								curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+
+								  $values = array(
+									'gid' => $gid,
+									'uid' => $uid,
+									'name' => $name,
+									'type' => 'meter_add',
+									'data' => $data
+								  );
+								$params = http_build_query($values);
+								curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
+								$res = curl_exec($chl);		
+								curl_close($chl);
+
+
+						/*	
+						$messages = [
+						'type' => 'text',
+						'text' => $res
+						];
+						*/
+
+						/*
+						$messages = [					
+						'type' => 'sticker',
+						 'packageId' => 1,
+						 'stickerId' => 1
+						];
+						*/
+
+						
+					   $a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => $obj->displayName." ".$txt          
+									),
+
+									array(
+										'type' => 'text',
+										'text' => $res . '' 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+						}
+					}
+
+
 				}
 
 				else if(preg_match('(#ลบสิทธิ|#เพิ่มสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
@@ -2679,64 +2695,78 @@ function replyMsg($event, $client)
 					];
 					*/
 
-
-
-
-					$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
-							$chl = curl_init();
-							curl_setopt( $chl, CURLOPT_URL, $urllink); 
-							curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
-							curl_setopt($chl, CURLOPT_POST, 1);
-							//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
-							//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
-							//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
-							//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
-							curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
-							curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
-
-							  $values = array(
-								'gid' => $gid,
-								'uid' => $uid,
-								'name' => $name,
-								'type' => 'meter_del',
-								'data' => $data
-							  );
-							$params = http_build_query($values);
-							curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
-							$res = curl_exec($chl);		
-							curl_close($chl);
-
-
-					/*	
-					$messages = [
-					'type' => 'text',
-					'text' => $res
-					];
-					*/
-
-					/*
-					$messages = [					
-					'type' => 'sticker',
-					 'packageId' => 1,
-					 'stickerId' => 1
-					];
-					*/
-
+					if($name == ''){
+						$speak=array("เป็นเพื่อนกับผมก่อนสิครับ","ถ้าจะใช้ฟังก์ชั่นนี้ต้องเป็นเพื่อนกับผมก่อนนะครับ","คุณยังไม่ได้แอดบอทเป็นเพื่อนครับ","ผมเป็นคนรักพวกพ้อง เป็นเพื่อนกับผมก่อนนะครับ","การเพิ่มสิทธิ์จำเป็นต้องยืนยันตัวตน โปรดแอดบอทเป็นเพื่อนก่อนครับ");
+						$random_keys=array_rand($speak,1);
+						$txt = $speak[$random_keys];
 					
-                   $a_ = array(
+						$a_ = array(
+									array(
+										'type' => 'text',
+										'text' => $txt         
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+						}
+					}
+					else{
 
-                                array(
-                                    'type' => 'text',
-                                    'text' => $obj->displayName." ".$txt          
-                                ),
+						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
+								$chl = curl_init();
+								curl_setopt( $chl, CURLOPT_URL, $urllink); 
+								curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
+								curl_setopt($chl, CURLOPT_POST, 1);
+								//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
+								//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
+								//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
+								//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
+								curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
+								curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
 
-                                array(
-                                    'type' => 'text',
-                                    'text' => $res . '' 
-                                ),
-                            );
-					$client->replyMessage1($event['replyToken'],$a_);
-					
+								  $values = array(
+									'gid' => $gid,
+									'uid' => $uid,
+									'name' => $name,
+									'type' => 'meter_del',
+									'data' => $data
+								  );
+								$params = http_build_query($values);
+								curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
+								$res = curl_exec($chl);		
+								curl_close($chl);
+
+
+						/*	
+						$messages = [
+						'type' => 'text',
+						'text' => $res
+						];
+						*/
+
+						/*
+						$messages = [					
+						'type' => 'sticker',
+						 'packageId' => 1,
+						 'stickerId' => 1
+						];
+						*/
+
+						
+					   $a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => $obj->displayName." ".$txt          
+									),
+
+									array(
+										'type' => 'text',
+										'text' => $res . '' 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+					}
+
 				}
 
 				else if(preg_match('(#ลบ|#ลบข้อมูล)', $msg) === 1) {
