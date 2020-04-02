@@ -2523,7 +2523,7 @@ function replyMsg($event, $client)
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
-						}
+						
 					}
 					else{
 
@@ -2581,7 +2581,7 @@ function replyMsg($event, $client)
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
-						}
+						
 					}
 
 
@@ -2707,7 +2707,7 @@ function replyMsg($event, $client)
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
-						}
+						
 					}
 					else{
 
