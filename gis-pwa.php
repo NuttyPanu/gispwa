@@ -629,16 +629,47 @@ if (!is_null($events['events'])) {
  
 
 
+			else if (preg_match('(หิวจัง|หิวแล้ว|หิวมาก|หิวจุง|หิว)', $text) === 1) {
 
-			else if($event['source']['groupId'] == 'pwa_GIS' || $event['source']['groupId'] == 'GIS' || $event['source']['groupId'] == 'Dev'){
-				if (preg_match('(หิวจัง|หิวแล้ว|หิวมาก|หิวจุง|หิว)', $text) === 1) {
+				//$gid = $event['source']['groupId'];
+				$uid = $event['source']['userId'];
 
-					$messages = [
-					'type' => 'text',
-					'text' => 'หิวหรอ ... พี่ต๊อบครับ ลูกชิ้น หมู:5 เนื้อ:5 ไส้กรอกชีส(เยิ้มๆ):5 ให้ไวนะครับ...มีคนหิว เก็บเงินหัวหน้าได้เลยครับ'
-					];
+				if($event['source']['groupId'] == $GISPWA || $event['source']['groupId'] == $GISDEV || $event['source']['userId'] == $NUT){
+
+					if (chk_friend($uid) == true){
+
+						$url = 'https://api.line.me/v2/bot/profile/'.$uid;
+						//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+						$profile = get_profile($url);
+						$obj = json_decode($profile);
+
+						$nameid = $obj->displayName;
+						$status = $obj->statusMessage;
+						$pathpic = explode("cdn.net/", $obj->pictureUrl);
+
+						$messages = [
+						'type' => 'text',
+						'text' => 'อยากกินลูกชิ้น เปิดเตาหน่อย',
+						'sender' => [
+							'name' => $nameid,
+							'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
+						]
+						];
+
+					}
+					else{
+						$messages = [
+						'type' => 'text',
+						'text' => 'อยากกินลูกชิ้น เปิดเตาหน่อย',
+						'sender' => [
+							'name' => 'Piman Charaman',
+							'iconUrl' => 'https://gispwa.herokuapp.com/image/piman.jpg'
+						]
+						];
+					}
 
 				}
+
 			}
 
 			else if ($text == '#ตรวจสอบพื้นที่ให้บริการ') {
