@@ -2384,17 +2384,23 @@ function replyMsg($event, $client)
 
 				else if(preg_match('(#อัพโหลด|#Upload|#upload|#สถานะอัพโหลด|#อับโหลด|#สถานะอับโหลด)', $msg) === 1) {
 
-
 					$div = explode(" ",$msg);
 					if(preg_match('(meter|bldg|pipe|firehydrant|valve)', $div[1]) === 1){
 						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle.php?ly='.$div[1]; 
-						$str = get_url($urllink); 
+						$chl = curl_init();
+						curl_setopt( $chl, CURLOPT_URL, $urllink); 
+						curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
+						curl_setopt($chl, CURLOPT_POST, 0);
+						curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
+						curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+						$res = curl_exec($chl);		
+						curl_close($chl);
 
 						$a_ = array(
 
 									array(
 										'type' => 'text',
-										'text' => $str 
+										'text' => $res 
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
