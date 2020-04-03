@@ -629,7 +629,7 @@ if (!is_null($events['events'])) {
  
 			else if ($text == 'covid' || $text == 'Covid' || $text == 'โควิด' || $text == 'โคโรนา'|| $text == 'โคโรน่า') {
 
-				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.png", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg");
+				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.jpg", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg");
 
 				$random_keys=array_rand($t,1);
 				$pic = $t[$random_keys];
