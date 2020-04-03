@@ -632,7 +632,7 @@ if (!is_null($events['events'])) {
 				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.png", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st1.jpg,https://gispwa.herokuapp.com/image/covid2.jpg");
 
 				$random_keys=array_rand($t,1);
-				$pic = $sticker[$random_keys];
+				$pic = $t[$random_keys];
 
 				$split = explode(",", $pic);
 				$p = $split[0];
