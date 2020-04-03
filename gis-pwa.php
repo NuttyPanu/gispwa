@@ -625,9 +625,8 @@ if (!is_null($events['events'])) {
 					'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
 					];
 				}
-            }
- 
-			else if ($text == 'covid' || $text == 'Covid' || $text == 'โควิด' || $text == 'โคโรนา'|| $text == 'โคโรน่า') {
+                        }
+                        else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1) {	
 
 				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.jpg", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg");
 
