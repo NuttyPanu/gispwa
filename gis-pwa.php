@@ -8,7 +8,7 @@ ini_set("error_log", "php-error.txt");
 // for test debug file
 require_once('LINEBotTiny.php');
 
-$key_notify=array("Nutty"=>"OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv","GIS_DEV"=>"gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE","GIS_PWA"=>"6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns","METER_GIS"=>"MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW");
+
 
 $access_token = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
 
@@ -25,6 +25,8 @@ $METER= 'C6cf4977144b0d1c6aa8b5be22b04272c';
 $NUT='U87b618904b23471df5c43312458c016b';
 $GISDEV= 'C6d63e07eb0065b5019b861f11073fc41';
 
+
+$key_notify=array("Nutty"=>"OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv","GIS_DEV"=>"gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE","GIS_PWA"=>"6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns","METER_GIS"=>"MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW");
 
 function notify($key_noti,$message){
 	//$message = $message.'&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg'.'&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg';
@@ -227,7 +229,7 @@ if (!is_null($events['events'])) {
 			}
 			*/
 
-			if ($text == 'EGA' || $text == 'ega') {
+			if ($text == '#EGA' || $text == '#ega') {
 
 				$key_noti= 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';
 				$message= 'EGA';
@@ -240,7 +242,7 @@ if (!is_null($events['events'])) {
 
 			}
 
-			else if ($text == 'อากาศ' || $text == 'คุณภาพอากาศ') {
+			else if ($text == '#อากาศ' || $text == '#คุณภาพอากาศ') {
 
 				
 				$url = 'https://api.airvisual.com/v2/nearest_city?lat=13.829582090333&lon=100.69883982127&key=271d36a7-3efd-4a54-9864-554ea6203750';
@@ -441,15 +443,13 @@ if (!is_null($events['events'])) {
 				];
 				*/
 			}
-			else if (preg_match('(นัดหมาย|นัดหมาย)', $text) === 1) {
+			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
 				$key_noti =$key_notify['Nutty'];
 				//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
 				$message = '';
 				$memo_=array(
-					"31-03-2020"=>"ไปทำงานด้วย (อังคาร 31 มี.ค. 63) ",
-					"01-03-2020"=>"ไปทำงานด้วย (พุธ 1 เม.ย. 63) ",
-					"02-03-2020"=>"ไปทำงานด้วย (พฤหัส 2 เม.ย. 63) ",
-					"03-03-2020"=>"ไปทำงานด้วย (ศุกร์ 3 เม.ย. 63) ",
+					"07-04-2020"=>"เรามีนัดกันนะครับทุกคน (7 เม.ย. 63) ",
+					"13-04-2020"=>"ผชท. มารับตำแหน่ง วันนี้นะครับ (13 เม.ย. 63) ",
 				);				
 
 				$today_ = date("d-m-Y");
@@ -491,7 +491,7 @@ if (!is_null($events['events'])) {
 			}
 
 
-			else if (preg_match('(ทดสอบ|ทดสอบ)', $text) === 1) {
+			else if (preg_match('(#ทดสอบ|#ทดสอบ)', $text) === 1) {
 
 				if (chk_friend($uid) == true){
 					//$gid = $event['source']['groupId'];
@@ -527,7 +527,7 @@ if (!is_null($events['events'])) {
 
 
 			}
-			else if ($text == 'วัน') {
+			else if ($text == '#วัน') {
 				$messages = [
 				   "type"=> "text",
 				   "text"=> "Hello Quick Reply!",
@@ -550,7 +550,7 @@ if (!is_null($events['events'])) {
 				];
 
 			}
-			else if ($text == 'ลงทะเบียน') {
+			else if ($text == '#ลงทะเบียนliff') {
 				/*
 				$str;
 				//-- Very simple way
@@ -603,7 +603,7 @@ if (!is_null($events['events'])) {
 				
 			}
 
-			else if (preg_match('(เช็ค|check)', $text) === 1) {
+			else if (preg_match('(#เช็ค|#check)', $text) === 1) {
 
 				$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 				$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
@@ -641,7 +641,7 @@ if (!is_null($events['events'])) {
 				}
 			}
 
-			else if ($text == 'ตรวจสอบพื้นที่ให้บริการ') {
+			else if ($text == '#ตรวจสอบพื้นที่ให้บริการ') {
 
 				$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
 				$res = get_url($urllink); 
@@ -754,7 +754,7 @@ if (!is_null($events['events'])) {
 	
 
 
-			else if (preg_match('(วิธีการเพิ่มสิทธิ์|วิธีเพิ่มสิทธิ์)', $text) === 1) {
+			else if (preg_match('(#วิธีการเพิ่มสิทธิ์|#วิธีเพิ่มสิทธิ์)', $text) === 1) {
 				$text_reply = "
 				
 				วิธีการเพิ่มสิทธิ์ระบบติดตามมาตรวัดน้ำ 
@@ -940,7 +940,7 @@ if (!is_null($events['events'])) {
 
 
 
-			else if ($text == 'id') {
+			else if ($text == '#id') {
 				$gid = $event['source']['groupId'];
 				$uid = $event['source']['userId'];
 				// Build message to reply back
@@ -2147,7 +2147,7 @@ function replyMsg($event, $client)
  
 
 
-			   if (preg_match('(ดุ๊กดิ๊ก|ดุ้กดิ้ก|ดุกดิก|ดุ๊กดิ้ก|ดุ้กดิ๊ก)', $msg) === 1) {
+			   if (preg_match('(#ดุ๊กดิ๊ก|#ดุ้กดิ้ก|#ดุกดิก|#ดุ๊กดิ้ก|#ดุ้กดิ๊ก)', $msg) === 1) {
 
 					/*
 					$11537=array("11537,52002734", "11537,52002735", "11537,52002736", "11537,52002737", "11537,52002738", "11537,52002739", "11537,52002740", "11537,52002741", "11537,52002742", "11537,52002743", "11537,52002744", "11537,52002745", "11537,52002746", "11537,52002747", "11537,52002748", "11537,52002749", "11537,52002750", "11537,52002751", "11537,52002752", "11537,52002753", "11537,52002754", "11537,52002755", "11537,52002756", "11537,52002757", "11537,52002758", "11537,52002759", "11537,52002760", "11537,52002761", "11537,52002762", "11537,52002763", "11537,52002764", "11537,52002765", "11537,52002766", "11537,52002767", "11537,52002768", "11537,52002769", "11537,52002770", "11537,52002771", "11537,52002772", "11537,52002773");
@@ -2199,7 +2199,7 @@ function replyMsg($event, $client)
 				}
 
 
-                else if (preg_match('(ระบบกภส.)', $msg) === 1) {
+                else if (preg_match('(#ระบบกภส.)', $msg) === 1) {
 
 					$client->replyMessage1($event['replyToken'],array(
 
@@ -2237,7 +2237,7 @@ function replyMsg($event, $client)
 
 				 }
 
-                else if (preg_match('(หวัดดี|หวัดดีค่ะ|หวัดดีครับ|ดีค่ะ|ดีคับ|ดีครับ|สวัสดีบอท|หวัดดีบอท|บอท)', $msg) === 1) {
+                else if (preg_match('(บอทครับ|บอทคะ|บอทคับ|ดีบอท|สวัสดีครับบอท|สวัสดีบอท|หวัดดีบอท)', $msg) === 1) {
  
                     if ($ty == 'user'){
  
@@ -3030,7 +3030,7 @@ function replyMsg($event, $client)
                 }
  
 
-				else if (preg_match('(อัพโหลดภาพ|Gps|เช็คgps|เช็คGps|เช็ค Gps)', $msg) === 1) {
+				else if (preg_match('(#อัพโหลดภาพ|#Gps|#เช็คgps|#เช็คGps|#เช็ค Gps)', $msg) === 1) {
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
@@ -3173,8 +3173,7 @@ function replyMsg($event, $client)
 		//$save_result = file_put_contents($imagepath.$imagename, $imageData);
 		
 
-
-
+		/*
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
@@ -3183,22 +3182,14 @@ function replyMsg($event, $client)
                 array(
                     'type' => 'text',
                     'text' => $event['message']['id']
-                )        
-                /*,
+                ),      
                 array(
                     'type' => 'sticker',
                     'packageId' => 3,
                     'stickerId' => 232
-                ),
-                    array(
-                    'type' => 'sticker',
-                    'packageId' => 3,
-                    'stickerId' => 233
-                )       
-                */
-         
-        )
-            );
+                )
+        ));
+		*/
     }
     //----------------------------จบเงื่อนไขimage------------------------------------//
  
@@ -3225,6 +3216,7 @@ function replyMsg($event, $client)
 		$s = $split[1];
 		//echo $split[0];
 
+		/*
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
@@ -3240,22 +3232,9 @@ function replyMsg($event, $client)
                     'packageId' => $p,
                     'stickerId' => $s
                 )
-             
-                /*,
-                array(
-                    'type' => 'sticker',
-                    'packageId' => 3,
-                    'stickerId' => 232
-                ),
-                    array(
-                    'type' => 'sticker',
-                    'packageId' => 3,
-                    'stickerId' => 233
-                )       
-                */
-         
-        )
-            );
+
+        ));
+		*/
     }
     //----------------------------จบเงื่อนไขvideo------------------------------------//
  
@@ -3263,8 +3242,7 @@ function replyMsg($event, $client)
     //-----ถ้ามีการส่งสติ๊กเกอร์------------------------------------------------------------//
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'sticker') {
 
-
-		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
+		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527","11538,51626498","11538,51626525","11537,52002771");
 		$random_keys=array_rand($sticker,1);
 		$txt = $sticker[$random_keys];
 
