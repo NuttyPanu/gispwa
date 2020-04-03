@@ -2383,6 +2383,15 @@ function replyMsg($event, $client)
  
 
 				else if(preg_match('(#อัพโหลด|#Upload|#upload|#สถานะอัพโหลด|#อับโหลด|#สถานะอับโหลด)', $msg) === 1) {
+
+					$a_ = array(
+								array(
+									'type' => 'text',
+									'text' => 'โปรดรอสักครู่ ระบบกำลังประมวลผลอยู่ครับ' 
+								),
+							);
+					$client->replyMessage1($event['replyToken'],$a_);
+
 					$div = explode(" ",$msg);
 					if(preg_match('(meter|bldg|pipe|firehydrant|valve)', $div[1]) === 1){
 						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle.php?ly='.$div[1]; 
@@ -2392,7 +2401,7 @@ function replyMsg($event, $client)
 
 									array(
 										'type' => 'text',
-										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ'.$chk 
+										'text' => $str 
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
