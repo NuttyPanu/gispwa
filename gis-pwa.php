@@ -664,7 +664,7 @@ if (!is_null($events['events'])) {
 
 						$messages = [
 						'type' => 'text',
-						'text' => $txt,,
+						'text' => $txt,
 						'sender' => [
 							'name' => 'Piman Charaman',
 							'iconUrl' => 'https://gispwa.herokuapp.com/image/piman.jpg'
