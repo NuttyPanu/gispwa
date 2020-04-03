@@ -629,11 +629,10 @@ if (!is_null($events['events'])) {
  
 			else if ($text == 'covid' || $text == 'Covid' || $text == 'โควิด' || $text == 'โคโรนา'|| $text == 'โคโรน่า') {
 
-				$t=array("https://gispwa.herokuapp.com/image/covid1.jpg, https://gispwa.herokuapp.com/image/covid2.jpg");
+				$t=array("https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/covid2.jpg");
 				$random_keys=array_rand($t,1);
-				$txt = $t[$random_keys];
-				$pic = $txt;
-				// Build message to reply back
+				$pic = $t[$random_keys];
+
 				$messages = [
 					'type' => 'image',
 					'originalContentUrl' => $pic,
@@ -665,12 +664,12 @@ if (!is_null($events['events'])) {
 						$pathpic = explode("cdn.net/", $obj->pictureUrl);
 
 						$messages = [
-						'type' => 'text',
-						'text' => 'อยากกินลูกชิ้น เปิดเตาหน่อย',
-						'sender' => [
-							'name' => $nameid,
-							'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
-						]
+							'type' => 'text',
+							'text' => 'อยากกินลูกชิ้น เปิดเตาหน่อย',
+							'sender' => [
+								'name' => $nameid,
+								'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
+							]
 						];
 
 					}
