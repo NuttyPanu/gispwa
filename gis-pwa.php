@@ -12,7 +12,6 @@ $key_notify=array("Nutty"=>"OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv","GIS_DE
 
 $access_token = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
 
-
 $channelAccessToken = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
 $channelSecret = 'b8c9ec55b321b2d04d2a6f131168ecd4';
 
@@ -25,7 +24,6 @@ $GISPWA= 'C6c9793d99e321e4659397c52365a68d3';
 $METER= 'C6cf4977144b0d1c6aa8b5be22b04272c';
 $NUT='U87b618904b23471df5c43312458c016b';
 $GISDEV= 'C6d63e07eb0065b5019b861f11073fc41';
-
 
 
 function notify($key_noti,$message){
@@ -59,12 +57,7 @@ function notify($key_noti,$message){
 	//Close connect 
 	curl_close( $chOne ); 
 
-
-
-
-
 }
-
 
 
 //----------function--114------------//
@@ -2389,6 +2382,34 @@ function replyMsg($event, $client)
                 }
  
 
+				else if(preg_match('(#อัพโหลด|#Upload|#upload|#สถานะอัพโหลด|#อับโหลด|#สถานะอับโหลด)', $msg) === 1) {
+					$div = explode(" ",$msg);
+					if(preg_match('(meter|bldg|pipe|firehydrant|valve)', $div[1]) === 1){
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle.php?ly='.$div[1]; 
+						$str = get_url($urllink); 
+
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ'.$chk 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+					}
+					else{
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => '"'.$div[1].'"'.' คำค้นนี้ไม่สามารถตรวจสอบการอัพโหลดได้'
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+					}
+				}
+
+
 				else if(preg_match('(#เพิ่มสิทธิ|#เพิ่มสิทธิ์|#เพิ่มสิทธิ์มาตร|#เพิ่มสิทธิ์ระบบมาตร|#เพิ่มสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
@@ -2819,7 +2840,7 @@ function replyMsg($event, $client)
 
 				}
 
-				elseif( $msg == '#ลงทะเบียน'){ 
+				else if( $msg == '#ลงทะเบียน'){ 
 				 
 					$uid = $event['source']['userId'];
 					$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
