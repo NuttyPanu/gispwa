@@ -2384,13 +2384,6 @@ function replyMsg($event, $client)
 
 				else if(preg_match('(#อัพโหลด|#Upload|#upload|#สถานะอัพโหลด|#อับโหลด|#สถานะอับโหลด)', $msg) === 1) {
 
-					$a_ = array(
-								array(
-									'type' => 'text',
-									'text' => 'โปรดรอสักครู่ ระบบกำลังประมวลผลอยู่ครับ' 
-								),
-							);
-					$client->replyMessage1($event['replyToken'],$a_);
 
 					$div = explode(" ",$msg);
 					if(preg_match('(meter|bldg|pipe|firehydrant|valve)', $div[1]) === 1){
