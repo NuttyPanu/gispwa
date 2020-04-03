@@ -627,7 +627,24 @@ if (!is_null($events['events'])) {
 				}
             }
  
+			else if ($text == 'covid' || $text == 'Covid' || $text == 'โควิด' || $text == 'โคโรนา'|| $text == 'โคโรน่า') {
 
+				$t=array("https://gispwa.herokuapp.com/image/covid1.jpg, https://gispwa.herokuapp.com/image/covid2.jpg");
+				$random_keys=array_rand($t,1);
+				$txt = $t[$random_keys];
+				$pic = $txt;
+				// Build message to reply back
+				$messages = [
+					'type' => 'image',
+					'originalContentUrl' => $pic,
+					'previewImageUrl' => $pic,
+					'sender' => [
+						'name' => 'Covid-19',
+						'iconUrl' => 'https://gispwa.herokuapp.com/image/st.jpg'
+					]
+				];
+
+			}
 
 			else if (preg_match('(หิวจัง|หิวแล้ว|หิวมาก|หิวจุง|หิว)', $text) === 1) {
 
