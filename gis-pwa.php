@@ -658,9 +658,13 @@ if (!is_null($events['events'])) {
 
 					}
 					else{
+						$t=array("วันนี้เหลือ ลูกชิ้นหมู 10 ไม้, ไส้กรอกชีส(เยิ้มๆ) 10 ไม้ รับทั้งหมดนี้เลยมั้ยคะ","วัตถุดิบอยู่ในตู้ เชิญหยิบกันตามสบายเลยค่ะ","รับอะไรดีคะ","ไส้กรอกมั้ยคะ");
+						$random_keys=array_rand($t,1);
+						$txt = $t[$random_keys];
+
 						$messages = [
 						'type' => 'text',
-						'text' => 'อยากกินลูกชิ้น เปิดเตาหน่อย',
+						'text' => $txt,,
 						'sender' => [
 							'name' => 'Piman Charaman',
 							'iconUrl' => 'https://gispwa.herokuapp.com/image/piman.jpg'
