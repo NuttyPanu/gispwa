@@ -1931,7 +1931,8 @@ function replyMsg1($event, $client)
 
 function replyMsg($event, $client)
 {
-  //if($event['source']['groupId'] == 'Cbb266cca8a0e0b7ae940dec7f3dc15dc' || $event['source']['groupId'] == 'C0258185eadd1aef77466dfb30d189e56' || $event['source']['userId'] == 'Ud28e6a312cb9816218fc44edef9c2f3d'){
+
+  if($event['source']['groupId'] == $GISPWA || $event['source']['groupId'] == $METER || $event['source']['groupId'] == $GISDEV || $event['source']['userId'] == $NUT){
     $uid;
     $gid;
     $ty  = $event['source']['type'];    //user,group
@@ -3446,7 +3447,7 @@ function replyMsg($event, $client)
     }
 
 
-  //}//endif
+  }//endif group
 }
 //----------------------------จบฟังก์ชั่น ReplyMessage----------------------------------//
  
