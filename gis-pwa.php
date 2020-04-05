@@ -626,6 +626,29 @@ if (!is_null($events['events'])) {
 					];
 				}
                         }
+                        else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1 && preg_match('(รัฐ)', $text) === 1) {	
+
+				$t=array("https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid5.jpg");
+
+				$random_keys=array_rand($t,1);
+				$pic = $t[$random_keys];
+
+				$split = explode(",", $pic);
+				$p = $split[0];
+				$s = $split[1];
+
+				$messages = [
+					'type' => 'image',
+					'originalContentUrl' => $s,
+					'previewImageUrl' => $s,
+					'sender' => [
+						'name' => 'Covid-19',
+						'iconUrl' => $p
+					]
+				];
+
+			}			
+			
                         else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1) {	
 
 				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.jpg", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg");
@@ -648,7 +671,18 @@ if (!is_null($events['events'])) {
 				];
 
 			}
+                        else if(preg_match('(ล้างมือ|ป้องกันโควิด)', $text) === 1) {	
+				$messages = [
+					"type"=> "video",
+					"originalContentUrl"=> "https://gispwa.herokuapp.com/video/covid.mp4",
+					"previewImageUrl"=> "https://gispwa.herokuapp.com/video/covid.jpg",
+					'sender' => [
+						'name' => 'Covid-19',
+						'iconUrl' => 'https://gispwa.herokuapp.com/video/profile_covid.jpg'
+					]					
+				];
 
+			}
 			else if (preg_match('(หิวจัง|หิวแล้ว|หิวมาก|หิวจุง|หิว)', $text) === 1) {
 
 				//$gid = $event['source']['groupId'];
