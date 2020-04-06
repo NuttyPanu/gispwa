@@ -449,23 +449,17 @@ if (!is_null($events['events'])) {
 				
 				$url = 'https://covid19.th-stat.com/api/open/today';
 
-				//$url = 'https://api.airvisual.com/v2/nearest_city?key=271d36a7-3efd-4a54-9864-554ea6203750';
-				//$url = 'https://api.airvisual.com/v2/city?city=Mueang%20Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
-
-				//$url = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
-
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_URL, $url);
 				$result = curl_exec($ch);
 				curl_close($ch);
-				//$obj = json_decode($result);
-
+				$obj = json_decode($result);
 
 				$messages = [
 				'type' => 'text',
-				'text' => 'result'//$obj.UpdateDate
+				'text' => $obj->UpdateDate//$obj.UpdateDate
 				];
 
 /*
@@ -935,7 +929,7 @@ if (!is_null($events['events'])) {
 
 			}			
 			
-                        else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1) {	
+            else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1) {	
 
 				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.jpg", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg");
 
