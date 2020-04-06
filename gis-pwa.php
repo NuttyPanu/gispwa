@@ -460,9 +460,31 @@ if (!is_null($events['events'])) {
 				curl_close($handle1);
 				$obj = json_decode($output1); 
 
+				$text_reply = "
+				
+				สถานการณ์โควิด-19
+				\n $obj->UpdateDate 
+
+				\n พบผู้ป่วยรายใหม่ จำนวน $obj->NewConfirmed ราย
+				\n มีผู้ติดเชื้อสะสม $obj->Confirmed ราย
+				\n
+				\n เสียชีวิตเพิ่มขึ้น $obj->NewDeaths ราย
+				\n รวมเป็น $obj->Deaths ราย
+				\n
+				\n รักษาหาย $obj->NewRecovered ราย
+				\n รักษาหายรวม $obj->Recovered ราย
+				\n
+				\n กำลังรักษาอยู่ใน รพ. $obj->Hospitalized ราย
+				\n
+				\n แหล่งที่มา: $obj->Source
+				\n
+				";
+
+
+
 				$messages = [
 				'type' => 'text',
-				'text' => $obj->UpdateDate
+				'text' => $text_reply 
 				];
 			
 			}
