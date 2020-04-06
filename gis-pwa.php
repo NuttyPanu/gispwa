@@ -445,8 +445,6 @@ if (!is_null($events['events'])) {
 			}
 			else if (preg_match('(สถานการณ์โควิด|สรุปโควิด)', $text) === 1) {			
 
-
-
 				/*
 				$url = 'https://covid19.th-stat.com/api/open/today';
 
@@ -468,10 +466,6 @@ if (!is_null($events['events'])) {
 				//echo $split[1];
 				//echo $split[2];
 				*/
-				$messages = [
-				'type' => 'text',
-				'text' => 'ok'//$obj.UpdateDate
-				];
 
 /*
 				$messages = [
