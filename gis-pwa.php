@@ -470,6 +470,34 @@ if (!is_null($events['events'])) {
 
 				$messages = [
 					'type' => 'flex',
+					'altText' => 'This is a Flex Message',
+					'contents'=> [
+					'type'=> 'bubble',
+					'body'=> [
+					 'type'=> "box",
+					 'layout'=> "vertical",
+					 'contents'=> [
+						  [
+							"type"=> "text",
+							"size"=> "sm",
+							"wrap"=> true,
+							"color"=> "#ffffffde",
+							"text"=> "พบผู้ป่วยรายใหม่ จำนวน NewConfirmed ราย"
+						  ]
+					  ]
+					 ]
+					]
+					]
+				];
+
+
+
+
+
+
+				/*
+				$messages = [
+					'type' => 'flex',
 					'altText' => 'Covid',
 					'contents'=> [
 					/* เอามาจากflex*/
@@ -725,7 +753,7 @@ if (!is_null($events['events'])) {
 
 					]
 				];	
-
+*/
 
 
 
