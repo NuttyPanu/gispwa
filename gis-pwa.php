@@ -443,7 +443,292 @@ if (!is_null($events['events'])) {
 				];
 				*/
 			}
+			else if (preg_match('(สถานการณ์โควิด|สรุปโควิด)', $text) === 1) {			
 
+
+				
+				$url = 'https://covid19.th-stat.com/api/open/today';
+
+				//$url = 'https://api.airvisual.com/v2/nearest_city?key=271d36a7-3efd-4a54-9864-554ea6203750';
+				//$url = 'https://api.airvisual.com/v2/city?city=Mueang%20Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				//$url = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_URL, $url);
+				$result = curl_exec($ch);
+				curl_close($ch);
+				//$obj = json_decode($result);
+
+
+				$messages = [
+				'type' => 'text',
+				'text' => $result.UpdateDate//$obj.UpdateDate
+				];
+
+/*
+				$messages = [
+					'type' => 'flex',
+					'altText' => 'Covid',
+					'contents'=> [
+					/* เอามาจากflex*/
+  "type"=> "bubble",
+  "header"=> [
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> [
+      [
+        "type"=> "box",
+        "layout"=> "horizontal",
+        "contents"=> [
+          [
+            "type"=> "image",
+            "url"=> "https=>//covid19.th-stat.com/img/logoDDC.png",
+            "size"=> "lg",
+            "aspectMode"=> "fit",
+            "aspectRatio"=> "200=>90",
+            "gravity"=> "center",
+            "flex"=> 1,
+            "position"=> "relative",
+            "align"=> "center"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "horizontal",
+            "contents"=> [
+              [
+                "type"=> "text",
+                "text"=> "NEW",
+                "size"=> "xxs",
+                "color"=> "#ffffff",
+                "align"=> "center",
+                "gravity"=> "center"
+              ]
+            ],
+            "backgroundColor"=> "#EC3D44",
+            "paddingAll"=> "2px",
+            "paddingStart"=> "4px",
+            "paddingEnd"=> "4px",
+            "flex"=> 0,
+            "position"=> "absolute",
+            "offsetStart"=> "18px",
+            "offsetTop"=> "18px",
+            "cornerRadius"=> "100px",
+            "width"=> "48px",
+            "height"=> "25px"
+          ]
+        ]
+      ]
+    ],
+    "paddingAll"=> "0px"
+  ],
+  "body"=> [
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> [
+      [
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> [
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "text",
+                "contents"=> [],
+                "size"=> "xl",
+                "wrap"=> true,
+                "text"=> "สถานการณ์โควิด-19",
+                "color"=> "#ffffff",
+                "weight"=> "bold"
+              ],
+              [
+                "type"=> "text",
+                "text"=> $obj.UpdateDate,
+                "color"=> "#ffffffcc",
+                "size"=> "sm"
+              ]
+            ],
+            "spacing"=> "sm"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "พบผู้ป่วยรายใหม่ จำนวน NewConfirmed ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "มีผู้ติดเชื้อสะสม Confirmed ราย"
+                  ]
+                ]
+              ]
+            ],
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs",
+            "paddingAll"=> "5px"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "เสียชีวิตเพิ่มขึ้น NewDeaths ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "รวมเป็น Deaths ราย"
+                  ]
+                ]
+              ]
+            ],
+            "paddingAll"=> "5px",
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "รักษาหาย NewRecovered ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "รักษาหายรวม Recovered ราย"
+                  ]
+                ]
+              ]
+            ],
+            "paddingAll"=> "5px",
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "กำลังรักษาอยู่ใน รพ. Hospitalized ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "NewHospitalized"
+                  ]
+                ]
+              ]
+            ],
+            "paddingAll"=> "5px",
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs"
+          ]
+        ]
+      ]
+    ],
+    "paddingAll"=> "15px",
+    "backgroundColor"=> "#464F69"
+  ]
+
+
+					/* เอามาจากflex*/
+
+					]
+				];	
+*/
+
+			}
 			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
 				$key_noti =$key_notify['Nutty'];
 				//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
