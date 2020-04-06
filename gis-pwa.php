@@ -478,12 +478,12 @@ if (!is_null($events['events'])) {
 					 'layout'=> "vertical",
 					 'contents'=> [
 					  [
-					   'type'=> "text",
-						"text"=> "NEW",
-						"size"=> "xxs",
-						"color"=> "#ffffff",
-						"align"=> "center",
-						"gravity"=> "center"
+					   'type'=> "button",
+					   'style'=> "primary",
+					   'height'=> "sm",
+					   'action'=> [
+						'type'=> "uri",
+						'label'=> $obj->UpdateDate
 					   ]
 					  ]
 					 ]
