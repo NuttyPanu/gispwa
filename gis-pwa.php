@@ -444,6 +444,34 @@ if (!is_null($events['events'])) {
 				*/
 			}
 
+
+			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
+
+				$handle1 = curl_init();
+				 
+				$url1 = "https://covid19.th-stat.com/api/open/today";
+				 
+				// Set the url
+				curl_setopt($handle1, CURLOPT_URL, $url1);
+				// Set the result output to be a string.
+				curl_setopt($handle1, CURLOPT_RETURNTRANSFER, true);
+				 
+				$output1 = curl_exec($handle1);
+				 
+				curl_close($handle1);
+				$obj = json_decode($output1); 
+
+				//echo $obj.UpdateDate;
+					$messages = [
+					'type' => 'text',
+					'text' => 'ok'
+					];
+
+			}
+
+
+
+
 			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
 				$key_noti =$key_notify['Nutty'];
 				//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
@@ -3609,21 +3637,6 @@ foreach ($client->parseEvents() as $event) {
 //----------------------------------------------------------//
  
 
-
-$handle1 = curl_init();
- 
-$url1 = "https://covid19.th-stat.com/api/open/today";
- 
-// Set the url
-curl_setopt($handle1, CURLOPT_URL, $url1);
-// Set the result output to be a string.
-curl_setopt($handle1, CURLOPT_RETURNTRANSFER, true);
- 
-$output1 = curl_exec($handle1);
- 
-curl_close($handle1);
-$obj = json_decode($output1); 
-echo $obj.UpdateDate;
 
 
 
