@@ -445,7 +445,7 @@ if (!is_null($events['events'])) {
 			}
 
 
-			else if (preg_match('(สถานการณ์|สรุป)', $text) === 1) {
+			else if (preg_match('(สถานการณ์|สรุป)', $text) === 1 && preg_match('(โควิด|Covid|covid)', $text) === 1) {
 
 				$handle1 = curl_init();
 				 
@@ -461,11 +461,273 @@ if (!is_null($events['events'])) {
 				curl_close($handle1);
 				$obj = json_decode($output1); 
 
-				//echo $obj.UpdateDate;
-					$messages = [
-					'type' => 'text',
-					'text' => $obj->UpdateDate
-					];
+				/*
+				$messages = [
+				'type' => 'text',
+				'text' => $obj->UpdateDate
+				];
+				*/
+
+				$messages = [
+					'type' => 'flex',
+					'altText' => 'Covid',
+					'contents'=> [
+					/* เอามาจากflex*/
+  "type"=> "bubble",
+  "header"=> [
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> [
+      [
+        "type"=> "box",
+        "layout"=> "horizontal",
+        "contents"=> [
+          [
+            "type"=> "image",
+            "url"=> "https=>//covid19.th-stat.com/img/logoDDC.png",
+            "size"=> "lg",
+            "aspectMode"=> "fit",
+            "aspectRatio"=> "200=>90",
+            "gravity"=> "center",
+            "flex"=> 1,
+            "position"=> "relative",
+            "align"=> "center"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "horizontal",
+            "contents"=> [
+              [
+                "type"=> "text",
+                "text"=> "NEW",
+                "size"=> "xxs",
+                "color"=> "#ffffff",
+                "align"=> "center",
+                "gravity"=> "center"
+              ]
+            ],
+            "backgroundColor"=> "#EC3D44",
+            "paddingAll"=> "2px",
+            "paddingStart"=> "4px",
+            "paddingEnd"=> "4px",
+            "flex"=> 0,
+            "position"=> "absolute",
+            "offsetStart"=> "18px",
+            "offsetTop"=> "18px",
+            "cornerRadius"=> "100px",
+            "width"=> "48px",
+            "height"=> "25px"
+          ]
+        ]
+      ]
+    ],
+    "paddingAll"=> "0px"
+  ],
+  "body"=> [
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> [
+      [
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> [
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "text",
+                "contents"=> [],
+                "size"=> "xl",
+                "wrap"=> true,
+                "text"=> "สถานการณ์โควิด-19",
+                "color"=> "#ffffff",
+                "weight"=> "bold"
+              ],
+              [
+                "type"=> "text",
+                "text"=> $obj->UpdateDate,
+                "color"=> "#ffffffcc",
+                "size"=> "sm"
+              ]
+            ],
+            "spacing"=> "sm"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "พบผู้ป่วยรายใหม่ จำนวน NewConfirmed ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "มีผู้ติดเชื้อสะสม Confirmed ราย"
+                  ]
+                ]
+              ]
+            ],
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs",
+            "paddingAll"=> "5px"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "เสียชีวิตเพิ่มขึ้น NewDeaths ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "รวมเป็น Deaths ราย"
+                  ]
+                ]
+              ]
+            ],
+            "paddingAll"=> "5px",
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "รักษาหาย NewRecovered ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "รักษาหายรวม Recovered ราย"
+                  ]
+                ]
+              ]
+            ],
+            "paddingAll"=> "5px",
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs"
+          ],
+          [
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> [
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "กำลังรักษาอยู่ใน รพ. Hospitalized ราย"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "contents"=> [],
+                    "size"=> "sm",
+                    "wrap"=> true,
+                    "margin"=> "sm",
+                    "color"=> "#ffffffde",
+                    "text"=> "NewHospitalized"
+                  ]
+                ]
+              ]
+            ],
+            "paddingAll"=> "5px",
+            "backgroundColor"=> "#ffffff1A",
+            "cornerRadius"=> "2px",
+            "margin"=> "xs"
+          ]
+        ]
+      ]
+    ],
+    "paddingAll"=> "15px",
+    "backgroundColor"=> "#464F69"
+  ]
+
+
+					/* เอามาจากflex*/
+
+					]
+				];	
+
+
+
 
 			}
 
@@ -654,8 +916,8 @@ if (!is_null($events['events'])) {
 					'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
 					];
 				}
-                        }
-                        else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1 && preg_match('(รัฐ)', $text) === 1) {	
+            }
+            else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1 && preg_match('(รัฐ)', $text) === 1) {	
 
 				$t=array("https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid5.jpg");
 
@@ -700,7 +962,7 @@ if (!is_null($events['events'])) {
 				];
 
 			}
-                        else if(preg_match('(ล้างมือ|ป้องกันโควิด)', $text) === 1) {	
+            else if(preg_match('(ล้างมือ|ป้องกันโควิด)', $text) === 1) {	
 				$messages = [
 					"type"=> "video",
 					"originalContentUrl"=> "https://gispwa.herokuapp.com/video/covid.mp4",
