@@ -458,18 +458,18 @@ if (!is_null($events['events'])) {
 				$obj = json_decode($result);
 				*/
 
-				$urllink = 'https://covid19.th-stat.com/api/open/today'; 
+				$urllink = 'https://covid19.th-stat.com/api/open/today/'; 
 				$str = get_url($urllink); 
 				//$str = iconv("win-874","utf-8",$convert);
-				//$json = json_decode($str);
-				$split = explode(":", $str);
+				$json = json_decode($str);
+				//$split = explode(":", $str);
 				//echo $split[0];
 				//echo $split[1];
 				//echo $split[2];
 
 				$messages = [
 				'type' => 'text',
-				'text' => $split[0]//$obj.UpdateDate
+				'text' => 'ok'//$obj.UpdateDate
 				];
 
 /*
