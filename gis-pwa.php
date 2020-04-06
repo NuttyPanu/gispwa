@@ -3609,7 +3609,7 @@ foreach ($client->parseEvents() as $event) {
 //----------------------------------------------------------//
  
 
-/*
+
 $handle1 = curl_init();
  
 $url1 = "https://covid19.th-stat.com/api/open/today";
@@ -3624,7 +3624,7 @@ $output1 = curl_exec($handle1);
 curl_close($handle1);
  
 echo $output1;
-*/
+
 
 
 ?>
