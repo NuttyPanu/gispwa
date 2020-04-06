@@ -443,8 +443,8 @@ if (!is_null($events['events'])) {
 				];
 				*/
 			}
-			
-				else if ($text == 'สถานการณ์โควิด' || $text == 'สรุปโควิด') {
+			else if (preg_match('(สถานการณ์โควิด|สรุปโควิด)', $text) === 1) {			
+
 
 				
 				$url = 'https://covid19.th-stat.com/api/open/today';
@@ -462,6 +462,13 @@ if (!is_null($events['events'])) {
 				curl_close($ch);
 				$obj = json_decode($result);
 
+
+				$messages = [
+				'type' => 'text',
+				'text' => $obj.UpdateDate
+				];
+
+/*
 				$messages = [
 					'type' => 'flex',
 					'altText' => 'Covid',
@@ -719,7 +726,7 @@ if (!is_null($events['events'])) {
 
 					]
 				];	
-
+*/
 
 			}
 			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
