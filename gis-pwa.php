@@ -444,8 +444,7 @@ if (!is_null($events['events'])) {
 				*/
 			}
 
-
-			else if (preg_match('(สถานการณ์|สรุป)', $text) === 1 && preg_match('(โควิด|Covid|covid)', $text) === 1) {
+			else if (preg_match('(สถานการณ์|สรุป)', $text) === 1) {
 
 				$handle1 = curl_init();
 				 
@@ -461,13 +460,11 @@ if (!is_null($events['events'])) {
 				curl_close($handle1);
 				$obj = json_decode($output1); 
 
-				
 				$messages = [
 				'type' => 'text',
 				'text' => $obj->UpdateDate
 				];
-				
-
+			
 			}
 
 
