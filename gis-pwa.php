@@ -465,7 +465,7 @@ if (!is_null($events['events'])) {
 
 				$messages = [
 				'type' => 'text',
-				'text' => $result.UpdateDate//$obj.UpdateDate
+				'text' => 'result'//$obj.UpdateDate
 				];
 
 /*
