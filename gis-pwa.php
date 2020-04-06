@@ -3622,8 +3622,8 @@ curl_setopt($handle1, CURLOPT_RETURNTRANSFER, true);
 $output1 = curl_exec($handle1);
  
 curl_close($handle1);
- 
-echo $output1;
+$obj = json_decode($output1); 
+echo $obj.UpdateDate;
 
 
 
