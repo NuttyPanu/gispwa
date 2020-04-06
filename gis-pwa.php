@@ -461,36 +461,13 @@ if (!is_null($events['events'])) {
 				curl_close($handle1);
 				$obj = json_decode($output1); 
 
-				/*
+				
 				$messages = [
 				'type' => 'text',
 				'text' => $obj->UpdateDate
 				];
-				*/
-
-				$messages = [
-					'type' => 'flex',
-					'altText' => 'This is a Flex Message',
-					'contents'=> [
-					'type'=> 'bubble',
-					'body'=> [
-					 'type'=> "box",
-					 'layout'=> "vertical",
-					 'contents'=> [
-					  [
-					   'type'=> "button",
-					   'style'=> "primary",
-					   'height'=> "sm",
-					   'action'=> [
-						'type'=> "uri",
-						'label'=> $obj->UpdateDate
-					   ]
-					  ]
-					 ]
-					]
-					]
-				];
 				
+
 
 
 
