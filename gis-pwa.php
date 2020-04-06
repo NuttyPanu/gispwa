@@ -450,7 +450,7 @@ if (!is_null($events['events'])) {
 				$url = 'https://covid19.th-stat.com/api/open/today';
 
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_URL, $url);
 				$result = curl_exec($ch);
@@ -459,7 +459,7 @@ if (!is_null($events['events'])) {
 
 				$messages = [
 				'type' => 'text',
-				'text' => $obj->UpdateDate//$obj.UpdateDate
+				'text' => 'ok'//$obj.UpdateDate
 				];
 
 /*
