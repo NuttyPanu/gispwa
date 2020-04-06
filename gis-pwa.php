@@ -479,14 +479,10 @@ if (!is_null($events['events'])) {
 					 'contents'=> [
 						  [
 							"type"=> "text",
-							"size"=> "sm",
-							"wrap"=> true,
-							"color"=> "#ffffffde",
 							"text"=> "พบผู้ป่วยรายใหม่ จำนวน NewConfirmed ราย"
 						  ]
 					  ]
 					 ]
-					]
 					]
 				];
 
