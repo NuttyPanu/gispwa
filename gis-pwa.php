@@ -446,6 +446,7 @@ if (!is_null($events['events'])) {
 			else if (preg_match('(สถานการณ์โควิด|สรุปโควิด)', $text) === 1) {			
 
 
+
 				/*
 				$url = 'https://covid19.th-stat.com/api/open/today';
 
@@ -457,7 +458,7 @@ if (!is_null($events['events'])) {
 				curl_close($ch);
 				$obj = json_decode($result);
 				*/
-
+				/*
 				$urllink = 'https://covid19.th-stat.com/api/open/today/'; 
 				$str = get_url($urllink); 
 				//$str = iconv("win-874","utf-8",$convert);
@@ -466,7 +467,7 @@ if (!is_null($events['events'])) {
 				//echo $split[0];
 				//echo $split[1];
 				//echo $split[2];
-
+				*/
 				$messages = [
 				'type' => 'text',
 				'text' => 'ok'//$obj.UpdateDate
@@ -3897,6 +3898,23 @@ foreach ($client->parseEvents() as $event) {
 };
 //----------------------------------------------------------//
  
+
+
+$handle1 = curl_init();
+ 
+$url1 = "https://covid19.th-stat.com/api/open/today";
+ 
+// Set the url
+curl_setopt($handle1, CURLOPT_URL, $url1);
+// Set the result output to be a string.
+curl_setopt($handle1, CURLOPT_RETURNTRANSFER, true);
+ 
+$output1 = curl_exec($handle1);
+ 
+curl_close($handle1);
+ 
+echo $output1;
+
 
 
 ?>
