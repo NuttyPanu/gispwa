@@ -464,10 +464,8 @@ if (!is_null($events['events'])) {
 				\n $obj->UpdateDate 
 				\n พบผู้ป่วยรายใหม่ จำนวน $obj->NewConfirmed ราย
 				\n มีผู้ติดเชื้อสะสม $obj->Confirmed ราย
-				\n เสียชีวิตเพิ่มขึ้น $obj->NewDeaths ราย
-				\n รวมเป็น $obj->Deaths ราย
-				\n รักษาหาย $obj->NewRecovered ราย
-				\n รักษาหายรวม $obj->Recovered ราย
+				\n เสียชีวิตเพิ่มขึ้น $obj->NewDeaths ราย (สะสม $obj->Deaths ราย)
+				\n รักษาหาย $obj->NewRecovered ราย (รวม $obj->Recovered ราย)
 				\n กำลังรักษาอยู่ใน รพ. $obj->Hospitalized ราย
 				\n แหล่งที่มา: $obj->Source
 				";
