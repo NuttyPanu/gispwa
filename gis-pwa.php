@@ -468,120 +468,29 @@ if (!is_null($events['events'])) {
 				];
 				*/
 
-
 				$messages = [
 					'type' => 'flex',
-					'altText' => 'Air Quality',
+					'altText' => 'This is a Flex Message',
 					'contents'=> [
-					/* เอามาจากflex*/
-					  "type"=> "bubble",
-					  "header"=> [
-						"type"=> "box",
-						"layout"=> "horizontal",
-						"contents"=> [
-						  /*
-						  [
-							"type"=> "text",
-							"text"=> "Mung Nonthaburi",
-							"color"=> "#414141",
-							"gravity"=> "center",
-							"size"=> "xl",
-							"wrap"=> true,
-							"flex"=> 3
-						  ],
-						  */
-						  [
-							"type"=> "box",
-							"layout"=> "horizontal",
-							"contents"=> [
-							  [
-								"type"=> "text",
-								"text"=> "NEW",
-								"size"=> "xxs",
-								"color"=> "#ffffff",
-								"align"=> "center",
-								"gravity"=> "center"
-							  ]
-							],
-							"backgroundColor"=> "#EC3D44",
-							"paddingAll"=> "2px",
-							"paddingStart"=> "4px",
-							"paddingEnd"=> "4px",
-							"flex"=> 0,
-							"position"=> "absolute",
-							"offsetStart"=> "18px",
-							"offsetTop"=> "18px",
-							"cornerRadius"=> "100px",
-							"width"=> "48px",
-							"height"=> "25px"
-						  ],
-						  [
-							"type"=> "image",
-							"layout"=> "horizontal",
-							"url"=> "https=>//covid19.th-stat.com/img/logoDDC.png",
-							"size"=> "xs",
-							"align"=> "start",
-							"flex"=> 1
-						  ]
-						]
-					  ],
-					  "body"=> [
-						"type"=> "box",
-						"layout"=> "vertical",
-						"contents"=> [
-						  [
-							"type"=> "box",
-							"layout"=> "horizontal",
-							"contents"=> [
-							  [
-								"type"=> "image",
-								"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
-								"size"=> "md",
-								"align"=> "start"
-							  ],
-							  [
-								"type"=> "text",
-								"text"=> "Moderate",
-								"wrap"=> true,
-								"size"=> "lg",
-								"color"=> "#a57f23",
-								"gravity"=> "center"
-							  ]
-							],
-							"margin"=> "xxl"
-						  ],
-						  [
-							"type"=> "box",
-							"layout"=> "baseline",
-							"contents"=> [
-							  [
-								"type"=> "text",
-								"text"=> "85",
-								"color"=> "#a57f23",
-								"size"=> "5xl",
-								"align"=> "center"
-							  ],
-							  [
-								"type"=> "text",
-								"text"=> "US AQI",
-								"color"=> "#a57f23",
-								"size"=> "xs",
-								"margin"=> "sm"
-							  ]
-							]
-						  ]
-						]
-					  ],
-					  "styles"=> [
-						"body"=> [
-						  "backgroundColor"=> "#fdd74b"
-						]
+					'type'=> 'bubble',
+					'body'=> [
+					 'type'=> "box",
+					 'layout'=> "vertical",
+					 'contents'=> [
+					  [
+					   'type'=> "text",
+						"text"=> "NEW",
+						"size"=> "xxs",
+						"color"=> "#ffffff",
+						"align"=> "center",
+						"gravity"=> "center"
+					   ]
 					  ]
-					/* เอามาจากflex*/
-
+					 ]
+					]
 					]
 				];
-
+				
 
 
 
