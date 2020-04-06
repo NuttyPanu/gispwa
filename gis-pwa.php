@@ -445,7 +445,7 @@ if (!is_null($events['events'])) {
 			}
 
 
-			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
+			else if (preg_match('(สถานการณ์|สรุป)', $text) === 1) {
 
 				$handle1 = curl_init();
 				 
