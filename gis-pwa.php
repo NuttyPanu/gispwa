@@ -2553,6 +2553,7 @@ function replyMsg($event, $client)
 					$chk = chk_friend($uid);
 
 					if($chk == false){
+
 					   $a_ = array(
 
 									array(
@@ -2561,22 +2562,24 @@ function replyMsg($event, $client)
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
+
 					}
 
 					else{
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
+						$gid = $event['source']['groupId'];
+						$uid = $event['source']['userId'];
 
 					   $a_ = array(
 
 									array(
 										'type' => 'text',
-										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid 
+										'text' => 'pass'.$chk    
 									),
+
 									array(
 										'type' => 'text',
-										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ'.$chk 
-									)
+										'text' => 'uid:'.$uid.' gid:'.$gid    
+									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
 
