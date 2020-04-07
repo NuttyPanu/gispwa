@@ -645,7 +645,129 @@ if (!is_null($events['events'])) {
 				];
 				
 			}
+			else if ($text == '#flex') {
 
+				$messages = [
+					'type' => 'flex',
+					'altText' => 'This is a Flex Message',
+					'contents'=> [
+
+						  "type"=> "bubble",
+						  "header"=> [
+							"type"=> "box",
+							"layout"=> "vertical",
+							"contents"=> [
+							  [
+								"type"=> "box",
+								"layout"=> "horizontal",
+								"contents"=> [
+								  [
+									"type"=> "image",
+									"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip4.jpg",
+									"size"=> "lg",
+									"aspectMode"=> "cover",
+									"aspectRatio"=> "150=>66",
+									"gravity"=> "center",
+									"flex"=> 1
+								  ],
+								  [
+									"type"=> "box",
+									"layout"=> "horizontal",
+									"contents"=> [
+									  [
+										"type"=> "text",
+										"text"=> "NEW",
+										"size"=> "xs",
+										"color"=> "#ffffff",
+										"align"=> "center",
+										"gravity"=> "center"
+									  ]
+									],
+									"backgroundColor"=> "#EC3D44",
+									"paddingAll"=> "2px",
+									"paddingStart"=> "4px",
+									"paddingEnd"=> "4px",
+									"flex"=> 0,
+									"position"=> "absolute",
+									"offsetStart"=> "18px",
+									"offsetTop"=> "18px",
+									"cornerRadius"=> "100px",
+									"width"=> "48px",
+									"height"=> "25px"
+								  ]
+								]
+							  ]
+							],
+							"paddingAll"=> "0px"
+						  ],
+						  "body"=> [
+							"type"=> "box",
+							"layout"=> "vertical",
+							"contents"=> [
+							  [
+								"type"=> "box",
+								"layout"=> "vertical",
+								"contents"=> [
+								  [
+									"type"=> "box",
+									"layout"=> "vertical",
+									"contents"=> [
+									  [
+										"type"=> "text",
+										"contents"=> [],
+										"size"=> "xl",
+										"wrap"=> true,
+										"text"=> "Cony Residence",
+										"color"=> "#ffffff",
+										"weight"=> "bold"
+									  ],
+									  [
+										"type"=> "text",
+										"text"=> "3 Bedrooms, ¥35,000",
+										"color"=> "#ffffffcc",
+										"size"=> "sm"
+									  ]
+									],
+									"spacing"=> "sm"
+								  ],
+								  [
+									"type"=> "box",
+									"layout"=> "vertical",
+									"contents"=> [
+									  [
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> [
+										  [
+											"type"=> "text",
+											"contents"=> [],
+											"size"=> "sm",
+											"wrap"=> true,
+											"margin"=> "lg",
+											"color"=> "#ffffffde",
+											"text"=> "Private Pool, Delivery box, Floor heating, Private Cinema"
+										  ]
+										]
+									  ]
+									],
+									"paddingAll"=> "13px",
+									"backgroundColor"=> "#ffffff1A",
+									"cornerRadius"=> "2px",
+									"margin"=> "xl"
+								  ]
+								]
+							  ]
+							],
+							"paddingAll"=> "20px",
+							"backgroundColor"=> "#464F69"
+						  ]
+
+
+
+					]
+				];
+				
+			}
 			else if (preg_match('(#เช็ค|#check)', $text) === 1) {
 
 				$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
