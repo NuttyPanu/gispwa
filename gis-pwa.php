@@ -2564,6 +2564,8 @@ function replyMsg($event, $client)
 					}
 
 					else{
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
 
 						//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
 
