@@ -2564,43 +2564,6 @@ function replyMsg($event, $client)
 					}
 
 					else{
-					   $a1 = array(
-
-									array(
-										'type' => 'text',
-										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid 
-									),
-								);
-						$client->replyMessage1($event['replyToken'],$a1);
-
-						//$gid = $event['source']['groupId'];
-						//$uid = $event['source']['userId'];
-
-
-						$today = date("Y-m-d");
-						//$today = "2018-07-01";
-						$txt = "";
-						$DayOfWeek = date("w", strtotime($today));
-						if($DayOfWeek == 0 )  // 0 = Sunday, 6 = Saturday;
-						{
-							$txt = "ให้ผมพักบ้างไม่ได้หรอ วันอาทิตย์เป็นวันหยุดนะครับ ชิ...";
-							//echo "$today = <font color=red>Holiday(Sunday)</font><br>";
-						}
-
-						else if($DayOfWeek ==6)  // 0 = Sunday, 6 = Saturday;
-						{
-							$txt = "ให้ผมพักบ้างไม่ได้หรอ วันเสาร์เป็นวันหยุดนะครับ ชิ...";
-							//echo "$today = <font color=red>Holiday(Saturday)</font><br>";
-						}
-
-						else{
-							$speak=array("ตั้งใจทำงานดีมาก","ขยันแบบนี้ องค์กรชอบครับ","ขอให้ตั้งใจทำงานแบบนี้ต่อไปนะครับ","ขยันทำงานแบบนี้ต่อไปนะ","ขอมอบตำแหน่งนักวิชาการเพิ่มสิทธิ์ให้คุณ");
-							$random_keys=array_rand($speak,1);
-							$txt = $speak[$random_keys];
-							//echo "$today = <font color=blue>No Holiday</font><br>";
-						}
-
-
 
 						//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
 
@@ -2643,49 +2606,6 @@ function replyMsg($event, $client)
 						*/
 						///*
 
-						$url;
-						if($gid == ''){
-							$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
-						}
-						else{
-							$url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-						}
-
-						$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
-
-						$header = array(
-							"Content-Type: application/json",
-							'Authorization: Bearer '.$channelAccessToken2,
-						);
-						$ch = curl_init();
-						//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
-						//curl_setopt($ch, CURLOPT_VERBOSE, 1);
-						//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-						curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-						//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-						curl_setopt($ch, CURLOPT_FAILONERROR, 0);		;
-						//curl_setopt($ch, CURLOPT_HTTPGET, 1);
-						//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
-						//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-						curl_setopt($ch, CURLOPT_HEADER, 0);
-						curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-						curl_setopt($ch, CURLOPT_URL, $url);
-						
-						$profile =  curl_exec($ch);
-						curl_close($ch);
-						$obj = json_decode($profile);
-
-						$name = urlencode($obj->displayName);
-						//$obj->displayName."(".$obj->statusMessage.")
-						//$name = "test";		
-						/*
-						$messages = [
-						'type' => 'text',
-						'text' => 'คุณ '.$obj->displayName.' โปรดรอสักครู่... ระบบกำลังเพิ่มสิทธิ์'
-						];
-						*/
-					
 						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
 								$chl = curl_init();
 								curl_setopt( $chl, CURLOPT_URL, $urllink); 
@@ -2710,28 +2630,11 @@ function replyMsg($event, $client)
 								$res = curl_exec($chl);		
 								curl_close($chl);
 
-
-						/*	
-						$messages = [
-						'type' => 'text',
-						'text' => $res
-						];
-						*/
-
-						/*
-						$messages = [					
-						'type' => 'sticker',
-						 'packageId' => 1,
-						 'stickerId' => 1
-						];
-						*/
-
-						
 					   $a_ = array(
 
 									array(
 										'type' => 'text',
-										'text' => $obj->displayName." ".$txt          
+										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid         
 									),
 
 									array(
@@ -2759,6 +2662,8 @@ function replyMsg($event, $client)
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
 					else{
+                    //$gid = $event['source']['groupId'];
+                    //$uid = $event['source']['userId'];
 					   $a1 = array(
 
 									array(
@@ -2767,9 +2672,8 @@ function replyMsg($event, $client)
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a1);
-                    //$gid = $event['source']['groupId'];
-                    //$uid = $event['source']['userId'];
 
+					
 					$today = date("Y-m-d");
 					//$today = "2018-07-01";
 					$txt = "";
