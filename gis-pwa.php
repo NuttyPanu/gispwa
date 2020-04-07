@@ -131,6 +131,12 @@ function get_profile($fullurl)
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test&uid=R058c5b58c97773c8d032eef585b9dbd0
 
+//https://gispwa.herokuapp.com/gis-pwa.php?send=text&text=ข้อความ&id=U87b618904b23471df5c43312458c016b // nut
+//https://gispwa.herokuapp.com/gis-pwa.php?send=text&text=ข้อความ&id=C6cf4977144b0d1c6aa8b5be22b04272c // METER
+//https://gispwa.herokuapp.com/gis-pwa.php?send=text&text=ข้อความ&id=C6c9793d99e321e4659397c52365a68d3 // กภส
+//https://gispwa.herokuapp.com/gis-pwa.php?send=text&text=ข้อความ&id=C6d63e07eb0065b5019b861f11073fc41 // gis_dev
+
+
 if ( $_GET['send'] == 'text' )
 {
 	$text = array(
@@ -688,7 +694,7 @@ if (!is_null($events['events'])) {
 			
             else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1) {	
 
-				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.jpg", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg");
+				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.jpg", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg",, "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid7.jpg");
 
 				$random_keys=array_rand($t,1);
 				$pic = $t[$random_keys];
