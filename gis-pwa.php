@@ -2724,7 +2724,7 @@ function replyMsg($event, $client)
 					}
 				}
 
-				else if(preg_match('(#ลบสิทธิ|#เพิ่มสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
+				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 					$chk = chk_friend($uid);
