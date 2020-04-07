@@ -2058,26 +2058,20 @@ function replyMsg1($event, $client)
 function replyMsg($event, $client)
 {
 
-  if($event['source']['groupId'] == $GISPWA || $event['source']['groupId'] == $METER || $event['source']['groupId'] == $GISDEV || $event['source']['userId'] == $NUT){
+  //if($event['source']['groupId'] == $GISPWA || $event['source']['groupId'] == $METER || $event['source']['groupId'] == $GISDEV || $event['source']['userId'] == $NUT){
 
-	/*
     $uid;
     $gid;
     $ty  = $event['source']['type'];    //user,group
     //$uid = $event['source']['userId'];
     //$gid = $event['source']['groupId'];
-
     if($event['source']['userId']){
         $uid = $event['source']['userId'];
     }
     if($event['source']['groupId']){
         $uid = $event['source']['groupId'];
     }
- */
-
-    $ty  = $event['source']['type'];    //user,group
-    $uid = $event['source']['userId'];
-    $gid = $event['source']['groupId'];
+ 
     $id = $event['message']['id'];
  
 
@@ -2553,31 +2547,8 @@ function replyMsg($event, $client)
 
 
 				else if(preg_match('(#เพิ่มสิทธิ|#เพิ่มสิทธิ์|#เพิ่มสิทธิ์มาตร|#เพิ่มสิทธิ์ระบบมาตร|#เพิ่มสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
-
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
-
-					   $a_ = array(
-
-									array(
-										'type' => 'text',
-										'text' => 'pass'    
-									),
-
-									array(
-										'type' => 'text',
-										'text' => 'uid:'.$uid.' gid:'.$gid    
-									),
-								);
-						$client->replyMessage1($event['replyToken'],$a_);
-
-
-				}
-
-				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
-
 					$chk = chk_friend($uid);
 					if($chk == false){
 					   $a_ = array(
@@ -2590,18 +2561,11 @@ function replyMsg($event, $client)
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
 					else{
-                    //$gid = $event['source']['groupId'];
-                    //$uid = $event['source']['userId'];
-					   $a1 = array(
 
-									array(
-										'type' => 'text',
-										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid 
-									),
-								);
-						$client->replyMessage1($event['replyToken'],$a1);
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
 
-					
+
 					$today = date("Y-m-d");
 					//$today = "2018-07-01";
 					$txt = "";
@@ -2624,6 +2588,7 @@ function replyMsg($event, $client)
 						$txt = $speak[$random_keys];
 						//echo "$today = <font color=blue>No Holiday</font><br>";
 					}
+
 
 
 					//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
@@ -2667,14 +2632,7 @@ function replyMsg($event, $client)
 					*/
 					///*
 
-					$url;
-					if($gid == ''){
-						$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
-					}
-					else{
-						$url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-					}
-
+					$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
 					$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
 
 					$header = array(
@@ -2709,6 +2667,184 @@ function replyMsg($event, $client)
 					'text' => 'คุณ '.$obj->displayName.' โปรดรอสักครู่... ระบบกำลังเพิ่มสิทธิ์'
 					];
 					*/
+					
+						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
+								$chl = curl_init();
+								curl_setopt( $chl, CURLOPT_URL, $urllink); 
+								curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
+								curl_setopt($chl, CURLOPT_POST, 1);
+								//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
+								//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
+								//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
+								//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
+								curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
+								curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+
+								  $values = array(
+									'gid' => $gid,
+									'uid' => $uid,
+									'name' => $name,
+									'type' => 'meter_add',
+									'data' => $data
+								  );
+								$params = http_build_query($values);
+								curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
+								$res = curl_exec($chl);		
+								curl_close($chl);
+
+
+						/*	
+						$messages = [
+						'type' => 'text',
+						'text' => $res
+						];
+						*/
+
+						/*
+						$messages = [					
+						'type' => 'sticker',
+						 'packageId' => 1,
+						 'stickerId' => 1
+						];
+						*/
+
+						
+					   $a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => $obj->displayName." ".$txt          
+									),
+
+									array(
+										'type' => 'text',
+										'text' => $res . '' 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+					}
+				}
+
+				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
+					$chk = chk_friend($uid);
+
+					if($chk == false){
+					   $a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ'.$chk 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+					}
+					else{
+						$gid = $event['source']['groupId'];
+						$uid = $event['source']['userId'];
+
+
+						$today = date("Y-m-d");
+						//$today = "2018-07-01";
+						$txt = "";
+						$DayOfWeek = date("w", strtotime($today));
+						if($DayOfWeek == 0 )  // 0 = Sunday, 6 = Saturday;
+						{
+							$txt = "ให้ผมพักบ้างไม่ได้หรอ วันอาทิตย์เป็นวันหยุดนะครับ ชิ...";
+							//echo "$today = <font color=red>Holiday(Sunday)</font><br>";
+						}
+
+						else if($DayOfWeek ==6)  // 0 = Sunday, 6 = Saturday;
+						{
+							$txt = "ให้ผมพักบ้างไม่ได้หรอ วันเสาร์เป็นวันหยุดนะครับ ชิ...";
+							//echo "$today = <font color=red>Holiday(Saturday)</font><br>";
+						}
+
+						else{
+							$speak=array("ตั้งใจทำงานดีมาก","ขยันแบบนี้ องค์กรชอบครับ","ขอให้ตั้งใจทำงานแบบนี้ต่อไปนะครับ","ขยันทำงานแบบนี้ต่อไปนะ","ขอมอบตำแหน่งนักวิชาการเพิ่มสิทธิ์ให้คุณ");
+							$random_keys=array_rand($speak,1);
+							$txt = $speak[$random_keys];
+							//echo "$today = <font color=blue>No Holiday</font><br>";
+						}
+
+
+						//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
+
+						//$div = explode(" ",$getA);
+						$div = explode(" ",$msg);
+						/*
+						echo $div[0]; //#เพิ่มสิทธิ์
+						echo '<br>';
+						echo $div[1];
+						echo '<br>';
+						echo $div[2];
+						echo '<br>';
+						echo $div[3];
+						echo '<br>';
+						echo $div[4];
+						echo '<br>';
+						echo $div[5];
+						echo '<br>';
+						echo 'count array= '.count($div);
+						echo '<br>';
+						*/
+						$data = array();
+
+						for ($x = 1; $x <= count($div); $x++) {
+							//echo "The number is: $x <br>";
+							array_push($data, $div[$x]);
+						} 
+						/*
+						echo $data[0]; //#เพิ่มสิทธิ์
+						echo '<br>';
+						echo $data[1];
+						echo '<br>';
+						echo $data[2];
+						echo '<br>';
+						echo $data[3];
+						echo '<br>';
+						echo $data[4];
+						echo '<br>';
+						echo $data[5];
+						*/
+						///*
+
+						$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
+						$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+
+						$header = array(
+							"Content-Type: application/json",
+							'Authorization: Bearer '.$channelAccessToken2,
+						);
+						$ch = curl_init();
+						//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
+						//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+						//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+						//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+						curl_setopt($ch, CURLOPT_FAILONERROR, 0);		;
+						//curl_setopt($ch, CURLOPT_HTTPGET, 1);
+						//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+						//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+						curl_setopt($ch, CURLOPT_HEADER, 0);
+						curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+						curl_setopt($ch, CURLOPT_URL, $url);
+						
+						$profile =  curl_exec($ch);
+						curl_close($ch);
+						$obj = json_decode($profile);
+
+						$name = urlencode($obj->displayName);
+						//$obj->displayName."(".$obj->statusMessage.")
+						//$name = "test";		
+						/*
+						$messages = [
+						'type' => 'text',
+						'text' => 'คุณ '.$obj->displayName.' โปรดรอสักครู่... ระบบกำลังเพิ่มสิทธิ์'
+						];
+						*/
 
 						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
 								$chl = curl_init();
@@ -3439,7 +3575,7 @@ function replyMsg($event, $client)
     }
 
 
-  }//endif group
+  //}//endif group
 }
 //----------------------------จบฟังก์ชั่น ReplyMessage----------------------------------//
  
