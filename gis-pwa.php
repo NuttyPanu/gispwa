@@ -2059,18 +2059,25 @@ function replyMsg($event, $client)
 {
 
   if($event['source']['groupId'] == $GISPWA || $event['source']['groupId'] == $METER || $event['source']['groupId'] == $GISDEV || $event['source']['userId'] == $NUT){
+
+	/*
     $uid;
     $gid;
     $ty  = $event['source']['type'];    //user,group
     //$uid = $event['source']['userId'];
     //$gid = $event['source']['groupId'];
+
     if($event['source']['userId']){
         $uid = $event['source']['userId'];
     }
     if($event['source']['groupId']){
         $uid = $event['source']['groupId'];
     }
- 
+ */
+
+    $ty  = $event['source']['type'];    //user,group
+    $uid = $event['source']['userId'];
+    $gid = $event['source']['groupId'];
     $id = $event['message']['id'];
  
 
