@@ -2546,6 +2546,7 @@ function replyMsg($event, $client)
 
 
 				else if(preg_match('(#เพิ่มสิทธิ|#เพิ่มสิทธิ์|#เพิ่มสิทธิ์มาตร|#เพิ่มสิทธิ์ระบบมาตร|#เพิ่มสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
+
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
@@ -2563,6 +2564,14 @@ function replyMsg($event, $client)
 					}
 
 					else{
+					   $a1 = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a1);
 
 						//$gid = $event['source']['groupId'];
 						//$uid = $event['source']['userId'];
@@ -2750,6 +2759,14 @@ function replyMsg($event, $client)
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
 					else{
+					   $a1 = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a1);
                     //$gid = $event['source']['groupId'];
                     //$uid = $event['source']['userId'];
 
