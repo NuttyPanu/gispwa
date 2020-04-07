@@ -2550,30 +2550,11 @@ function replyMsg($event, $client)
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
-					$chk = chk_friend($uid);
-
-					if($chk == false){
-
 					   $a_ = array(
 
 									array(
 										'type' => 'text',
-										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ'.$chk 
-									),
-								);
-						$client->replyMessage1($event['replyToken'],$a_);
-
-					}
-
-					else{
-						$gid = $event['source']['groupId'];
-						$uid = $event['source']['userId'];
-
-					   $a_ = array(
-
-									array(
-										'type' => 'text',
-										'text' => 'pass'.$chk    
+										'text' => 'pass'    
 									),
 
 									array(
@@ -2582,7 +2563,8 @@ function replyMsg($event, $client)
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
-					}
+
+
 				}
 
 				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
