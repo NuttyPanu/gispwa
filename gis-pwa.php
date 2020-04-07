@@ -2548,7 +2548,9 @@ function replyMsg($event, $client)
 				else if(preg_match('(#เพิ่มสิทธิ|#เพิ่มสิทธิ์|#เพิ่มสิทธิ์มาตร|#เพิ่มสิทธิ์ระบบมาตร|#เพิ่มสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
+
 					$chk = chk_friend($uid);
+
 					if($chk == false){
 					   $a_ = array(
 
@@ -2559,113 +2561,121 @@ function replyMsg($event, $client)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
-					else{
-
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
-
-
-					$today = date("Y-m-d");
-					//$today = "2018-07-01";
-					$txt = "";
-					$DayOfWeek = date("w", strtotime($today));
-					if($DayOfWeek == 0 )  // 0 = Sunday, 6 = Saturday;
-					{
-						$txt = "ให้ผมพักบ้างไม่ได้หรอ วันอาทิตย์เป็นวันหยุดนะครับ ชิ...";
-						//echo "$today = <font color=red>Holiday(Sunday)</font><br>";
-					}
-
-					else if($DayOfWeek ==6)  // 0 = Sunday, 6 = Saturday;
-					{
-						$txt = "ให้ผมพักบ้างไม่ได้หรอ วันเสาร์เป็นวันหยุดนะครับ ชิ...";
-						//echo "$today = <font color=red>Holiday(Saturday)</font><br>";
-					}
 
 					else{
-						$speak=array("ตั้งใจทำงานดีมาก","ขยันแบบนี้ องค์กรชอบครับ","ขอให้ตั้งใจทำงานแบบนี้ต่อไปนะครับ","ขยันทำงานแบบนี้ต่อไปนะ","ขอมอบตำแหน่งนักวิชาการเพิ่มสิทธิ์ให้คุณ");
-						$random_keys=array_rand($speak,1);
-						$txt = $speak[$random_keys];
-						//echo "$today = <font color=blue>No Holiday</font><br>";
-					}
+
+						//$gid = $event['source']['groupId'];
+						//$uid = $event['source']['userId'];
+
+
+						$today = date("Y-m-d");
+						//$today = "2018-07-01";
+						$txt = "";
+						$DayOfWeek = date("w", strtotime($today));
+						if($DayOfWeek == 0 )  // 0 = Sunday, 6 = Saturday;
+						{
+							$txt = "ให้ผมพักบ้างไม่ได้หรอ วันอาทิตย์เป็นวันหยุดนะครับ ชิ...";
+							//echo "$today = <font color=red>Holiday(Sunday)</font><br>";
+						}
+
+						else if($DayOfWeek ==6)  // 0 = Sunday, 6 = Saturday;
+						{
+							$txt = "ให้ผมพักบ้างไม่ได้หรอ วันเสาร์เป็นวันหยุดนะครับ ชิ...";
+							//echo "$today = <font color=red>Holiday(Saturday)</font><br>";
+						}
+
+						else{
+							$speak=array("ตั้งใจทำงานดีมาก","ขยันแบบนี้ องค์กรชอบครับ","ขอให้ตั้งใจทำงานแบบนี้ต่อไปนะครับ","ขยันทำงานแบบนี้ต่อไปนะ","ขอมอบตำแหน่งนักวิชาการเพิ่มสิทธิ์ให้คุณ");
+							$random_keys=array_rand($speak,1);
+							$txt = $speak[$random_keys];
+							//echo "$today = <font color=blue>No Holiday</font><br>";
+						}
 
 
 
-					//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
+						//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
 
-					//$div = explode(" ",$getA);
-					$div = explode(" ",$msg);
-					/*
-					echo $div[0]; //#เพิ่มสิทธิ์
-					echo '<br>';
-					echo $div[1];
-					echo '<br>';
-					echo $div[2];
-					echo '<br>';
-					echo $div[3];
-					echo '<br>';
-					echo $div[4];
-					echo '<br>';
-					echo $div[5];
-					echo '<br>';
-					echo 'count array= '.count($div);
-					echo '<br>';
-					*/
-					$data = array();
+						//$div = explode(" ",$getA);
+						$div = explode(" ",$msg);
+						/*
+						echo $div[0]; //#เพิ่มสิทธิ์
+						echo '<br>';
+						echo $div[1];
+						echo '<br>';
+						echo $div[2];
+						echo '<br>';
+						echo $div[3];
+						echo '<br>';
+						echo $div[4];
+						echo '<br>';
+						echo $div[5];
+						echo '<br>';
+						echo 'count array= '.count($div);
+						echo '<br>';
+						*/
+						$data = array();
 
-					for ($x = 1; $x <= count($div); $x++) {
-						//echo "The number is: $x <br>";
-						array_push($data, $div[$x]);
-					} 
-					/*
-					echo $data[0]; //#เพิ่มสิทธิ์
-					echo '<br>';
-					echo $data[1];
-					echo '<br>';
-					echo $data[2];
-					echo '<br>';
-					echo $data[3];
-					echo '<br>';
-					echo $data[4];
-					echo '<br>';
-					echo $data[5];
-					*/
-					///*
+						for ($x = 1; $x <= count($div); $x++) {
+							//echo "The number is: $x <br>";
+							array_push($data, $div[$x]);
+						} 
+						/*
+						echo $data[0]; //#เพิ่มสิทธิ์
+						echo '<br>';
+						echo $data[1];
+						echo '<br>';
+						echo $data[2];
+						echo '<br>';
+						echo $data[3];
+						echo '<br>';
+						echo $data[4];
+						echo '<br>';
+						echo $data[5];
+						*/
+						///*
 
-					$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
-					$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+						$url;
+						if($gid == ''){
+							$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
+						}
+						else{
+							$url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+						}
 
-					$header = array(
-						"Content-Type: application/json",
-						'Authorization: Bearer '.$channelAccessToken2,
-					);
-					$ch = curl_init();
-					//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
-					//curl_setopt($ch, CURLOPT_VERBOSE, 1);
-					//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-					//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-					curl_setopt($ch, CURLOPT_FAILONERROR, 0);		;
-					//curl_setopt($ch, CURLOPT_HTTPGET, 1);
-					//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
-					//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-					curl_setopt($ch, CURLOPT_HEADER, 0);
-					curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-					curl_setopt($ch, CURLOPT_URL, $url);
-					
-					$profile =  curl_exec($ch);
-					curl_close($ch);
-					$obj = json_decode($profile);
+						$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
 
-					$name = urlencode($obj->displayName);
-					//$obj->displayName."(".$obj->statusMessage.")
-					//$name = "test";		
-					/*
-					$messages = [
-					'type' => 'text',
-					'text' => 'คุณ '.$obj->displayName.' โปรดรอสักครู่... ระบบกำลังเพิ่มสิทธิ์'
-					];
-					*/
+						$header = array(
+							"Content-Type: application/json",
+							'Authorization: Bearer '.$channelAccessToken2,
+						);
+						$ch = curl_init();
+						//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
+						//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+						//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+						//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+						curl_setopt($ch, CURLOPT_FAILONERROR, 0);		;
+						//curl_setopt($ch, CURLOPT_HTTPGET, 1);
+						//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+						//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+						curl_setopt($ch, CURLOPT_HEADER, 0);
+						curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+						curl_setopt($ch, CURLOPT_URL, $url);
+						
+						$profile =  curl_exec($ch);
+						curl_close($ch);
+						$obj = json_decode($profile);
+
+						$name = urlencode($obj->displayName);
+						//$obj->displayName."(".$obj->statusMessage.")
+						//$name = "test";		
+						/*
+						$messages = [
+						'type' => 'text',
+						'text' => 'คุณ '.$obj->displayName.' โปรดรอสักครู่... ระบบกำลังเพิ่มสิทธิ์'
+						];
+						*/
 					
 						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
 								$chl = curl_init();
@@ -2727,6 +2737,7 @@ function replyMsg($event, $client)
 				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
+
 					$chk = chk_friend($uid);
 					if($chk == false){
 					   $a_ = array(
@@ -2739,9 +2750,8 @@ function replyMsg($event, $client)
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
 					else{
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
-
+                    //$gid = $event['source']['groupId'];
+                    //$uid = $event['source']['userId'];
 
 					$today = date("Y-m-d");
 					//$today = "2018-07-01";
@@ -2808,7 +2818,14 @@ function replyMsg($event, $client)
 					*/
 					///*
 
-					$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
+					$url;
+					if($gid == ''){
+						$url = 'https://api.line.me/v2/bot/profile/'.$uid;			//user
+					}
+					else{
+						$url = 'https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+					}
+
 					$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
 
 					$header = array(
