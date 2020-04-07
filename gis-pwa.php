@@ -2582,7 +2582,7 @@ function replyMsg($event, $client)
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
-
+					}
 				}
 
 				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
