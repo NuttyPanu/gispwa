@@ -2567,85 +2567,19 @@ function replyMsg($event, $client)
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
-						//$getA = "#เพิ่มสิทธิ์ 12974 12975 111 1211 8879";
-
-						//$div = explode(" ",$getA);
-						$div = explode(" ",$msg);
-						/*
-						echo $div[0]; //#เพิ่มสิทธิ์
-						echo '<br>';
-						echo $div[1];
-						echo '<br>';
-						echo $div[2];
-						echo '<br>';
-						echo $div[3];
-						echo '<br>';
-						echo $div[4];
-						echo '<br>';
-						echo $div[5];
-						echo '<br>';
-						echo 'count array= '.count($div);
-						echo '<br>';
-						*/
-						$data = array();
-
-						for ($x = 1; $x <= count($div); $x++) {
-							//echo "The number is: $x <br>";
-							array_push($data, $div[$x]);
-						} 
-						/*
-						echo $data[0]; //#เพิ่มสิทธิ์
-						echo '<br>';
-						echo $data[1];
-						echo '<br>';
-						echo $data[2];
-						echo '<br>';
-						echo $data[3];
-						echo '<br>';
-						echo $data[4];
-						echo '<br>';
-						echo $data[5];
-						*/
-						///*
-
-						$urllink = 'https://gisweb1.pwa.co.th/meterstat/service/userline.php';
-								$chl = curl_init();
-								curl_setopt( $chl, CURLOPT_URL, $urllink); 
-								curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
-								curl_setopt($chl, CURLOPT_POST, 1);
-								//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
-								//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
-								//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
-								//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
-								curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
-								curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
-
-								  $values = array(
-									'gid' => $gid,
-									'uid' => $uid,
-									'name' => $name,
-									'type' => 'meter_add',
-									'data' => $data
-								  );
-								$params = http_build_query($values);
-								curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
-								$res = curl_exec($chl);		
-								curl_close($chl);
-
 					   $a_ = array(
 
 									array(
 										'type' => 'text',
-										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid         
+										'text' => 'pass'.$chk.' uid:'.$uid.' gid:'.$gid 
 									),
-
 									array(
 										'type' => 'text',
-										'text' => $res . '' 
-									),
+										'text' => 'ถ้าไม่แอดผมเป็นเพื่อน ผมก็ไม่ทำงานให้หรอกครับ'.$chk 
+									)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
-					}
+
 				}
 
 				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
