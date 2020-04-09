@@ -248,6 +248,20 @@ if (!is_null($events['events'])) {
 
 			}
 
+			else if ($text == 'กอล์ฟ' || $text == 'กอลฟ') {
+				
+				$messages = [
+					'type' => 'image',
+					'originalContentUrl' => "https://gispwa.herokuapp.com/image/7A669CAD-7C65-4C86-800A-F4E87ECB59BB.jpeg",
+					'previewImageUrl' => "https://gispwa.herokuapp.com/image/7A669CAD-7C65-4C86-800A-F4E87ECB59BB.jpeg",
+					
+					'sender' => [
+						'name' => "Golf",
+						'iconUrl' => "https://gispwa.herokuapp.com/image/8A83B3B4-7C25-4A7E-896C-16658653C06B.jpeg",
+					]
+					];
+				
+			}
 			else if ($text == '#อากาศ' || $text == '#คุณภาพอากาศ') {
 
 				
