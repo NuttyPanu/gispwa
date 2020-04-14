@@ -28,7 +28,31 @@ $GISDEV= 'C6d63e07eb0065b5019b861f11073fc41';
 
 $key_notify=array("Nutty"=>"OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv","GIS_DEV"=>"gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE","GIS_PWA"=>"6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns","METER_GIS"=>"MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW");
 
-function notify($key_noti,$message){
+function notify($ugid,$message){
+	$key_noti;
+	if($ugid == 'C6c9793d99e321e4659397c52365a68d3'){// gis_pwa
+
+          $key_noti = "6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns";
+
+	}
+	else if($ugid == 'C6cf4977144b0d1c6aa8b5be22b04272c'){// METER
+
+          $key_noti = "MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW";
+
+	}
+        else if($ugid == 'C6d63e07eb0065b5019b861f11073fc41'){// $GISDEV
+
+          $key_noti = "gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE";
+
+	}
+	else if($ugid == 'U87b618904b23471df5c43312458c016b'){// $NUT
+
+          $key_noti = "OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv";
+
+	}
+	
+
+	
 	//$message = $message.'&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg'.'&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg';
 
 	//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
@@ -501,7 +525,15 @@ if (!is_null($events['events'])) {
 
 
 			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
-				$key_noti =$key_notify['Nutty'];
+                                $ugid;
+				if($event['source']['groupId']){
+                                   $ugid = $event['source']['groupId'];
+				}
+				else{
+                                   $ugid = $event['source']['userId'];
+				}
+				
+				//$key_noti =$key_notify['Nutty'];
 				//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
 				$message = '';
 				$memo_=array(
@@ -543,7 +575,7 @@ if (!is_null($events['events'])) {
 					$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
 				}				
 
-				notify($key_noti,$message);
+				notify($ugid,$message);
 
 			}
 
