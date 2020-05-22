@@ -284,7 +284,7 @@ if (!is_null($events['events'])) {
 
 			if ($text == '#EGA' || $text == '#ega') {
 
-				$key_noti= 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';
+				$key_noti= $gid;
 				$message= 'EGA';
 				notify($key_noti,$message);
 
