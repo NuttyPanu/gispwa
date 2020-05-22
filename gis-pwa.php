@@ -190,7 +190,7 @@ if ( $_GET['send'] == 'location' )
 if ( $_GET['send'] == 'notify' )
 {
 	$key_noti='OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';
-	$msg=$_GET['text'];
+	$msg=$_REQUEST['msg'];
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
 	// SSL USE 
@@ -199,10 +199,7 @@ if ( $_GET['send'] == 'notify' )
 	//POST 
 	curl_setopt( $chOne, CURLOPT_POST, 1); 
 	// Message 
-	curl_setopt( $chOne, CURLOPT_POSTFIELDS, $msg); 
-	//ถ้าต้องการใส่รุป ให้ใส่ 2 parameter imageThumbnail และimageFullsize
-	//curl_setopt( $chOne, CURLOPT_POSTFIELDS, //"message=$message&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg"); 
-	//"message=$message");
+	curl_setopt( $chOne, CURLOPT_POSTFIELDS, "message=$msg"); 
 	// follow redirects 
 	curl_setopt( $chOne, CURLOPT_FOLLOWLOCATION, 1); 
 	//ADD header array 
