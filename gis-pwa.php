@@ -294,6 +294,19 @@ if (!is_null($events['events'])) {
 				];
 
 			}
+			else if (preg_match('(ประกาศ|แจ้ง)', $text) === 1) {			
+
+				$key_noti= $gid;
+				$message= $text;
+				notify($key_noti,$message);
+
+				$messages = [
+				'type' => 'text',
+				'text' => 'รับทราบครับ'
+				];
+
+			}			
+			
 
 			else if ($text == 'กอล์ฟ' || $text == 'กอลฟ') {
 				
