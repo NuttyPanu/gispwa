@@ -28,30 +28,23 @@ $GISDEV= 'C6d63e07eb0065b5019b861f11073fc41';
 
 $key_notify=array("Nutty"=>"OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv","GIS_DEV"=>"gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE","GIS_PWA"=>"6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns","METER_GIS"=>"MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW");
 
-function notify($ugid,$message){
-	$key_noti;
-	if($ugid == 'C6c9793d99e321e4659397c52365a68d3'){// gis_pwa
-
+function notify($id,$msg){
+	$key_noti='OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';
+	if($id == 'C6c9793d99e321e4659397c52365a68d3'){// gis_pwa
           $key_noti = "6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns";
-
 	}
-	else if($ugid == 'C6cf4977144b0d1c6aa8b5be22b04272c'){// METER
-
+	else if($id == 'C6cf4977144b0d1c6aa8b5be22b04272c'){// METER
           $key_noti = "MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW";
-
 	}
-        else if($ugid == 'C6d63e07eb0065b5019b861f11073fc41'){// $GISDEV
-
+        else if($id == 'C6d63e07eb0065b5019b861f11073fc41'){// $GISDEV
           $key_noti = "gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE";
-
 	}
-	else if($ugid == 'U87b618904b23471df5c43312458c016b'){// $NUT
-
+	else if($id == 'U87b618904b23471df5c43312458c016b'){// $NUT
           $key_noti = "OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv";
-
 	}
-	
-
+	else{
+	  $key_noti = "OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv";
+	}
 	
 	//$message = $message.'&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg'.'&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg';
 
@@ -64,10 +57,10 @@ function notify($ugid,$message){
 	//POST 
 	curl_setopt( $chOne, CURLOPT_POST, 1); 
 	// Message 
-	curl_setopt( $chOne, CURLOPT_POSTFIELDS, $message); 
+	curl_setopt( $chOne, CURLOPT_POSTFIELDS, $msg); 
 	//ถ้าต้องการใส่รุป ให้ใส่ 2 parameter imageThumbnail และimageFullsize
-	curl_setopt( $chOne, CURLOPT_POSTFIELDS, //"message=$message&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg"); 
-	"message=$message");
+	//curl_setopt( $chOne, CURLOPT_POSTFIELDS, //"message=$message&imageThumbnail=https://gispwaai.herokuapp.com/hbd.jpg&imageFullsize=https://gispwaai.herokuapp.com/hbd.jpg"); 
+	//"message=$message");
 	// follow redirects 
 	curl_setopt( $chOne, CURLOPT_FOLLOWLOCATION, 1); 
 	//ADD header array 
@@ -79,7 +72,8 @@ function notify($ugid,$message){
 	//Check error 
 	if(curl_error($chOne)) { echo 'error:' . curl_error($chOne); } 
 	else { $result_ = json_decode($result, true); 
-	echo "status : ".$result_['status']; echo "message : ". $result_['message']; } 
+	echo "status : ".$result_['status']; 
+	echo "message : ". $result_['message']; } 
 	//Close connect 
 	curl_close( $chOne ); 
 
