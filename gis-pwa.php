@@ -2745,6 +2745,25 @@ function replyMsg($event, $client)
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
 					else{
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle_pwacode.php?ly='.$div[1]; 
+						$chl = curl_init();
+						curl_setopt( $chl, CURLOPT_URL, $urllink); 
+						curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
+						curl_setopt($chl, CURLOPT_POST, 0);
+						curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
+						curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+						$res = curl_exec($chl);		
+						curl_close($chl);
+
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'การอัพโหลด '.$div[1].' '.$res 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);						
+						/*
 						$a_ = array(
 
 									array(
@@ -2753,6 +2772,7 @@ function replyMsg($event, $client)
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
+						*/
 					}
 				}
 
