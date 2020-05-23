@@ -2745,7 +2745,7 @@ function replyMsg($event, $client)
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
 					else{
-						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle_pwacode.php?ly='.$div[1]; 
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle_pwacode.php?name='.$div[1]; 
 						$chl = curl_init();
 						curl_setopt( $chl, CURLOPT_URL, $urllink); 
 						curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
