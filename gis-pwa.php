@@ -2738,7 +2738,8 @@ function replyMsg($event, $client)
 
 									array(
 										'type' => 'text',
-										'text' => $obj['detail'] 
+										'text' => $obj->detail
+										
 									),
 								);
 						$client->replyMessage1($event['replyToken'],$a_);						
