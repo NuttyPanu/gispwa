@@ -2732,13 +2732,13 @@ function replyMsg($event, $client)
 						curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
 						$res = curl_exec($chl);		
 						curl_close($chl);
-						$obj = json_decode($res);
+						//$obj = json_decode($res);
 						
 						$a_ = array(
 
 									array(
 										'type' => 'text',
-										'text' => $obj->detail
+										'text' => $res
 										
 									),
 								);
