@@ -2721,6 +2721,31 @@ function replyMsg($event, $client)
                 }
  
 
+				else if(preg_match('(#DGA|#dga|#authen|#ออเทน|#Authen)', $msg) === 1) {
+
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/dga/get_log_count.php; 
+						$chl = curl_init();
+						curl_setopt( $chl, CURLOPT_URL, $urllink); 
+						curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
+						curl_setopt($chl, CURLOPT_POST, 0);
+						curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
+						curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+						$res = curl_exec($chl);		
+						curl_close($chl);
+						$obj = json_decode($res);
+						
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => $obj['detail'] 
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);						
+
+					
+				}
+
 
 				else if(preg_match('(#อัพโหลด|#Upload|#upload|#สถานะอัพโหลด|#อับโหลด|#สถานะอับโหลด)', $msg) === 1) {
 
