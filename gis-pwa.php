@@ -2723,7 +2723,7 @@ function replyMsg($event, $client)
 
 				else if(preg_match('(#DGA|#dga|#authen|#ออเทน|#Authen)', $msg) === 1) {
 
-						$urllink = 'https://gisweb1.pwa.co.th/lineservice/dga/get_log_count.php; 
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/dga/get_log_count.php'; 
 						$chl = curl_init();
 						curl_setopt( $chl, CURLOPT_URL, $urllink); 
 						curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
