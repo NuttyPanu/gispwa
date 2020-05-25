@@ -3582,8 +3582,9 @@ function replyMsg($event, $client)
                 }
 
 
-                else if (preg_match('(#flex1|flex2|flex3|flex4)', $msg) === 1) {
- 
+		else if (preg_match('(#flex1|flex2|flex3|flex4)', $msg) === 1) {
+
+			$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 					$a = array(
 							array(
 								'type' => 'flex',
@@ -3667,7 +3668,26 @@ function replyMsg($event, $client)
 											"margin"=> "sm"
 										  )
 										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "Register",
+													'uri'=> $str
+													)
+										   )
+										  )
+										
 									  )
+
+
 									)
 								  ),
 								  "styles"=> array(
@@ -3684,7 +3704,6 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-
 
 
                 else{
