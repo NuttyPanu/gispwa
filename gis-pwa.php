@@ -3603,9 +3603,9 @@ function replyMsg($event, $client)
 										"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
 										"color"=> "#414141",
 										"gravity"=> "center",
-										"size"=> "xl",
+										"size"=> "lg",
 										"wrap"=> true,
-										"flex"=> 3
+										"flex"=> 4
 									  )
 									)
 								  ),
