@@ -3771,26 +3771,6 @@ function replyMsg($event, $client)
 											"margin"=> "xxl"
 										  ),
 										  array(
-											"type"=> "box",
-											"layout"=> "baseline",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "85",
-												"color"=> "#a57f23",
-												"size"=> "5xl",
-												"align"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "US AQI",
-												"color"=> "#a57f23",
-												"size"=> "xs",
-												"margin"=> "sm"
-											  )
-											)
-										  ),
-										  array(
 											'type'=> "box",
 											'layout'=> "vertical",
 											'contents'=> array(
