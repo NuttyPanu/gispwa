@@ -573,8 +573,8 @@ if (!is_null($events['events'])) {
 				//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
 				$message = '';
 				$memo_=array(
-					"17-04-2020"=>"กอล์ฟนัดเด็กราชภัฎไว้ อย่าลืมนะครับ (17 เม.ย. 63) ",
-					"28-04-2020"=>"นัดไปทำmri คอที่ศูนย์แพทย์ (28 เม.ย. 63) ",
+					"29-05-2020"=>"เงินเดือนออกนะครับ (29 พ.ค. 63) ",
+					"01-06-2020"=>"อย่าลืมมาทำงานกันนะครับ (1 มิ.ย. 63) ",
 				);				
 
 				$today_ = date("d-m-Y");
@@ -3235,6 +3235,84 @@ function replyMsg($event, $client)
 
 				}
 
+
+				else if (preg_match('(#ลงทะเบียน|#register)', $msg) === 1) {
+
+					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
+
+					//$lineid_encode = urlencode($uid);
+					$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+					$q_msg = json_decode($json_cmsg); 
+					if($q_msg){
+						foreach($q_msg as $rec){
+
+							/*
+							$messages = [
+							'type' => 'text',
+							'text' => $rec->status
+							];
+							*/
+
+
+							//$uid = $event['source']['userId'];
+							$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+
+							$a = array(
+										array(
+											'type' => 'flex',
+											'altText' => 'This is a Flex Message',
+											'contents'=> array(
+														'type'=> 'bubble',
+														'body'=> array(
+																 'type'=> "box",
+																 'layout'=> "vertical",
+																 'contents'=> array(
+																				  array(
+																				   'type'=> "button",
+																				   'style'=> "primary",
+																				   'height'=> "sm",
+																				   'action'=> array(
+																								'type'=> "uri",
+																								'label'=> "Register",
+																								'uri'=> $str
+																							   )
+																				  )
+																 )
+														)
+											)
+										)
+							);
+
+							$client->replyMessage1($event['replyToken'],$a);
+
+
+						}
+					}
+					else{
+						/*
+						$messages = [
+						'type' => 'text',
+						'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
+						];
+						*/
+
+						$a = array(				
+									array(
+										'type' => 'text',
+										'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
+									)
+							);
+						$client->replyMessage1($event['replyToken'],$a);
+
+
+					}
+				}
+
+
+
+
+				/*
 				else if( $msg == '#ลงทะเบียน'){ 
 				 
 					$uid = $event['source']['userId'];
@@ -3280,7 +3358,7 @@ function replyMsg($event, $client)
 					$client->replyMessage1($event['replyToken'],$a);
 						 
 				}
-
+				*/
  
                 else if (preg_match('(เสียใจ|ร้องไห้|ไม่ต้องร้อง|ผิดหวัง)', $msg) === 1) {
                     $a = array(
