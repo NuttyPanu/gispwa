@@ -3964,16 +3964,9 @@ function replyMsg($event, $client)
 						*/
 						
 						$param ='&nameid='.$nameid.'&iconUrl='.$iconUrl.'&id='.$uid;
-						
-						$url_ = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register'.$param;
+						$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register'.$param;
+						$res = get_url($urllink); 
 
-						$ch_ = curl_init();
-						curl_setopt($ch_, CURLOPT_SSL_VERIFYPEER, false);
-						curl_setopt($ch_, CURLOPT_RETURNTRANSFER, false);
-						curl_setopt($ch_, CURLOPT_URL, $url_);
-						$result_ = curl_exec($ch);
-						curl_close($ch_);
-						//$obj_ = json_decode($result_);
 						
 
 					}
