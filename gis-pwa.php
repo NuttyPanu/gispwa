@@ -3600,27 +3600,12 @@ function replyMsg($event, $client)
 									"contents"=> array(
 									  array(
 										"type"=> "text",
-										"text"=> "Mung Nonthaburi",
+										"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
 										"color"=> "#414141",
 										"gravity"=> "center",
 										"size"=> "xl",
 										"wrap"=> true,
 										"flex"=> 3
-									  ),
-									  array(
-										"type"=> "image",
-										"url"=> "https://airvisual.com/images/01d.png",
-										"size"=> "xs",
-										"flex"=> 1
-									  ),
-									  array(
-										"type"=> "text",
-										"text"=> "22 °C",
-										"color"=> "#414141",
-										"size"=> "lg",
-										"align"=> "end",
-										"gravity"=> "center",
-										"flex"=> 1
 									  )
 									)
 								  ),
