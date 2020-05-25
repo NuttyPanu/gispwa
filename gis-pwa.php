@@ -3596,7 +3596,7 @@ function replyMsg($event, $client)
 
 					}
 					else if (chk_friend($uid) == true){
-
+						/*
 						//$gid = $event['source']['groupId'];
 						$uid = $event['source']['userId'];
 
@@ -3609,6 +3609,7 @@ function replyMsg($event, $client)
 						$status = $obj->statusMessage;
 						$pathpic = explode("cdn.net/", $obj->pictureUrl);
 						//$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
+						*/
 
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 						$a = array(
