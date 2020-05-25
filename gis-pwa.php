@@ -3771,6 +3771,26 @@ function replyMsg($event, $client)
 											"margin"=> "xxl"
 										  ),
 										  array(
+											"type"=> "box",
+											"layout"=> "baseline",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "",
+												"color"=> "#a57f23",
+												"size"=> "xl",
+												"align"=> "center"
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "",
+												"color"=> "#a57f23",
+												"size"=> "xs",
+												"margin"=> "sm"
+											  )
+											)
+										  ),
+										  array(
 											'type'=> "box",
 											'layout'=> "vertical",
 											'contents'=> array(
