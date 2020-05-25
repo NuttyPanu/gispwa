@@ -3998,28 +3998,36 @@ function replyMsg($event, $client)
 					$nameid='nutty';
 					$iconUrl='https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png';
 
-						$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php';
-						$chl = curl_init();
-						curl_setopt( $chl, CURLOPT_URL, $urllink); 
-						curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
-						curl_setopt($chl, CURLOPT_POST, 1);
-						//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
-						//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
-						//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
-						//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
-						curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
-						curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+					/*
+					$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php';
+					$chl = curl_init();
+					curl_setopt( $chl, CURLOPT_URL, $urllink); 
+					curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
+					curl_setopt($chl, CURLOPT_POST, 1);
+					//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
+					//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
+					//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
+					//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
+					curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
+					curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
 
-						  $values = array(
-							'send' => 'register',
-							'nameid' => $nameid,
-							'uid' => $uid,
-							'iconUrl' => $iconUrl
-						  );
-						$params = http_build_query($values);
-						curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
-						$res = curl_exec($chl);		
-						curl_close($chl);
+					  $values = array(
+						'send' => 'register',
+						'nameid' => $nameid,
+						'uid' => $uid,
+						'iconUrl' => $iconUrl
+					  );
+					$params = http_build_query($values);
+					curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
+					$res = curl_exec($chl);		
+					curl_close($chl);
+					*/
+
+					$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register&nameid='.$nameid.'&iconUrl='.$iconUrl.'&id='.$uid;
+					//$urllink = urlencode($urllink);
+					$res = get_url($urllink); 
+
+
 
                 }
 
