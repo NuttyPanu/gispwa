@@ -727,6 +727,8 @@ if (!is_null($events['events'])) {
 				];
 				
 			}
+
+
 			else if ($text == '#flex') {
 
 				$messages = [
@@ -850,6 +852,7 @@ if (!is_null($events['events'])) {
 				];
 				
 			}
+
 			else if (preg_match('(#เช็ค|#check)', $text) === 1) {
 
 				$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
@@ -3279,22 +3282,6 @@ function replyMsg($event, $client)
 																							   )
 																				  )
 																			)
-																),
-																array(
-																 'type'=> "box",
-																 'layout'=> "vertical",
-																 'contents'=> array(
-																				  array(
-																				   'type'=> "button",
-																				   'style'=> "primary",
-																				   'height'=> "sm",
-																				   'action'=> array(
-																								'type'=> "uri",
-																								'label'=> "Register",
-																								'uri'=> $str
-																							   )
-																				  )
-																			)
 																)
 														)
 											)
@@ -3593,6 +3580,167 @@ function replyMsg($event, $client)
                             );
                     $client->replyMessage1($event['replyToken'],$a);
                 }
+
+
+                else if (preg_match('(#flex1|flex2|flex3|flex4)', $msg) === 1) {
+ 
+                    $a = array(
+								array(
+								  "type"=> "bubble",
+								  "hero"=> array(
+									"type"=> "image",
+									"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+									"size"=> "full",
+									"aspectRatio"=> "20=>13",
+									"aspectMode"=> "cover",
+									"action"=> array(
+									  "type"=> "uri",
+									  "uri"=> "http=>//linecorp.com/"
+									)
+								  ),
+								  "body"=> array(
+									"type"=> "box",
+									"layout"=> "vertical",
+									"contents"=> array(
+									  array(
+										"type"=> "text",
+										"text"=> "Brown Cafe",
+										"weight"=> "bold",
+										"size"=> "xl"
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "baseline",
+										"margin"=> "md",
+										"contents"=> array(
+										  array(
+											"type"=> "icon",
+											"size"=> "sm",
+											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+										  ),
+										  array(
+											"type"=> "icon",
+											"size"=> "sm",
+											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+										  ),
+										  array(
+											"type"=> "icon",
+											"size"=> "sm",
+											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+										  ),
+										  array(
+											"type"=> "icon",
+											"size"=> "sm",
+											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+										  ),
+										  array(
+											"type"=> "icon",
+											"size"=> "sm",
+											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "4.0",
+											"size"=> "sm",
+											"color"=> "#999999",
+											"margin"=> "md",
+											"flex"=> 0
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"margin"=> "lg",
+										"spacing"=> "sm",
+										"contents"=> array(
+										  array(
+											"type"=> "box",
+											"layout"=> "baseline",
+											"spacing"=> "sm",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "Place",
+												"color"=> "#aaaaaa",
+												"size"=> "sm",
+												"flex"=> 1
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+												"wrap"=> true,
+												"color"=> "#666666",
+												"size"=> "sm",
+												"flex"=> 5
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "baseline",
+											"spacing"=> "sm",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "Time",
+												"color"=> "#aaaaaa",
+												"size"=> "sm",
+												"flex"=> 1
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "10=>00 - 23=>00",
+												"wrap"=> true,
+												"color"=> "#666666",
+												"size"=> "sm",
+												"flex"=> 5
+											  )
+											)
+										  )
+										)
+									  )
+									)
+								  ),
+								  "footer"=> array(
+									"type"=> "box",
+									"layout"=> "vertical",
+									"spacing"=> "sm",
+									"contents"=> array(
+									  array(
+										"type"=> "button",
+										"style"=> "link",
+										"height"=> "sm",
+										"action"=> array(
+										  "type"=> "uri",
+										  "label"=> "CALL",
+										  "uri"=> "https=>//linecorp.com"
+										)
+									  ),
+									  array(
+										"type"=> "button",
+										"style"=> "link",
+										"height"=> "sm",
+										"action"=> array(
+										  "type"=> "uri",
+										  "label"=> "WEBSITE",
+										  "uri"=> "https=>//linecorp.com"
+										)
+									  ),
+									  array(
+										"type"=> "spacer",
+										"size"=> "sm"
+									  )
+									),
+									"flex"=> 0
+								  )
+								)
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+
+
 
                 else{
  
