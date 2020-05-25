@@ -3584,19 +3584,6 @@ function replyMsg($event, $client)
 
 				else if (preg_match('(#flex1|flex2)', $msg) === 1) {
 
-					if (chk_friend($uid) == false){
-
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนลงทะเบียน'          
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-
-					}
-					else {
-						
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 						$a = array(
 								array(
@@ -3712,7 +3699,6 @@ function replyMsg($event, $client)
 						);
 						$client->replyMessage1($event['replyToken'],$a);
 
-					}
 
                 }
 
