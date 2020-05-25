@@ -3608,7 +3608,7 @@ function replyMsg($event, $client)
 						$nameid = $obj->displayName;
 						$status = $obj->statusMessage;
 						$pathpic = explode("cdn.net/", $obj->pictureUrl);
-						$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
+						//$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
 
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 						$a = array(
@@ -3728,6 +3728,7 @@ function replyMsg($event, $client)
 
 					}
 					else{
+
 						$a = array(
 									array(
 										'type' => 'text',
@@ -3736,9 +3737,6 @@ function replyMsg($event, $client)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
 
-
-
-	 
 					}
 
                 }
