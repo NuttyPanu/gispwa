@@ -3800,7 +3800,7 @@ function replyMsg($event, $client)
 												'height'=> "sm",
 												'action'=> array(
 														'type'=> "uri",
-														'label'=> "Register",
+														'label'=> "ลงทะเบียน",
 														'uri'=> $str
 														)
 											   )
