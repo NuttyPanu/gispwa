@@ -3278,11 +3278,27 @@ function replyMsg($event, $client)
 																								'uri'=> $str
 																							   )
 																				  )
-																 )
+																			)
+																),
+																array(
+																 'type'=> "box",
+																 'layout'=> "vertical",
+																 'contents'=> array(
+																				  array(
+																				   'type'=> "button",
+																				   'style'=> "primary",
+																				   'height'=> "sm",
+																				   'action'=> array(
+																								'type'=> "uri",
+																								'label'=> "Register",
+																								'uri'=> $str
+																							   )
+																				  )
+																			)
+																)
 														)
 											)
-										)
-							);
+									);
 
 							$client->replyMessage1($event['replyToken'],$a);
 
