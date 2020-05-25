@@ -3583,7 +3583,7 @@ function replyMsg($event, $client)
 
 
 				else if (preg_match('(#flex1|flex2)', $msg) === 1) {
-
+						$uid = $event['source']['userId'];
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 						$a = array(
 								array(
