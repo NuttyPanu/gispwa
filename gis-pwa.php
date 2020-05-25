@@ -3382,7 +3382,7 @@ function replyMsg($event, $client)
 				}
 
 
-				else if (preg_match('(#ลงทะเบียน|#register)', $msg) === 1) {
+				else if (preg_match('(#ลงทะเบียน_เก่า|#register_old)', $msg) === 1) {
 
 					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
@@ -3977,7 +3977,7 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-				else if (preg_match('(#flex3|flex4)', $msg) === 1) {
+				else if (preg_match('(#ลงทะเบียน|#register|#Register|#REGISTER)', $msg) === 1) {
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
