@@ -3605,7 +3605,7 @@ function replyMsg($event, $client)
 										"gravity"=> "center",
 										"size"=> "lg",
 										"wrap"=> true,
-										"flex"=> 4
+										"align"=> "center"
 									  )
 									)
 								  ),
