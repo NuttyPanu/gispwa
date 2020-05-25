@@ -3694,6 +3694,9 @@ function replyMsg($event, $client)
                 }
 				else if (preg_match('(#flex3|flex4)', $msg) === 1) {
 
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
+
 					if (chk_friend($uid) == false){
 
 						$a = array(
