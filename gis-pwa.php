@@ -3963,8 +3963,8 @@ function replyMsg($event, $client)
 						$client->replyMessage1($event['replyToken'],$a);
 						*/
 						
-						$param ='&nameid='.$nameid.'&iconUrl='.$iconUrl.'&id='.$uid;
-						$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register'.$param;
+						$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register&nameid='.$nameid.'&iconUrl='.$iconUrl.'&id='.$uid;
+						$urllink = urlencode($urllink);
 						$res = get_url($urllink); 
 
 						
