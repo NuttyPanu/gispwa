@@ -171,19 +171,19 @@ if ( $_REQUEST['send'] == 'register' )
 
 	$uid = $_REQUEST['id'];
 
-	$url = 'https://api.line.me/v2/bot/profile/'.$uid;
-	//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-	$profile = get_profile($url);
-	$obj = json_decode($profile);
+	if(!$_REQUEST['nameid']){
+		$nameid='nutty';
+	}
+	else{
+		$nameid = $_REQUEST['nameid'];
+	}
 
-	$nameid = $obj->displayName;
-	$status = $obj->statusMessage;
-	$pathpic = explode("cdn.net/", $obj->pictureUrl);
-	$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
-	
-	//$iconUrl = $_REQUEST['iconUrl'];
-	//$nameid = $_REQUEST['nameid'];
-
+	if(!$_REQUEST['iconUrl']){
+		$iconUrl='https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png';
+	}
+	else{
+		$iconUrl = $_REQUEST['iconUrl'];
+	}
 
  	$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 
@@ -3998,7 +3998,7 @@ function replyMsg($event, $client)
 						//$gid = $event['source']['groupId'];
 						$uid = $event['source']['userId'];
 
-						/*
+
 						$url = 'https://api.line.me/v2/bot/profile/'.$uid;
 						//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
 						$profile = get_profile($url);
@@ -4009,118 +4009,122 @@ function replyMsg($event, $client)
 						$pathpic = explode("cdn.net/", $obj->pictureUrl);
 						$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
 						
+						if($nameid != ''){
 
-						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-						$a = array(
-								array(
-									'type' => 'flex',
-									'altText' => 'Air Quality',
-									'contents'=> array(
+							$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register&nameid='.$nameid.'&iconUrl='.$iconUrl.'&id='.$uid;
+							//$urllink = urlencode($urllink);
+							$res = get_url($urllink); 
 
-									/* เอามาจากflex*/
+						}
+						else{
+							$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+							$a = array(
+									array(
+										'type' => 'flex',
+										'altText' => 'Air Quality',
+										'contents'=> array(
 
-									  "type"=> "bubble",
-									  "header"=> array(
-										"type"=> "box",
-										"layout"=> "horizontal",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-											"color"=> "#414141",
-											"gravity"=> "center",
-											"size"=> "lg",
-											"wrap"=> true,
-											"align"=> "center"
-										  )
-										)
-									  ),
-									  "body"=> array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
+										/* เอามาจากflex*/
+
+										  "type"=> "bubble",
+										  "header"=> array(
 											"type"=> "box",
 											"layout"=> "horizontal",
 											"contents"=> array(
 											  array(
-												"type"=> "image",
-												"url"=> $iconUrl,
-												"size"=> "md",
-												"align"=> "start"
-											  ),
-											  array(
 												"type"=> "text",
-												"text"=> $nameid,
-												"wrap"=> true,
+												"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+												"color"=> "#414141",
+												"gravity"=> "center",
 												"size"=> "lg",
-												"color"=> "#a57f23",
-												"gravity"=> "center"
-											  )
-											),
-											"margin"=> "xxl"
-										  ),
-										  array(
-											"type"=> "box",
-											"layout"=> "baseline",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "85",
-												"color"=> "#a57f23",
-												"size"=> "5xl",
+												"wrap"=> true,
 												"align"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "US AQI",
-												"color"=> "#a57f23",
-												"size"=> "xs",
-												"margin"=> "sm"
 											  )
 											)
 										  ),
-										  array(
-											'type'=> "box",
-											'layout'=> "vertical",
-											'contents'=> array(
-											   array(
-												'type'=> "button",
-												'style'=> "primary",
-												'height'=> "sm",
-												'action'=> array(
-														'type'=> "uri",
-														'label'=> "Register",
-														'uri'=> $str
-														)
-											   )
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> $iconUrl,
+													"size"=> "md",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> $nameid,
+													"wrap"=> true,
+													"size"=> "lg",
+													"color"=> "#a57f23",
+													"gravity"=> "center"
+												  )
+												),
+												"margin"=> "xxl"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "baseline",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "85",
+													"color"=> "#a57f23",
+													"size"=> "5xl",
+													"align"=> "center"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "US AQI",
+													"color"=> "#a57f23",
+													"size"=> "xs",
+													"margin"=> "sm"
+												  )
+												)
+											  ),
+											  array(
+												'type'=> "box",
+												'layout'=> "vertical",
+												'contents'=> array(
+												   array(
+													'type'=> "button",
+													'style'=> "primary",
+													'height'=> "sm",
+													'action'=> array(
+															'type'=> "uri",
+															'label'=> "Register",
+															'uri'=> $str
+															)
+												   )
+												  )
+												
 											  )
-											
+
+
+											)
+										  ),
+										  "styles"=> array(
+											"header"=> array(
+											  "backgroundColor"=> "#fdd74a"
+											),
+											"body"=> array(
+											  "backgroundColor"=> "#fffcf2"
+											)
 										  )
 
+										/* เอามาจากflex*/
 
 										)
-									  ),
-									  "styles"=> array(
-										"header"=> array(
-										  "backgroundColor"=> "#fdd74a"
-										),
-										"body"=> array(
-										  "backgroundColor"=> "#fffcf2"
-										)
-									  )
-
-									/* เอามาจากflex*/
-
 									)
-								)
-						);
-						$client->replyMessage1($event['replyToken'],$a);
-						*/
+							);
+							$client->replyMessage1($event['replyToken'],$a);
+						}
 
-						$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register&id='.$uid;
-						//$urllink = urlencode($urllink);
-						$res = get_url($urllink); 
 
 
 												
