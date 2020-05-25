@@ -3776,14 +3776,14 @@ function replyMsg($event, $client)
 											"contents"=> array(
 											  array(
 												"type"=> "text",
-												"text"=> "",
+												"text"=> "85",
 												"color"=> "#a57f23",
-												"size"=> "xl",
+												"size"=> "5xl",
 												"align"=> "center"
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> "",
+												"text"=> "US AQI",
 												"color"=> "#a57f23",
 												"size"=> "xs",
 												"margin"=> "sm"
@@ -3800,7 +3800,7 @@ function replyMsg($event, $client)
 												'height'=> "sm",
 												'action'=> array(
 														'type'=> "uri",
-														'label'=> "ลงทะเบียน",
+														'label'=> "Register",
 														'uri'=> $str
 														)
 											   )
