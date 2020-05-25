@@ -3583,6 +3583,129 @@ function replyMsg($event, $client)
 
 
 				else if (preg_match('(#flex1|flex2)', $msg) === 1) {
+
+
+						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+						$a = array(
+								array(
+									'type' => 'flex',
+									'altText' => 'Air Quality',
+									'contents'=> array(
+
+									/* เอามาจากflex*/
+
+									  "type"=> "bubble",
+									  "header"=> array(
+										"type"=> "box",
+										"layout"=> "horizontal",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "Mung Nonthaburi",
+											"color"=> "#414141",
+											"gravity"=> "center",
+											"size"=> "xl",
+											"wrap"=> true,
+											"flex"=> 3
+										  ),
+										  array(
+											"type"=> "image",
+											"url"=> "https://airvisual.com/images/01d.png",
+											"size"=> "xs",
+											"flex"=> 1
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "22 °C",
+											"color"=> "#414141",
+											"size"=> "lg",
+											"align"=> "end",
+											"gravity"=> "center",
+											"flex"=> 1
+										  )
+										)
+									  ),
+									  "body"=> array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "image",
+												"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+												"size"=> "md",
+												"align"=> "start"
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "Moderate",
+												"wrap"=> true,
+												"size"=> "lg",
+												"color"=> "#a57f23",
+												"gravity"=> "center"
+											  )
+											),
+											"margin"=> "xxl"
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "baseline",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "85",
+												"color"=> "#a57f23",
+												"size"=> "5xl",
+												"align"=> "center"
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "US AQI",
+												"color"=> "#a57f23",
+												"size"=> "xs",
+												"margin"=> "sm"
+											  )
+											)
+										  ),
+										  array(
+											'type'=> "box",
+											'layout'=> "vertical",
+											'contents'=> array(
+											   array(
+												'type'=> "button",
+												'style'=> "primary",
+												'height'=> "sm",
+												'action'=> array(
+														'type'=> "uri",
+														'label'=> "Register",
+														'uri'=> $str
+														)
+											   )
+											  )
+											
+										  )
+
+
+										)
+									  ),
+									  "styles"=> array(
+										"body"=> array(
+										  "backgroundColor"=> "#fdd74b"
+										)
+									  )
+
+									/* เอามาจากflex*/
+
+									)
+								)
+						);
+						$client->replyMessage1($event['replyToken'],$a);
+
+
+						/*
 						$uid = $event['source']['userId'];
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 						$a = array(
@@ -3698,7 +3821,7 @@ function replyMsg($event, $client)
 								)
 						);
 						$client->replyMessage1($event['replyToken'],$a);
-
+						*/
 
                 }
 
