@@ -3583,6 +3583,7 @@ function replyMsg($event, $client)
 
 
 				else if (preg_match('(#flex1|flex2|flex3|flex4)', $msg) === 1) {
+					$uid = $event['source']['userId'];
 
 					if (chk_friend($uid) == true){
 						//$gid = $event['source']['groupId'];
@@ -3716,11 +3717,10 @@ function replyMsg($event, $client)
 								);
 								$client->replyMessage1($event['replyToken'],$a);
 							*/
-
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนเก่อนการผูกบัญชี'          
+										'text' => $nameid          
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
@@ -3730,7 +3730,7 @@ function replyMsg($event, $client)
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => $nameid          
+										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนเก่อนการผูกบัญชี'          
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
