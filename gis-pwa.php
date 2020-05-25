@@ -3718,7 +3718,7 @@ function replyMsg($event, $client)
 						$nameid = $obj->displayName;
 						$status = $obj->statusMessage;
 						$pathpic = explode("cdn.net/", $obj->pictureUrl);
-						//$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
+						$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
 						
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 						$a = array(
@@ -3755,13 +3755,13 @@ function replyMsg($event, $client)
 											"contents"=> array(
 											  array(
 												"type"=> "image",
-												"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+												"url"=> $iconUrl,
 												"size"=> "md",
 												"align"=> "start"
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> "Moderate",
+												"text"=> $nameid,
 												"wrap"=> true,
 												"size"=> "lg",
 												"color"=> "#a57f23",
