@@ -3599,6 +3599,8 @@ function replyMsg($event, $client)
 						$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
 
 
+
+						/*
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 								$a = array(
 										array(
@@ -3713,14 +3715,22 @@ function replyMsg($event, $client)
 										)
 								);
 								$client->replyMessage1($event['replyToken'],$a);
+							*/
 
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนเก่อนการผูกบัญชี'          
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
 
 					}
 					else{
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนเก่อนการผูกบัญชี'          
+										'text' => $nameid          
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
