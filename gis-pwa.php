@@ -3609,6 +3609,11 @@ function replyMsg($event, $client)
 									  )
 									)
 								  ),
+								  "styles"=> array(
+									"body"=> array(
+									  "backgroundColor"=> "#fdd74a"
+									)
+								  ),
 								  "body"=> array(
 									"type"=> "box",
 									"layout"=> "vertical",
