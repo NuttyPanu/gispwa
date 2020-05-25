@@ -3584,18 +3584,43 @@ function replyMsg($event, $client)
 
                 else if (preg_match('(#flex1|flex2|flex3|flex4)', $msg) === 1) {
  
-                    $a = array(
-								array(
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => 'Air Quality',
+								'contents'=> array(
+
+								/* เอามาจากflex*/
+
 								  "type"=> "bubble",
-								  "hero"=> array(
-									"type"=> "image",
-									"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-									"size"=> "full",
-									"aspectRatio"=> "20=>13",
-									"aspectMode"=> "cover",
-									"action"=> array(
-									  "type"=> "uri",
-									  "uri"=> "http=>//linecorp.com/"
+								  "header"=> array(
+									"type"=> "box",
+									"layout"=> "horizontal",
+									"contents"=> array(
+									  array(
+										"type"=> "text",
+										"text"=> "Mung Nonthaburi",
+										"color"=> "#414141",
+										"gravity"=> "center",
+										"size"=> "xl",
+										"wrap"=> true,
+										"flex"=> 3
+									  ),
+									  array(
+										"type"=> "image",
+										"url"=> "https://airvisual.com/images/01d.png",
+										"size"=> "xs",
+										"flex"=> 1
+									  ),
+									  array(
+										"type"=> "text",
+										"text"=> "22 °C",
+										"color"=> "#414141",
+										"size"=> "lg",
+										"align"=> "end",
+										"gravity"=> "center",
+										"flex"=> 1
+									  )
 									)
 								  ),
 								  "body"=> array(
@@ -3603,139 +3628,59 @@ function replyMsg($event, $client)
 									"layout"=> "vertical",
 									"contents"=> array(
 									  array(
-										"type"=> "text",
-										"text"=> "Brown Cafe",
-										"weight"=> "bold",
-										"size"=> "xl"
+										"type"=> "box",
+										"layout"=> "horizontal",
+										"contents"=> array(
+										  array(
+											"type"=> "image",
+											"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+											"size"=> "md",
+											"align"=> "start"
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "Moderate",
+											"wrap"=> true,
+											"size"=> "lg",
+											"color"=> "#a57f23",
+											"gravity"=> "center"
+										  )
+										),
+										"margin"=> "xxl"
 									  ),
 									  array(
 										"type"=> "box",
 										"layout"=> "baseline",
-										"margin"=> "md",
 										"contents"=> array(
 										  array(
-											"type"=> "icon",
-											"size"=> "sm",
-											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-										  ),
-										  array(
-											"type"=> "icon",
-											"size"=> "sm",
-											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-										  ),
-										  array(
-											"type"=> "icon",
-											"size"=> "sm",
-											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-										  ),
-										  array(
-											"type"=> "icon",
-											"size"=> "sm",
-											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-										  ),
-										  array(
-											"type"=> "icon",
-											"size"=> "sm",
-											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+											"type"=> "text",
+											"text"=> "85",
+											"color"=> "#a57f23",
+											"size"=> "5xl",
+											"align"=> "center"
 										  ),
 										  array(
 											"type"=> "text",
-											"text"=> "4.0",
-											"size"=> "sm",
-											"color"=> "#999999",
-											"margin"=> "md",
-											"flex"=> 0
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"margin"=> "lg",
-										"spacing"=> "sm",
-										"contents"=> array(
-										  array(
-											"type"=> "box",
-											"layout"=> "baseline",
-											"spacing"=> "sm",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "Place",
-												"color"=> "#aaaaaa",
-												"size"=> "sm",
-												"flex"=> 1
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-												"wrap"=> true,
-												"color"=> "#666666",
-												"size"=> "sm",
-												"flex"=> 5
-											  )
-											)
-										  ),
-										  array(
-											"type"=> "box",
-											"layout"=> "baseline",
-											"spacing"=> "sm",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "Time",
-												"color"=> "#aaaaaa",
-												"size"=> "sm",
-												"flex"=> 1
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "10=>00 - 23=>00",
-												"wrap"=> true,
-												"color"=> "#666666",
-												"size"=> "sm",
-												"flex"=> 5
-											  )
-											)
+											"text"=> "US AQI",
+											"color"=> "#a57f23",
+											"size"=> "xs",
+											"margin"=> "sm"
 										  )
 										)
 									  )
 									)
 								  ),
-								  "footer"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"spacing"=> "sm",
-									"contents"=> array(
-									  array(
-										"type"=> "button",
-										"style"=> "link",
-										"height"=> "sm",
-										"action"=> array(
-										  "type"=> "uri",
-										  "label"=> "CALL",
-										  "uri"=> "https=>//linecorp.com"
-										)
-									  ),
-									  array(
-										"type"=> "button",
-										"style"=> "link",
-										"height"=> "sm",
-										"action"=> array(
-										  "type"=> "uri",
-										  "label"=> "WEBSITE",
-										  "uri"=> "https=>//linecorp.com"
-										)
-									  ),
-									  array(
-										"type"=> "spacer",
-										"size"=> "sm"
-									  )
-									),
-									"flex"=> 0
+								  "styles"=> array(
+									"body"=> array(
+									  "backgroundColor"=> "#fdd74b"
+									)
 								  )
+
+								/* เอามาจากflex*/
+
 								)
-                            );
+							)
+					);
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
