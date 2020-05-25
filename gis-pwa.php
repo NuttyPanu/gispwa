@@ -3586,7 +3586,7 @@ function replyMsg($event, $client)
 
 					if (chk_friend($uid) == true){
 						//$gid = $event['source']['groupId'];
-						$uid = $event['source']['userId'];
+						//$uid = $event['source']['userId'];
 
 						$url = 'https://api.line.me/v2/bot/profile/'.$uid;
 						//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
@@ -3644,7 +3644,7 @@ function replyMsg($event, $client)
 														"wrap"=> true,
 														"size"=> "lg",
 														"color"=> "#a57f23",
-														"gravity"=> "end"
+														"gravity"=> "center"
 													  )
 													),
 													"margin"=> "xxl"
