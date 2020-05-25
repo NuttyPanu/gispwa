@@ -3582,299 +3582,119 @@ function replyMsg($event, $client)
                 }
 
 
-				else if (preg_match('(#flex1|flex2)', $msg) === 1) {
+		else if (preg_match('(#flex1|flex2|flex3|flex4)', $msg) === 1) {
 
+			$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => 'Air Quality',
+								'contents'=> array(
 
-						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-						$a = array(
-								array(
-									'type' => 'flex',
-									'altText' => 'Air Quality',
-									'contents'=> array(
+								/* เอามาจากflex*/
 
-									/* เอามาจากflex*/
-
-									  "type"=> "bubble",
-									  "header"=> array(
+								  "type"=> "bubble",
+								  "header"=> array(
+									"type"=> "box",
+									"layout"=> "horizontal",
+									"contents"=> array(
+									  array(
+										"type"=> "text",
+										"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+										"color"=> "#414141",
+										"gravity"=> "center",
+										"size"=> "lg",
+										"wrap"=> true,
+										"align"=> "center"
+									  )
+									)
+								  ),
+								  "body"=> array(
+									"type"=> "box",
+									"layout"=> "vertical",
+									"contents"=> array(
+									  array(
 										"type"=> "box",
 										"layout"=> "horizontal",
 										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "Mung Nonthaburi",
-											"color"=> "#414141",
-											"gravity"=> "center",
-											"size"=> "xl",
-											"wrap"=> true,
-											"flex"=> 3
-										  ),
 										  array(
 											"type"=> "image",
-											"url"=> "https://airvisual.com/images/01d.png",
-											"size"=> "xs",
-											"flex"=> 1
+											"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+											"size"=> "md",
+											"align"=> "start"
 										  ),
 										  array(
 											"type"=> "text",
-											"text"=> "22 °C",
-											"color"=> "#414141",
-											"size"=> "lg",
-											"align"=> "end",
-											"gravity"=> "center",
-											"flex"=> 1
-										  )
-										)
-									  ),
-									  "body"=> array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "image",
-												"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
-												"size"=> "md",
-												"align"=> "start"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "Moderate",
-												"wrap"=> true,
-												"size"=> "lg",
-												"color"=> "#a57f23",
-												"gravity"=> "center"
-											  )
-											),
-											"margin"=> "xxl"
-										  ),
-										  array(
-											"type"=> "box",
-											"layout"=> "baseline",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "85",
-												"color"=> "#a57f23",
-												"size"=> "5xl",
-												"align"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "US AQI",
-												"color"=> "#a57f23",
-												"size"=> "xs",
-												"margin"=> "sm"
-											  )
-											)
-										  ),
-										  array(
-											'type'=> "box",
-											'layout'=> "vertical",
-											'contents'=> array(
-											   array(
-												'type'=> "button",
-												'style'=> "primary",
-												'height'=> "sm",
-												'action'=> array(
-														'type'=> "uri",
-														'label'=> "Register",
-														'uri'=> $str
-														)
-											   )
-											  )
-											
-										  )
-
-
-										)
-									  ),
-									  "styles"=> array(
-										"body"=> array(
-										  "backgroundColor"=> "#fdd74b"
-										)
-									  )
-
-									/* เอามาจากflex*/
-
-									)
-								)
-						);
-						$client->replyMessage1($event['replyToken'],$a);
-
-
-						/*
-						$uid = $event['source']['userId'];
-						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-						$a = array(
-								array(
-									'type' => 'flex',
-									'altText' => 'Air Quality',
-									'contents'=> array(
-
-									/* เอามาจากflex*/
-
-									  "type"=> "bubble",
-									  "header"=> array(
-										"type"=> "box",
-										"layout"=> "horizontal",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-											"color"=> "#414141",
-											"gravity"=> "center",
-											"size"=> "lg",
+											"text"=> "Moderate",
 											"wrap"=> true,
-											"align"=> "center"
+											"size"=> "lg",
+											"color"=> "#a57f23",
+											"gravity"=> "center"
 										  )
-										)
+										),
+										"margin"=> "xxl"
 									  ),
-									  "body"=> array(
+									  array(
 										"type"=> "box",
-										"layout"=> "vertical",
+										"layout"=> "baseline",
 										"contents"=> array(
 										  array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "image",
-												"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
-												"size"=> "md",
-												"align"=> "start"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "Moderate",
-												"wrap"=> true,
-												"size"=> "lg",
-												"color"=> "#a57f23",
-												"gravity"=> "center"
-											  )
-											),
-											"margin"=> "xxl"
+											"type"=> "text",
+											"text"=> "85",
+											"color"=> "#a57f23",
+											"size"=> "5xl",
+											"align"=> "center"
 										  ),
-										  array(
-											"type"=> "box",
-											"layout"=> "baseline",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "85",
-												"color"=> "#a57f23",
-												"size"=> "5xl",
-												"align"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "US AQI",
-												"color"=> "#a57f23",
-												"size"=> "xs",
-												"margin"=> "sm"
-											  )
-											)
-										  ),
-
 										  array(
 											"type"=> "text",
-											"text"=> "",
+											"text"=> "US AQI",
 											"color"=> "#a57f23",
 											"size"=> "xs",
-											"align"=> "center"
-										  ),
-										  array(
-											'type'=> "box",
-											'layout'=> "vertical",
-											'contents'=> array(
-											   array(
-												'type'=> "button",
-												'style'=> "primary",
-												'height'=> "sm",
-												'action'=> array(
-														'type'=> "uri",
-														'label'=> "Register",
-														'uri'=> $str
-														)
-											   )
-											  )
-											
+											"margin"=> "sm"
 										  )
-
-
 										)
 									  ),
-									  "styles"=> array(
-										"header"=> array(
-										  "backgroundColor"=> "#fdd74a"
-										),
-										"body"=> array(
-										  "backgroundColor"=> "#fff"
-										)
+
+
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "Register",
+													'uri'=> $str
+													)
+										   )
+										  )
+										
 									  )
 
-									/* เอามาจากflex*/
 
 									)
+								  ),
+								  "styles"=> array(
+									"header"=> array(
+									  "backgroundColor"=> "#fdd74a"
+									),
+									"body"=> array(
+									  "backgroundColor"=> "#fff"
+									)
+								  )
+
+								/* เอามาจากflex*/
+
 								)
-						);
-						$client->replyMessage1($event['replyToken'],$a);
-						*/
-
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
                 }
 
-				else if (preg_match('(flex3|flex4)', $msg) === 1) {
-
-					if (chk_friend($uid) == false){
-
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนลงทะเบียน'          
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-
-					}
-					else if (chk_friend($uid) == true){
-						
-						//$gid = $event['source']['groupId'];
-						$uid = $event['source']['userId'];
-
-						$url = 'https://api.line.me/v2/bot/profile/'.$uid;
-						//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-						$profile = get_profile($url);
-						$obj = json_decode($profile);
-
-						$nameid = $obj->displayName;
-						$status = $obj->statusMessage;
-						$pathpic = explode("cdn.net/", $obj->pictureUrl);
-						//$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
-						
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => $nameid         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-
-					}
-					else{
-
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'ขออภัย เเกิดเหตุขัดข้องในการตรวจสอบการเป็นเพื่อนกับท่าน'         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-
-					}
-
-                }
 
                 else{
  
