@@ -166,6 +166,137 @@ if ( $_GET['send'] == 'text' )
 }
 //---------------------------------------------------------//
 
+if ( $_GET['send'] == 'register' )
+{
+
+	$iconUrl = $_GET['iconUrl'];
+	$nameid = $_GET['nameid'];
+	$uid = $_GET['id'];
+
+ 	$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+
+	$text = array(
+		            array(
+			                'type' => 'text',
+		                    'text' => 'ลงทะเบียน'
+		                ),
+					array(
+						'type' => 'flex',
+						'altText' => 'Air Quality',
+						'contents'=> array(
+
+						/* เอามาจากflex*/
+
+						  "type"=> "bubble",
+						  "header"=> array(
+							"type"=> "box",
+							"layout"=> "horizontal",
+							"contents"=> array(
+							  array(
+								"type"=> "text",
+								"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+								"color"=> "#414141",
+								"gravity"=> "center",
+								"size"=> "lg",
+								"wrap"=> true,
+								"align"=> "center"
+							  )
+							)
+						  ),
+						  "body"=> array(
+							"type"=> "box",
+							"layout"=> "vertical",
+							"contents"=> array(
+							  array(
+								"type"=> "box",
+								"layout"=> "horizontal",
+								"contents"=> array(
+								  array(
+									"type"=> "image",
+									"url"=> $iconUrl,
+									"size"=> "md",
+									"align"=> "start"
+								  ),
+								  array(
+									"type"=> "text",
+									"text"=> $nameid,
+									"wrap"=> true,
+									"size"=> "lg",
+									"color"=> "#a57f23",
+									"gravity"=> "center"
+								  )
+								),
+								"margin"=> "xxl"
+							  ),
+							  array(
+								"type"=> "box",
+								"layout"=> "baseline",
+								"contents"=> array(
+								  array(
+									"type"=> "text",
+									"text"=> "85",
+									"color"=> "#a57f23",
+									"size"=> "5xl",
+									"align"=> "center"
+								  ),
+								  array(
+									"type"=> "text",
+									"text"=> "US AQI",
+									"color"=> "#a57f23",
+									"size"=> "xs",
+									"margin"=> "sm"
+								  )
+								)
+							  ),
+							  array(
+								'type'=> "box",
+								'layout'=> "vertical",
+								'contents'=> array(
+								   array(
+									'type'=> "button",
+									'style'=> "primary",
+									'height'=> "sm",
+									'action'=> array(
+											'type'=> "uri",
+											'label'=> "Register",
+											'uri'=> $str
+											)
+								   )
+								  )
+								
+							  )
+
+
+							)
+						  ),
+						  "styles"=> array(
+							"header"=> array(
+							  "backgroundColor"=> "#fdd74a"
+							),
+							"body"=> array(
+							  "backgroundColor"=> "#fffcf2"
+							)
+						  )
+
+						/* เอามาจากflex*/
+
+						)
+					)
+			);  	
+	
+	$client->pushMessage1($uid, $text);
+
+}
+//---------------------------------------------------------//
+
+
+
+
+
+
+
+
+
 //ส่งแบบข้อความแบบ-multi----แบบ array มี sub array-------------//
 if ( $_GET['send'] == 'location' )
 {
@@ -3723,6 +3854,7 @@ function replyMsg($event, $client)
 						$pathpic = explode("cdn.net/", $obj->pictureUrl);
 						$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
 						
+						/*
 						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 						$a = array(
 								array(
@@ -3829,6 +3961,20 @@ function replyMsg($event, $client)
 								)
 						);
 						$client->replyMessage1($event['replyToken'],$a);
+						*/
+
+						$param ='&nameid='.$nameid.'&iconUrl='.$iconUrl.'&id='.$uid;
+						
+						$url_ = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register'.$param;
+
+						$ch_ = curl_init();
+						curl_setopt($ch_, CURLOPT_SSL_VERIFYPEER, false);
+						curl_setopt($ch_, CURLOPT_RETURNTRANSFER, true);
+						curl_setopt($ch_, CURLOPT_URL, $url_);
+						$result_ = curl_exec($ch);
+						curl_close($ch_);
+						$obj_ = json_decode($result_);
+
 					}
                 }
 
