@@ -3488,12 +3488,14 @@ function replyMsg($event, $client)
 									"contents"=> array(
 									  array(
 										"type"=> "text",
-										"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-										"color"=> "#414141",
-										"gravity"=> "center",
+										"text"=> "ระบบที่พัฒนาโดย กภส.",
 										"size"=> "lg",
+										"weight"=> "bold",
+										"align"=> "center",
+										"gravity"=> "center",
 										"wrap"=> true,
-										"align"=> "center"
+										"style"=> "normal"
+										//"color"=> "#414141",
 									  )
 									)
 								  ),
@@ -3501,6 +3503,106 @@ function replyMsg($event, $client)
 									"type"=> "box",
 									"layout"=> "vertical",
 									"contents"=> array(
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "สนับสนุนระบบต่างๆ",
+											"color"=> "#ffffffcc",
+											"size"=> "sm"
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "spacer"
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "button",
+												"action"=> array(
+												  "type"=> "uri",
+												  "label"=> "ติดตามมาตรวัดน้ำ",
+												  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
+												),
+												"height"=> "sm",
+												"style"=> "primary",
+												"gravity"=> "center"
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "spacer"
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "button",
+												"action"=> array(
+												  "type"=> "uri",
+												  "label"=> "ศักยภาพด้านการตลาด",
+												  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
+												),
+												"height"=> "sm",
+												"style"=> "primary",
+												"gravity"=> "center"
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "spacer"
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "button",
+												"action"=> array(
+												  "type"=> "uri",
+												  "label"=> " พื้นที่ให้บริการของ กปภ.",
+												  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
+												),
+												"height"=> "sm",
+												"style"=> "primary",
+												"gravity"=> "center"
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "spacer"
+											  )
+											)
+										  )
+										)
+									  ),
+
 									  array(
 										"type"=> "box",
 										"layout"=> "horizontal",
