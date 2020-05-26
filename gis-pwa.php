@@ -239,8 +239,7 @@ if ( $_REQUEST['send'] == 'register' )
 									"gravity"=> "center"
 									//"flex" => 3 // for auto size image+name more(image<) less(image>)
 								  )
-								),
-								"margin": "xxl"
+								)
 							  )
 
 							)
