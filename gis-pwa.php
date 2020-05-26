@@ -190,7 +190,7 @@ if ( $_REQUEST['send'] == 'register' )
 	$text = array(
 		            array(
 			                'type' => 'text',
-		                    'text' => 'ลงทะเบียน'
+		                    'text' => 'ท่านสามารถลงทะเบียนได้โดยคลิกที่ปุ่มลงทะเบียนครับ'
 		                ),
 					array(
 						'type' => 'flex',
@@ -3378,130 +3378,6 @@ function replyMsg($event, $client)
 				}
 
 
-				else if (preg_match('(#ลงทะเบียน_เก่า|#register_old)', $msg) === 1) {
-
-					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-					//$lineid_encode = urlencode($uid);
-					$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-					$q_msg = json_decode($json_cmsg); 
-					if($q_msg){
-						foreach($q_msg as $rec){
-
-							/*
-							$messages = [
-							'type' => 'text',
-							'text' => $rec->status
-							];
-							*/
-
-
-							//$uid = $event['source']['userId'];
-							$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-
-							$a = array(
-										array(
-											'type' => 'flex',
-											'altText' => 'This is a Flex Message',
-											'contents'=> array(
-														'type'=> 'bubble',
-														'body'=> array(
-																 'type'=> "box",
-																 'layout'=> "vertical",
-																 'contents'=> array(
-																				  array(
-																				   'type'=> "button",
-																				   'style'=> "primary",
-																				   'height'=> "sm",
-																				   'action'=> array(
-																								'type'=> "uri",
-																								'label'=> "Register",
-																								'uri'=> $str
-																							   )
-																				  )
-																			)
-																)
-														)
-											)
-									);
-
-							$client->replyMessage1($event['replyToken'],$a);
-
-
-						}
-					}
-					else{
-						/*
-						$messages = [
-						'type' => 'text',
-						'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
-						];
-						*/
-
-						$a = array(				
-									array(
-										'type' => 'text',
-										'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
-									)
-							);
-						$client->replyMessage1($event['replyToken'],$a);
-
-
-					}
-				}
-
-
-
-
-				/*
-				else if( $msg == '#ลงทะเบียน'){ 
-				 
-					$uid = $event['source']['userId'];
-					$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-		 
-					$a = array(
-							 array(
-                       "type"=> "imagemap",
-                       "baseUrl"=> "https://gispwasys.herokuapp.com/image/register/rich",
-                       "altText"=> "this is an imagemap",
-                       "baseSize"=> array(
-                         "height"=> 1040,
-                         "width"=> 1040
-                        ),
-                       "actions"=> array ( 
-                           array(
-                            "type"=> "uri",
-                            "linkUri"=> $str,
-                            "area"=> 
-                            array(
-                             "x"=> 0,
-                             "y"=> 520,
-                             "width"=> 1040,
-                             "height"=> 520
-                            )
-                           ),
-                           array(
-                            "type"=> "message",
-                            "text"=> "hello",
-                            "area"=> 
-                                array(
-                             "x"=> 0,
-                             "y"=> 0,
-                             "width"=> 1040,
-                             "height"=> 520
-									)
-								   )	  
-						   )     
-						)
-							 
-					);
-
-					$client->replyMessage1($event['replyToken'],$a);
-						 
-				}
-				*/
- 
                 else if (preg_match('(เสียใจ|ร้องไห้|ไม่ต้องร้อง|ผิดหวัง)', $msg) === 1) {
                     $a = array(
                                 array(
@@ -3720,259 +3596,7 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
                 }
 
-				else if (preg_match('(#flex0|flex0)', $msg) === 1) {
 
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
-
-					if (chk_friend($uid) == false){
-
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนลงทะเบียน'          
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-
-					}
-					else if (chk_friend($uid) == true){
-						
-						//$gid = $event['source']['groupId'];
-						$uid = $event['source']['userId'];
-
-						
-						$url = 'https://api.line.me/v2/bot/profile/'.$uid;
-						//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-						$profile = get_profile($url);
-						$obj = json_decode($profile);
-
-						$nameid = $obj->displayName;
-						$status = $obj->statusMessage;
-						$pathpic = explode("cdn.net/", $obj->pictureUrl);
-						$iconUrl = 'https://obs.line-apps.com/'.$pathpic[1];
-						
-
-						$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-						$a = array(
-								array(
-									'type' => 'flex',
-									'altText' => 'Air Quality',
-									'contents'=> array(
-
-									/* เอามาจากflex*/
-
-									  "type"=> "bubble",
-									  "header"=> array(
-										"type"=> "box",
-										"layout"=> "horizontal",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-											"color"=> "#414141",
-											"gravity"=> "center",
-											"size"=> "lg",
-											"wrap"=> true,
-											"align"=> "center"
-										  )
-										)
-									  ),
-									  "body"=> array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "image",
-												"url"=> $iconUrl,
-												"size"=> "md",
-												"align"=> "start"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> $nameid,
-												"wrap"=> true,
-												"size"=> "lg",
-												"color"=> "#a57f23",
-												"gravity"=> "center"
-											  )
-											),
-											"margin"=> "xxl"
-										  ),
-										  array(
-											"type"=> "box",
-											"layout"=> "baseline",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "85",
-												"color"=> "#a57f23",
-												"size"=> "5xl",
-												"align"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "US AQI",
-												"color"=> "#a57f23",
-												"size"=> "xs",
-												"margin"=> "sm"
-											  )
-											)
-										  ),
-										  array(
-											'type'=> "box",
-											'layout'=> "vertical",
-											'contents'=> array(
-											   array(
-												'type'=> "button",
-												'style'=> "primary",
-												'height'=> "sm",
-												'action'=> array(
-														'type'=> "uri",
-														'label'=> "Register",
-														'uri'=> $str
-														)
-											   )
-											  )
-											
-										  )
-
-
-										)
-									  ),
-									  "styles"=> array(
-										"header"=> array(
-										  "backgroundColor"=> "#fdd74a"
-										),
-										"body"=> array(
-										  "backgroundColor"=> "#fffcf2"
-										)
-									  )
-
-									/* เอามาจากflex*/
-
-									)
-								)
-						);
-						$client->replyMessage1($event['replyToken'],$a);
-
-												
-					}
-                }
-				else if (preg_match('(#flex1|flex2)', $msg) === 1) {
-
-					$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
-					$a = array(
-							array(
-								'type' => 'flex',
-								'altText' => 'Air Quality',
-								'contents'=> array(
-
-								/* เอามาจากflex*/
-
-								  "type"=> "bubble",
-								  "header"=> array(
-									"type"=> "box",
-									"layout"=> "horizontal",
-									"contents"=> array(
-									  array(
-										"type"=> "text",
-										"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-										"color"=> "#414141",
-										"gravity"=> "center",
-										"size"=> "lg",
-										"wrap"=> true,
-										"align"=> "center"
-									  )
-									)
-								  ),
-								  "body"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"contents"=> array(
-									  array(
-										"type"=> "box",
-										"layout"=> "horizontal",
-										"contents"=> array(
-										  array(
-											"type"=> "image",
-											"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
-											"size"=> "md",
-											"align"=> "start"
-										  ),
-										  array(
-											"type"=> "text",
-											"text"=> "Moderate",
-											"wrap"=> true,
-											"size"=> "lg",
-											"color"=> "#a57f23",
-											"gravity"=> "center"
-										  )
-										),
-										"margin"=> "xxl"
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "baseline",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "85",
-											"color"=> "#a57f23",
-											"size"=> "5xl",
-											"align"=> "center"
-										  ),
-										  array(
-											"type"=> "text",
-											"text"=> "US AQI",
-											"color"=> "#a57f23",
-											"size"=> "xs",
-											"margin"=> "sm"
-										  )
-										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "Register",
-													'uri'=> $str
-													)
-										   )
-										  )
-										
-									  )
-
-
-									)
-								  ),
-								  "styles"=> array(
-									"header"=> array(
-									  "backgroundColor"=> "#fdd74a"
-									),
-									"body"=> array(
-									  "backgroundColor"=> "#fffcf2"
-									)
-								  )
-
-								/* เอามาจากflex*/
-
-								)
-							)
-					);
-                    $client->replyMessage1($event['replyToken'],$a);
- 
-                }
 				else if (preg_match('(#ลงทะเบียน|#register|#Register|#REGISTER)', $msg) === 1) {
 
                     $gid = $event['source']['groupId'];
@@ -4011,13 +3635,21 @@ function replyMsg($event, $client)
 							//$urllink = urlencode($urllink);
 							$res = get_url($urllink); 
 
+							$a = array(
+									   array(
+										   'type' => 'text',
+										   'text' => 'เราได้ส่งข้อความเให้ '.$nameid.' แล้ว โปรดตรวจสอบและลงทะเบียน'         
+									   )
+									);
+							$client->replyMessage1($event['replyToken'],$a);
+
 						}
 						else{
 							$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 							$a = array(
 									array(
 										'type' => 'flex',
-										'altText' => 'Air Quality',
+										'altText' => 'ลงทะเบียน',
 										'contents'=> array(
 
 										/* เอามาจากflex*/
@@ -4050,7 +3682,8 @@ function replyMsg($event, $client)
 													"type"=> "image",
 													"url"=> $iconUrl,
 													"size"=> "md",
-													"align"=> "start"
+													"align"=> "start",
+													"gravity"=> "center"
 												  ),
 												  array(
 													"type"=> "text",
@@ -4059,30 +3692,18 @@ function replyMsg($event, $client)
 													"size"=> "lg",
 													"color"=> "#a57f23",
 													"gravity"=> "center"
-												  )
-												),
-												"margin"=> "xxl"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "baseline",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "85",
-													"color"=> "#a57f23",
-													"size"=> "5xl",
-													"align"=> "center"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "US AQI",
-													"color"=> "#a57f23",
-													"size"=> "xs",
-													"margin"=> "sm"
+													//"flex" => 3 // for auto size image+name more(image<) less(image>)
 												  )
 												)
-											  ),
+											  )
+
+											)
+										  ),
+										  "footer"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+
 											  array(
 												'type'=> "box",
 												'layout'=> "vertical",
@@ -4090,27 +3711,34 @@ function replyMsg($event, $client)
 												   array(
 													'type'=> "button",
 													'style'=> "primary",
+													"gravity"=> "center",
+													"margin"=> "sm",
 													'height'=> "sm",
 													'action'=> array(
 															'type'=> "uri",
-															'label'=> "Register",
+															'label'=> "ลงทะเบียน",
 															'uri'=> $str
 															)
 												   )
 												  )
-												
 											  )
 
 
 											)
 										  ),
+
 										  "styles"=> array(
-											"header"=> array(
-											  "backgroundColor"=> "#fdd74a"
-											),
-											"body"=> array(
-											  "backgroundColor"=> "#fffcf2"
-											)
+
+												"header"=> array(
+												  "backgroundColor"=> "#fdd74a"
+												),
+												"body"=> array(
+												  "backgroundColor"=> "#fffcf2"
+												),
+												"footer"=> array(
+												  "separator"=> true
+												)
+
 										  )
 
 										/* เอามาจากflex*/
@@ -4126,45 +3754,7 @@ function replyMsg($event, $client)
 												
 					}
                 }
-				else if (preg_match('(#flex5|flex6)', $msg) === 1) {
 
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
-					$nameid='nutty';
-					$iconUrl='https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png';
-
-					/*
-					$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php';
-					$chl = curl_init();
-					curl_setopt( $chl, CURLOPT_URL, $urllink); 
-					curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
-					curl_setopt($chl, CURLOPT_POST, 1);
-					//curl_setopt($chl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
-					//curl_setopt($chl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
-					//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
-					//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
-					curl_setopt($chl, CURLOPT_CONNECTTIMEOUT, 0); 
-					curl_setopt($chl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
-
-					  $values = array(
-						'send' => 'register',
-						'nameid' => $nameid,
-						'uid' => $uid,
-						'iconUrl' => $iconUrl
-					  );
-					$params = http_build_query($values);
-					curl_setopt($chl, CURLOPT_POSTFIELDS,$params); 
-					$res = curl_exec($chl);		
-					curl_close($chl);
-					*/
-
-					$urllink = 'https://gispwa.herokuapp.com/gis-pwa.php?send=register&nameid='.$nameid.'&iconUrl='.$iconUrl.'&id='.$uid;
-					//$urllink = urlencode($urllink);
-					$res = get_url($urllink); 
-
-
-
-                }
 
                 else{
  
