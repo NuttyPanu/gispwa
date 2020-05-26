@@ -272,7 +272,7 @@ if ( $_REQUEST['send'] == 'register' )
 								  "backgroundColor"=> "#fffcf2"
 								),
 								"footer"=> array(
-								  "separator": true
+								  "separator"=> true
 								)
 
 						  )
