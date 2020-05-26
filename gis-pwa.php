@@ -194,7 +194,7 @@ if ( $_REQUEST['send'] == 'register' )
 		                ),
 					array(
 						'type' => 'flex',
-						'altText' => 'Air Quality',
+						'altText' => 'ลงทะเบียน',
 						'contents'=> array(
 
 						/* เอามาจากflex*/
@@ -227,7 +227,8 @@ if ( $_REQUEST['send'] == 'register' )
 									"type"=> "image",
 									"url"=> $iconUrl,
 									"size"=> "md",
-									"align"=> "start"
+									"align"=> "start",
+								    "gravity"=> "center"
 								  ),
 								  array(
 									"type"=> "text",
@@ -235,28 +236,8 @@ if ( $_REQUEST['send'] == 'register' )
 									"wrap"=> true,
 									"size"=> "lg",
 									"color"=> "#a57f23",
-									"gravity"=> "center"
-								  )
-								),
-								"margin"=> "xxl"
-							  ),
-							  array(
-								"type"=> "box",
-								"layout"=> "baseline",
-								"contents"=> array(
-								  array(
-									"type"=> "text",
-									"text"=> "85",
-									"color"=> "#a57f23",
-									"size"=> "5xl",
-									"align"=> "center"
-								  ),
-								  array(
-									"type"=> "text",
-									"text"=> "US AQI",
-									"color"=> "#a57f23",
-									"size"=> "xs",
-									"margin"=> "sm"
+									"gravity"=> "center",
+									"flex" => 3 // for auto size image+name more(image<) less(image>)
 								  )
 								)
 							  ),
@@ -267,27 +248,33 @@ if ( $_REQUEST['send'] == 'register' )
 								   array(
 									'type'=> "button",
 									'style'=> "primary",
+									"gravity"=> "center",
+									"margin"=> "sm",
 									'height'=> "sm",
 									'action'=> array(
 											'type'=> "uri",
-											'label'=> "Register",
+											'label'=> "ลงทะเบียน",
 											'uri'=> $str
 											)
 								   )
 								  )
-								
 							  )
 
 
 							)
 						  ),
 						  "styles"=> array(
-							"header"=> array(
-							  "backgroundColor"=> "#fdd74a"
-							),
-							"body"=> array(
-							  "backgroundColor"=> "#fffcf2"
-							)
+
+								"header"=> array(
+								  "backgroundColor"=> "#fdd74a"
+								),
+								"body"=> array(
+								  "backgroundColor"=> "#fffcf2"
+								),
+								"footer"=> array(
+								  "separator": true
+								)
+
 						  )
 
 						/* เอามาจากflex*/
