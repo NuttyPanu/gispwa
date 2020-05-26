@@ -3596,7 +3596,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "link",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3616,7 +3616,10 @@ function replyMsg($event, $client)
 									),
 									"body"=> array(
 									  "backgroundColor"=> "#fffcf2"
-									)
+									),
+									"footer": {
+									  "separator": true
+									}
 								  )
 
 								/* เอามาจากflex*/
