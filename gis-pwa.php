@@ -3474,88 +3474,90 @@ function replyMsg($event, $client)
 
 					$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 					$a = array(
-							array(
+							/*array(
 								'type' => 'flex',
 								'altText' => 'ระบบกภส.',
-								'contents'=> /*https://developers.line.biz/flex-simulator/?status=success&status=success*/
-array(
-  "type"=> "carousel",
-  "contents"=> array(
-    array(
-      "type"=> "bubble",
-      "hero"=> array(
-        "type"=> "image",
-        "size"=> "full",
-        "aspectRatio"=> "20=>13",
-        "aspectMode"=> "cover",
-        "url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png"
-      ),
-      "body"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "spacing"=> "sm",
-        "contents"=> array(
-          array(
-            "type"=> "text",
-            "text"=> "Arm Chair, White",
-            "wrap"=> true,
-            "weight"=> "bold",
-            "size"=> "xl"
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "baseline",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "$49",
-                "wrap"=> true,
-                "weight"=> "bold",
-                "size"=> "xl",
-                "flex"=> 0
-              ),
-              array(
-                "type"=> "text",
-                "text"=> ".99",
-                "wrap"=> true,
-                "weight"=> "bold",
-                "size"=> "sm",
-                "flex"=> 0
-              )
-            )
-          )
-        )
-      ),
-      "footer"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "spacing"=> "sm",
-        "contents"=> array(
-          array(
-            "type"=> "button",
-            "style"=> "primary",
-            "action"=> array(
-              "type"=> "uri",
-              "label"=> "Add to Cart",
-              "uri"=> "https=>//linecorp.com"
-            )
-          ),
-          array(
-            "type"=> "button",
-            "action"=> array(
-              "type"=> "uri",
-              "label"=> "Add to wishlist",
-              "uri"=> "https=>//linecorp.com"
-            )
-          )
-        )
-      )
-    )
-  )
-)
-/*https://developers.line.biz/flex-simulator/?status=success&status=success*/
+								'contents'=>
+							*/
+									/*https://developers.line.biz/flex-simulator/?status=success&status=success*/
+									array(
+									  "type"=> "carousel",
+									  "contents"=> array(
+										array(
+										  "type"=> "bubble",
+										  "hero"=> array(
+											"type"=> "image",
+											"size"=> "full",
+											"aspectRatio"=> "20=>13",
+											"aspectMode"=> "cover",
+											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png"
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"spacing"=> "sm",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "Arm Chair, White",
+												"wrap"=> true,
+												"weight"=> "bold",
+												"size"=> "xl"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "baseline",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "$49",
+													"wrap"=> true,
+													"weight"=> "bold",
+													"size"=> "xl",
+													"flex"=> 0
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> ".99",
+													"wrap"=> true,
+													"weight"=> "bold",
+													"size"=> "sm",
+													"flex"=> 0
+												  )
+												)
+											  )
+											)
+										  ),
+										  "footer"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"spacing"=> "sm",
+											"contents"=> array(
+											  array(
+												"type"=> "button",
+												"style"=> "primary",
+												"action"=> array(
+												  "type"=> "uri",
+												  "label"=> "Add to Cart",
+												  "uri"=> "https=>//linecorp.com"
+												)
+											  ),
+											  array(
+												"type"=> "button",
+												"action"=> array(
+												  "type"=> "uri",
+												  "label"=> "Add to wishlist",
+												  "uri"=> "https=>//linecorp.com"
+												)
+											  )
+											)
+										  )
+										)
+									  )
+									)
+									/*https://developers.line.biz/flex-simulator/?status=success&status=success*/
 
-							)
+							/*)*/
 					);
                     $client->replyMessage1($event['replyToken'],$a);
  
