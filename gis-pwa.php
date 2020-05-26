@@ -3470,7 +3470,7 @@ function replyMsg($event, $client)
                 }
 
 
-				else if (preg_match('(#กภส|#กภส.)', $msg) === 1) {
+				else if (preg_match('(#test|#testt)', $msg) === 1) {
 
 
 					$a = array(
