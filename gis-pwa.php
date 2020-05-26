@@ -3472,91 +3472,297 @@ function replyMsg($event, $client)
 
 				else if (preg_match('(#กภส|#กภส.)', $msg) === 1) {
 
-					$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+
 					$a = array(
 							/*array(
 								'type' => 'flex',
 								'altText' => 'ระบบกภส.',
 								'contents'=>
 							*/
-									/*https://developers.line.biz/flex-simulator/?status=success&status=success*/
-									array(
-									  "type"=> "carousel",
-									  "contents"=> array(
-										array(
-										  "type"=> "bubble",
-										  "hero"=> array(
-											"type"=> "image",
-											"size"=> "full",
-											"aspectRatio"=> "20=>13",
-											"aspectMode"=> "cover",
-											"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png"
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"spacing"=> "sm",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "Arm Chair, White",
-												"wrap"=> true,
-												"weight"=> "bold",
-												"size"=> "xl"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "baseline",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "$49",
-													"wrap"=> true,
-													"weight"=> "bold",
-													"size"=> "xl",
-													"flex"=> 0
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> ".99",
-													"wrap"=> true,
-													"weight"=> "bold",
-													"size"=> "sm",
-													"flex"=> 0
-												  )
-												)
-											  )
-											)
-										  ),
-										  "footer"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"spacing"=> "sm",
-											"contents"=> array(
-											  array(
-												"type"=> "button",
-												"style"=> "primary",
-												"action"=> array(
-												  "type"=> "uri",
-												  "label"=> "Add to Cart",
-												  "uri"=> "https=>//linecorp.com"
-												)
-											  ),
-											  array(
-												"type"=> "button",
-												"action"=> array(
-												  "type"=> "uri",
-												  "label"=> "Add to wishlist",
-												  "uri"=> "https=>//linecorp.com"
-												)
-											  )
-											)
-										  )
-										)
-									  )
-									)
-									/*https://developers.line.biz/flex-simulator/?status=success&status=success*/
-
+array(
+  "type"=> "bubble",
+  "header"=> array(
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> array(
+      array(
+        "type"=> "text",
+        "text"=> "ระบบที่พัฒนาโดย กภส.",
+        "size"=> "lg",
+        "weight"=> "bold",
+        "align"=> "center",
+        "gravity"=> "center",
+        "wrap"=> true,
+        "style"=> "normal"
+      )
+    )
+  ),
+  "body"=> array(
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> array(
+      array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "สนับสนุนระบบต่างๆ",
+            "color"=> "#ffffffcc",
+            "size"=> "sm"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "button",
+                "action"=> array(
+                  "type"=> "uri",
+                  "label"=> "ติดตามมาตรวัดน้ำ",
+                  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
+                ),
+                "height"=> "sm",
+                "style"=> "primary",
+                "gravity"=> "center"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "button",
+                "action"=> array(
+                  "type"=> "uri",
+                  "label"=> "ศักยภาพด้านการตลาด",
+                  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
+                ),
+                "height"=> "sm",
+                "style"=> "primary",
+                "gravity"=> "center"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "button",
+                "action"=> array(
+                  "type"=> "uri",
+                  "label"=> " พื้นที่ให้บริการของ กปภ.",
+                  "uri"=> "https=>//gisweb1.pwa.co.th/meterstat/"
+                ),
+                "height"=> "sm",
+                "style"=> "primary",
+                "gravity"=> "center"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          )
+        )
+      ),
+      array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "spacer"
+          ),
+          array(
+            "type"=> "separator"
+          ),
+          array(
+            "type"=> "spacer"
+          )
+        )
+      ),
+      array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "สนับสนุน GIS",
+            "color"=> "#ffffffcc",
+            "size"=> "sm"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "button",
+                "action"=> array(
+                  "type"=> "uri",
+                  "label"=> "สถานะการอัพโหลด",
+                  "uri"=> "https=>//gisweb1.pwa.co.th/upload_status_commit/"
+                ),
+                "height"=> "sm",
+                "style"=> "primary",
+                "gravity"=> "center"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "button",
+                "action"=> array(
+                  "type"=> "uri",
+                  "label"=> "สรุปความยาวท่อ กปภ.",
+                  "uri"=> "https=>//gisweb1.pwa.co.th/gis4manager/"
+                ),
+                "height"=> "sm",
+                "style"=> "primary",
+                "gravity"=> "center"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          )
+        )
+      ),
+      array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "spacer"
+          ),
+          array(
+            "type"=> "separator"
+          ),
+          array(
+            "type"=> "spacer"
+          )
+        )
+      ),
+      array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "อื่นๆ",
+            "color"=> "#ffffffcc",
+            "size"=> "sm"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "spacer"
+              )
+            )
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "button",
+                "action"=> array(
+                  "type"=> "uri",
+                  "label"=> "ระบบคัดสำเนา",
+                  "uri"=> "https=>//gisweb1.pwa.co.th/dga/"
+                ),
+                "height"=> "sm",
+                "style"=> "primary",
+                "gravity"=> "center"
+              )
+            )
+          )
+        )
+      )
+    ),
+    "paddingAll"=> "20px",
+    "backgroundColor"=> "#464F69"
+  ),
+  "footer"=> array(
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> array(
+      array(
+        "type"=> "button",
+        "action"=> array(
+          "type"=> "uri",
+          "label"=> "เว็บไซต์ กภส.",
+          "uri"=> "https=>//gis.pwa.co.th/"
+        ),
+        "height"=> "sm",
+        "style"=> "link",
+        "gravity"=> "center"
+      )
+    )
+  )
+)
 							/*)*/
 					);
                     $client->replyMessage1($event['replyToken'],$a);
