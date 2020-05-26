@@ -3585,6 +3585,31 @@ function replyMsg($event, $client)
 
 									)
 								  ),
+								  "footer"=> array(
+									"type"=> "box",
+									"layout"=> "vertical",
+									"contents"=> array(
+
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "Register",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  )
+
+									)
+								  ),
 								  "styles"=> array(
 									"header"=> array(
 									  "backgroundColor"=> "#fdd74a"
