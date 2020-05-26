@@ -3474,10 +3474,7 @@ function replyMsg($event, $client)
 
 					$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 					$a = array(
-							array(
-								'type' => 'flex',
-								'altText' => 'ระบบกภส.',
-								'contents'=> 
+
 /*https://developers.line.biz/flex-simulator/?status=success&status=success*/
 array(
   "type"=> "carousel",
@@ -3658,8 +3655,6 @@ array(
 )
 /*https://developers.line.biz/flex-simulator/?status=success&status=success*/
 
-
-							)
 					);
                     $client->replyMessage1($event['replyToken'],$a);
  
