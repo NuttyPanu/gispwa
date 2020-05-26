@@ -3617,9 +3617,9 @@ function replyMsg($event, $client)
 									"body"=> array(
 									  "backgroundColor"=> "#fffcf2"
 									),
-									"footer": {
-									  "separator": true
-									}
+									"body"=> array(
+									  "backgroundColor"=> "#fdd74a"
+									)
 								  )
 
 								/* เอามาจากflex*/
