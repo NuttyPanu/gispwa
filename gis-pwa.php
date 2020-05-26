@@ -188,10 +188,12 @@ if ( $_REQUEST['send'] == 'register' )
  	$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
 
 	$text = array(
+					/*
 		            array(
 			                'type' => 'text',
 		                    'text' => 'ท่านสามารถลงทะเบียนได้โดยคลิกที่ปุ่มลงทะเบียนครับ'
 		                ),
+					*/
 					array(
 						'type' => 'flex',
 						'altText' => 'ลงทะเบียน',
@@ -1280,14 +1282,6 @@ if (!is_null($events['events'])) {
 
 			}
 
-
-			else if ($text == 'ลงทะเบียน') {
-					$str ='https://gis4manager.herokuapp.com/bot/register.php?id='.$uid;
-					$messages = [
-						"type"=> "text",
-						"text"=> $str
-					];
-			}
 
 
 			else if ($text == 'meterstat') {
@@ -3638,7 +3632,7 @@ function replyMsg($event, $client)
 							$a = array(
 									   array(
 										   'type' => 'text',
-										   'text' => 'เราได้ส่งข้อความเให้ '.$nameid.' แล้ว โปรดตรวจสอบและลงทะเบียน'         
+										   'text' => 'เราได้ส่งข้อความให้ '.$nameid.' แล้ว โปรดตรวจสอบและลงทะเบียน'         
 									   )
 									);
 							$client->replyMessage1($event['replyToken'],$a);
