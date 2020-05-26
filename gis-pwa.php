@@ -3474,11 +3474,11 @@ function replyMsg($event, $client)
 
 
 					$a = array(
-							/*array(
+							array(
 								'type' => 'flex',
 								'altText' => 'ระบบกภส.',
 								'contents'=>
-							*/
+							
 array(
   "type"=> "bubble",
   "header"=> array(
@@ -3763,7 +3763,7 @@ array(
     )
   )
 )
-							/*)*/
+							)
 					);
                     $client->replyMessage1($event['replyToken'],$a);
  
