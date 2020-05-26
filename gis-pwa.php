@@ -3503,6 +3503,7 @@ function replyMsg($event, $client)
 									"type"=> "box",
 									"layout"=> "vertical",
 									"contents"=> array(
+									/*
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
@@ -3602,48 +3603,7 @@ function replyMsg($event, $client)
 										  )
 										)
 									  ),
-
-									  array(
-										"type"=> "box",
-										"layout"=> "horizontal",
-										"contents"=> array(
-										  array(
-											"type"=> "image",
-											"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
-											"size"=> "md",
-											"align"=> "start"
-										  ),
-										  array(
-											"type"=> "text",
-											"text"=> "Moderate",
-											"wrap"=> true,
-											"size"=> "lg",
-											"color"=> "#a57f23",
-											"gravity"=> "center"
-										  )
-										),
-										"margin"=> "xxl"
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "baseline",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "85",
-											"color"=> "#a57f23",
-											"size"=> "5xl",
-											"align"=> "center"
-										  ),
-										  array(
-											"type"=> "text",
-											"text"=> "US AQI",
-											"color"=> "#a57f23",
-											"size"=> "xs",
-											"margin"=> "sm"
-										  )
-										)
-									  ),
+									*/
 									  array(
 										'type'=> "box",
 										'layout'=> "vertical",
@@ -3663,6 +3623,22 @@ function replyMsg($event, $client)
 									  )
 
 
+									)
+								  ),
+								  "footer"=> array(
+									"type"=> "box",
+									"layout"=> "vertical",
+									"spacing"=> "sm",
+									"contents"=> array(
+									  array(
+										"type"=> "button",
+										"style"=> "primary",
+										"action"=> array(
+										  "type"=> "uri",
+										  "label"=> "เว็บไซต์ กภส.",
+										  "uri"=> "https=>//linecorp.com"
+										)
+									  )
 									)
 								  ),
 								  "styles"=> array(
