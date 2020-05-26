@@ -236,11 +236,20 @@ if ( $_REQUEST['send'] == 'register' )
 									"wrap"=> true,
 									"size"=> "lg",
 									"color"=> "#a57f23",
-									"gravity"=> "center",
-									"flex" => 3 // for auto size image+name more(image<) less(image>)
+									"gravity"=> "center"
+									//"flex" => 3 // for auto size image+name more(image<) less(image>)
 								  )
-								)
-							  ),
+								),
+								"margin": "xxl"
+							  )
+
+							)
+						  ),
+						  "footer"=> array(
+							"type"=> "box",
+							"layout"=> "vertical",
+							"contents"=> array(
+
 							  array(
 								'type'=> "box",
 								'layout'=> "vertical",
@@ -263,6 +272,7 @@ if ( $_REQUEST['send'] == 'register' )
 
 							)
 						  ),
+
 						  "styles"=> array(
 
 								"header"=> array(
