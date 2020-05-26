@@ -870,129 +870,8 @@ if (!is_null($events['events'])) {
 			}
 
 
-			else if ($text == '#flex') {
-
-				$messages = [
-					'type' => 'flex',
-					'altText' => 'This is a Flex Message',
-					'contents'=> [
-
-						  "type"=> "bubble",
-						  "header"=> [
-							"type"=> "box",
-							"layout"=> "vertical",
-							"contents"=> [
-							  [
-								"type"=> "box",
-								"layout"=> "horizontal",
-								"contents"=> [
-								  [
-									"type"=> "image",
-									"url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip4.jpg",
-									"size"=> "lg",
-									"aspectMode"=> "cover",
-									"aspectRatio"=> "150=>66",
-									"gravity"=> "center",
-									"flex"=> 1
-								  ],
-								  [
-									"type"=> "box",
-									"layout"=> "horizontal",
-									"contents"=> [
-									  [
-										"type"=> "text",
-										"text"=> "NEW",
-										"size"=> "xs",
-										"color"=> "#ffffff",
-										"align"=> "center",
-										"gravity"=> "center"
-									  ]
-									],
-									"backgroundColor"=> "#EC3D44",
-									"paddingAll"=> "2px",
-									"paddingStart"=> "4px",
-									"paddingEnd"=> "4px",
-									"flex"=> 0,
-									"position"=> "absolute",
-									"offsetStart"=> "18px",
-									"offsetTop"=> "18px",
-									"cornerRadius"=> "100px",
-									"width"=> "48px",
-									"height"=> "25px"
-								  ]
-								]
-							  ]
-							],
-							"paddingAll"=> "0px"
-						  ],
-						  "body"=> [
-							"type"=> "box",
-							"layout"=> "vertical",
-							"contents"=> [
-							  [
-								"type"=> "box",
-								"layout"=> "vertical",
-								"contents"=> [
-								  [
-									"type"=> "box",
-									"layout"=> "vertical",
-									"contents"=> [
-									  [
-										"type"=> "text",
-										"contents"=> [],
-										"size"=> "xl",
-										"wrap"=> true,
-										"text"=> "Cony Residence",
-										"color"=> "#ffffff",
-										"weight"=> "bold"
-									  ],
-									  [
-										"type"=> "text",
-										"text"=> "3 Bedrooms, ¥35,000",
-										"color"=> "#ffffffcc",
-										"size"=> "sm"
-									  ]
-									],
-									"spacing"=> "sm"
-								  ],
-								  [
-									"type"=> "box",
-									"layout"=> "vertical",
-									"contents"=> [
-									  [
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> [
-										  [
-											"type"=> "text",
-											"contents"=> [],
-											"size"=> "sm",
-											"wrap"=> true,
-											"margin"=> "lg",
-											"color"=> "#ffffffde",
-											"text"=> "Private Pool, Delivery box, Floor heating, Private Cinema"
-										  ]
-										]
-									  ]
-									],
-									"paddingAll"=> "13px",
-									"backgroundColor"=> "#ffffff1A",
-									"cornerRadius"=> "2px",
-									"margin"=> "xl"
-								  ]
-								]
-							  ]
-							],
-							"paddingAll"=> "20px",
-							"backgroundColor"=> "#464F69"
-						  ]
 
 
-
-					]
-				];
-				
-			}
 
 			else if (preg_match('(#เช็ค|#check)', $text) === 1) {
 
@@ -3588,6 +3467,202 @@ function replyMsg($event, $client)
                                 )
                             );
                     $client->replyMessage1($event['replyToken'],$a);
+                }
+
+
+				else if (preg_match('(#กภส|#กภส.)', $msg) === 1) {
+
+					$str ='https://gisweb1.pwa.co.th/lineservice/line_register/register.php?id='.$uid;
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => 'ระบบกภส.',
+								'contents'=> 
+/*https://developers.line.biz/flex-simulator/?status=success&status=success*/
+array(
+  "type"=> "carousel",
+  "contents"=> array(
+    array(
+      "type"=> "bubble",
+      "hero"=> array(
+        "type"=> "image",
+        "size"=> "full",
+        "aspectRatio"=> "20=>13",
+        "aspectMode"=> "cover",
+        "url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png"
+      ),
+      "body"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "spacing"=> "sm",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "Arm Chair, White",
+            "wrap"=> true,
+            "weight"=> "bold",
+            "size"=> "xl"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "baseline",
+            "contents"=> array(
+              array(
+                "type"=> "text",
+                "text"=> "$49",
+                "wrap"=> true,
+                "weight"=> "bold",
+                "size"=> "xl",
+                "flex"=> 0
+              ),
+              array(
+                "type"=> "text",
+                "text"=> ".99",
+                "wrap"=> true,
+                "weight"=> "bold",
+                "size"=> "sm",
+                "flex"=> 0
+              )
+            )
+          )
+        )
+      ),
+      "footer"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "spacing"=> "sm",
+        "contents"=> array(
+          array(
+            "type"=> "button",
+            "style"=> "primary",
+            "action"=> array(
+              "type"=> "uri",
+              "label"=> "Add to Cart",
+              "uri"=> "https=>//linecorp.com"
+            )
+          ),
+          array(
+            "type"=> "button",
+            "action"=> array(
+              "type"=> "uri",
+              "label"=> "Add to wishlist",
+              "uri"=> "https=>//linecorp.com"
+            )
+          )
+        )
+      )
+    ),
+    array(
+      "type"=> "bubble",
+      "hero"=> array(
+        "type"=> "image",
+        "size"=> "full",
+        "aspectRatio"=> "20=>13",
+        "aspectMode"=> "cover",
+        "url"=> "https=>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png"
+      ),
+      "body"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "spacing"=> "sm",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "Metal Desk Lamp",
+            "wrap"=> true,
+            "weight"=> "bold",
+            "size"=> "xl"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "baseline",
+            "flex"=> 1,
+            "contents"=> array(
+              array(
+                "type"=> "text",
+                "text"=> "$11",
+                "wrap"=> true,
+                "weight"=> "bold",
+                "size"=> "xl",
+                "flex"=> 0
+              ),
+              array(
+                "type"=> "text",
+                "text"=> ".99",
+                "wrap"=> true,
+                "weight"=> "bold",
+                "size"=> "sm",
+                "flex"=> 0
+              )
+            )
+          ),
+          array(
+            "type"=> "text",
+            "text"=> "Temporarily out of stock",
+            "wrap"=> true,
+            "size"=> "xxs",
+            "margin"=> "md",
+            "color"=> "#ff5551",
+            "flex"=> 0
+          )
+        )
+      ),
+      "footer"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "spacing"=> "sm",
+        "contents"=> array(
+          array(
+            "type"=> "button",
+            "flex"=> 2,
+            "style"=> "primary",
+            "color"=> "#aaaaaa",
+            "action"=> array(
+              "type"=> "uri",
+              "label"=> "Add to Cart",
+              "uri"=> "https=>//linecorp.com"
+            )
+          ),
+          array(
+            "type"=> "button",
+            "action"=> array(
+              "type"=> "uri",
+              "label"=> "Add to wish list",
+              "uri"=> "https=>//linecorp.com"
+            )
+          )
+        )
+      )
+    ),
+    array(
+      "type"=> "bubble",
+      "body"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "spacing"=> "sm",
+        "contents"=> array(
+          array(
+            "type"=> "button",
+            "flex"=> 1,
+            "gravity"=> "center",
+            "action"=> array(
+              "type"=> "uri",
+              "label"=> "See more",
+              "uri"=> "https=>//linecorp.com"
+            )
+          )
+        )
+      )
+    )
+  )
+)
+/*https://developers.line.biz/flex-simulator/?status=success&status=success*/
+
+
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
                 }
 
 
