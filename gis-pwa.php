@@ -3612,7 +3612,7 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "text",
-											"text"=> "สนับสนุนงานกปภ.",
+											"text"=> "สนับสนุน GIS.",
 											"weight"=> "bold",
 											"size"=> "xs",
 											"align"=> "start",
@@ -3639,7 +3639,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "ติดตามมาตรวัดน้ำ",
+													'label'=> "GISWEB",
 													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
@@ -3665,7 +3665,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "ศักยภาพด้านการตลาด",
+													'label'=> "สรุปความยาวท่อ กปภ.",
 													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
@@ -3691,7 +3691,57 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "พื้นที่ให้บริการของ กปภ.",
+													'label'=> "สถานะอัพโหลด GIS",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "อื่นๆ",
+											"weight"=> "bold",
+											"size"=> "xs",
+											"align"=> "start",
+											"color"=> "#ffffffcc"
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "ระบบคัดสำเนา",
 													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
@@ -3914,8 +3964,6 @@ function replyMsg($event, $client)
 
                 else if (preg_match('(#helpmeterstat|helpmeterstat|helpmeterstat)', $msg) === 1) {
  
-
-					
 					$t = "คำสั่งการใช้งาน ระบบติดตามมาตรฯ 
 					\n 1.การเพิ่ม/ลบ สิทธิ์
 					\n #เพิ่มสิทธิ์ หรือ #เพิ่มสิทธิ์มาตร หรือ #เพิ่มสิทธิ์ระบบมาตร หรือ #เพิ่มสิทธิ์ระบบมาตรฯ 
@@ -3974,7 +4022,35 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
+                else if (preg_match('(#helpdga|helpdga|helpdga)', $msg) === 1) {
+ 
+					$t = "คำสั่งการใช้งาน ระบบคัดสำเนา
+					\n 1.ตรวจสอบจำนวนโควต้าของคนออเทนในปัจจุบัน
+					\n #dga
 
+					";					
+					
+					/*
+					$text_reply = "คำสั่งของไลน์บอทต่างๆ 
+					\n  1.ค้นหาข้อมูลความยาวท่อ => ท่อ [ชนิด] [ขนาด] [อายุ]
+					\n  2.ค้นหาข้อมูลมาตรฯ => มาตรฯ [    ]
+					\n  3.ค้นหาตำแหน่ง => location
+					\n  4.เช็คสถานะDBระบบติดตามมาตร => meterstat 
+					\n  5.ค้นหาตำแหน่งกปภ.สาขา => #ไป [กปภ.สาขา] 
+					\n  6.555, sticker, รูป, พื้นที่ให้บริการ 
+					";
+					*/
+
+                    //$t = 'ช่วยเหลือ';    
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $t . ''               
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
 
                 else{
  
