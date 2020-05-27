@@ -4191,7 +4191,7 @@ function replyMsg($event, $client)
 									  "backgroundColor"=> "#ffffff"
 									),
 									"body"=> array(
-									  "backgroundColor"=> "#464F69"
+									  "backgroundColor"=> "#ffffff"
 									)
 								  )
 
