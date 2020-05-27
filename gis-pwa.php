@@ -3913,10 +3913,9 @@ function replyMsg($event, $client)
                 }
 
 
-				else if (preg_match('(?มาตร|#มาตร)', $msg) === 1 ) {
-					$text_reply ='test';
+				else if (preg_match('(?meterstat|?meterstat)', $msg) === 1 ) {
 
-					/*
+					
 					$text_reply = "คำสั่งการใช้งาน ระบบติดตามมาตรฯ 
 					\n 1.การเพิ่ม/ลบ สิทธิ์
 					\n #เพิ่มสิทธิ์ หรือ #เพิ่มสิทธิ์มาตร หรือ #เพิ่มสิทธิ์ระบบมาตร หรือ #เพิ่มสิทธิ์ระบบมาตรฯ 
@@ -3935,7 +3934,7 @@ function replyMsg($event, $client)
 					\n  2.2 ตรวจสอบเป็น สาขา #อัพโหลด [สาขา]
 						
 					";					
-					*/
+					
 
 
 					/*
@@ -3967,14 +3966,14 @@ function replyMsg($event, $client)
 					";
 					*/
 
+
 					$a = array(
                                 array(
                                     'type' => 'text',
-                                    'text' => $text_reply          
+                                    'text' => 'ทดสอบ'          
                                 )
                             );
                     $client->replyMessage1($event['replyToken'],$a);
-
 
                 }
 
