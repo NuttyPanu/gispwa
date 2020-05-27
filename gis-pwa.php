@@ -3503,23 +3503,7 @@ function replyMsg($event, $client)
 									"type"=> "box",
 									"layout"=> "vertical",
 									"contents"=> array(
-									/*
-									  array(
-										"type"=> "text",
-										"text"=> "สนับสนุนระบบต่างๆ",
-										"color"=> "#ffffffcc",
-										"size"=> "sm"
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									*/
+
 									  array(
 										'type'=> "box",
 										'layout'=> "vertical",
@@ -3531,7 +3515,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "ติดตามมาตรวัดน้ำ",
-													'uri'=> 'https://gisweb1.pwa.co.th/meterstat/'
+													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -3557,7 +3541,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "ศักยภาพด้านการตลาด",
-													'uri'=> 'https://gisweb1.pwa.co.th/meterstat/'
+													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -3583,7 +3567,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "พื้นที่ให้บริการของ กปภ.",
-													'uri'=> 'https://gisweb1.pwa.co.th/meterstat/'
+													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -3616,7 +3600,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "Register",
+													'label'=> "เว็บไซต์ กภส.",
 													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
@@ -3628,12 +3612,10 @@ function replyMsg($event, $client)
 								  ),
 								  "styles"=> array(
 									"header"=> array(
-									  //"backgroundColor"=> "#fdd74a"    
+									  "backgroundColor"=> "#ffffff"
 									),
 									"body"=> array(
-									  //"backgroundColor"=> "#fffcf2"
-									  //"paddingAll": "15px",
-									  "backgroundColor": "#464F69"
+									  "backgroundColor"=> "#464F69"
 									)
 								  )
 
