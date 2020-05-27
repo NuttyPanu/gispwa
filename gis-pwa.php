@@ -3516,7 +3516,7 @@ function replyMsg($event, $client)
 											"align"=> "start"
 										  )
 										)
-									  )
+									  ),
 
 									  array(
 										'type'=> "box",
