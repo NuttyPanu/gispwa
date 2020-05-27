@@ -3503,7 +3503,7 @@ function replyMsg($event, $client)
 									"type"=> "box",
 									"layout"=> "vertical",
 									"contents"=> array(
-
+									/*
 									  array(
 										"type"=> "text",
 										"text"=> "สนับสนุนระบบต่างๆ",
@@ -3519,7 +3519,7 @@ function replyMsg($event, $client)
 										  )
 										)
 									  ),
-
+									*/
 									  array(
 										'type'=> "box",
 										'layout'=> "vertical",
@@ -3632,7 +3632,7 @@ function replyMsg($event, $client)
 									),
 									"body"=> array(
 									  //"backgroundColor"=> "#fffcf2"
-									  "paddingAll": "15px",
+									  //"paddingAll": "15px",
 									  "backgroundColor": "#464F69"
 									)
 								  )
