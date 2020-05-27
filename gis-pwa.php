@@ -3915,8 +3915,8 @@ function replyMsg($event, $client)
                 else if (preg_match('(#helpmeterstat|helpmeterstat|helpmeterstat)', $msg) === 1) {
  
 
-					/*
-					$text_reply = "คำสั่งการใช้งาน ระบบติดตามมาตรฯ 
+					
+					$t = "คำสั่งการใช้งาน ระบบติดตามมาตรฯ 
 					\n 1.การเพิ่ม/ลบ สิทธิ์
 					\n #เพิ่มสิทธิ์ หรือ #เพิ่มสิทธิ์มาตร หรือ #เพิ่มสิทธิ์ระบบมาตร หรือ #เพิ่มสิทธิ์ระบบมาตรฯ 
 					\n (เพิ่มสิทธิ์ได้มากสุด ครั้งละไม่เกิน 59 user)
@@ -3935,7 +3935,7 @@ function replyMsg($event, $client)
 						
 					";					
 					
-
+					/*
 					$text_reply = "
 					
 					วิธีการเพิ่มสิทธิ์ระบบติดตามมาตรวัดน้ำ 
@@ -3964,7 +3964,7 @@ function replyMsg($event, $client)
 					";
 					*/
 
-                    $t = 'ช่วยเหลือ';    
+                    //$t = 'ช่วยเหลือ';    
                     $a = array(
                                 array(
                                     'type' => 'text',
