@@ -4877,7 +4877,30 @@ function replyMsg($event, $client)
 									'type' => 'text',
 									'text' => 'ตำแหน่งของท่านอยู่ในพื้นที่ให้บริการของกปภ.สาขา'.	$split[2].' ('.$split[1].')'
 							),
-
+							array(
+								'type' => 'flex',
+								'altText' => 'ขอใช้น้ำประปา กปภ.',
+								'contents'=> array(
+											'type'=> 'bubble',
+											'body'=> array(
+													 'type'=> "box",
+													 'layout'=> "vertical",
+													 'contents'=> array(
+																	  array(
+																	   'type'=> "button",
+																	   'style'=> "primary",
+																	   'height'=> "sm",
+																	   'action'=> array(
+																					'type'=> "uri",
+																					'label'=> "ขอใช้น้ำประปา กปภ.",
+																					'uri'=> $txt
+																				   )
+																	  )
+													 )
+											)
+								)
+							)
+							/*
 							array(
 							  "type"=> "template",
 							  "altText"=> "this is a confirm template",
@@ -4886,15 +4909,6 @@ function replyMsg($event, $client)
 								  "text"=> "ท่านต้องการขอใช้น้ำประปา(รายใหม่)?",
 								  "actions"=> 
 
-									  array (
-										  /*
-										  array(
-											"type"=> "uri",
-											"label"=> "ขอใช้น้ำประปา กปภ.",
-											"uri"=> "https://customer-application.pwa.co.th/register-service/add"
-										  )
-										  */
-										
 										  array(
 											"type"=> "message",
 											"label"=> "ใช่",
@@ -4909,6 +4923,7 @@ function replyMsg($event, $client)
 									  )
 							  )
 							)
+							*/
 
 					   )
 					);
