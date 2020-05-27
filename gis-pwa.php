@@ -3819,6 +3819,18 @@ function replyMsg($event, $client)
 									  "body"=> array(
 										"type"=> "box",
 										"layout"=> "vertical",
+
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "GIS DATABASE",
+											"weight"=> "bold",
+											"color"=> "#1DB446",
+											"size"=> "sm"
+										  )
+										)
+									  )
+										/*
 										"contents"=> array(
 										  array(
 											"type"=> "text",
@@ -4217,6 +4229,8 @@ function replyMsg($event, $client)
 										  "separator"=> true
 										)
 									  )
+										*/
+
 									)
 								/* เอามาจากflex*/
 
