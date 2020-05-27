@@ -3819,27 +3819,48 @@ function replyMsg($event, $client)
 									"type"=> "box",
 									"layout"=> "horizontal",
 									"contents"=> array(
+
 									  array(
-										"type"=> "text",
-										"text"=> "GIS DATABASE",
-										"size"=> "sm",
-										"weight"=> "bold",
-										"color"=> "#1DB446"
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "GIS DATABASE",
+											"size"=> "sm",
+											"weight"=> "bold",
+											"color"=> "#1DB446"
+										  )
+										)
 									  ),
 									  array(
-										"type"=> "text",
-										"text"=> "กปภ.สาขาพระนครศรีอยุธยา",
-										"weight"=> "bold",
-										"size"=> "md",
-										"margin"=> "xs"
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "กปภ.สาขาพระนครศรีอยุธยา",
+											"weight"=> "bold",
+											"size"=> "md",
+											"margin"=> "xs"
+										  )
+										)
 									  ),
 									  array(
-										"type"=> "text",
-										"text"=> "ข้อมูล ณ วันที่ 20 พฤษภาคม 2563",
-										"size"=> "xs",
-										"color"=> "#aaaaaa",
-										"wrap"=> true
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "ข้อมูล ณ วันที่ 20 พฤษภาคม 2563",
+											"size"=> "xs",
+											"color"=> "#aaaaaa",
+											"wrap"=> true
+										  )
+										)
 									  )
+
+
 									)
 								  ),
 								  "body"=> array(
