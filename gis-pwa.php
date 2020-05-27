@@ -3870,6 +3870,17 @@ function replyMsg($event, $client)
 
 									  array(
 										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										   array(
+												"type"=> "separator",
+												"color"=> "#000000"
+										   )
+										)
+									  ),
+
+									  array(
+										"type"=> "box",
 										"layout"=> "horizontal",
 										"contents"=> array(
 										  array(
@@ -3902,6 +3913,16 @@ function replyMsg($event, $client)
 											"style"=> "normal",
 											"align"=> "end"
 										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										   array(
+												"type"=> "separator",
+												"color"=> "#000000"
+										   )
 										)
 									  ),
 
@@ -3953,211 +3974,8 @@ function replyMsg($event, $client)
 											"type"=> "spacer"
 										  )
 										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "ศักยภาพด้านการตลาด",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  )
-										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "พื้นที่ให้บริการของ กปภ.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  )
-										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "สนับสนุน GIS.",
-											"weight"=> "bold",
-											"size"=> "xs",
-											"align"=> "start",
-											"color"=> "#ffffffcc"
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "GISWEB",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  )
-										
-									  ),          
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "สรุปความยาวท่อ กปภ.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  )
-										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "สถานะอัพโหลด GIS",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  )
-										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "อื่นๆ",
-											"weight"=> "bold",
-											"size"=> "xs",
-											"align"=> "start",
-											"color"=> "#ffffffcc"
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "ระบบคัดสำเนา",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  )
-										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
 									  )
+
 
 									)
 								  ),
