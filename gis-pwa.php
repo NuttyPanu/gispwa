@@ -4316,7 +4316,41 @@ function replyMsg($event, $client)
                 }
 
 
+				else if (preg_match('(#ขอใช้น้ำประปากปภ.|#ขอใช้น้ำประปากปภ)', $msg) === 1) {
+					$txt = 'https://customer-application.pwa.co.th/register-service/add';
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $txt          
+                                ),
+								array(
+									'type' => 'flex',
+									'altText' => 'ขอใช้น้ำประปา กปภ.',
+									'contents'=> array(
+												'type'=> 'bubble',
+												'body'=> array(
+														 'type'=> "box",
+														 'layout'=> "vertical",
+														 'contents'=> array(
+																		  array(
+																		   'type'=> "button",
+																		   'style'=> "primary",
+																		   'height'=> "sm",
+																		   'action'=> array(
+																						'type'=> "uri",
+																						'label'=> "ขอใช้น้ำประปา กปภ.",
+																						'uri'=> $txt
+																					   )
+																		  )
+														 )
+												)
+									)
+								)
 
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+
+				}
 
 
 				else if (preg_match('(#ลงทะเบียน|#register|#Register|#REGISTER)', $msg) === 1) {
