@@ -4893,7 +4893,7 @@ function replyMsg($event, $client)
 																	   'action'=> array(
 																					'type'=> "uri",
 																					'label'=> "ขอใช้น้ำประปา กปภ.",
-																					'uri'=> $txt
+																					'uri'=> 'https://customer-application.pwa.co.th/register-service/add'
 																				   )
 																	  )
 													 )
