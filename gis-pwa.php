@@ -3803,7 +3803,7 @@ function replyMsg($event, $client)
  
                 }
 
-				else if (preg_match('(#test2|#testt2)', $msg) === 1) {
+				else if (preg_match('(#status|#status)', $msg) === 1) {
 
 
 					$a = array(
