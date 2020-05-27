@@ -3802,421 +3802,422 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-				else if (preg_match('(#test1|#testt1)', $msg) === 1) {
+
+				else if (preg_match('(#test2|#testt2)', $msg) === 1) {
 
 
 					$a = array(
 							array(
 								'type' => 'flex',
-								'altText' => 'ระบบกภส.',
+								'altText' => 'upload.',
 								'contents'=> array(
 
 								/* เอามาจากflex*/
 
-array(
-  "type"=> "bubble",
-  "body"=> array(
-    "type"=> "box",
-    "layout"=> "vertical",
-    "contents"=> array(
-      array(
-        "type"=> "text",
-        "text"=> "GIS DATABASE",
-        "weight"=> "bold",
-        "color"=> "#1DB446",
-        "size"=> "sm"
-      ),
-      array(
-        "type"=> "text",
-        "text"=> "กปภ.สาขาพระนครศรีอยุธยา",
-        "weight"=> "bold",
-        "size"=> "md",
-        "margin"=> "xs"
-      ),
-      array(
-        "type"=> "text",
-        "text"=> "ข้อมูล ณ วันที่ 20 พฤษภาคม 2563",
-        "size"=> "xs",
-        "color"=> "#aaaaaa",
-        "wrap"=> true
-      ),
-      array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "margin"=> "xxl",
-        "spacing"=> "sm",
-        "contents"=> array(
-          array(
-            "type"=> "separator",
-            "color"=> "#000000"
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "LAYER",
-                "size"=> "sm",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "bold",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "OC",
-                "size"=> "sm",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "bold",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "PG",
-                "size"=> "sm",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "bold",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "separator",
-            "color"=> "#000000"
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "METER",
-                "size"=> "xxs",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "24,000",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "24,000",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "PIPE",
-                "size"=> "xxs",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "7,500",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "7,450",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "BLDG",
-                "size"=> "xxs",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "45,000",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "42,000",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "VALVE",
-                "size"=> "xxs",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "200",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "200",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "LEAKPOINT",
-                "size"=> "xxs",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "640",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "640",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "FIREHYDRANT",
-                "size"=> "xxs",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "200",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "180",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "PWA_WATERWORK",
-                "size"=> "xxs",
-                "color"=> "#555555",
-                "flex"=> 6,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "start"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "7",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              ),
-              array(
-                "type"=> "text",
-                "text"=> "5",
-                "size"=> "xs",
-                "color"=> "#555555",
-                "flex"=> 3,
-                "weight"=> "regular",
-                "style"=> "normal",
-                "decoration"=> "none",
-                "align"=> "end"
-              )
-            )
-          ),
-          array(
-            "type"=> "separator",
-            "color"=> "#000000"
-          ),
-          array(
-            "type"=> "separator",
-            "color"=> "#000000"
-          )
-        )
-      ),
-      array(
-        "type"=> "box",
-        "layout"=> "horizontal",
-        "contents"=> array(
-          array(
-            "type"=> "text",
-            "text"=> "RESULT",
-            "size"=> "xs",
-            "color"=> "#000000",
-            "flex"=> 6,
-            "align"=> "start",
-            "weight"=> "bold",
-            "gravity"=> "center"
-          ),
-          array(
-            "type"=> "text",
-            "text"=> "PASS",
-            "color"=> "#1DB446",
-            "size"=> "xs",
-            "align"=> "end",
-            "flex"=> 6,
-            "weight"=> "bold",
-            "gravity"=> "center"
-          )
-        ),
-        "spacing"=> "none",
-        "margin"=> "sm"
-      ),
-      array(
-        "type"=> "separator",
-        "color"=> "#000000",
-        "margin"=> "sm"
-      )
-    )
-  ),
-  "styles"=> array(
-    "footer"=> array(
-      "separator"=> true
-    )
-  )
-)
+									array(
+									  "type"=> "bubble",
+									  "body"=> array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "GIS DATABASE",
+											"weight"=> "bold",
+											"color"=> "#1DB446",
+											"size"=> "sm"
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "กปภ.สาขาพระนครศรีอยุธยา",
+											"weight"=> "bold",
+											"size"=> "md",
+											"margin"=> "xs"
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "ข้อมูล ณ วันที่ 20 พฤษภาคม 2563",
+											"size"=> "xs",
+											"color"=> "#aaaaaa",
+											"wrap"=> true
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"margin"=> "xxl",
+											"spacing"=> "sm",
+											"contents"=> array(
+											  array(
+												"type"=> "separator",
+												"color"=> "#000000"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "LAYER",
+													"size"=> "sm",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "bold",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "OC",
+													"size"=> "sm",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "bold",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "PG",
+													"size"=> "sm",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "bold",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "separator",
+												"color"=> "#000000"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "METER",
+													"size"=> "xxs",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "24,000",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "24,000",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "PIPE",
+													"size"=> "xxs",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "7,500",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "7,450",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "BLDG",
+													"size"=> "xxs",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "45,000",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "42,000",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "VALVE",
+													"size"=> "xxs",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "200",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "200",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "LEAKPOINT",
+													"size"=> "xxs",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "640",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "640",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "FIREHYDRANT",
+													"size"=> "xxs",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "200",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "180",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "PWA_WATERWORK",
+													"size"=> "xxs",
+													"color"=> "#555555",
+													"flex"=> 6,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "7",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "5",
+													"size"=> "xs",
+													"color"=> "#555555",
+													"flex"=> 3,
+													"weight"=> "regular",
+													"style"=> "normal",
+													"decoration"=> "none",
+													"align"=> "end"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "separator",
+												"color"=> "#000000"
+											  ),
+											  array(
+												"type"=> "separator",
+												"color"=> "#000000"
+											  )
+											)
+										  ),
+										  array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "RESULT",
+												"size"=> "xs",
+												"color"=> "#000000",
+												"flex"=> 6,
+												"align"=> "start",
+												"weight"=> "bold",
+												"gravity"=> "center"
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "PASS",
+												"color"=> "#1DB446",
+												"size"=> "xs",
+												"align"=> "end",
+												"flex"=> 6,
+												"weight"=> "bold",
+												"gravity"=> "center"
+											  )
+											),
+											"spacing"=> "none",
+											"margin"=> "sm"
+										  ),
+										  array(
+											"type"=> "separator",
+											"color"=> "#000000",
+											"margin"=> "sm"
+										  )
+										)
+									  ),
+									  "styles"=> array(
+										"footer"=> array(
+										  "separator"=> true
+										)
+									  )
+									)
 								/* เอามาจากflex*/
 
 								)
