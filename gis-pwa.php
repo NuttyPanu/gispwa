@@ -3814,424 +3814,329 @@ function replyMsg($event, $client)
 
 								/* เอามาจากflex*/
 
-									array(
-									  "type"=> "bubble",
-									  "body"=> array(
+								  "type"=> "bubble",
+								  "header"=> array(
+									"type"=> "box",
+									"layout"=> "horizontal",
+									"contents"=> array(
+									  array(
+										"type"=> "text",
+										"text"=> "GIS DATABASE",
+										"size"=> "sm",
+										"weight"=> "bold",
+										"color"=> "#1DB446"
+									  ),
+									  array(
+										"type"=> "text",
+										"text"=> "กปภ.สาขาพระนครศรีอยุธยา",
+										"weight"=> "bold",
+										"size"=> "md",
+										"margin"=> "xs"
+									  ),
+									  array(
+										"type"=> "text",
+										"text"=> "ข้อมูล ณ วันที่ 20 พฤษภาคม 2563",
+										"size"=> "xs",
+										"color"=> "#aaaaaa",
+										"wrap"=> true
+									  )
+									)
+								  ),
+								  "body"=> array(
+									"type"=> "box",
+									"layout"=> "vertical",
+									"contents"=> array(
+
+									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
-
 										"contents"=> array(
 										  array(
 											"type"=> "text",
-											"text"=> "GIS DATABASE",
+											"text"=> "สนับสนุนงานกปภ.",
 											"weight"=> "bold",
-											"color"=> "#1DB446",
-											"size"=> "sm"
-										  )
-										)
-									  )
-										/*
-										"contents"=> array(
-										  array(
-											"type"=> "text",
-											"text"=> "GIS DATABASE",
-											"weight"=> "bold",
-											"color"=> "#1DB446",
-											"size"=> "sm"
-										  ),
-										  array(
-											"type"=> "text",
-											"text"=> "กปภ.สาขาพระนครศรีอยุธยา",
-											"weight"=> "bold",
-											"size"=> "md",
-											"margin"=> "xs"
-										  ),
-										  array(
-											"type"=> "text",
-											"text"=> "ข้อมูล ณ วันที่ 20 พฤษภาคม 2563",
 											"size"=> "xs",
-											"color"=> "#aaaaaa",
-											"wrap"=> true
-										  ),
-										  array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"margin"=> "xxl",
-											"spacing"=> "sm",
-											"contents"=> array(
-											  array(
-												"type"=> "separator",
-												"color"=> "#000000"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "LAYER",
-													"size"=> "sm",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "bold",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "OC",
-													"size"=> "sm",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "bold",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "PG",
-													"size"=> "sm",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "bold",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "separator",
-												"color"=> "#000000"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "METER",
-													"size"=> "xxs",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "24,000",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "24,000",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "PIPE",
-													"size"=> "xxs",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "7,500",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "7,450",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "BLDG",
-													"size"=> "xxs",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "45,000",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "42,000",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "VALVE",
-													"size"=> "xxs",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "200",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "200",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "LEAKPOINT",
-													"size"=> "xxs",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "640",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "640",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "FIREHYDRANT",
-													"size"=> "xxs",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "200",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "180",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "PWA_WATERWORK",
-													"size"=> "xxs",
-													"color"=> "#555555",
-													"flex"=> 6,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "7",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "5",
-													"size"=> "xs",
-													"color"=> "#555555",
-													"flex"=> 3,
-													"weight"=> "regular",
-													"style"=> "normal",
-													"decoration"=> "none",
-													"align"=> "end"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "separator",
-												"color"=> "#000000"
-											  ),
-											  array(
-												"type"=> "separator",
-												"color"=> "#000000"
-											  )
-											)
-										  ),
-										  array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "RESULT",
-												"size"=> "xs",
-												"color"=> "#000000",
-												"flex"=> 6,
-												"align"=> "start",
-												"weight"=> "bold",
-												"gravity"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "PASS",
-												"color"=> "#1DB446",
-												"size"=> "xs",
-												"align"=> "end",
-												"flex"=> 6,
-												"weight"=> "bold",
-												"gravity"=> "center"
-											  )
-											),
-											"spacing"=> "none",
-											"margin"=> "sm"
-										  ),
-										  array(
-											"type"=> "separator",
-											"color"=> "#000000",
-											"margin"=> "sm"
+											"align"=> "start",
+											"color"=> "#ffffffcc"
 										  )
 										)
 									  ),
-									  "styles"=> array(
-										"footer"=> array(
-										  "separator"=> true
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "ติดตามมาตรวัดน้ำ",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),          
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "ศักยภาพด้านการตลาด",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "พื้นที่ให้บริการของ กปภ.",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "สนับสนุน GIS.",
+											"weight"=> "bold",
+											"size"=> "xs",
+											"align"=> "start",
+											"color"=> "#ffffffcc"
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "GISWEB",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),          
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "สรุปความยาวท่อ กปภ.",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "สถานะอัพโหลด GIS",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "อื่นๆ",
+											"weight"=> "bold",
+											"size"=> "xs",
+											"align"=> "start",
+											"color"=> "#ffffffcc"
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "ระบบคัดสำเนา",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
 										)
 									  )
-										*/
 
 									)
+								  ),
+								  "footer"=> array(
+									"type"=> "box",
+									"layout"=> "vertical",
+									"contents"=> array(
+
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "เว็บไซต์ กภส.",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
+										  )
+										
+									  )
+
+									)
+								  ),
+								  "styles"=> array(
+									"header"=> array(
+									  "backgroundColor"=> "#ffffff"
+									),
+									"body"=> array(
+									  "backgroundColor"=> "#464F69"
+									)
+								  )
+
 								/* เอามาจากflex*/
 
 								)
