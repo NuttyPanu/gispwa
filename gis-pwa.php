@@ -4316,6 +4316,9 @@ function replyMsg($event, $client)
                 }
 
 
+
+
+
 				else if (preg_match('(#ลงทะเบียน|#register|#Register|#REGISTER)', $msg) === 1) {
 
                     $gid = $event['source']['groupId'];
@@ -4851,6 +4854,12 @@ function replyMsg($event, $client)
 
 									  array (
 										  array(
+											"type"=> "uri",
+											"label"=> "ขอใช้น้ำประปา กปภ.",
+											"uri"=> "https://customer-application.pwa.co.th/register-service/add"
+										  )
+										/*
+										  array(
 											"type"=> "message",
 											"label"=> "ใช่",
 											"text"=> "ใช่"
@@ -4860,6 +4869,7 @@ function replyMsg($event, $client)
 											"label"=> "ไม่",
 											"text"=> "ไม่"
 										  )
+										  */
 									  )
 							  )
 							)
