@@ -3913,7 +3913,7 @@ function replyMsg($event, $client)
                 }
 
 
-				else if (preg_match('(?|#)', $msg) === 1 && preg_match('(มาตร|ติดตามมาตร)', $msg) === 1) {
+				else if (preg_match('(?มาตร|#มาตร)', $msg) === 1 ) {
 					
 					$text_reply = "คำสั่งการใช้งาน ระบบติดตามมาตร 
 					\n 1.วิธีการเพิ่ม/ลบ สิทธิ์ระบบติดตามมาตรวัดน้ำ =>
