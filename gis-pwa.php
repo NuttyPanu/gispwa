@@ -3505,6 +3505,20 @@ function replyMsg($event, $client)
 									"contents"=> array(
 
 									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "สนับสนุนงานกปภ.",
+											"weight"=> "bold",
+											"size"=> "xs",
+											"align"=> "start"
+										  )
+										)
+									  )
+
+									  array(
 										'type'=> "box",
 										'layout'=> "vertical",
 										'contents'=> array(
