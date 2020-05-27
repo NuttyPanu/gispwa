@@ -4853,23 +4853,25 @@ function replyMsg($event, $client)
 								  "actions"=> 
 
 									  array (
+										  /*
 										  array(
 											"type"=> "uri",
 											"label"=> "ขอใช้น้ำประปา กปภ.",
 											"uri"=> "https://customer-application.pwa.co.th/register-service/add"
 										  )
-										/*
+										  */
+										
 										  array(
 											"type"=> "message",
 											"label"=> "ใช่",
-											"text"=> "ใช่"
+											"text"=> "#ขอใช้น้ำประปากปภ."
 										  ),
 										  array(
 											"type"=> "message",
 											"label"=> "ไม่",
 											"text"=> "ไม่"
 										  )
-										  */
+										  
 									  )
 							  )
 							)
