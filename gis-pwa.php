@@ -3870,6 +3870,46 @@ function replyMsg($event, $client)
 
 									  array(
 										"type"=> "box",
+										"layout"=> "horizontal",
+										"contents"=> array(
+										  array(
+											"type"=> "text",
+											"text"=> "LAYER",
+											"size"=> "sm",
+											"color"=> "#555555",
+											"flex"=> 6,
+											"weight"=> "bold",
+											"style"=> "normal",
+											"decoration"=> "none",
+											"align"=> "start"
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "OC",
+											"size"=> "sm",
+											"color"=> "#555555",
+											"flex"=> 3,
+											"weight"=> "bold",
+											"style"=> "normal",
+											"decoration"=> "none",
+											"align"=> "end"
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "PG",
+											"size"=> "sm",
+											"color"=> "#555555",
+											"flex"=> 3,
+											"weight"=> "bold",
+											"style"=> "normal",
+											"decoration"=> "none",
+											"align"=> "end"
+										  )
+										)
+									  ),
+
+									  array(
+										"type"=> "box",
 										"layout"=> "vertical",
 										"contents"=> array(
 										  array(
