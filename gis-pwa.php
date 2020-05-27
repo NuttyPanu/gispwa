@@ -3817,7 +3817,7 @@ function replyMsg($event, $client)
 								  "type"=> "bubble",
 								  "header"=> array(
 									"type"=> "box",
-									"layout"=> "horizontal",
+									"layout"=> "vertical",
 									"contents"=> array(
 
 									  array(
