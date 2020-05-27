@@ -4297,9 +4297,9 @@ function replyMsg($event, $client)
 								  */
 								  "styles"=> array(
 									"header"=> array(
-									  "backgroundColor"=> "#ffffff",
-									  "paddingTop": "10px",
-									  "paddingBottom": "10px"
+									  "backgroundColor"=> "#ffffff"
+									  //"paddingTop": "10px",
+									  //"paddingBottom": "10px"
 									),
 									"body"=> array(
 									  "backgroundColor"=> "#ffffff"
