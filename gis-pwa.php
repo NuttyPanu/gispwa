@@ -3870,7 +3870,7 @@ function replyMsg($event, $client)
 
 									  array(
 										"type"=> "box",
-										"layout"=> "horizontal",
+										"layout"=> "vertical",
 										"contents"=> array(
 										  array(
 											"type"=> "text",
@@ -3880,7 +3880,6 @@ function replyMsg($event, $client)
 											"flex"=> 6,
 											"weight"=> "bold",
 											"style"=> "normal",
-											"decoration"=> "none",
 											"align"=> "start"
 										  ),
 										  array(
@@ -3891,7 +3890,6 @@ function replyMsg($event, $client)
 											"flex"=> 3,
 											"weight"=> "bold",
 											"style"=> "normal",
-											"decoration"=> "none",
 											"align"=> "end"
 										  ),
 										  array(
@@ -3902,7 +3900,6 @@ function replyMsg($event, $client)
 											"flex"=> 3,
 											"weight"=> "bold",
 											"style"=> "normal",
-											"decoration"=> "none",
 											"align"=> "end"
 										  )
 										)
