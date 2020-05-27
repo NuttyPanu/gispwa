@@ -3870,7 +3870,7 @@ function replyMsg($event, $client)
 
 									  array(
 										"type"=> "box",
-										"layout"=> "vertical",
+										"layout"=> "horizontal",
 										"contents"=> array(
 										  array(
 											"type"=> "text",
