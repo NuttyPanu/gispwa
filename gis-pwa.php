@@ -3861,7 +3861,8 @@ function replyMsg($event, $client)
 									  )
 
 
-									)
+									),
+									"paddingBottom": "5px"
 								  ),
 								  "body"=> array(
 									"type"=> "box",
