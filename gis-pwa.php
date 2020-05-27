@@ -3912,10 +3912,10 @@ function replyMsg($event, $client)
 					}
                 }
 
+                else if (preg_match('(#helpmeterstat|helpmeterstat|helpmeterstat)', $msg) === 1) {
+ 
 
-				else if (preg_match('(?meterstat|?meterstat)', $msg) === 1 ) {
-
-					
+					/*
 					$text_reply = "คำสั่งการใช้งาน ระบบติดตามมาตรฯ 
 					\n 1.การเพิ่ม/ลบ สิทธิ์
 					\n #เพิ่มสิทธิ์ หรือ #เพิ่มสิทธิ์มาตร หรือ #เพิ่มสิทธิ์ระบบมาตร หรือ #เพิ่มสิทธิ์ระบบมาตรฯ 
@@ -3936,8 +3936,6 @@ function replyMsg($event, $client)
 					";					
 					
 
-
-					/*
 					$text_reply = "
 					
 					วิธีการเพิ่มสิทธิ์ระบบติดตามมาตรวัดน้ำ 
@@ -3966,16 +3964,17 @@ function replyMsg($event, $client)
 					";
 					*/
 
-
-					$a = array(
+                    $t = 'ช่วยเหลือ';    
+                    $a = array(
                                 array(
                                     'type' => 'text',
-                                    'text' => 'ทดสอบ'          
+                                    'text' => $t . ''               
                                 )
                             );
                     $client->replyMessage1($event['replyToken'],$a);
-
+ 
                 }
+
 
                 else{
  
