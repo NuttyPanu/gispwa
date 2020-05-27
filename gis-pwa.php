@@ -3505,6 +3505,22 @@ function replyMsg($event, $client)
 									"contents"=> array(
 
 									  array(
+										"type"=> "text",
+										"text"=> "สนับสนุนระบบต่างๆ",
+										"color"=> "#ffffffcc",
+										"size"=> "sm"
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+
+									  array(
 										'type'=> "box",
 										'layout'=> "vertical",
 										'contents'=> array(
@@ -3514,8 +3530,8 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "Register",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'label'=> "ติดตามมาตรวัดน้ำ",
+													'uri'=> 'https://gisweb1.pwa.co.th/meterstat/'
 													)
 										   )
 										  )
@@ -3540,8 +3556,8 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "Register",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'label'=> "ศักยภาพด้านการตลาด",
+													'uri'=> 'https://gisweb1.pwa.co.th/meterstat/'
 													)
 										   )
 										  )
@@ -3566,8 +3582,8 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "Register",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'label'=> "พื้นที่ให้บริการของ กปภ.",
+													'uri'=> 'https://gisweb1.pwa.co.th/meterstat/'
 													)
 										   )
 										  )
@@ -3612,10 +3628,12 @@ function replyMsg($event, $client)
 								  ),
 								  "styles"=> array(
 									"header"=> array(
-									  "backgroundColor"=> "#fdd74a"
+									  //"backgroundColor"=> "#fdd74a"    
 									),
 									"body"=> array(
-									  "backgroundColor"=> "#fffcf2"
+									  //"backgroundColor"=> "#fffcf2"
+									  "paddingAll": "15px",
+									  "backgroundColor": "#464F69"
 									)
 								  )
 
