@@ -4395,7 +4395,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ระบบของกภส.",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งระบบกภส.'
 													)
 										   )
 										  )
@@ -4410,7 +4410,7 @@ function replyMsg($event, $client)
 										  )
 										)
 									  ),
-
+									  /*
 									  array(
 										"type"=> "box",
 										"layout"=> "horizontal",
@@ -4432,7 +4432,7 @@ function replyMsg($event, $client)
 										),
 										"margin"=> "xxl"
 									  ),
-
+									  */
 
 									  array(
 										'type'=> "box",
@@ -4448,7 +4448,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ติดตามมาตรฯ",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งmeterstat'
 													)
 										   ),
 										   array(
@@ -4461,7 +4461,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "คัดสำเนา",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งdga'
 													)
 										   )
 										  )
@@ -4489,7 +4489,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ข้อมูล GIS",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งgisdb'
 													)
 										   ),
 										   array(
@@ -4502,7 +4502,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ลงทะเบียน",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งลงทะเบียน'
 													)
 										   )
 										  )
@@ -4557,7 +4557,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ตรวจสอบพื้นที่ให้บริการ",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งservicearea'
 													)
 										   )
 										  )
@@ -4583,7 +4583,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ค้นหาตำแหน่ง กปภ.",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งsearchpwa'
 													)
 										   )
 										  )
@@ -4642,7 +4642,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "เช็คสภาพอากาศ",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งสภาพอากาศ'
 													)
 										   ),
 										   array(
@@ -4655,7 +4655,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "โควิด 19",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งโควิด'
 													)
 										   )
 										  )
@@ -4684,7 +4684,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "สอนบอท",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งbot'
 													)
 										   ),
 										   array(
@@ -4697,7 +4697,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "นัดหมาย",
-													'text'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> '#คำสั่งนัดหมาย'
 													)
 										   )
 										  )
@@ -4719,7 +4719,7 @@ function replyMsg($event, $client)
 										)
 									  )
 									)
-								  ),
+								  )/*,
 								  "footer"=> array(
 									"type"=> "box",
 									"layout"=> "vertical",
@@ -4744,7 +4744,7 @@ function replyMsg($event, $client)
 									  )
 
 									)
-								  ),
+								  )*/,
 								  "styles"=> array(
 									"header"=> array(
 									  "backgroundColor"=> "#ffff22"
