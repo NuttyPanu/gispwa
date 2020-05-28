@@ -4354,15 +4354,6 @@ function replyMsg($event, $client)
 										"layout"=> "vertical",
 										"contents"=> array(
 										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
 											"type"=> "text",
 											"text"=> "สนับสนุนงานกปภ.",
 											"weight"=> "bold",
@@ -4459,7 +4450,15 @@ function replyMsg($event, $client)
 										  )
 										)
 									  ),
-
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "separator"
+										  )
+										)
+									  ),
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
@@ -4641,7 +4640,7 @@ function replyMsg($event, $client)
 								  ),
 								  "styles"=> array(
 									"header"=> array(
-									  "backgroundColor": "#ffff22"
+									  "backgroundColor"=> "#ffff22"
 									),
 									"body"=> array(
 									  "backgroundColor"=> "#464F69"
