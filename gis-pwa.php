@@ -4343,13 +4343,21 @@ function replyMsg($event, $client)
 										//"color"=> "#414141",
 									  )
 									)
-										  //,"backgroundColor": "#ffff22"
 								  ),
 								  "body"=> array(
 									"type"=> "box",
 									"layout"=> "vertical",
 									"contents"=> array(
 
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "separator"
+										  )
+										)
+									  ),
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
@@ -4441,6 +4449,15 @@ function replyMsg($event, $client)
 										   )
 										  )
 										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "separator"
+										  )
+										)
 									  ),
 									  array(
 										"type"=> "box",
@@ -4633,7 +4650,7 @@ function replyMsg($event, $client)
 								  ),
 								  "styles"=> array(
 									"header"=> array(
-									  "backgroundColor"=> "#ffffff"
+									  "backgroundColor": "#ffff22"
 									),
 									"body"=> array(
 									  "backgroundColor"=> "#464F69"
