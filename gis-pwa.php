@@ -4660,7 +4660,7 @@ function replyMsg($event, $client)
 										   )
 										  )
 										
-									  )/*,
+									  ),
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
@@ -4669,7 +4669,7 @@ function replyMsg($event, $client)
 											"type"=> "spacer"
 										  )
 										)
-									  )
+									  ),
 									  array(
 										'type'=> "box",
 										'layout'=> "horizontal",
@@ -4702,8 +4702,22 @@ function replyMsg($event, $client)
 										   )
 										  )
 										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  ),
+										  array(
+											"type"=> "separator"
+										  ),
+										  array(
+											"type"=> "spacer"
+										  )
+										)
 									  )
-									  */
 									)
 								  ),
 								  "footer"=> array(
