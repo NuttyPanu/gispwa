@@ -919,7 +919,7 @@ if (!is_null($events['events'])) {
 
 			}			
 			
-            else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1) {	
+            else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1 && preg_match('(#|#)', $text) === 0) {	
 
 				$t=array("https://gispwa.herokuapp.com/image/st4.jpg,https://gispwa.herokuapp.com/image/covid4.jpeg", "https://gispwa.herokuapp.com/image/st3.jpg,https://gispwa.herokuapp.com/image/covid3.jpg", "https://gispwa.herokuapp.com/image/st2.jpg,https://gispwa.herokuapp.com/image/covid1.jpg", "https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid2.jpg",
 				"https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid7.jpg");
@@ -4367,7 +4367,7 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "text",
-											"text"=> "SYSTEM.",
+											"text"=> "SYSTEM",
 											"weight"=> "bold",
 											"size"=> "sm",
 											"align"=> "start",
