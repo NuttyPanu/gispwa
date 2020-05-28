@@ -3717,7 +3717,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "ค้นหาผู้ใช้น้ำบนเส้นท่อ (demo)",
+													'label'=> "ค้นหาผู้ใช้น้ำด้วยเส้นท่อ (demo)",
 													'uri'=> 'https://gisweb1.pwa.co.th/search_customer/'
 													)
 										   )
