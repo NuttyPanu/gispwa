@@ -4393,9 +4393,9 @@ function replyMsg($event, $client)
 											'style'=> "primary",
 											'height'=> "sm",
 											'action'=> array(
-													'type'=> "uri",
+													'type'=> "message",
 													'label'=> "ระบบของกภส.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -4446,9 +4446,9 @@ function replyMsg($event, $client)
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
-													'type'=> "uri",
+													'type'=> "message",
 													'label'=> "ติดตามมาตรฯ",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   ),
 										   array(
@@ -4459,46 +4459,12 @@ function replyMsg($event, $client)
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
-													'type'=> "uri",
+													'type'=> "message",
 													'label'=> "คัดสำเนา",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  ),
-										  "margin"=> "md"
-									  ),
-										  array(
-										'type'=> "box",
-										'layout'=> "horizontal",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											//'flex'=> "6",
-											'margin'=> "md",
-											//"gravity"=> "center",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "ข้อมูล GIS",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   ),
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											//'flex'=> "6",
-											'margin'=> "md",
-											//"gravity"=> "center",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "ลงทะเบียน",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
-										
 									  ),
 									  array(
 										"type"=> "box",
@@ -4511,16 +4477,32 @@ function replyMsg($event, $client)
 									  ),
 									  array(
 										'type'=> "box",
-										'layout'=> "vertical",
+										'layout'=> "horizontal",
 										'contents'=> array(
 										   array(
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
 											'action'=> array(
-													'type'=> "uri",
-													'label'=> "พื้นที่ให้บริการของ กปภ.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'type'=> "message",
+													'label'=> "ข้อมูล GIS",
+													'text'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   ),
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
+											'action'=> array(
+													'type'=> "message",
+													'label'=> "ลงทะเบียน",
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -4549,10 +4531,19 @@ function replyMsg($event, $client)
 										"layout"=> "vertical",
 										"contents"=> array(
 										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
 											"type"=> "text",
-											"text"=> "สนับสนุน GIS.",
+											"text"=> "GIS",
 											"weight"=> "bold",
-											"size"=> "xs",
+											"size"=> "sm",
 											"align"=> "start",
 											"color"=> "#ffffffcc"
 										  )
@@ -4576,9 +4567,9 @@ function replyMsg($event, $client)
 											'style'=> "primary",
 											'height'=> "sm",
 											'action'=> array(
-													'type'=> "uri",
-													'label'=> "GISWEB",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'type'=> "message",
+													'label'=> "ตรวจสอบพื้นที่ให้บริการ",
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -4602,35 +4593,9 @@ function replyMsg($event, $client)
 											'style'=> "primary",
 											'height'=> "sm",
 											'action'=> array(
-													'type'=> "uri",
-													'label'=> "สรุปความยาวท่อ กปภ.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
-													)
-										   )
-										  )
-										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										'type'=> "box",
-										'layout'=> "vertical",
-										'contents'=> array(
-										   array(
-											'type'=> "button",
-											'style'=> "primary",
-											'height'=> "sm",
-											'action'=> array(
-													'type'=> "uri",
-													'label'=> "สถานะอัพโหลด GIS",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'type'=> "message",
+													'label'=> "ค้นหาตำแหน่ง กปภ.",
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -4652,9 +4617,9 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "text",
-											"text"=> "อื่นๆ",
+											"text"=> "OTHER",
 											"weight"=> "bold",
-											"size"=> "xs",
+											"size"=> "sm",
 											"align"=> "start",
 											"color"=> "#ffffffcc"
 										  )
@@ -4671,16 +4636,32 @@ function replyMsg($event, $client)
 									  ),
 									  array(
 										'type'=> "box",
-										'layout'=> "vertical",
+										'layout'=> "horizontal",
 										'contents'=> array(
 										   array(
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
 											'action'=> array(
-													'type'=> "uri",
-													'label'=> "ระบบคัดสำเนา",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'type'=> "message",
+													'label'=> "เช็คสภาพอากาศ",
+													'text'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   ),
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
+											'action'=> array(
+													'type'=> "message",
+													'label'=> "โควิด 19",
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
@@ -4695,33 +4676,68 @@ function replyMsg($event, $client)
 										  )
 										)
 									  )
-
-									)
-								  ),
-								  "footer"=> array(
-									"type"=> "box",
-									"layout"=> "vertical",
-									"contents"=> array(
-
 									  array(
 										'type'=> "box",
-										'layout'=> "vertical",
+										'layout'=> "horizontal",
 										'contents'=> array(
 										   array(
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
 											'action'=> array(
-													'type'=> "uri",
-													'label'=> "เว็บไซต์ กภส.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'type'=> "message",
+													'label'=> "สอนบอท",
+													'text'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   ),
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
+											'action'=> array(
+													'type'=> "message",
+													'label'=> "นัดหมาย",
+													'text'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
 										  )
 										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "separator"
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
 									  )
-
 									)
+								  )
 								  ),
 								  "styles"=> array(
 									"header"=> array(
