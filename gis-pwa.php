@@ -3538,7 +3538,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "ติดตามมาตรวัดน้ำ",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'uri'=> 'https://gisweb1.pwa.co.th/meterstat/'
 													)
 										   )
 										  )
@@ -3564,7 +3564,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "ศักยภาพด้านการตลาด",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'uri'=> 'https://gisweb1.pwa.co.th/potential_service/'
 													)
 										   )
 										  )
@@ -3590,7 +3590,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "พื้นที่ให้บริการของ กปภ.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'uri'=> 'https://gisweb1.pwa.co.th/gis_servicearea/'
 													)
 										   )
 										  )
@@ -3640,7 +3640,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "GISWEB",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'uri'=> 'https://gisweb1.pwa.co.th/gisweb/'
 													)
 										   )
 										  )
@@ -3666,7 +3666,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "สรุปความยาวท่อ กปภ.",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'uri'=> 'https://gisweb1.pwa.co.th/gis4manager/'
 													)
 										   )
 										  )
@@ -3692,12 +3692,38 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "สถานะอัพโหลด GIS",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'uri'=> 'https://gisweb1.pwa.co.th/upload_status_commit/'
 													)
 										   )
 										  )
 										
 									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "ค้นหาผู้ใช้น้ำบนเส้นท่อ (demo)",
+													'uri'=> 'https://gisweb1.pwa.co.th/search_customer/'
+													)
+										   )
+										  )
+										
+									  ),    
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
@@ -3742,7 +3768,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "ระบบคัดสำเนา",
-													'uri'=> 'https://gis.pwa.co.th/home.php'
+													'uri'=> 'https://gisweb1.pwa.co.th/dga/'
 													)
 										   )
 										  )
@@ -4394,7 +4420,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "ระบบที่พัฒนาโดยกภส.(URL)",
+													'label'=> "ระบบที่พัฒนาโดยกภส. (URL)",
 													'text'=> '#ระบบที่พัฒนาโดยกภส.'
 													)
 										   )
