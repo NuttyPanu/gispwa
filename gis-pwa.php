@@ -4442,7 +4442,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											'flex'=> "6",
 											//'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
@@ -4455,7 +4455,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											'flex'=> "6",
 											//'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
