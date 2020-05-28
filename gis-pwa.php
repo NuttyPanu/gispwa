@@ -3470,7 +3470,7 @@ function replyMsg($event, $client)
                 }
 
 
-				else if (preg_match('(#test|#testt)', $msg) === 1) {
+				else if (preg_match('(#ระบบที่พัฒนาโดยกภส.|#ระบบที่พัฒนาโดยกภส)', $msg) === 1) {
 
 
 					$a = array(
@@ -4394,8 +4394,8 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "ระบบของกภส.",
-													'text'=> '#คำสั่งระบบกภส.'
+													'label'=> "ระบบที่พัฒนาโดยกภส.",
+													'text'=> '#ระบบที่พัฒนาโดยกภส.'
 													)
 										   )
 										  )
