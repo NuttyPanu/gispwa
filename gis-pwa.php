@@ -5040,10 +5040,10 @@ function replyMsg($event, $client)
 
 
 					$a = array(
-							array(
-								'type' => 'flex',
-								'altText' => '#วิธีการใช้งานไลน์บอท.',
-								'contents'=> array(
+//							array(
+//								'type' => 'flex',
+//								'altText' => '#วิธีการใช้งานไลน์บอท.',
+//								'contents'=> array(
 
 								/* เอามาจากflex*/
 
@@ -5082,8 +5082,8 @@ array(
 )
 								/* เอามาจากflex*/
 
-								)
-							)
+//								)
+//							)
 					);
                     $client->replyMessage1($event['replyToken'],$a);
  
