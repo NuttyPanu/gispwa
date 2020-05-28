@@ -4342,8 +4342,8 @@ function replyMsg($event, $client)
 										"style"=> "normal"
 										//"color"=> "#414141",
 									  )
-									),
-									"backgroundColor": "#ffff22"
+									)
+										  //,"backgroundColor": "#ffff22"
 								  ),
 								  "body"=> array(
 									"type"=> "box",
