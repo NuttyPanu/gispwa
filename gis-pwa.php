@@ -4464,10 +4464,42 @@ function replyMsg($event, $client)
 													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
+										  ),
+										  "margin"=> "md"
+									  ),
+										  array(
+										'type'=> "box",
+										'layout'=> "horizontal",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "ข้อมูล GIS",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   ),
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											//'flex'=> "6",
+											'margin'=> "md",
+											//"gravity"=> "center",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "ลงทะเบียน",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   )
 										  )
 										
 									  ),
-	
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
