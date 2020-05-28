@@ -4447,7 +4447,7 @@ function replyMsg($event, $client)
 											//"gravity"=> "center",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "ติดตามมาตรฯ",
+													'label'=> "ติดตามมาตร",
 													'text'=> '#คำสั่งmeterstat'
 													)
 										   ),
