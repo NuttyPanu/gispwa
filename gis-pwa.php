@@ -4641,7 +4641,7 @@ function replyMsg($event, $client)
 											//"gravity"=> "center",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "เช็คสภาพอากาศ",
+													'label'=> "สภาพอากาศ",
 													'text'=> '#คำสั่งสภาพอากาศ'
 													)
 										   ),
@@ -4712,9 +4712,6 @@ function replyMsg($event, $client)
 										  ),
 										  array(
 											"type"=> "separator"
-										  ),
-										  array(
-											"type"=> "spacer"
 										  )
 										)
 									  )
