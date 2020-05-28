@@ -4708,7 +4708,7 @@ function replyMsg($event, $client)
 										   )
 										  )
 										
-									  ),
+									  )
 									)
 								  ),
 								  "footer"=> array(
