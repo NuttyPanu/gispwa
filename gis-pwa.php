@@ -4946,7 +4946,7 @@ function replyMsg($event, $client)
 					}
                 }
 
-                else if (preg_match('(#helpmeterstat|helpmeterstat|helpmeterstat)', $msg) === 1) {
+                else if (preg_match('(#ช่วยเหลือมาตร|#ช่วยเหลือmeterstat|helpmeterstat)', $msg) === 1) {
  
 					$t = "คำสั่งการใช้งาน ระบบติดตามมาตรฯ 
 					\n 1.การเพิ่ม/ลบ สิทธิ์
@@ -5006,7 +5006,7 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-                else if (preg_match('(#helpdga|helpdga|helpdga)', $msg) === 1) {
+                else if (preg_match('(#ช่วยเหลือdga|ช่วยเหลือdga|#helpdga)', $msg) === 1) {
  
 					$t = "คำสั่งการใช้งาน ระบบคัดสำเนา
 					\n 1.ตรวจสอบจำนวนโควต้าของคนออเทนในปัจจุบัน
@@ -5035,6 +5035,269 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
+
+				else if (preg_match('(#slide|#slide)', $msg) === 1) {
+
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => '#วิธีการใช้งานไลน์บอท.',
+								'contents'=> array(
+
+								/* เอามาจากflex*/
+
+array(
+  "type"=> "carousel",
+  "contents"=> array(
+    array(
+      "type"=> "bubble",
+      "size"=> "nano",
+      "header"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "In Progress",
+            "color"=> "#ffffff",
+            "align"=> "start",
+            "size"=> "md",
+            "gravity"=> "center"
+          ),
+          array(
+            "type"=> "text",
+            "text"=> "70%",
+            "color"=> "#ffffff",
+            "align"=> "start",
+            "size"=> "xs",
+            "gravity"=> "center",
+            "margin"=> "lg"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> array(
+                  array(
+                    "type"=> "filler"
+                  )
+                ),
+                "width"=> "70%",
+                "backgroundColor"=> "#0D8186",
+                "height"=> "6px"
+              )
+            ),
+            "backgroundColor"=> "#9FD8E36E",
+            "height"=> "6px",
+            "margin"=> "sm"
+          )
+        ),
+        "backgroundColor"=> "#27ACB2",
+        "paddingTop"=> "19px",
+        "paddingAll"=> "12px",
+        "paddingBottom"=> "16px"
+      ),
+      "body"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "box",
+            "layout"=> "horizontal",
+            "contents"=> array(
+              array(
+                "type"=> "text",
+                "text"=> "Buy milk and lettuce before class",
+                "color"=> "#8C8C8C",
+                "size"=> "sm",
+                "wrap"=> true
+              )
+            ),
+            "flex"=> 1
+          )
+        ),
+        "spacing"=> "md",
+        "paddingAll"=> "12px"
+      ),
+      "styles"=> array(
+        "footer"=> array(
+          "separator"=> false
+        )
+      )
+    ),
+    array(
+      "type"=> "bubble",
+      "size"=> "nano",
+      "header"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "Pending",
+            "color"=> "#ffffff",
+            "align"=> "start",
+            "size"=> "md",
+            "gravity"=> "center"
+          ),
+          array(
+            "type"=> "text",
+            "text"=> "30%",
+            "color"=> "#ffffff",
+            "align"=> "start",
+            "size"=> "xs",
+            "gravity"=> "center",
+            "margin"=> "lg"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> array(
+                  array(
+                    "type"=> "filler"
+                  )
+                ),
+                "width"=> "30%",
+                "backgroundColor"=> "#DE5658",
+                "height"=> "6px"
+              )
+            ),
+            "backgroundColor"=> "#FAD2A76E",
+            "height"=> "6px",
+            "margin"=> "sm"
+          )
+        ),
+        "backgroundColor"=> "#FF6B6E",
+        "paddingTop"=> "19px",
+        "paddingAll"=> "12px",
+        "paddingBottom"=> "16px"
+      ),
+      "body"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "box",
+            "layout"=> "horizontal",
+            "contents"=> array(
+              array(
+                "type"=> "text",
+                "text"=> "Wash my car",
+                "color"=> "#8C8C8C",
+                "size"=> "sm",
+                "wrap"=> true
+              )
+            ),
+            "flex"=> 1
+          )
+        ),
+        "spacing"=> "md",
+        "paddingAll"=> "12px"
+      ),
+      "styles"=> array(
+        "footer"=> array(
+          "separator"=> false
+        )
+      )
+    ),
+    array(
+      "type"=> "bubble",
+      "size"=> "nano",
+      "header"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "In Progress",
+            "color"=> "#ffffff",
+            "align"=> "start",
+            "size"=> "md",
+            "gravity"=> "center"
+          ),
+          array(
+            "type"=> "text",
+            "text"=> "100%",
+            "color"=> "#ffffff",
+            "align"=> "start",
+            "size"=> "xs",
+            "gravity"=> "center",
+            "margin"=> "lg"
+          ),
+          array(
+            "type"=> "box",
+            "layout"=> "vertical",
+            "contents"=> array(
+              array(
+                "type"=> "box",
+                "layout"=> "vertical",
+                "contents"=> array(
+                  array(
+                    "type"=> "filler"
+                  )
+                ),
+                "width"=> "100%",
+                "backgroundColor"=> "#7D51E4",
+                "height"=> "6px"
+              )
+            ),
+            "backgroundColor"=> "#9FD8E36E",
+            "height"=> "6px",
+            "margin"=> "sm"
+          )
+        ),
+        "backgroundColor"=> "#A17DF5",
+        "paddingTop"=> "19px",
+        "paddingAll"=> "12px",
+        "paddingBottom"=> "16px"
+      ),
+      "body"=> array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "contents"=> array(
+          array(
+            "type"=> "box",
+            "layout"=> "horizontal",
+            "contents"=> array(
+              array(
+                "type"=> "text",
+                "text"=> "Buy milk and lettuce before class",
+                "color"=> "#8C8C8C",
+                "size"=> "sm",
+                "wrap"=> true
+              )
+            ),
+            "flex"=> 1
+          )
+        ),
+        "spacing"=> "md",
+        "paddingAll"=> "12px"
+      ),
+      "styles"=> array(
+        "footer"=> array(
+          "separator"=> false
+        )
+      )
+    )
+  )
+)
+								/* เอามาจากflex*/
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+
 
                 else{
  
