@@ -4354,7 +4354,7 @@ function replyMsg($event, $client)
 										"layout"=> "vertical",
 										"contents"=> array(
 										  array(
-											"type"=> "separator"
+											"type"=> "spacer"
 										  )
 										)
 									  ),
@@ -4449,15 +4449,6 @@ function replyMsg($event, $client)
 										   )
 										  )
 										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "separator"
-										  )
-										)
 									  ),
 									  array(
 										"type"=> "box",
