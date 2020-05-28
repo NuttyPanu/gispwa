@@ -5053,47 +5053,29 @@ array(
 
 		array(
 		  "type"=> "bubble",
-
 		  "body"=> array(
 			"type"=> "box",
 			"layout"=> "vertical",
 			"contents"=> array(
-
 				  array(
 					"type"=> "text",
-					"text"=> "SYSTEM",
-					"weight"=> "bold",
-					"size"=> "sm",
-					"align"=> "start",
-					"color"=> "#ffffffcc"
+					"text"=> "SYSTEM"
 				  )
-
-
 			)
 		  )
-		  
 		),
 		array(
 		  "type"=> "bubble",
-
 		  "body"=> array(
 			"type"=> "box",
 			"layout"=> "vertical",
 			"contents"=> array(
-
 				  array(
 					"type"=> "text",
-					"text"=> "SYSTEM",
-					"weight"=> "bold",
-					"size"=> "sm",
-					"align"=> "start",
-					"color"=> "#ffffffcc"
+					"text"=> "SYSTEM"
 				  )
-
-
 			)
 		  )
-		  
 		)
 
   )
