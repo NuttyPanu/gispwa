@@ -4367,9 +4367,9 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "text",
-											"text"=> "สนับสนุนงานกปภ.",
+											"text"=> "SYSTEM.",
 											"weight"=> "bold",
-											"size"=> "xs",
+											"size"=> "sm",
 											"align"=> "start",
 											"color"=> "#ffffffcc"
 										  )
@@ -4394,7 +4394,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "ติดตามมาตรวัดน้ำ",
+													'label'=> "ระบบของกภส.",
 													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
@@ -4412,15 +4412,29 @@ function replyMsg($event, $client)
 									  ),
 									  array(
 										'type'=> "box",
-										'layout'=> "vertical",
+										'layout'=> "horizontal",
 										'contents'=> array(
 										   array(
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
+											'flex'=> "6",
+											'margin'=> "md",
 											'action'=> array(
 													'type'=> "uri",
-													'label'=> "ศักยภาพด้านการตลาด",
+													'label'=> "ติดตามมาตรฯ",
+													'uri'=> 'https://gis.pwa.co.th/home.php'
+													)
+										   ),
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											'flex'=> "6",
+											'margin'=> "md",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "คัดสำเนา",
 													'uri'=> 'https://gis.pwa.co.th/home.php'
 													)
 										   )
