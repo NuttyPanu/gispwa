@@ -4514,22 +4514,10 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
+										  ),
 										  array(
 											"type"=> "separator"
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
+										  ),
 										  array(
 											"type"=> "spacer"
 										  )
@@ -4541,7 +4529,7 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "text",
-											"text"=> "GIS.",
+											"text"=> "GIS",
 											"weight"=> "bold",
 											"size"=> "sm",
 											"align"=> "start",
@@ -4574,8 +4562,7 @@ function replyMsg($event, $client)
 										   )
 										  )
 										
-									  )
-										  /*,          
+									  ),          
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
@@ -4608,6 +4595,12 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "spacer"
+										  ),
+										  array(
+											"type"=> "separator"
+										  ),
+										  array(
+											"type"=> "spacer"
 										  )
 										)
 									  ),
@@ -4625,7 +4618,7 @@ function replyMsg($event, $client)
 											"color"=> "#ffffffcc"
 										  )
 										)
-									  ),
+									  )/*,
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
