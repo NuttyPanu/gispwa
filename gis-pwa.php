@@ -4433,7 +4433,7 @@ function replyMsg($event, $client)
 										"margin"=> "xxl"
 									  ),
 
-									/*
+
 									  array(
 										'type'=> "box",
 										'layout'=> "horizontal",
@@ -4442,9 +4442,9 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											'flex'=> "6",
-											'margin'=> "md",
-											"gravity"=> "center",
+											//'flex'=> "6",
+											//'margin'=> "md",
+											//"gravity"=> "center",
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "ติดตามมาตรฯ",
@@ -4455,9 +4455,9 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											'flex'=> "6",
-											'margin'=> "md",
-											"gravity"=> "center",
+											//'flex'=> "6",
+											//'margin'=> "md",
+											//"gravity"=> "center",
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "คัดสำเนา",
@@ -4467,7 +4467,7 @@ function replyMsg($event, $client)
 										  )
 										
 									  ),
-									  */
+	
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
