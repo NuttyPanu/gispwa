@@ -4410,6 +4410,30 @@ function replyMsg($event, $client)
 										  )
 										)
 									  ),
+
+									  array(
+										"type"=> "box",
+										"layout"=> "horizontal",
+										"contents"=> array(
+										  array(
+											"type"=> "image",
+											"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+											"size"=> "md",
+											"align"=> "start"
+										  ),
+										  array(
+											"type"=> "text",
+											"text"=> "Moderate",
+											"wrap"=> true,
+											"size"=> "lg",
+											"color"=> "#a57f23",
+											"gravity"=> "center"
+										  )
+										),
+										"margin"=> "xxl"
+									  ),
+
+									/*
 									  array(
 										'type'=> "box",
 										'layout'=> "horizontal",
@@ -4420,6 +4444,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'flex'=> "6",
 											'margin'=> "md",
+											"gravity"=> "center",
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "ติดตามมาตรฯ",
@@ -4432,6 +4457,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'flex'=> "6",
 											'margin'=> "md",
+											"gravity"=> "center",
 											'action'=> array(
 													'type'=> "uri",
 													'label'=> "คัดสำเนา",
@@ -4441,6 +4467,7 @@ function replyMsg($event, $client)
 										  )
 										
 									  ),
+									  */
 									  array(
 										"type"=> "box",
 										"layout"=> "vertical",
