@@ -4354,6 +4354,18 @@ function replyMsg($event, $client)
 										"layout"=> "vertical",
 										"contents"=> array(
 										  array(
+											"type"=> "separator"
+										  ),
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
 											"type"=> "text",
 											"text"=> "สนับสนุนงานกปภ.",
 											"weight"=> "bold",
