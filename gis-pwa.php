@@ -5050,243 +5050,701 @@ function replyMsg($event, $client)
 array(
   "type"=> "carousel",
   "contents"=> array(
-    array(
-      "type"=> "bubble",
-      "size"=> "nano",
-      "header"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "contents"=> array(
-          array(
-            "type"=> "text",
-            "text"=> "In Progress",
-            "color"=> "#ffffff",
-            "align"=> "start",
-            "size"=> "md",
-            "gravity"=> "center"
-          ),
-          array(
-            "type"=> "text",
-            "text"=> "70%",
-            "color"=> "#ffffff",
-            "align"=> "start",
-            "size"=> "xs",
-            "gravity"=> "center",
-            "margin"=> "lg"
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "vertical",
-            "contents"=> array(
-              array(
-                "type"=> "box",
-                "layout"=> "vertical",
-                "contents"=> array(
-                  array(
-                    "type"=> "filler"
-                  )
-                ),
-                "width"=> "70%",
-                "backgroundColor"=> "#0D8186",
-                "height"=> "6px"
-              )
-            ),
-            "backgroundColor"=> "#9FD8E36E",
-            "height"=> "6px",
-            "margin"=> "sm"
-          )
-        ),
-        "backgroundColor"=> "#27ACB2",
-        "paddingTop"=> "19px",
-        "paddingAll"=> "12px",
-        "paddingBottom"=> "16px"
-      ),
-      "body"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "contents"=> array(
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "Buy milk and lettuce before class",
-                "color"=> "#8C8C8C",
-                "size"=> "sm",
-                "wrap"=> true
-              )
-            ),
-            "flex"=> 1
-          )
-        ),
-        "spacing"=> "md",
-        "paddingAll"=> "12px"
-      ),
-      "styles"=> array(
-        "footer"=> array(
-          "separator"=> false
-        )
-      )
-    ),
-    array(
-      "type"=> "bubble",
-      "size"=> "nano",
-      "header"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "contents"=> array(
-          array(
-            "type"=> "text",
-            "text"=> "Pending",
-            "color"=> "#ffffff",
-            "align"=> "start",
-            "size"=> "md",
-            "gravity"=> "center"
-          ),
-          array(
-            "type"=> "text",
-            "text"=> "30%",
-            "color"=> "#ffffff",
-            "align"=> "start",
-            "size"=> "xs",
-            "gravity"=> "center",
-            "margin"=> "lg"
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "vertical",
-            "contents"=> array(
-              array(
-                "type"=> "box",
-                "layout"=> "vertical",
-                "contents"=> array(
-                  array(
-                    "type"=> "filler"
-                  )
-                ),
-                "width"=> "30%",
-                "backgroundColor"=> "#DE5658",
-                "height"=> "6px"
-              )
-            ),
-            "backgroundColor"=> "#FAD2A76E",
-            "height"=> "6px",
-            "margin"=> "sm"
-          )
-        ),
-        "backgroundColor"=> "#FF6B6E",
-        "paddingTop"=> "19px",
-        "paddingAll"=> "12px",
-        "paddingBottom"=> "16px"
-      ),
-      "body"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "contents"=> array(
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "Wash my car",
-                "color"=> "#8C8C8C",
-                "size"=> "sm",
-                "wrap"=> true
-              )
-            ),
-            "flex"=> 1
-          )
-        ),
-        "spacing"=> "md",
-        "paddingAll"=> "12px"
-      ),
-      "styles"=> array(
-        "footer"=> array(
-          "separator"=> false
-        )
-      )
-    ),
-    array(
-      "type"=> "bubble",
-      "size"=> "nano",
-      "header"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "contents"=> array(
-          array(
-            "type"=> "text",
-            "text"=> "In Progress",
-            "color"=> "#ffffff",
-            "align"=> "start",
-            "size"=> "md",
-            "gravity"=> "center"
-          ),
-          array(
-            "type"=> "text",
-            "text"=> "100%",
-            "color"=> "#ffffff",
-            "align"=> "start",
-            "size"=> "xs",
-            "gravity"=> "center",
-            "margin"=> "lg"
-          ),
-          array(
-            "type"=> "box",
-            "layout"=> "vertical",
-            "contents"=> array(
-              array(
-                "type"=> "box",
-                "layout"=> "vertical",
-                "contents"=> array(
-                  array(
-                    "type"=> "filler"
-                  )
-                ),
-                "width"=> "100%",
-                "backgroundColor"=> "#7D51E4",
-                "height"=> "6px"
-              )
-            ),
-            "backgroundColor"=> "#9FD8E36E",
-            "height"=> "6px",
-            "margin"=> "sm"
-          )
-        ),
-        "backgroundColor"=> "#A17DF5",
-        "paddingTop"=> "19px",
-        "paddingAll"=> "12px",
-        "paddingBottom"=> "16px"
-      ),
-      "body"=> array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "contents"=> array(
-          array(
-            "type"=> "box",
-            "layout"=> "horizontal",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "Buy milk and lettuce before class",
-                "color"=> "#8C8C8C",
-                "size"=> "sm",
-                "wrap"=> true
-              )
-            ),
-            "flex"=> 1
-          )
-        ),
-        "spacing"=> "md",
-        "paddingAll"=> "12px"
-      ),
-      "styles"=> array(
-        "footer"=> array(
-          "separator"=> false
-        )
-      )
-    )
+
+		/* เอามาจากflex*/
+		array(
+		  "type"=> "bubble",
+		  "header"=> array(
+			"type"=> "box",
+			"layout"=> "vertical",
+			"contents"=> array(
+			  array(
+				"type"=> "text",
+				"text"=> "#วิธีการใช้งานไลน์บอท",
+				"size"=> "lg",
+				"weight"=> "bold",
+				"align"=> "center",
+				"gravity"=> "center",
+				"wrap"=> true,
+				"style"=> "normal"
+				//"color"=> "#414141",
+			  )
+			)
+		  ),
+		  "body"=> array(
+			"type"=> "box",
+			"layout"=> "vertical",
+			"contents"=> array(
+
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "separator"
+				  ),
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "text",
+					"text"=> "SYSTEM",
+					"weight"=> "bold",
+					"size"=> "sm",
+					"align"=> "start",
+					"color"=> "#ffffffcc"
+				  )
+				)
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "vertical",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ระบบที่พัฒนาโดยกภส. (URL)",
+							'text'=> '#ระบบที่พัฒนาโดยกภส.'
+							)
+				   )
+				  )
+				
+			  ),          
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  /*
+			  array(
+				"type"=> "box",
+				"layout"=> "horizontal",
+				"contents"=> array(
+				  array(
+					"type"=> "image",
+					"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+					"size"=> "md",
+					"align"=> "start"
+				  ),
+				  array(
+					"type"=> "text",
+					"text"=> "Moderate",
+					"wrap"=> true,
+					"size"=> "lg",
+					"color"=> "#a57f23",
+					"gravity"=> "center"
+				  )
+				),
+				"margin"=> "xxl"
+			  ),
+			  */
+
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ติดตามมาตร",
+							'text'=> '#คำสั่งmeterstat'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "คัดสำเนา",
+							'text'=> '#คำสั่งdga'
+							)
+				   )
+				  )
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ข้อมูล GIS",
+							'text'=> '#คำสั่งgisdb'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ลงทะเบียน",
+							'text'=> '#คำสั่งลงทะเบียน'
+							)
+				   )
+				  )
+				
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  ),
+				  array(
+					"type"=> "separator"
+				  ),
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "text",
+					"text"=> "OTHER",
+					"weight"=> "bold",
+					"size"=> "sm",
+					"align"=> "start",
+					"color"=> "#ffffffcc"
+				  )
+				)
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "สภาพอากาศ",
+							'text'=> '#คำสั่งสภาพอากาศ'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "โควิด 19",
+							'text'=> '#คำสั่งโควิด'
+							)
+				   )
+				  )
+				
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "สอนบอท",
+							'text'=> '#คำสั่งbot'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "นัดหมาย",
+							'text'=> '#คำสั่งนัดหมาย'
+							)
+				   )
+				  )
+				
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  ),
+				  array(
+					"type"=> "separator"
+				  )
+				)
+			  )
+			)
+		  )/*,
+		  "footer"=> array(
+			"type"=> "box",
+			"layout"=> "vertical",
+			"contents"=> array(
+
+			  array(
+				'type'=> "box",
+				'layout'=> "vertical",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					'action'=> array(
+							'type'=> "uri",
+							'label'=> "เว็บไซต์ กภส.",
+							'uri'=> 'https://gis.pwa.co.th/home.php'
+							)
+				   )
+				  )
+				
+			  )
+
+			)
+		  )*/,
+		  "styles"=> array(
+			"header"=> array(
+			  "backgroundColor"=> "#ffff22"
+			),
+			"body"=> array(
+			  "backgroundColor"=> "#464F69"
+			)
+		)
+		/* เอามาจากflex*/
+		,
+		/* เอามาจากflex*/
+		array(
+		  "type"=> "bubble",
+		  "header"=> array(
+			"type"=> "box",
+			"layout"=> "vertical",
+			"contents"=> array(
+			  array(
+				"type"=> "text",
+				"text"=> "#วิธีการใช้งานไลน์บอท",
+				"size"=> "lg",
+				"weight"=> "bold",
+				"align"=> "center",
+				"gravity"=> "center",
+				"wrap"=> true,
+				"style"=> "normal"
+				//"color"=> "#414141",
+			  )
+			)
+		  ),
+		  "body"=> array(
+			"type"=> "box",
+			"layout"=> "vertical",
+			"contents"=> array(
+
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "separator"
+				  ),
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "text",
+					"text"=> "SYSTEM",
+					"weight"=> "bold",
+					"size"=> "sm",
+					"align"=> "start",
+					"color"=> "#ffffffcc"
+				  )
+				)
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "vertical",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ระบบที่พัฒนาโดยกภส. (URL)",
+							'text'=> '#ระบบที่พัฒนาโดยกภส.'
+							)
+				   )
+				  )
+				
+			  ),          
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  /*
+			  array(
+				"type"=> "box",
+				"layout"=> "horizontal",
+				"contents"=> array(
+				  array(
+					"type"=> "image",
+					"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+					"size"=> "md",
+					"align"=> "start"
+				  ),
+				  array(
+					"type"=> "text",
+					"text"=> "Moderate",
+					"wrap"=> true,
+					"size"=> "lg",
+					"color"=> "#a57f23",
+					"gravity"=> "center"
+				  )
+				),
+				"margin"=> "xxl"
+			  ),
+			  */
+
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ติดตามมาตร",
+							'text'=> '#คำสั่งmeterstat'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "คัดสำเนา",
+							'text'=> '#คำสั่งdga'
+							)
+				   )
+				  )
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ข้อมูล GIS",
+							'text'=> '#คำสั่งgisdb'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "ลงทะเบียน",
+							'text'=> '#คำสั่งลงทะเบียน'
+							)
+				   )
+				  )
+				
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  ),
+				  array(
+					"type"=> "separator"
+				  ),
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "text",
+					"text"=> "OTHER",
+					"weight"=> "bold",
+					"size"=> "sm",
+					"align"=> "start",
+					"color"=> "#ffffffcc"
+				  )
+				)
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "สภาพอากาศ",
+							'text'=> '#คำสั่งสภาพอากาศ'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "โควิด 19",
+							'text'=> '#คำสั่งโควิด'
+							)
+				   )
+				  )
+				
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  )
+				)
+			  ),
+			  array(
+				'type'=> "box",
+				'layout'=> "horizontal",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "สอนบอท",
+							'text'=> '#คำสั่งbot'
+							)
+				   ),
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					//'flex'=> "6",
+					'margin'=> "md",
+					//"gravity"=> "center",
+					'action'=> array(
+							'type'=> "message",
+							'label'=> "นัดหมาย",
+							'text'=> '#คำสั่งนัดหมาย'
+							)
+				   )
+				  )
+				
+			  ),
+			  array(
+				"type"=> "box",
+				"layout"=> "vertical",
+				"contents"=> array(
+				  array(
+					"type"=> "spacer"
+				  ),
+				  array(
+					"type"=> "separator"
+				  )
+				)
+			  )
+			)
+		  )/*,
+		  "footer"=> array(
+			"type"=> "box",
+			"layout"=> "vertical",
+			"contents"=> array(
+
+			  array(
+				'type'=> "box",
+				'layout'=> "vertical",
+				'contents'=> array(
+				   array(
+					'type'=> "button",
+					'style'=> "primary",
+					'height'=> "sm",
+					'action'=> array(
+							'type'=> "uri",
+							'label'=> "เว็บไซต์ กภส.",
+							'uri'=> 'https://gis.pwa.co.th/home.php'
+							)
+				   )
+				  )
+				
+			  )
+
+			)
+		  )*/,
+		  "styles"=> array(
+			"header"=> array(
+			  "backgroundColor"=> "#ffff22"
+			),
+			"body"=> array(
+			  "backgroundColor"=> "#464F69"
+			)
+		)
+		/* เอามาจากflex*/
+
   )
 )
 								/* เอามาจากflex*/
