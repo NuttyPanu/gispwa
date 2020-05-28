@@ -4394,7 +4394,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "ระบบที่พัฒนาโดยกภส.",
+													'label'=> "ระบบที่พัฒนาโดยกภส.(URL)",
 													'text'=> '#ระบบที่พัฒนาโดยกภส.'
 													)
 										   )
