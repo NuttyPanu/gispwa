@@ -4708,34 +4708,8 @@ function replyMsg($event, $client)
 										   )
 										  )
 										
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "separator"
-										  )
-										)
-									  ),
-									  array(
-										"type"=> "box",
-										"layout"=> "vertical",
-										"contents"=> array(
-										  array(
-											"type"=> "spacer"
-										  )
-										)
 									  )
+
 									)
 								  )
 								  ),
