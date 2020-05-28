@@ -5362,32 +5362,7 @@ array(
 				)
 			  )
 			)
-		  )/*,
-		  "footer"=> array(
-			"type"=> "box",
-			"layout"=> "vertical",
-			"contents"=> array(
-
-			  array(
-				'type'=> "box",
-				'layout'=> "vertical",
-				'contents'=> array(
-				   array(
-					'type'=> "button",
-					'style'=> "primary",
-					'height'=> "sm",
-					'action'=> array(
-							'type'=> "uri",
-							'label'=> "เว็บไซต์ กภส.",
-							'uri'=> 'https://gis.pwa.co.th/home.php'
-							)
-				   )
-				  )
-				
-			  )
-
-			)
-		  )*/,
+		  ),
 		  "styles"=> array(
 			"header"=> array(
 			  "backgroundColor"=> "#ffff22"
@@ -5395,6 +5370,7 @@ array(
 			"body"=> array(
 			  "backgroundColor"=> "#464F69"
 			)
+		  )
 		)
 		/* เอามาจากflex*/
 		,
@@ -5709,32 +5685,7 @@ array(
 				)
 			  )
 			)
-		  )/*,
-		  "footer"=> array(
-			"type"=> "box",
-			"layout"=> "vertical",
-			"contents"=> array(
-
-			  array(
-				'type'=> "box",
-				'layout'=> "vertical",
-				'contents'=> array(
-				   array(
-					'type'=> "button",
-					'style'=> "primary",
-					'height'=> "sm",
-					'action'=> array(
-							'type'=> "uri",
-							'label'=> "เว็บไซต์ กภส.",
-							'uri'=> 'https://gis.pwa.co.th/home.php'
-							)
-				   )
-				  )
-				
-			  )
-
-			)
-		  )*/,
+		  ),
 		  "styles"=> array(
 			"header"=> array(
 			  "backgroundColor"=> "#ffff22"
@@ -5742,6 +5693,7 @@ array(
 			"body"=> array(
 			  "backgroundColor"=> "#464F69"
 			)
+		  )
 		)
 		/* เอามาจากflex*/
 
