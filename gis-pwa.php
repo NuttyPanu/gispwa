@@ -5151,8 +5151,8 @@ array(
 								//'$set' => array('lat'=> '-'),
 								//'$set' => array('lng'=> '-'),
 
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
-								//'$set' => array('status'=> 'add_friend')
+								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+								'$set' => array('status'=> 'friend')
 
 							)
 						);
