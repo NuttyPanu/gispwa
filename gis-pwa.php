@@ -1940,7 +1940,7 @@ function replyMsg1($event, $client)
 				'manage_db'=> 'no',
 				'chk_db'=> 'no',
 
-				'servicearea'=> 'no',
+				'pwaarea'=> 'no',
 				'weather'=> 'no',
 				'other'=> 'no',
 
@@ -2008,7 +2008,7 @@ function replyMsg1($event, $client)
 					//'$set' => array('manage_db'=> 'no'),
 					//'$set' => array('chk_db'=> 'no'),
 
-					//'$set' => array('servicearea'=> 'no'),
+					//'$set' => array('pwaarea'=> 'no'),
 					//'$set' => array('weather'=> 'no'),
 					//'$set' => array('other'=> 'no'),
 
@@ -2110,7 +2110,7 @@ function replyMsg1($event, $client)
 				'manage_db'=> 'no',
 				'chk_db'=> 'no',
 
-				'servicearea'=> 'no',
+				'pwaarea'=> 'no',
 				'weather'=> 'no',
 				'other'=> 'no',
 
@@ -2178,7 +2178,7 @@ function replyMsg1($event, $client)
 					//'$set' => array('manage_db'=> 'no'),
 					//'$set' => array('chk_db'=> 'no'),
 
-					//'$set' => array('servicearea'=> 'no'),
+					//'$set' => array('pwaarea'=> 'no'),
 					//'$set' => array('lat'=> '-'),
 					//'$set' => array('lng'=> '-'),
 
@@ -5594,6 +5594,62 @@ array(
 							   )
 							);
 						}
+
+
+						//query-คำถามที่เคยถามในdb----------------------------------//
+						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+						$q_json_f = json_decode($json_f); 
+						$q_json_id = $q_json_f[0]->_id;
+						$q_json_oid = '';
+						foreach ($q_json_id as $k=>$v){
+							$q_json_oid = $v; // etc.
+						}
+
+						//update-----------------------------------//
+						//$_id = '59fb2268bd966f7657da67cc';
+						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
+
+						$newupdate = json_encode(
+							array(
+								//'$set' => array('lineid'=> $uid),
+								//'$set' => array('name'=> $obj->displayName),
+								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+
+								//'$set' => array('user_id'=> '-'),
+								//'$set' => array('pwacode'=> '-'),
+								//'$set' => array('manage_db'=> 'no'),
+								//'$set' => array('chk_db'=> 'no'),
+
+								//'$set' => array('pwaarea'=> 'no'),
+								//'$set' => array('weather'=> 'no'),
+								//'$set' => array('other'=> 'no'),
+
+								//'$set' => array('lat'=> '-'),
+								//'$set' => array('lng'=> '-'),
+
+
+								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+								'$set' => array('status'=> 'add_friend'),
+								'$set' => array('pwaarea'=> 'no')
+							)
+						);
+
+						$optsu = array(
+							'http' => array(
+								'method' => "PUT",
+								'header' => "Content-type: application/json",
+								'content' => $newupdate
+							)
+						);
+
+						$contextu = stream_context_create($optsu);
+						$returnValup = file_get_contents($url_up, false, $contextu);
+						
+
+
+
+
+
 
 					}
 
