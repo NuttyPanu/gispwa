@@ -5913,7 +5913,8 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => $city    
+										'text' => $city. $temp. $aqi.$icon.$level.$face			
+
 									),
 									array(
 										'type' => 'flex',
