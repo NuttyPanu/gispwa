@@ -5863,7 +5863,7 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => $obj   
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'        
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
