@@ -463,6 +463,8 @@ if (!is_null($events['events'])) {
 					];
 				
 			}
+
+			/*
 			else if ($text == '#อากาศ' || $text == '#คุณภาพอากาศ') {
 
 				
@@ -484,40 +486,41 @@ if (!is_null($events['events'])) {
 				//const city = $res.data.city;
 				//const temp = $res.data.current.weather.tp;
 				//const AQI = $res.data.current.pollution.aqius;
-				/*
-				var level = "";
-					if (AQI < 50) {
-					  level = "Good";  //https://www.iqair.com/assets/aqi/ic-face-green.svg 
-					} else if (AQI < 100) {
-					  level = "Moderate"; //https://www.iqair.com/assets/aqi/ic-face-yellow.svg
-					} else if (AQI < 150) {
-					  level = "Unhealthy for Sensitive Groups"; //https://www.iqair.com/assets/aqi/ic-face-orange.svg
-					} else if (AQI < 200) {
-					  level = "Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-red.svg
-					} else if (AQI < 300) {
-					  level = "Very Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-purple.svg
-					} else {
-					  level = "Hazardous"; //https://www.iqair.com/assets/aqi/ic-face-maroon.svg
-					}
-				*/
 
-				/*
-				.aqi-green{color:#718b3a;background:#a8e05f}
-				.aqi-yellow{color:#a57f23;background:#fdd74b}
-				.aqi-orange{color:#b25826;background:#fe9b57}
-				.aqi-red{color:#af2c3b;background:#fe6a69}
-				.aqi-opera-mauve{color:#634675;background:#a97abc}
-				.aqi-mauve-taupe{color:#683e51;background:#a87383}
+				
+				//				var level = "";
+				//					if (AQI < 50) {
+				//					  level = "Good";  //https://www.iqair.com/assets/aqi/ic-face-green.svg 
+				//					} else if (AQI < 100) {
+				//					  level = "Moderate"; //https://www.iqair.com/assets/aqi/ic-face-yellow.svg
+				//					} else if (AQI < 150) {
+				//					  level = "Unhealthy for Sensitive Groups"; //https://www.iqair.com/assets/aqi/ic-face-orange.svg
+				//					} else if (AQI < 200) {
+				//					  level = "Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-red.svg
+				//					} else if (AQI < 300) {
+				//					  level = "Very Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-purple.svg
+				//					} else {
+				//					  level = "Hazardous"; //https://www.iqair.com/assets/aqi/ic-face-maroon.svg
+				//					}
+								
 
-				.aqi-who-blue{color:#375c70;background:#60accb}
-				.aqi-bg-light-who-blue{background:#6cb4d2}
-				.aqi-bg-light-green{background:#b0e867}
-				.aqi-bg-light-orange{background:#ffa968}
-				.aqi-bg-light-yellow{background:#ffdf58}
-				.aqi-bg-light-red{background:#ff7978}
-				.aqi-bg-light-opera-mauve{background:#b283c5}
-				.aqi-bg-light-mauve-taupe{background:#b17c8c}
-				*/
+								
+				//				.aqi-green{color:#718b3a;background:#a8e05f}
+				//				.aqi-yellow{color:#a57f23;background:#fdd74b}
+				//				.aqi-orange{color:#b25826;background:#fe9b57}
+				//				.aqi-red{color:#af2c3b;background:#fe6a69}
+				//				.aqi-opera-mauve{color:#634675;background:#a97abc}
+				//				.aqi-mauve-taupe{color:#683e51;background:#a87383}
+				//
+				//				.aqi-who-blue{color:#375c70;background:#60accb}
+				//				.aqi-bg-light-who-blue{background:#6cb4d2}
+				//				.aqi-bg-light-green{background:#b0e867}
+				//				.aqi-bg-light-orange{background:#ffa968}
+				//				.aqi-bg-light-yellow{background:#ffdf58}
+				//				.aqi-bg-light-red{background:#ff7978}
+				//				.aqi-bg-light-opera-mauve{background:#b283c5}
+				//				.aqi-bg-light-mauve-taupe{background:#b17c8c}
+								
 
 				//Description			Name		Icon
 				//clear sky (day)		01d.png		https://airvisual.com/images/01d.png
@@ -534,33 +537,37 @@ if (!is_null($events['events'])) {
 				//mist					50d.png		https://airvisual.com/images/50d.png
 
 				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
-				/*
-				{"status":"success","data":{"city":"Bangkok","state":"Bangkok","country":"Thailand","location":{"type":"Point","coordinates":[100.4888394,13.7292915]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T08:00:00.000Z","aqius":102,"mainus":"p2","aqicn":51,"maincn":"p2"}}}}
+				
+				
+				
+				//				{"status":"success","data":{"city":"Bangkok","state":"Bangkok","country":"Thailand","location":{"type":"Point","coordinates":[100.4888394,13.7292915]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T08:00:00.000Z","aqius":102,"mainus":"p2","aqicn":51,"maincn":"p2"}}}}
+				//
+				//{"status":"success","data":{"city":"Mueang Nonthaburi","state":"Nonthaburi","country":"Thailand","location":{"type":"Point","coordinates":[100.51477,13.86075]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T09:00:00.000Z","aqius":111,"mainus":"p2","aqicn":56,"maincn":"p2"}}}}
+				
 
-				{"status":"success","data":{"city":"Mueang Nonthaburi","state":"Nonthaburi","country":"Thailand","location":{"type":"Point","coordinates":[100.51477,13.86075]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T09:00:00.000Z","aqius":111,"mainus":"p2","aqicn":56,"maincn":"p2"}}}}
-				*/
-				/*
-				"ts": "2017-02-01T03:00:00.000Z",  //timestamp
-				"aqius": 21, //AQI value based on US EPA standard
-				"aqicn": 7, //AQI value based on China MEP standard
-				"tp": 8, //temperature in Celsius
-				"tp_min": 6, //minimum temperature in Celsius
-				"pr": 976,  //atmospheric pressure in hPa
-				"hu": 100, //humidity %
-				"ws": 3, //wind speed (m/s)
-				"wd": 313, //wind direction, as an angle of 360° (N=0, E=90, S=180, W=270)
-				"ic": "10n" //weather icon code, see below for icon index
 
-				"units": { //object containing units information
-				  "p2": "ugm3", //pm2.5
-				  "p1": "ugm3", //pm10
-				  "o3": "ppb", //Ozone O3
-				  "n2": "ppb", //Nitrogen dioxide NO2 
-				  "s2": "ppb", //Sulfur dioxide SO2 
-				  "co": "ppm" //Carbon monoxide CO 
-				}
+				
+				//				"ts": "2017-02-01T03:00:00.000Z",  //timestamp
+				//				"aqius": 21, //AQI value based on US EPA standard
+				//				"aqicn": 7, //AQI value based on China MEP standard
+				//				"tp": 8, //temperature in Celsius
+				//				"tp_min": 6, //minimum temperature in Celsius
+				//				"pr": 976,  //atmospheric pressure in hPa
+				//				"hu": 100, //humidity %
+				//				"ws": 3, //wind speed (m/s)
+				//				"wd": 313, //wind direction, as an angle of 360° (N=0, E=90, S=180, W=270)
+				//				"ic": "10n" //weather icon code, see below for icon index
+				//
+				//				"units": { //object containing units information
+				//				  "p2": "ugm3", //pm2.5
+				//				  "p1": "ugm3", //pm10
+				//				  "o3": "ppb", //Ozone O3
+				//				  "n2": "ppb", //Nitrogen dioxide NO2 
+				//				  "s2": "ppb", //Sulfur dioxide SO2 
+				//				  "co": "ppm" //Carbon monoxide CO 
+				//				}
 
-				*/
+				
 
 				$messages = [
 					'type' => 'flex',
@@ -655,15 +662,17 @@ if (!is_null($events['events'])) {
 					]
 				];
 
-				/*
-				$text_reply = $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius;
-
-				$messages = [
-				'type' => 'text',
-				'text' => $text_reply
-				];
-				*/
+				
+				//				$text_reply = $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius;
+				//
+				//				$messages = [
+				//				'type' => 'text',
+				//				'text' => $text_reply
+				//				];
+				
 			}
+			*/
+
 
 			else if (preg_match('(สถานการณ์โควิด|สรุปโควิด)', $text) === 1) {
 
@@ -5102,6 +5111,102 @@ array(
 
 
 
+				else if ($msg == '#อากาศ') {
+
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
+
+					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
+
+
+					//count-question---------//
+					$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
+					$count = json_decode($json_c);  //จำนวนที่นับได้
+					//count-question---------//
+
+
+					if ($count == 1){
+
+
+						//query-คำถามที่เคยถามในdb----------------------------------//
+						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+						$q_json_f = json_decode($json_f); 
+						$q_json_id = $q_json_f[0]->_id;
+						$q_json_oid = '';
+						foreach ($q_json_id as $k=>$v){
+							$q_json_oid = $v; // etc.
+						}
+
+						//update-----------------------------------//
+						//$_id = '59fb2268bd966f7657da67cc';
+						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
+
+						$newupdate = json_encode(
+							array(
+								//'$set' => array('lineid'=> $uid),
+								//'$set' => array('name'=> $obj->displayName),
+								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+
+								//'$set' => array('user_id'=> '-'),
+								//'$set' => array('pwacode'=> '-'),
+								//'$set' => array('manage_db'=> 'no'),
+								//'$set' => array('chk_db'=> 'no'),
+
+								//'$set' => array('pwaarea'=> 'no'),
+								//'$set' => array('weather'=> 'no'),
+								//'$set' => array('other'=> 'no'),
+
+								//'$set' => array('lat'=> '-'),
+								//'$set' => array('lng'=> '-'),
+
+
+								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+								//'$set' => array('status'=> 'add_friend'),
+								'$set' => array('weather'=> 'yes')
+							)
+						);
+
+						$optsu = array(
+							'http' => array(
+								'method' => "PUT",
+								'header' => "Content-type: application/json",
+								'content' => $newupdate
+							)
+						);
+
+						$contextu = stream_context_create($optsu);
+						$returnValup = file_get_contents($url_up, false, $contextu);
+						
+							$a = array(
+										array(
+											'type' => 'text',
+											'text' => 'โปรดแชร์ Location เพื่อตรวจสอบคุณภาพอากาศ'      
+										)
+									);
+							$client->replyMessage1($event['replyToken'],$a);
+
+					}
+					else{
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนครับ'         
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
+					}
+
+
+
+
+
+
+
+
+				}
+
+			
 				else if ($msg == '#ตรวจสอบพื้นที่ให้บริการ') {
 
                     $gid = $event['source']['groupId'];
@@ -5153,7 +5258,7 @@ array(
 
 
 								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								'$set' => array('status'=> 'add_friend'),
+								//'$set' => array('status'=> 'add_friend'),
 								'$set' => array('pwaarea'=> 'yes')
 							)
 						);
@@ -5222,9 +5327,6 @@ array(
 
 
 				}
-
-				
-
 
 
 
@@ -5660,6 +5762,219 @@ array(
 
 				}
 				if($rec->weather != 'no'){
+
+
+
+
+			/*
+			else if ($text == '#อากาศ' || $text == '#คุณภาพอากาศ') {
+
+				
+				$url = 'https://api.airvisual.com/v2/nearest_city?lat=13.829582090333&lon=100.69883982127&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				//$url = 'https://api.airvisual.com/v2/nearest_city?key=271d36a7-3efd-4a54-9864-554ea6203750';
+				//$url = 'https://api.airvisual.com/v2/city?city=Mueang%20Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				//$url = 'https://api.airvisual.com/v2/city?city=Mueang Nonthaburi&state=Nonthaburi&country=Thailand&key=271d36a7-3efd-4a54-9864-554ea6203750';
+
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_URL, $url);
+				$result = curl_exec($ch);
+				curl_close($ch);
+				$obj = json_decode($result);
+
+				//const city = $res.data.city;
+				//const temp = $res.data.current.weather.tp;
+				//const AQI = $res.data.current.pollution.aqius;
+
+				
+				//				var level = "";
+				//					if (AQI < 50) {
+				//					  level = "Good";  //https://www.iqair.com/assets/aqi/ic-face-green.svg 
+				//					} else if (AQI < 100) {
+				//					  level = "Moderate"; //https://www.iqair.com/assets/aqi/ic-face-yellow.svg
+				//					} else if (AQI < 150) {
+				//					  level = "Unhealthy for Sensitive Groups"; //https://www.iqair.com/assets/aqi/ic-face-orange.svg
+				//					} else if (AQI < 200) {
+				//					  level = "Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-red.svg
+				//					} else if (AQI < 300) {
+				//					  level = "Very Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-purple.svg
+				//					} else {
+				//					  level = "Hazardous"; //https://www.iqair.com/assets/aqi/ic-face-maroon.svg
+				//					}
+								
+
+								
+				//				.aqi-green{color:#718b3a;background:#a8e05f}
+				//				.aqi-yellow{color:#a57f23;background:#fdd74b}
+				//				.aqi-orange{color:#b25826;background:#fe9b57}
+				//				.aqi-red{color:#af2c3b;background:#fe6a69}
+				//				.aqi-opera-mauve{color:#634675;background:#a97abc}
+				//				.aqi-mauve-taupe{color:#683e51;background:#a87383}
+				//
+				//				.aqi-who-blue{color:#375c70;background:#60accb}
+				//				.aqi-bg-light-who-blue{background:#6cb4d2}
+				//				.aqi-bg-light-green{background:#b0e867}
+				//				.aqi-bg-light-orange{background:#ffa968}
+				//				.aqi-bg-light-yellow{background:#ffdf58}
+				//				.aqi-bg-light-red{background:#ff7978}
+				//				.aqi-bg-light-opera-mauve{background:#b283c5}
+				//				.aqi-bg-light-mauve-taupe{background:#b17c8c}
+								
+
+				//Description			Name		Icon
+				//clear sky (day)		01d.png		https://airvisual.com/images/01d.png
+				//clear sky (night)		01n.png		https://airvisual.com/images/01n.png
+				//few clouds (day)		02d.png		https://airvisual.com/images/02d.png
+				//few clouds (night)	02n.png		https://airvisual.com/images/02n.png
+				//scattered clouds		03d.png		https://airvisual.com/images/03d.png
+				//broken clouds			04d.png		https://airvisual.com/images/04d.png
+				//shower rain			09d.png		https://airvisual.com/images/09d.png
+				//rain (day time)		10d.png		https://airvisual.com/images/10d.png
+				//rain (night time)		10n.png		https://airvisual.com/images/10n.png
+				//thunderstorm			11d.png		https://airvisual.com/images/11d.png
+				//snow					13d.png		https://airvisual.com/images/13d.png
+				//mist					50d.png		https://airvisual.com/images/50d.png
+
+				//const message = `City: ${city}\nTemperature: ${temp}\nAQI: ${AQI}\nLevel: ${level}`;
+				
+				
+				
+				//				{"status":"success","data":{"city":"Bangkok","state":"Bangkok","country":"Thailand","location":{"type":"Point","coordinates":[100.4888394,13.7292915]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T08:00:00.000Z","aqius":102,"mainus":"p2","aqicn":51,"maincn":"p2"}}}}
+				//
+				//{"status":"success","data":{"city":"Mueang Nonthaburi","state":"Nonthaburi","country":"Thailand","location":{"type":"Point","coordinates":[100.51477,13.86075]},"current":{"weather":{"ts":"2020-03-29T08:00:00.000Z","tp":35,"pr":1007,"hu":50,"ws":5.1,"wd":200,"ic":"02d"},"pollution":{"ts":"2020-03-29T09:00:00.000Z","aqius":111,"mainus":"p2","aqicn":56,"maincn":"p2"}}}}
+				
+
+
+				
+				//				"ts": "2017-02-01T03:00:00.000Z",  //timestamp
+				//				"aqius": 21, //AQI value based on US EPA standard
+				//				"aqicn": 7, //AQI value based on China MEP standard
+				//				"tp": 8, //temperature in Celsius
+				//				"tp_min": 6, //minimum temperature in Celsius
+				//				"pr": 976,  //atmospheric pressure in hPa
+				//				"hu": 100, //humidity %
+				//				"ws": 3, //wind speed (m/s)
+				//				"wd": 313, //wind direction, as an angle of 360° (N=0, E=90, S=180, W=270)
+				//				"ic": "10n" //weather icon code, see below for icon index
+				//
+				//				"units": { //object containing units information
+				//				  "p2": "ugm3", //pm2.5
+				//				  "p1": "ugm3", //pm10
+				//				  "o3": "ppb", //Ozone O3
+				//				  "n2": "ppb", //Nitrogen dioxide NO2 
+				//				  "s2": "ppb", //Sulfur dioxide SO2 
+				//				  "co": "ppm" //Carbon monoxide CO 
+				//				}
+
+				
+
+				$messages = [
+					'type' => 'flex',
+					'altText' => 'Air Quality',
+					'contents'=> [
+					/* เอามาจากflex*/
+					  "type"=> "bubble",
+					  "header"=> [
+						"type"=> "box",
+						"layout"=> "horizontal",
+						"contents"=> [
+						  [
+							"type"=> "text",
+							"text"=> "Mung Nonthaburi",
+							"color"=> "#414141",
+							"gravity"=> "center",
+							"size"=> "xl",
+							"wrap"=> true,
+							"flex"=> 3
+						  ],
+						  [
+							"type"=> "image",
+							"url"=> "https://airvisual.com/images/01d.png",
+							"size"=> "xs",
+							"flex"=> 1
+						  ],
+						  [
+							"type"=> "text",
+							"text"=> "22 °C",
+							"color"=> "#414141",
+							"size"=> "lg",
+							"align"=> "end",
+							"gravity"=> "center",
+							"flex"=> 1
+						  ]
+						]
+					  ],
+					  "body"=> [
+						"type"=> "box",
+						"layout"=> "vertical",
+						"contents"=> [
+						  [
+							"type"=> "box",
+							"layout"=> "horizontal",
+							"contents"=> [
+							  [
+								"type"=> "image",
+								"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+								"size"=> "md",
+								"align"=> "start"
+							  ],
+							  [
+								"type"=> "text",
+								"text"=> "Moderate",
+								"wrap"=> true,
+								"size"=> "lg",
+								"color"=> "#a57f23",
+								"gravity"=> "center"
+							  ]
+							],
+							"margin"=> "xxl"
+						  ],
+						  [
+							"type"=> "box",
+							"layout"=> "baseline",
+							"contents"=> [
+							  [
+								"type"=> "text",
+								"text"=> "85",
+								"color"=> "#a57f23",
+								"size"=> "5xl",
+								"align"=> "center"
+							  ],
+							  [
+								"type"=> "text",
+								"text"=> "US AQI",
+								"color"=> "#a57f23",
+								"size"=> "xs",
+								"margin"=> "sm"
+							  ]
+							]
+						  ]
+						]
+					  ],
+					  "styles"=> [
+						"body"=> [
+						  "backgroundColor"=> "#fdd74b"
+						]
+					  ]
+					/* เอามาจากflex*/
+
+					]
+				];
+
+				
+				//				$text_reply = $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius;
+				//
+				//				$messages = [
+				//				'type' => 'text',
+				//				'text' => $text_reply
+				//				];
+				
+			}
+			*/	
+
 
 
 
