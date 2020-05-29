@@ -5784,41 +5784,47 @@ array(
 						$level;
 						$face;
 						$color;
-
+						$bgcolor;
 							if ($aqi < 50) {
 								$level = "Good";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-green.png"; 
-								$color = "#a8e05f";
+								$color = "#718b3a";
+								$bgcolor = "#a8e05f";
 							} 
 							
 							else if ($aqi < 100) {
 								$level = "Moderate";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-yellow.png";
-								$color = "#fdd74b";
+								$color = "#a57f23";
+								$bgcolor = "#fdd74b";
 							} 
 							
 							else if ($aqi < 150) {
 								$level = "Unhealthy for Sensitive Groups";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-orange.png";
-								$color = "#fe9b57";
+								$color = "#b25826";
+								$bgcolor = "#fe9b57";
 							} 
 							
 							else if ($aqi < 200) {
 								$level = "Unhealthy";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-red.png";
+								$color = "#af2c3b";
 								$color = "#fe6a69";
 							} 
 							
 							else if ($aqi < 300) {
 								$level = "Very Unhealthy";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-purple.png";
-								$color = "#a97abc";
+								$color = "#634675";
+								$bgcolor = "#a97abc";
 							} 
 							
 							else {
 								$level = "Hazardous";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-maroon.png";
-								$color = "#a87383";
+								$color = "#683e51";
+								$bgcolor = "#a87383";
 							}
 
 
@@ -5979,7 +5985,7 @@ array(
 													"text"=> $level,
 													"wrap"=> true,
 													"size"=> "lg",
-													"color"=> "#a57f23",
+													"color"=> $color,
 													"gravity"=> "center"
 												  )
 												),
@@ -5992,14 +5998,14 @@ array(
 												  array(
 													"type"=> "text",
 													"text"=> strval($aqi),
-													"color"=> "#a57f23",
+													"color"=> $color,
 													"size"=> "5xl",
 													"align"=> "center"
 												  ),
 												  array(
 													"type"=> "text",
 													"text"=> "US AQI",
-													"color"=> "#a57f23",
+													"color"=> $color,
 													"size"=> "xs",
 													"margin"=> "sm"
 												  )
@@ -6009,7 +6015,7 @@ array(
 										  ),
 										  "styles"=> array(
 											"body"=> array(
-											  "backgroundColor"=> $color
+											  "backgroundColor"=> $bgcolor
 											)
 										  )
 										
