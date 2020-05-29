@@ -1939,6 +1939,9 @@ function replyMsg1($event, $client)
 				'chk_db'=> 'no',
 
 				'servicearea'=> 'no',
+				'weather'=> 'no',
+				'other'=> 'no',
+
 				'lat'=> '-',
 				'lng'=> '-',
 
@@ -2004,6 +2007,9 @@ function replyMsg1($event, $client)
 					//'$set' => array('chk_db'=> 'no'),
 
 					//'$set' => array('servicearea'=> 'no'),
+					//'$set' => array('weather'=> 'no'),
+					//'$set' => array('other'=> 'no'),
+
 					//'$set' => array('lat'=> '-'),
 					//'$set' => array('lng'=> '-'),
 
@@ -2103,6 +2109,9 @@ function replyMsg1($event, $client)
 				'chk_db'=> 'no',
 
 				'servicearea'=> 'no',
+				'weather'=> 'no',
+				'other'=> 'no',
+
 				'lat'=> '-',
 				'lng'=> '-',
 
