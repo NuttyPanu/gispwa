@@ -5754,7 +5754,7 @@ array(
 
 
 				}
-				if($rec->weather != 'no' || $rec->weather == 'no'){
+				if($rec->weather != 'no'){
 
 
 						$url = 'https://api.airvisual.com/v2/nearest_city?lat='.$latitude.'&lon='.$longitude.'&key=271d36a7-3efd-4a54-9864-554ea6203750';
@@ -5783,35 +5783,42 @@ array(
 
 						$level;
 						$face;
+						$color;
 
 							if ($aqi < 50) {
 								$level = "Good";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-green.png"; 
+								$color = "#a8e05f";
 							} 
 							
 							else if ($aqi < 100) {
 								$level = "Moderate";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-yellow.png";
+								$color = "#fdd74b";
 							} 
 							
 							else if ($aqi < 150) {
 								$level = "Unhealthy for Sensitive Groups";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-orange.png";
+								$color = "#fe9b57";
 							} 
 							
 							else if ($aqi < 200) {
 								$level = "Unhealthy";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-red.png";
+								$color = "#fe6a69";
 							} 
 							
 							else if ($aqi < 300) {
 								$level = "Very Unhealthy";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-purple.png";
+								$color = "#a97abc";
 							} 
 							
 							else {
 								$level = "Hazardous";
 								$face = "https://gispwa.herokuapp.com/image/ic-face-maroon.png";
+								$color = "#a87383";
 							}
 
 
@@ -5835,25 +5842,26 @@ array(
 						//					} else {
 						//					  level = "Hazardous"; //https://www.iqair.com/assets/aqi/ic-face-maroon.svg
 						//					}
-										
+							
 
-										
 						//				.aqi-green{color:#718b3a;background:#a8e05f}
 						//				.aqi-yellow{color:#a57f23;background:#fdd74b}
 						//				.aqi-orange{color:#b25826;background:#fe9b57}
 						//				.aqi-red{color:#af2c3b;background:#fe6a69}
 						//				.aqi-opera-mauve{color:#634675;background:#a97abc}
 						//				.aqi-mauve-taupe{color:#683e51;background:#a87383}
-						//
 						//				.aqi-who-blue{color:#375c70;background:#60accb}
-						//				.aqi-bg-light-who-blue{background:#6cb4d2}
+
+
 						//				.aqi-bg-light-green{background:#b0e867}
-						//				.aqi-bg-light-orange{background:#ffa968}
 						//				.aqi-bg-light-yellow{background:#ffdf58}
+						//				.aqi-bg-light-orange{background:#ffa968}
 						//				.aqi-bg-light-red{background:#ff7978}
 						//				.aqi-bg-light-opera-mauve{background:#b283c5}
 						//				.aqi-bg-light-mauve-taupe{background:#b17c8c}
-										
+						//				.aqi-bg-light-who-blue{background:#6cb4d2}
+						
+
 
 						//Description			Name		Icon
 						//clear sky (day)		01d.png		https://airvisual.com/images/01d.png
@@ -6001,7 +6009,7 @@ array(
 										  ),
 										  "styles"=> array(
 											"body"=> array(
-											  "backgroundColor"=> "#fdd74b"
+											  "backgroundColor"=> $color
 											)
 										  )
 										
