@@ -5872,7 +5872,7 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->city       
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->current->weather->tp       
 									),
 
 									array(
