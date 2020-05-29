@@ -5781,6 +5781,7 @@ array(
 						
 						$level = "";
 						$face = "";
+						/*
 							if ($AQI < 50) {
 							  $level = "Good";  //
 							  $face = "https://www.iqair.com/assets/aqi/ic-face-green.svg"; 
@@ -5800,7 +5801,7 @@ array(
 							  $level = "Hazardous"; //
 							  $face = "https://www.iqair.com/assets/aqi/ic-face-maroon.svg";
 							}
-										
+						*/			
 
 										
 						//				.aqi-green{color:#718b3a;background:#a8e05f}
