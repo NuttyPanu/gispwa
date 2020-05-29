@@ -5881,7 +5881,7 @@ array(
 									array(
 										'type' => 'text',
 										//'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city."\n"."https://airvisual.com/images/".$ic.".png"."\n".$temp."\n".$face."\n".$level."\n".$AQI
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$AQI
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city
 
 
 
