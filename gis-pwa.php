@@ -5754,7 +5754,7 @@ array(
 
 
 				}
-				if($rec->weather != 'no'){
+				if($rec->weather != 'no' || $rec->weather == 'no'){
 
 
 						$url = 'https://api.airvisual.com/v2/nearest_city?lat='.$latitude.'&lon='.$longitude.'&key=271d36a7-3efd-4a54-9864-554ea6203750';
@@ -5911,7 +5911,10 @@ array(
 						*/		
 
 						$a = array(
-
+									array(
+										'type' => 'text',
+										'text' => $city    
+									),
 									array(
 										'type' => 'flex',
 										'altText' => 'Air Quality',
