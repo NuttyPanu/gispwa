@@ -5448,7 +5448,7 @@ array(
 
 
 				}
-				if($rec->servicearea != 'no'){
+				if($rec->pwaarea != 'no'){
 
 
 					$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
