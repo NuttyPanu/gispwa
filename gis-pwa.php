@@ -5879,8 +5879,10 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->current->weather->tp       
-									),
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city."\n"."https://airvisual.com/images/".$ic.".png"."\n".$temp."\n".$face."\n".$level."\n".$AQI
+									)
+									/*
+									,
 
 									array(
 										'type' => 'flex',
@@ -5974,6 +5976,7 @@ array(
 
 										)
 									)
+									*/
 						);
 						$client->replyMessage1($event['replyToken'],$a);
 						
