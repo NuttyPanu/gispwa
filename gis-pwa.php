@@ -5783,15 +5783,6 @@ array(
 						$level = "";
 						$face = "";
 
-						if($aqi>=0){
-							$level = 'more';
-
-						}
-						else{
-							$level = "less";
-
-						}
-						/*
 							if ($aqi < 50) {
 							  $level = "Good";
 							  $face = "https://www.iqair.com/assets/aqi/ic-face-green.svg"; 
@@ -5814,15 +5805,13 @@ array(
 							
 							else if ($aqi < 300) {
 							  $level = "Very Unhealthy";
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-purple.svg"
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-purple.svg";
 							} 
 							
 							else {
 							  $level = "Hazardous";
 							  $face = "https://www.iqair.com/assets/aqi/ic-face-maroon.svg";
 							}
-
-						*/
 
 
 
