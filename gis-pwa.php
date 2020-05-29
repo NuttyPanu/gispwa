@@ -5774,6 +5774,7 @@ array(
 						curl_close($ch);
 						$obj = json_decode($result);
 
+
 						//const city = $res.data.city;
 						//const temp = $res.data.current.weather.tp;
 						//const AQI = $res.data.current.pollution.aqius;
@@ -5882,7 +5883,7 @@ array(
 											"contents"=> array(
 											  array(
 												"type"=> "text",
-												"text"=> "Mung Nonthaburi",
+												"text"=> $obj.data.city,
 												"color"=> "#414141",
 												"gravity"=> "center",
 												"size"=> "xl",
@@ -5897,7 +5898,7 @@ array(
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> "22 °C",
+												"text"=> $obj.data.current.weather.tp." °C",
 												"color"=> "#414141",
 												"size"=> "lg",
 												"align"=> "end",
@@ -5937,7 +5938,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "text",
-													"text"=> "85",
+													"text"=> $obj.data.current.pollution.aqius,
 													"color"=> "#a57f23",
 													"size"=> "5xl",
 													"align"=> "center"
