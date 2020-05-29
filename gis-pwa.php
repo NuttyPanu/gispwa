@@ -1002,6 +1002,36 @@ if (!is_null($events['events'])) {
 			}
 
 
+			/*
+			else if ($text == '#ตรวจสอบพื้นที่ให้บริการ') {
+
+				$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
+				$res = get_url($urllink); 
+				$str = trim($res); 
+
+				if ($str == 'found'){
+					$messages = [
+					'type' => 'text',
+					'text' => 'โปรดแชร์ Location เพื่อตรวจสอบพื้นที่ให้บริการ'
+					];
+				}
+				else if ($str == 'notfound'){
+					$messages = [
+					'type' => 'text',
+					'text' => 'กรุณาลงทะเบียนก่อนใช้บริการนี้'
+					];
+				}
+				else{
+					$messages = [
+					'type' => 'text',
+					'text' => $str
+					];
+				}
+
+
+			}
+			*/
+			
 
 
 			//ทดสอบฟังก์ชั่น getprofile --user ต้องอัพเดทlineเป็นversionใหม่
@@ -5106,8 +5136,8 @@ array(
 						$newupdate = json_encode(
 							array(
 								'$set' => array('lineid'=> $uid),
-								'$set' => array('name'=> $obj->displayName),
-								'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+								//'$set' => array('name'=> $obj->displayName),
+								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
 
 								//'$set' => array('user_id'=> '-'),
 								//'$set' => array('pwacode'=> '-'),
@@ -5139,7 +5169,6 @@ array(
 						$returnValup = file_get_contents($url_up, false, $contextu);
 						
 
-						
 
 						$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
 						$res = get_url($urllink); 
@@ -5172,7 +5201,6 @@ array(
 									);
 							$client->replyMessage1($event['replyToken'],$a);
 						}
-						
 
 					}
 					else{
