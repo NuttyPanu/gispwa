@@ -5778,6 +5778,8 @@ array(
 
 						$city = $obj->data->city;
 						$temp = $obj->data->current->weather->tp;
+						$aqi = $obj->data->current->pollution->aqius;
+
 						//const city = $res.data.city;
 						//const temp = $res.data.current.weather.tp;
 						//const AQI = $res.data.current.pollution.aqius;
@@ -5876,7 +5878,7 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city.$temp      
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city.$temp.$aqi     
 									),
 
 									array(
