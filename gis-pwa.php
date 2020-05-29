@@ -5144,16 +5144,17 @@ array(
 								//'$set' => array('manage_db'=> 'no'),
 								//'$set' => array('chk_db'=> 'no'),
 
-								'$set' => array('pwaarea'=> '-'),
-								'$set' => array('weather'=> '-'),
+								//'$set' => array('pwaarea'=> 'no'),
+								//'$set' => array('weather'=> 'no'),
 								//'$set' => array('other'=> 'no'),
 
 								//'$set' => array('lat'=> '-'),
 								//'$set' => array('lng'=> '-'),
 
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								'$set' => array('status'=> 'friend')
 
+								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+								'$set' => array('status'=> 'add_friend'),
+								'$set' => array('pwaarea'=> 'yes'),
 							)
 						);
 
