@@ -5914,7 +5914,8 @@ array(
 									array(
 										'type' => 'text',
 										'text' => $city    
-									),
+									)
+							/*,
 									array(
 										'type' => 'flex',
 										'altText' => 'Air Quality',
@@ -6007,6 +6008,7 @@ array(
 
 										)
 									)
+							*/
 									
 						);
 						$client->replyMessage1($event['replyToken'],$a);
