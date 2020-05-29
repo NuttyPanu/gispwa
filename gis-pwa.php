@@ -5074,6 +5074,9 @@ array(
 
 				else if ($msg == '#ตรวจสอบพื้นที่ให้บริการ') {
 
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
+
 					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
 
