@@ -5983,7 +5983,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "text",
-													"text"=> "55",
+													"text"=> strval($aqi),
 													"color"=> "#a57f23",
 													"size"=> "5xl",
 													"align"=> "center"
