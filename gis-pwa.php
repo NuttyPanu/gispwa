@@ -5937,13 +5937,13 @@ array(
 											  ),
 											  array(
 												"type"=> "image",
-												"url"=> $icon,
+												"url"=> "https://airvisual.com/images/01d.png",
 												"size"=> "xs",
 												"flex"=> 1
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> $temp." °C",
+												"text"=> "22 °C",
 												"color"=> "#414141",
 												"size"=> "lg",
 												"align"=> "end",
@@ -5962,7 +5962,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "image",
-													"url"=> $face,
+													"url"=> "https://airvisual.com/images/01d.png",
 													"size"=> "md",
 													"align"=> "start"
 												  ),
