@@ -5779,7 +5779,7 @@ array(
 						$city = $obj->data->city;
 						$temp = $obj->data->current->weather->tp;
 						$aqi =  intval($obj->data->current->pollution->aqius);
-						$ic = $obj->data->current->weather->ic;
+						$icon = "https://airvisual.com/images/".$obj->data->current->weather->ic.".png";
 
 						$level = "";
 						$face = "";
@@ -5914,6 +5914,98 @@ array(
 									array(
 										'type' => 'text',
 										'text' => $city    
+									),
+									array(
+										'type' => 'flex',
+										'altText' => 'Air Quality',
+										'contents'=> array(
+										/* เอามาจากflex*/
+										  "type"=> "bubble",
+										  "header"=> array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> $city,
+												"color"=> "#414141",
+												"gravity"=> "center",
+												"size"=> "xl",
+												"wrap"=> true,
+												"flex"=> 3
+											  ),
+											  array(
+												"type"=> "image",
+												"url"=> $icon,
+												"size"=> "xs",
+												"flex"=> 1
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> $temp." °C",
+												"color"=> "#414141",
+												"size"=> "lg",
+												"align"=> "end",
+												"gravity"=> "center",
+												"flex"=> 1
+											  )
+											)
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> $face,
+													"size"=> "md",
+													"align"=> "start"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> $level,
+													"wrap"=> true,
+													"size"=> "lg",
+													"color"=> "#a57f23",
+													"gravity"=> "center"
+												  )
+												),
+												"margin"=> "xxl"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "baseline",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> $aqi,
+													"color"=> "#a57f23",
+													"size"=> "5xl",
+													"align"=> "center"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "US AQI",
+													"color"=> "#a57f23",
+													"size"=> "xs",
+													"margin"=> "sm"
+												  )
+												)
+											  )
+											)
+										  ),
+										  "styles"=> array(
+											"body"=> array(
+											  "backgroundColor"=> "#fdd74b"
+											)
+										  )
+										/* เอามาจากflex*/
+
+										)
 									)
 									
 						);
