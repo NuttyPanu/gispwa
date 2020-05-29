@@ -1940,7 +1940,7 @@ function replyMsg1($event, $client)
 				'manage_db'=> 'no',
 				'chk_db'=> 'no',
 
-				'servicearea'=> 'no',
+				'service_area'=> 'no',
 				'weather'=> 'no',
 				'other'=> 'no',
 
@@ -2008,7 +2008,7 @@ function replyMsg1($event, $client)
 					//'$set' => array('manage_db'=> 'no'),
 					//'$set' => array('chk_db'=> 'no'),
 
-					//'$set' => array('servicearea'=> 'no'),
+					//'$set' => array('service_area'=> 'no'),
 					//'$set' => array('weather'=> 'no'),
 					//'$set' => array('other'=> 'no'),
 
@@ -2110,7 +2110,7 @@ function replyMsg1($event, $client)
 				'manage_db'=> 'no',
 				'chk_db'=> 'no',
 
-				'servicearea'=> 'no',
+				'service_area'=> 'no',
 				'weather'=> 'no',
 				'other'=> 'no',
 
@@ -2178,7 +2178,7 @@ function replyMsg1($event, $client)
 					//'$set' => array('manage_db'=> 'no'),
 					//'$set' => array('chk_db'=> 'no'),
 
-					//'$set' => array('servicearea'=> 'no'),
+					//'$set' => array('service_area'=> 'no'),
 					//'$set' => array('lat'=> '-'),
 					//'$set' => array('lng'=> '-'),
 
@@ -5144,7 +5144,7 @@ array(
 								//'$set' => array('manage_db'=> 'no'),
 								//'$set' => array('chk_db'=> 'no'),
 
-								'$set' => array('servicearea'=> 'yes'),
+								'$set' => array('service_area'=> 'yes'),
 								//'$set' => array('weather'=> 'no'),
 								//'$set' => array('other'=> 'no'),
 
@@ -5447,7 +5447,7 @@ array(
 
 
 				}
-				if($rec->servicearea != 'no'){
+				if($rec->service_area != 'no'){
 
 
 					$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
