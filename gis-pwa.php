@@ -5153,7 +5153,7 @@ array(
 
 
 								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								'$set' => array('status'=> 'add_friend'),
+								//'$set' => array('status'=> 'add_friend'),
 								'$set' => array('pwaarea'=> 'yes')
 							)
 						);
@@ -5223,128 +5223,7 @@ array(
 
 				}
 
-				
-				else if ($msg == '#ตรวจสอบพื้นที่ให้บริการ') {
-
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
-
-					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-
-					//count-question---------//
-					$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
-					$count = json_decode($json_c);  //จำนวนที่นับได้
-					//count-question---------//
-
-
-					if ($count == 1){
-
-
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
-
-						//update-----------------------------------//
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$newupdate = json_encode(
-							array(
-								//'$set' => array('lineid'=> $uid),
-								//'$set' => array('name'=> $obj->displayName),
-								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-								//'$set' => array('user_id'=> '-'),
-								//'$set' => array('pwacode'=> '-'),
-								//'$set' => array('manage_db'=> 'no'),
-								//'$set' => array('chk_db'=> 'no'),
-
-								//'$set' => array('pwaarea'=> 'no'),
-								//'$set' => array('weather'=> 'no'),
-								//'$set' => array('other'=> 'no'),
-
-								//'$set' => array('lat'=> '-'),
-								//'$set' => array('lng'=> '-'),
-
-
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								'$set' => array('status'=> 'add_friend'),
-								'$set' => array('pwaarea'=> 'yes')
-							)
-						);
-
-						$optsu = array(
-							'http' => array(
-								'method' => "PUT",
-								'header' => "Content-type: application/json",
-								'content' => $newupdate
-							)
-						);
-
-						$contextu = stream_context_create($optsu);
-						$returnValup = file_get_contents($url_up, false, $contextu);
-						
-
-
-						$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
-						$res = get_url($urllink); 
-						$str = trim($res); 
-
-						if ($str == 'found'){
-							$a = array(
-										array(
-											'type' => 'text',
-											'text' => 'โปรดแชร์ Location เพื่อตรวจสอบพื้นที่ให้บริการ'      
-										)
-									);
-							$client->replyMessage1($event['replyToken'],$a);
-						}
-						else if ($str == 'notfound'){
-							$a = array(
-										array(
-											'type' => 'text',
-											'text' => 'กรุณาลงทะเบียนก่อนใช้บริการนี้'       
-										)
-									);
-							$client->replyMessage1($event['replyToken'],$a);
-						}
-						else{
-							$a = array(
-										array(
-											'type' => 'text',
-											'text' => $str         
-										)
-									);
-							$client->replyMessage1($event['replyToken'],$a);
-						}
-
-					}
-					else{
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนครับ'         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-					}
-
-
-
-
-
-
-
-
-				}
-
+			
 
 
                 else{
