@@ -4681,7 +4681,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "สภาพอากาศ",
-													'text'=> '#คำสั่งสภาพอากาศ'
+													'text'=> '#สภาพอากาศ'
 													)
 										   ),
 										   array(
@@ -5225,7 +5225,7 @@ array(
 
 				}
 
-				else if ($msg == '#อากาศ') {
+				else if ($msg == '#สภาพอากาศ') {
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
