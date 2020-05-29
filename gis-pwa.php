@@ -5781,37 +5781,37 @@ array(
 						$aqi =  intval($obj->data->current->pollution->aqius);
 						$icon = "https://airvisual.com/images/".$obj->data->current->weather->ic.".png";
 
-						$level = "";
-						$face = "";
+						$level;
+						$face;
 
 							if ($aqi < 50) {
-							  $level = "Good";
-							  $face = "https://gispwa.herokuapp.com/image/ic-face-green.png"; 
+								$level = "Good";
+								$face = "https://gispwa.herokuapp.com/image/ic-face-green.png"; 
 							} 
 							
 							else if ($aqi < 100) {
-							  $level = "Moderate";
-							  $face = "https://gispwa.herokuapp.com/image/ic-face-yellow.png";
+								$level = "Moderate";
+								$face = "https://gispwa.herokuapp.com/image/ic-face-yellow.png";
 							} 
 							
 							else if ($aqi < 150) {
-							  $level = "Unhealthy for Sensitive Groups";
-							  $face = "https://gispwa.herokuapp.com/image/ic-face-orange.png";
+								$level = "Unhealthy for Sensitive Groups";
+								$face = "https://gispwa.herokuapp.com/image/ic-face-orange.png";
 							} 
 							
 							else if ($aqi < 200) {
-							  $level = "Unhealthy";
-							  $face = "https://gispwa.herokuapp.com/image/ic-face-red.png";
+								$level = "Unhealthy";
+								$face = "https://gispwa.herokuapp.com/image/ic-face-red.png";
 							} 
 							
 							else if ($aqi < 300) {
-							  $level = "Very Unhealthy";
-							  $face = "https://gispwa.herokuapp.com/image/ic-face-purple.png";
+								$level = "Very Unhealthy";
+								$face = "https://gispwa.herokuapp.com/image/ic-face-purple.png";
 							} 
 							
 							else {
-							  $level = "Hazardous";
-							  $face = "https://gispwa.herokuapp.com/image/ic-face-maroon.png";
+								$level = "Hazardous";
+								$face = "https://gispwa.herokuapp.com/image/ic-face-maroon.png";
 							}
 
 
@@ -5913,7 +5913,7 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => $city.$temp.$aqi.$icon//.$level.$face			
+										'text' => $city.$temp.$aqi.$icon.$level//.$face			
 
 									)/*,
 									array(
