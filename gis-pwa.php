@@ -5774,6 +5774,7 @@ array(
 						curl_close($ch);
 						$obj = json_decode($result);
 
+						/*
 						$city = $obj->data->city;
 						$temp = $obj->data->current->weather->tp;
 						$AQI = $obj->data->current->pollution->aqius;
@@ -5781,7 +5782,7 @@ array(
 						
 						$level = "";
 						$face = "";
-						/*
+						
 							if ($AQI < 50) {
 							  $level = "Good";  //
 							  $face = "https://www.iqair.com/assets/aqi/ic-face-green.svg"; 
@@ -5881,7 +5882,7 @@ array(
 									array(
 										'type' => 'text',
 										//'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city."\n"."https://airvisual.com/images/".$ic.".png"."\n".$temp."\n".$face."\n".$level."\n".$AQI
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->city
 
 
 
