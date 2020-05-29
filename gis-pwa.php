@@ -5774,35 +5774,26 @@ array(
 						curl_close($ch);
 						$obj = json_decode($result);
 
-						/*
-						$city = $obj->data->city;
-						$temp = $obj->data->current->weather->tp;
-						$AQI = $obj->data->current->pollution->aqius;
-						$ic = $obj->data->current->weather->ic;
+						//const city = $res.data.city;
+						//const temp = $res.data.current.weather.tp;
+						//const AQI = $res.data.current.pollution.aqius;
+
 						
-						$level = "";
-						$face = "";
-						
-							if ($AQI < 50) {
-							  $level = "Good";  //
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-green.svg"; 
-							} else if ($AQI < 100) {
-							  $level = "Moderate"; //
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-yellow.svg";
-							} else if ($AQI < 150) {
-							  $level = "Unhealthy for Sensitive Groups"; //
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-orange.svg";
-							} else if ($AQI < 200) {
-							  $level = "Unhealthy"; //
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-red.svg";
-							} else if ($AQI < 300) {
-							  $level = "Very Unhealthy"; //
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-purple.svg"
-							} else {
-							  $level = "Hazardous"; //
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-maroon.svg";
-							}
-						*/			
+						//				var level = "";
+						//					if (AQI < 50) {
+						//					  level = "Good";  //https://www.iqair.com/assets/aqi/ic-face-green.svg 
+						//					} else if (AQI < 100) {
+						//					  level = "Moderate"; //https://www.iqair.com/assets/aqi/ic-face-yellow.svg
+						//					} else if (AQI < 150) {
+						//					  level = "Unhealthy for Sensitive Groups"; //https://www.iqair.com/assets/aqi/ic-face-orange.svg
+						//					} else if (AQI < 200) {
+						//					  level = "Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-red.svg
+						//					} else if (AQI < 300) {
+						//					  level = "Very Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-purple.svg
+						//					} else {
+						//					  level = "Hazardous"; //https://www.iqair.com/assets/aqi/ic-face-maroon.svg
+						//					}
+										
 
 										
 						//				.aqi-green{color:#718b3a;background:#a8e05f}
@@ -5867,7 +5858,7 @@ array(
 						//				  "co": "ppm" //Carbon monoxide CO 
 						//				}
 
-						
+						/*
 						$a = array(
 									array(
 										'type' => 'text',
@@ -5875,22 +5866,14 @@ array(
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
-								
+						*/		
 
 						
-						/*
 						$a = array(
 									array(
 										'type' => 'text',
-										//'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city."\n"."https://airvisual.com/images/".$ic.".png"."\n".$temp."\n".$face."\n".$level."\n".$AQI
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->city
-
-
-
-
-									)
-									
-									,
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->city       
+									),
 
 									array(
 										'type' => 'flex',
@@ -5904,7 +5887,7 @@ array(
 											"contents"=> array(
 											  array(
 												"type"=> "text",
-												"text"=> $city,
+												"text"=> $obj->data->city,
 												"color"=> "#414141",
 												"gravity"=> "center",
 												"size"=> "xl",
@@ -5913,13 +5896,13 @@ array(
 											  ),
 											  array(
 												"type"=> "image",
-												"url"=> "https://airvisual.com/images/".$ic.".png",
+												"url"=> "https://airvisual.com/images/01d.png",
 												"size"=> "xs",
 												"flex"=> 1
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> $temp." °C",
+												"text"=> "22 °C",
 												"color"=> "#414141",
 												"size"=> "lg",
 												"align"=> "end",
@@ -5938,13 +5921,13 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "image",
-													"url"=> $face,
+													"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
 													"size"=> "md",
 													"align"=> "start"
 												  ),
 												  array(
 													"type"=> "text",
-													"text"=> $level,
+													"text"=> "Moderate",
 													"wrap"=> true,
 													"size"=> "lg",
 													"color"=> "#a57f23",
@@ -5959,7 +5942,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "text",
-													"text"=> $AQI,
+													"text"=> "85",
 													"color"=> "#a57f23",
 													"size"=> "5xl",
 													"align"=> "center"
@@ -5984,12 +5967,102 @@ array(
 
 										)
 									)
-									
 						);
 						$client->replyMessage1($event['replyToken'],$a);
 						
-						*/
-
+					
+//						$messages = [
+//							'type' => 'flex',
+//							'altText' => 'Air Quality',
+//							'contents'=> [
+//							/* เอามาจากflex*/
+//							  "type"=> "bubble",
+//							  "header"=> [
+//								"type"=> "box",
+//								"layout"=> "horizontal",
+//								"contents"=> [
+//								  [
+//									"type"=> "text",
+//									"text"=> "Mung Nonthaburi",
+//									"color"=> "#414141",
+//									"gravity"=> "center",
+//									"size"=> "xl",
+//									"wrap"=> true,
+//									"flex"=> 3
+//								  ],
+//								  [
+//									"type"=> "image",
+//									"url"=> "https://airvisual.com/images/01d.png",
+//									"size"=> "xs",
+//									"flex"=> 1
+//								  ],
+//								  [
+//									"type"=> "text",
+//									"text"=> "22 °C",
+//									"color"=> "#414141",
+//									"size"=> "lg",
+//									"align"=> "end",
+//									"gravity"=> "center",
+//									"flex"=> 1
+//								  ]
+//								]
+//							  ],
+//							  "body"=> [
+//								"type"=> "box",
+//								"layout"=> "vertical",
+//								"contents"=> [
+//								  [
+//									"type"=> "box",
+//									"layout"=> "horizontal",
+//									"contents"=> [
+//									  [
+//										"type"=> "image",
+//										"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+//										"size"=> "md",
+//										"align"=> "start"
+//									  ],
+//									  [
+//										"type"=> "text",
+//										"text"=> "Moderate",
+//										"wrap"=> true,
+//										"size"=> "lg",
+//										"color"=> "#a57f23",
+//										"gravity"=> "center"
+//									  ]
+//									],
+//									"margin"=> "xxl"
+//								  ],
+//								  [
+//									"type"=> "box",
+//									"layout"=> "baseline",
+//									"contents"=> [
+//									  [
+//										"type"=> "text",
+//										"text"=> "85",
+//										"color"=> "#a57f23",
+//										"size"=> "5xl",
+//										"align"=> "center"
+//									  ],
+//									  [
+//										"type"=> "text",
+//										"text"=> "US AQI",
+//										"color"=> "#a57f23",
+//										"size"=> "xs",
+//										"margin"=> "sm"
+//									  ]
+//									]
+//								  ]
+//								]
+//							  ],
+//							  "styles"=> [
+//								"body"=> [
+//								  "backgroundColor"=> "#fdd74b"
+//								]
+//							  ]
+//							/* เอามาจากflex*/
+//
+//							]
+//						];
 
 						
 						//				$text_reply = $obj->status.'\n'.$obj->data->city.'\n'.$obj->data->current->weather->tp.'\n'.$obj->data->current->pollution->aqius;
