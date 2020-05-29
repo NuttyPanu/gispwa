@@ -5925,11 +5925,11 @@ array(
 						*/		
 
 						$a = array(
-									array(
+									/*array(
 										'type' => 'text',
 										'text' => $city.$temp.$aqi.$icon.$level.$face			
 
-									),
+									),*/
 									array(
 										'type' => 'flex',
 										'altText' => 'Air Quality',
