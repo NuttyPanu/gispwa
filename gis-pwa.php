@@ -5117,7 +5117,7 @@ array(
 					//count-question---------//
 
 
-					if ($count == 0){
+					if ($count == 1){
 
 
 						//query-คำถามที่เคยถามในdb----------------------------------//
@@ -5135,7 +5135,7 @@ array(
 
 						$newupdate = json_encode(
 							array(
-								'$set' => array('lineid'=> $uid),
+								//'$set' => array('lineid'=> $uid),
 								//'$set' => array('name'=> $obj->displayName),
 								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
 
