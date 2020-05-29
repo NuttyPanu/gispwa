@@ -5301,156 +5301,198 @@ array(
 		$gid = $event['source']['groupId'];
 
 
-			$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
-				$res = get_url($urllink); 
-				$str = trim($res); 
-
-			if ($str == 'found'){
-				/*
-				$text = [
-						"type"=> "location",
-						"title"=> 'ตำแหน่งของท่าน',
-						"address"=> $address,
-						"latitude"=> $latitude,
-						"longitude"=> $longitude
-						];       
-				$uid = $event['replyToken']; // id reply
-				$client->replyMessage($uid, $text);
-				*/
 
 
-			   /*
-				$client->replyMessage1($event['replyToken'],array(
-								array(
-									'type' => 'text',
-									'text' => 'GPS'				
-								)
-							)
-				);
-				*/
+		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
 
-				if ($gid){
-					$t = 'กำลังตรวจสอบตำแหน่งของท่าน โปรดรอสักครู่ ...';	
-					$client->pushMessage1($gid,array(
-								array(
-									'type' => 'text',
-									'text' => $t 
-								) 
-							)
-					);
+		//$lineid_encode = urlencode($uid);
+		$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+		$q_msg = json_decode($json_cmsg); 
+		if($q_msg){
+			foreach($q_msg as $rec){
+
+
+
+				if($rec->chk_db != 'no'){
+
+
+
 				}
-
-				else if ($uid){
-					$t = 'กำลังตรวจสอบตำแหน่งของท่าน โปรดรอสักครู่ ...';	
-					$client->pushMessage1($uid,array(
-								array(
-									'type' => 'text',
-									'text' => $t 
-								) 
-							)
-					);
-				}
+				if($rec->servicearea != 'no'){
 
 
-				$urllink = 'https://gisweb1.pwa.co.th/lineservice/servicearea/check_area.php?latitude='.$latitude.'&longitude='.$longitude; 
-				$str = get_url($urllink); 
-				//$str = iconv("win-874","utf-8",$convert);
-				//$json = json_decode($str);
-				$split = explode(",", $str);
-				//echo $split[0];
-				//echo $split[1];
-				//echo $split[2];
+					$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
+						$res = get_url($urllink); 
+						$str = trim($res); 
 
-				if ($split[0] == 'in'){
+					if ($str == 'found'){
+						/*
+						$text = [
+								"type"=> "location",
+								"title"=> 'ตำแหน่งของท่าน',
+								"address"=> $address,
+								"latitude"=> $latitude,
+								"longitude"=> $longitude
+								];       
+						$uid = $event['replyToken']; // id reply
+						$client->replyMessage($uid, $text);
+						*/
 
-				   $client->replyMessage1($event['replyToken'],array(
-							array(
-									"type"=> "location",
-									"title"=> "ตำแหน่งของท่าน",
-									"address"=> $address,
-									"latitude"=> $latitude,
-									"longitude"=> $longitude
-							),
-							array(
-									'type' => 'text',
-									'text' => 'ตำแหน่งของท่านอยู่ในพื้นที่ให้บริการของกปภ.สาขา'.	$split[2].' ('.$split[1].')'
-							),
-							array(
-								'type' => 'flex',
-								'altText' => 'ขอใช้น้ำประปา กปภ.',
-								'contents'=> array(
-											'type'=> 'bubble',
-											'body'=> array(
-													 'type'=> "box",
-													 'layout'=> "vertical",
-													 'contents'=> array(
-																	  array(
-																	   'type'=> "button",
-																	   'style'=> "primary",
-																	   'height'=> "sm",
-																	   'action'=> array(
-																					'type'=> "uri",
-																					'label'=> "ขอใช้น้ำประปา กปภ.",
-																					'uri'=> 'https://customer-application.pwa.co.th/register-service/add'
-																				   )
-																	  )
-													 )
-											)
-								)
-							)
-							/*
-							array(
-							  "type"=> "template",
-							  "altText"=> "this is a confirm template",
-							  "template"=> array(
-								  "type"=> "confirm",
-								  "text"=> "ท่านต้องการขอใช้น้ำประปา(รายใหม่)?",
-								  "actions"=> 
+					   /*
+						$client->replyMessage1($event['replyToken'],array(
+										array(
+											'type' => 'text',
+											'text' => 'GPS'				
+										)
+									)
+						);
+						*/
 
-										  array(
-											"type"=> "message",
-											"label"=> "ใช่",
-											"text"=> "#ขอใช้น้ำประปากปภ."
-										  ),
-										  array(
-											"type"=> "message",
-											"label"=> "ไม่",
-											"text"=> "ไม่"
-										  )
-										  
+						if ($gid){
+							$t = 'กำลังตรวจสอบตำแหน่งของท่าน โปรดรอสักครู่ ...';	
+							$client->pushMessage1($gid,array(
+										array(
+											'type' => 'text',
+											'text' => $t 
+										) 
+									)
+							);
+						}
+
+						else if ($uid){
+							$t = 'กำลังตรวจสอบตำแหน่งของท่าน โปรดรอสักครู่ ...';	
+							$client->pushMessage1($uid,array(
+										array(
+											'type' => 'text',
+											'text' => $t 
+										) 
+									)
+							);
+						}
+
+
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/servicearea/check_area.php?latitude='.$latitude.'&longitude='.$longitude; 
+						$str = get_url($urllink); 
+						//$str = iconv("win-874","utf-8",$convert);
+						//$json = json_decode($str);
+						$split = explode(",", $str);
+						//echo $split[0];
+						//echo $split[1];
+						//echo $split[2];
+
+						if ($split[0] == 'in'){
+
+						   $client->replyMessage1($event['replyToken'],array(
+									array(
+											"type"=> "location",
+											"title"=> "ตำแหน่งของท่าน",
+											"address"=> $address,
+											"latitude"=> $latitude,
+											"longitude"=> $longitude
+									),
+									array(
+											'type' => 'text',
+											'text' => 'ตำแหน่งของท่านอยู่ในพื้นที่ให้บริการของกปภ.สาขา'.	$split[2].' ('.$split[1].')'
+									),
+									array(
+										'type' => 'flex',
+										'altText' => 'ขอใช้น้ำประปา กปภ.',
+										'contents'=> array(
+													'type'=> 'bubble',
+													'body'=> array(
+															 'type'=> "box",
+															 'layout'=> "vertical",
+															 'contents'=> array(
+																			  array(
+																			   'type'=> "button",
+																			   'style'=> "primary",
+																			   'height'=> "sm",
+																			   'action'=> array(
+																							'type'=> "uri",
+																							'label'=> "ขอใช้น้ำประปา กปภ.",
+																							'uri'=> 'https://customer-application.pwa.co.th/register-service/add'
+																						   )
+																			  )
+															 )
+													)
+										)
+									)
+									/*
+									array(
+									  "type"=> "template",
+									  "altText"=> "this is a confirm template",
+									  "template"=> array(
+										  "type"=> "confirm",
+										  "text"=> "ท่านต้องการขอใช้น้ำประปา(รายใหม่)?",
+										  "actions"=> 
+
+												  array(
+													"type"=> "message",
+													"label"=> "ใช่",
+													"text"=> "#ขอใช้น้ำประปากปภ."
+												  ),
+												  array(
+													"type"=> "message",
+													"label"=> "ไม่",
+													"text"=> "ไม่"
+												  )
+												  
+											  )
 									  )
-							  )
-							)
-							*/
+									)
+									*/
 
-					   )
-					);
+							   )
+							);
+						}
+
+						else if ($split[0] == 'out'){
+
+						   $client->replyMessage1($event['replyToken'],array(
+									array(
+											"type"=> "location",
+											"title"=> "ตำแหน่งของท่าน",
+											"address"=> $address,
+											"latitude"=> $latitude,
+											"longitude"=> $longitude
+									),
+									array(
+											'type' => 'text',
+											'text' => 'ไม่อยู่ในพื้นที่ให้บริการของกปภ.'		
+									)
+
+							   )
+							);
+						}
+
+					}
+
+					else if ($str == 'notfound'){
+
+					}
+
+
 				}
+				if($rec->weather != 'no'){
 
-				else if ($split[0] == 'out'){
 
-				   $client->replyMessage1($event['replyToken'],array(
-							array(
-									"type"=> "location",
-									"title"=> "ตำแหน่งของท่าน",
-									"address"=> $address,
-									"latitude"=> $latitude,
-									"longitude"=> $longitude
-							),
-							array(
-									'type' => 'text',
-									'text' => 'ไม่อยู่ในพื้นที่ให้บริการของกปภ.'		
-							)
 
-					   )
-					);
+				}
+				if($rec->other != 'no'){
+
+
+
 				}
 
 			}
+		}
+		else{
 
-			else if ($str == 'notfound'){
+		}
 
-			}
+
+
 
 
     }
