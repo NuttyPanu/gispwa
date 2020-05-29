@@ -5780,6 +5780,33 @@ array(
 						$temp = $obj->data->current->weather->tp;
 						$aqi = $obj->data->current->pollution->aqius;
 
+						$level = "";
+						$face = "";
+						
+							if ($aqi < 50) {
+							  $level = "Good";  //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-green.svg"; 
+							} else if ($aqi < 100) {
+							  $level = "Moderate"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-yellow.svg";
+							} else if ($aqi < 150) {
+							  $level = "Unhealthy for Sensitive Groups"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-orange.svg";
+							} else if ($aqi < 200) {
+							  $level = "Unhealthy"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-red.svg";
+							} else if ($aqi < 300) {
+							  $level = "Very Unhealthy"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-purple.svg"
+							} else {
+							  $level = "Hazardous"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-maroon.svg";
+							}
+
+
+
+
+
 						//const city = $res.data.city;
 						//const temp = $res.data.current.weather.tp;
 						//const AQI = $res.data.current.pollution.aqius;
@@ -5878,7 +5905,7 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city.$temp.$aqi     
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city.$temp.$aqi.$level.$face   
 									),
 
 									array(
