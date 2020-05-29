@@ -5859,17 +5859,17 @@ array(
 						//				  "co": "ppm" //Carbon monoxide CO 
 						//				}
 
-						/*
+						
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'        
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj.data.city       
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
-						*/
+						
 
-
+						/*
 						$a = array(
 									array(
 										'type' => 'flex',
@@ -5963,9 +5963,10 @@ array(
 
 										)
 									)
-								);
+						);
 						$client->replyMessage1($event['replyToken'],$a);
-					
+						*/
+
 										
 //						$messages = [
 //							'type' => 'flex',
