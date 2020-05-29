@@ -5774,7 +5774,6 @@ array(
 						curl_close($ch);
 						$obj = json_decode($result);
 
-
 						//const city = $res.data.city;
 						//const temp = $res.data.current.weather.tp;
 						//const AQI = $res.data.current.pollution.aqius;
@@ -5859,7 +5858,6 @@ array(
 						//				  "co": "ppm" //Carbon monoxide CO 
 						//				}
 
-						
 						$a = array(
 									array(
 										'type' => 'text',
@@ -5867,107 +5865,8 @@ array(
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
-						
-
-						/*
-						$a = array(
-									array(
-										'type' => 'flex',
-										'altText' => 'Air Quality',
-										'contents'=> array(
-										/* เอามาจากflex*/
-										  "type"=> "bubble",
-										  "header"=> array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> $obj.data.city,
-												"color"=> "#414141",
-												"gravity"=> "center",
-												"size"=> "xl",
-												"wrap"=> true,
-												"flex"=> 3
-											  ),
-											  array(
-												"type"=> "image",
-												"url"=> "https://airvisual.com/images/01d.png",
-												"size"=> "xs",
-												"flex"=> 1
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> $obj.data.current.weather.tp." °C",
-												"color"=> "#414141",
-												"size"=> "lg",
-												"align"=> "end",
-												"gravity"=> "center",
-												"flex"=> 1
-											  )
-											)
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "image",
-													"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
-													"size"=> "md",
-													"align"=> "start"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "Moderate",
-													"wrap"=> true,
-													"size"=> "lg",
-													"color"=> "#a57f23",
-													"gravity"=> "center"
-												  )
-												),
-												"margin"=> "xxl"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "baseline",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> $obj.data.current.pollution.aqius,
-													"color"=> "#a57f23",
-													"size"=> "5xl",
-													"align"=> "center"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "US AQI",
-													"color"=> "#a57f23",
-													"size"=> "xs",
-													"margin"=> "sm"
-												  )
-												)
-											  )
-											)
-										  ),
-										  "styles"=> array(
-											"body"=> array(
-											  "backgroundColor"=> "#fdd74b"
-											)
-										  )
-										/* เอามาจากflex*/
-
-										)
-									)
-						);
-						$client->replyMessage1($event['replyToken'],$a);
-						*/
-
-										
+					
+					
 //						$messages = [
 //							'type' => 'flex',
 //							'altText' => 'Air Quality',
