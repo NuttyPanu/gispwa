@@ -5154,7 +5154,7 @@ array(
 
 								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
 								'$set' => array('status'=> 'add_friend'),
-								'$set' => array('pwaarea'=> 'yes'),
+								'$set' => array('pwaarea'=> 'yes')
 							)
 						);
 
