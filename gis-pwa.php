@@ -5774,6 +5774,9 @@ array(
 						curl_close($ch);
 						$obj = json_decode($result);
 
+
+
+						$city = $obj->data->city;
 						//const city = $res.data.city;
 						//const temp = $res.data.current.weather.tp;
 						//const AQI = $res.data.current.pollution.aqius;
@@ -5872,7 +5875,7 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->city       
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city       
 									),
 
 									array(
