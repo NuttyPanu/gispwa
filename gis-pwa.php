@@ -5110,7 +5110,7 @@ array(
                 }
 
 
-
+				/*
 				else if ($msg == '#อากาศ') {
 
                     $gid = $event['source']['groupId'];
@@ -5200,12 +5200,8 @@ array(
 
 
 
-
-
-
-
 				}
-
+				*/
 			
 				else if ($msg == '#ตรวจสอบพื้นที่ให้บริการ') {
 
