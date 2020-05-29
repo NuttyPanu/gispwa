@@ -5786,32 +5786,32 @@ array(
 
 							if ($aqi < 50) {
 							  $level = "Good";
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-green.svg"; 
+							  $face = "https://gispwa.herokuapp.com/image/ic-face-green.png"; 
 							} 
 							
 							else if ($aqi < 100) {
 							  $level = "Moderate";
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-yellow.svg";
+							  $face = "https://gispwa.herokuapp.com/image/ic-face-yellow.png";
 							} 
 							
 							else if ($aqi < 150) {
 							  $level = "Unhealthy for Sensitive Groups";
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-orange.svg";
+							  $face = "https://gispwa.herokuapp.com/image/ic-face-orange.png";
 							} 
 							
 							else if ($aqi < 200) {
 							  $level = "Unhealthy";
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-red.svg";
+							  $face = "https://gispwa.herokuapp.com/image/ic-face-red.png";
 							} 
 							
 							else if ($aqi < 300) {
 							  $level = "Very Unhealthy";
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-purple.svg";
+							  $face = "https://gispwa.herokuapp.com/image/ic-face-purple.png";
 							} 
 							
 							else {
 							  $level = "Hazardous";
-							  $face = "https://www.iqair.com/assets/aqi/ic-face-maroon.svg";
+							  $face = "https://gispwa.herokuapp.com/image/ic-face-maroon.png";
 							}
 
 
