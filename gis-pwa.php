@@ -5782,7 +5782,15 @@ array(
 
 						$level = "";
 						$face = "";
-						
+
+						if($aqi>=0){
+							$level = 'more';
+
+						}
+						else{
+							$level = "less";
+
+						}
 						/*
 							if ($aqi < 50) {
 							  $level = "Good";
