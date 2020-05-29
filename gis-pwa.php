@@ -5779,6 +5779,7 @@ array(
 						$city = $obj->data->city;
 						$temp = $obj->data->current->weather->tp;
 						$aqi =  intval($obj->data->current->pollution->aqius);
+						$ic = $obj->data->current->weather->ic;
 
 						$level = "";
 						$face = "";
@@ -5909,12 +5910,7 @@ array(
 						$client->replyMessage1($event['replyToken'],$a);
 						*/		
 
-						
 						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$city.$temp.$aqi.$level.$face   
-									),
 
 									array(
 										'type' => 'flex',
@@ -5928,7 +5924,7 @@ array(
 											"contents"=> array(
 											  array(
 												"type"=> "text",
-												"text"=> $obj->data->city,
+												"text"=> $city,
 												"color"=> "#414141",
 												"gravity"=> "center",
 												"size"=> "xl",
@@ -5937,13 +5933,13 @@ array(
 											  ),
 											  array(
 												"type"=> "image",
-												"url"=> "https://airvisual.com/images/01d.png",
+												"url"=> "https://airvisual.com/images/".$ic.".png",
 												"size"=> "xs",
 												"flex"=> 1
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> "22 °C",
+												"text"=> $temp." °C",
 												"color"=> "#414141",
 												"size"=> "lg",
 												"align"=> "end",
@@ -5962,13 +5958,13 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "image",
-													"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+													"url"=> $face,
 													"size"=> "md",
 													"align"=> "start"
 												  ),
 												  array(
 													"type"=> "text",
-													"text"=> "Moderate",
+													"text"=> $level,
 													"wrap"=> true,
 													"size"=> "lg",
 													"color"=> "#a57f23",
@@ -5983,7 +5979,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "text",
-													"text"=> "85",
+													"text"=> $aqi,
 													"color"=> "#a57f23",
 													"size"=> "5xl",
 													"align"=> "center"
@@ -6008,9 +6004,11 @@ array(
 
 										)
 									)
+									
 						);
 						$client->replyMessage1($event['replyToken'],$a);
 						
+	
 					
 //						$messages = [
 //							'type' => 'flex',
