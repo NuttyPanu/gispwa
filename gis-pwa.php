@@ -5894,7 +5894,7 @@ array(
 											"contents"=> array(
 											  array(
 												"type"=> "text",
-												"text"=> $obj->data->city,
+												"text"=> $city,
 												"color"=> "#414141",
 												"gravity"=> "center",
 												"size"=> "xl",
@@ -5903,7 +5903,7 @@ array(
 											  ),
 											  array(
 												"type"=> "image",
-												"url"=> "https://airvisual.com/images/".$ic,
+												"url"=> "https://airvisual.com/images/".$ic.".png",
 												"size"=> "xs",
 												"flex"=> 1
 											  ),
