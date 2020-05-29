@@ -5937,7 +5937,7 @@ array(
 											  ),
 											  array(
 												"type"=> "image",
-												"url"=> "https://airvisual.com/images/01d.png",
+												"url"=> $icon,
 												"size"=> "xs",
 												"flex"=> 1
 											  ),
@@ -5962,7 +5962,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "image",
-													"url"=> "https://airvisual.com/images/01d.png",
+													"url"=> $face,
 													"size"=> "md",
 													"align"=> "start"
 												  ),
@@ -5983,7 +5983,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "text",
-													"text"=> "66",
+													"text"=> "55",
 													"color"=> "#a57f23",
 													"size"=> "5xl",
 													"align"=> "center"
