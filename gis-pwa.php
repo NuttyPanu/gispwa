@@ -5863,7 +5863,7 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj.data.city       
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->city       
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
