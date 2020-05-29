@@ -5774,25 +5774,32 @@ array(
 						curl_close($ch);
 						$obj = json_decode($result);
 
-						//const city = $res.data.city;
-						//const temp = $res.data.current.weather.tp;
-						//const AQI = $res.data.current.pollution.aqius;
-
+						$city = $obj->data->city;
+						$temp = $obj->data->current->weather->tp;
+						$AQI = $obj->data->current->pollution->aqius;
+						$ic = $obj->data->current->weather->ic;
 						
-						//				var level = "";
-						//					if (AQI < 50) {
-						//					  level = "Good";  //https://www.iqair.com/assets/aqi/ic-face-green.svg 
-						//					} else if (AQI < 100) {
-						//					  level = "Moderate"; //https://www.iqair.com/assets/aqi/ic-face-yellow.svg
-						//					} else if (AQI < 150) {
-						//					  level = "Unhealthy for Sensitive Groups"; //https://www.iqair.com/assets/aqi/ic-face-orange.svg
-						//					} else if (AQI < 200) {
-						//					  level = "Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-red.svg
-						//					} else if (AQI < 300) {
-						//					  level = "Very Unhealthy"; //https://www.iqair.com/assets/aqi/ic-face-purple.svg
-						//					} else {
-						//					  level = "Hazardous"; //https://www.iqair.com/assets/aqi/ic-face-maroon.svg
-						//					}
+						$level = "";
+						$face = "";
+							if ($AQI < 50) {
+							  $level = "Good";  //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-green.svg"; 
+							} else if ($AQI < 100) {
+							  $level = "Moderate"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-yellow.svg";
+							} else if ($AQI < 150) {
+							  $level = "Unhealthy for Sensitive Groups"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-orange.svg";
+							} else if ($AQI < 200) {
+							  $level = "Unhealthy"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-red.svg";
+							} else if ($AQI < 300) {
+							  $level = "Very Unhealthy"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-purple.svg"
+							} else {
+							  $level = "Hazardous"; //
+							  $face = "https://www.iqair.com/assets/aqi/ic-face-maroon.svg";
+							}
 										
 
 										
@@ -5896,13 +5903,13 @@ array(
 											  ),
 											  array(
 												"type"=> "image",
-												"url"=> "https://airvisual.com/images/01d.png",
+												"url"=> "https://airvisual.com/images/".$ic,
 												"size"=> "xs",
 												"flex"=> 1
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> "22 °C",
+												"text"=> $temp." °C",
 												"color"=> "#414141",
 												"size"=> "lg",
 												"align"=> "end",
@@ -5921,13 +5928,13 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "image",
-													"url"=> "https://www.iqair.com/assets/aqi/ic-face-green.svg",
+													"url"=> $face,
 													"size"=> "md",
 													"align"=> "start"
 												  ),
 												  array(
 													"type"=> "text",
-													"text"=> "Moderate",
+													"text"=> $level,
 													"wrap"=> true,
 													"size"=> "lg",
 													"color"=> "#a57f23",
@@ -5942,7 +5949,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "text",
-													"text"=> "85",
+													"text"=> $AQI,
 													"color"=> "#a57f23",
 													"size"=> "5xl",
 													"align"=> "center"
