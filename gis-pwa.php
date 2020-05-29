@@ -5871,6 +5871,11 @@ array(
 						
 						$a = array(
 									array(
+										'type' => 'text',
+										'text' => 'อยู่ระหว่างปรับปรุงระบบครับ'.$obj->data->city       
+									),
+
+									array(
 										'type' => 'flex',
 										'altText' => 'Air Quality',
 										'contents'=> array(
@@ -5897,7 +5902,7 @@ array(
 											  ),
 											  array(
 												"type"=> "text",
-												"text"=> $obj->data->current->weather->tp." °C",
+												"text"=> "22 °C",
 												"color"=> "#414141",
 												"size"=> "lg",
 												"align"=> "end",
@@ -5937,7 +5942,7 @@ array(
 												"contents"=> array(
 												  array(
 													"type"=> "text",
-													"text"=> $obj->data->current->pollution->aqius,
+													"text"=> "85",
 													"color"=> "#a57f23",
 													"size"=> "5xl",
 													"align"=> "center"
