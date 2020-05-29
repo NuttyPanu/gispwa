@@ -5915,7 +5915,7 @@ array(
 										'type' => 'text',
 										'text' => $city. $temp. $aqi.$icon.$level.$face			
 
-									),
+									)/*,
 									array(
 										'type' => 'flex',
 										'altText' => 'Air Quality',
@@ -6007,7 +6007,7 @@ array(
 										/* เอามาจากflex*/
 
 										)
-									)
+									)*/
 									
 						);
 						$client->replyMessage1($event['replyToken'],$a);
