@@ -5151,7 +5151,7 @@ array(
 								//'$set' => array('lat'=> '-'),
 								//'$set' => array('lng'=> '-'),
 
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
+								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
 								'$set' => array('status'=> 'servicearea')
 
 							)
