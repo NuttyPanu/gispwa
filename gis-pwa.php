@@ -5913,14 +5913,14 @@ array(
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => $city. $temp. $aqi.$icon.$level.$face			
+										'text' => $city.$temp.$aqi//.$icon.$level.$face			
 
 									)/*,
 									array(
 										'type' => 'flex',
 										'altText' => 'Air Quality',
 										'contents'=> array(
-										/* เอามาจากflex*/
+										
 										  "type"=> "bubble",
 										  "header"=> array(
 											"type"=> "box",
@@ -6004,7 +6004,7 @@ array(
 											  "backgroundColor"=> "#fdd74b"
 											)
 										  )
-										/* เอามาจากflex*/
+										
 
 										)
 									)*/
