@@ -106,9 +106,8 @@ function tp_get_track($token_,$id_)
 			  echo count($value);
 			  //echo $value[5];
 
-
-			  echo json_encode($value[count($value)-1]);
-
+			  //แสดงแบบเป็นtext
+			  //echo json_encode($value[count($value)-1]);
 
 			  echo 'เลขพัสดุุ: '.$value[count($value)-1]->barcode;
 			  echo '<br>';
@@ -122,10 +121,10 @@ function tp_get_track($token_,$id_)
 
 
 			 if($value[count($value)-1]->status == 501 || $value[count($value)-1]->delivery_status == 'S'){
-
-			  echo 'สถานะ: '.$value[count($value)-1]->delivery_description;
 			  echo '<br>';
-			  echo 'วันที่จัดส่ง: '.$value[count($value)-1]->delivery_datetime;
+			  echo 'สถานะการรับ: '.$value[count($value)-1]->delivery_description;
+			  echo '<br>';
+			  echo 'วันที่รับ: '.$value[count($value)-1]->delivery_datetime;
 			  echo '<br>';
 			  echo 'ผู้รับ: '.$value[count($value)-1]->receiver_name;
 			  echo '<br>';
