@@ -2,7 +2,6 @@
 
 function tp_get_token($id) 
 {
-		//echo $id;
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
 
@@ -27,8 +26,11 @@ function tp_get_token($id)
         $returned =  curl_exec($ch);
         curl_close($ch);
 
-		$token = json_decode($AccessToken);
+		$token = json_decode($returned);
 
+
+		echo $id;
+		echo '<br>';
 		echo  $token->token;
 		echo '<br>';
         //return($token->token);
