@@ -202,7 +202,6 @@ function tp_get_track($token_,$id_)
 		*/
 }
 
-
-tp_get_token('EB315050240TH');
-
+tp_get_token($_REQUEST['id']);
+//EB315050240TH
 ?>
