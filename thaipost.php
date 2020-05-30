@@ -76,7 +76,7 @@ function tp_get_track($fullurl)
 		
 		//echo $obj->response->items->[0]->barcode;
 		echo '<br>';
-		echo $obj;
+		echo json_encode($obj);
 
         //return($returned);
 
