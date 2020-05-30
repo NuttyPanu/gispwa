@@ -73,9 +73,10 @@ function tp_get_track($fullurl)
 
 		$obj = json_decode($returned);
 
-		echo $obj->response->items->[0]->barcode;
+		
+		//echo $obj->response->items->[0]->barcode;
 		echo '<br>';
-
+		echo $returned;
 
         //return($returned);
 
