@@ -30,12 +30,13 @@ function tp_get_token($id)
         curl_close($ch);
 
 		$token = json_decode($AccessToken);
+
 		echo  $token->token;
 		echo '<br>';
         //return($token->token);
 
 
-		tp_get_track($token->token,$id);
+		//tp_get_track($token->token,$id);
 }
 
 function tp_get_track($token_,$id_) 
