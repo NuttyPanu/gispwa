@@ -98,10 +98,9 @@ function tp_get_track($token_,$id_)
 			echo '<br>';
 
 
-			if(count($obj->response->items) == 0){
-				echo 'ไม่พบเลขพัสดุ';
+			echo 'count: '.count($obj->response->items);
 
-			}
+			echo '<br>';
 
 
 
