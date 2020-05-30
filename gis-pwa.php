@@ -818,6 +818,7 @@ if (!is_null($events['events'])) {
 				];
 
 			}
+
 			else if ($text == '#ลงทะเบียนliff') {
 				/*
 				$str;
@@ -870,8 +871,6 @@ if (!is_null($events['events'])) {
 				];
 				
 			}
-
-
 
 
 
@@ -5053,13 +5052,13 @@ function replyMsg($event, $client)
 
 
 					$a = array(
-//							array(
-//								'type' => 'flex',
-//								'altText' => '#วิธีการใช้งานไลน์บอท.',
-//								'contents'=> array(
+							array(
+								'type' => 'flex',
+								'altText' => '#วิธีการใช้งานไลน์บอท.',
+								'contents'=> array(
 
 								/* เอามาจากflex*/
-
+/*
 array(
   "type"=> "carousel",
   "contents"=> array(
@@ -5093,10 +5092,236 @@ array(
 
   )
 )
+*/
+
+/*
+array(
+  "type"=> "bubble",
+  "styles"=> array(
+    "footer"=> array(
+      "backgroundColor"=> "#42b3f4"
+    )
+  ),
+  "header"=> array(
+    "type"=> "box",
+    "layout"=> "horizontal",
+    "contents"=> array(
+      array(
+        "type"=> "box",
+        "layout"=> "baseline",
+        "contents"=> array(
+          array(
+            "type"=> "icon",
+            "size"=> "xxl",
+            "url"=> "https=>//scontent.fbkk7-2.fna.fbcdn.net/v/t1.0-1/p200x200/22814542_1962234637127047_1607260544847069468_n.png?_nc_cat=0&oh=2a303227c24dfab9e71a405b6d594d50&oe=5BC3965D"
+          )
+        )
+      ),
+      array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "flex"=> 5,
+        "contents"=> array(
+          array(
+            "type"=> "text",
+            "text"=> "โรงพยาบาลอ่างทอง",
+            "weight"=> "bold",
+            "color"=> "#aaaaaa",
+            "size"=> "md",
+            "gravity"=> "top"
+          ),
+          array(
+            "type"=> "text",
+            "text"=> "ขอขอบพระคุณ",
+            "weight"=> "bold",
+            "color"=> "#aaaaaa",
+            "size"=> "lg",
+            "gravity"=> "top"
+          )
+        )
+      )
+    )
+  ),
+  "hero"=> array(
+    "type"=> "image",
+    "url"=> "https=>//scontent.fbkk7-2.fna.fbcdn.net/v/t1.0-9/35076722_2227987830551725_330757188106584064_n.jpg?_nc_cat=0&oh=0f5fa137c5bd65f109a40439afcd59eb&oe=5BB566B6",
+    "size"=> "full",
+    "aspectRatio"=> "16:9",
+    "aspectMode"=> "cover",
+    "action"=> array(
+      "type"=> "uri",
+      "uri"=> "http=>//bit.ly/2JGBRKv"
+    )
+  ),
+  "body"=> array(
+    "type"=> "box",
+    "layout"=> "vertical",
+    "contents"=> array(
+      array(
+        "type"=> "text",
+        "margin"=> "sm",
+        "text"=> "คุณกานต์สินี ไหลสงวนงาม",
+        "weight"=> "bold",
+        "size"=> "md",
+        "wrap"=> true
+      ),
+      array(
+        "type"=> "box",
+        "layout"=> "vertical",
+        "margin"=> "xs",
+        "contents"=> array(
+          array(
+            "type"=> "box",
+            "layout"=> "baseline",
+            "spacing"=> "sm",
+            "contents"=> array(
+              array(
+                "type"=> "text",
+                "text"=> "บริจาคเงินจำนวน ๑๘๐,๐๐๐ บาท เพื่อซื้อครุภัณฑ์ทางการแพทย์ ใช้ในโรงพยาบาลอ่างทอง โดยมีนายแพทย์พงษ์นรินทร์ ชาติรังสรรค์ผู้อำนวยการโรงพยาบาลอ่างทอง เป็นผู้รับมอบ",
+                "wrap"=> true,
+                "color"=> "#666666",
+                "size"=> "sm",
+                "flex"=> 6
+              )
+            )
+          )
+        )
+      ),
+      array(
+        "type"=> "text",
+        "margin"=> "md",
+        "text"=> "วันที่ 12 มิ.ย. 2561",
+        "size"=> "sm",
+        "color"=> "#adadad"
+      )
+    )
+  ),
+  "footer"=> array(
+    "type"=> "box",
+    "layout"=> "vertical",
+    "spacing"=> "sm",
+    "contents"=> array(
+      array(
+        "type"=> "button",
+        "style"=> "link",
+        "color"=> "#FFFFFF",
+        "height"=> "sm",
+        "action"=> array(
+          "type"=> "uri",
+          "label"=> "อ่านต่อ...",
+          "uri"=> "http=>//bit.ly/2JGBRKv"
+        )
+      )
+    )
+  )
+)
+*/
+
+										  "type"=> "bubble",
+										  "header"=> array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+												"color"=> "#414141",
+												"gravity"=> "center",
+												"size"=> "lg",
+												"wrap"=> true,
+												"align"=> "center"
+											  )
+											)
+										  ),
+										  "hero"=> array(
+											"type"=> "image",
+											"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
+											"size"=> "full",
+											"aspectRatio"=> "16:9",
+											"aspectMode"=> "cover",
+											"action"=> array(
+											  "type"=> "uri",
+											  "uri"=> "http://bit.ly/2JGBRKv"
+											)
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
+													"size"=> "md",
+													"align"=> "start",
+													"gravity"=> "center"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> 'หนังสือเล่มนี้ดี',
+													"wrap"=> true,
+													"size"=> "lg",
+													"color"=> "#a57f23",
+													"gravity"=> "center"
+													//"flex" => 3 // for auto size image+name more(image<) less(image>)
+												  )
+												)
+											  )
+
+											)
+										  ),
+										  "footer"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+
+											  array(
+												'type'=> "box",
+												'layout'=> "vertical",
+												'contents'=> array(
+												   array(
+													'type'=> "button",
+													'style'=> "primary",
+													"gravity"=> "center",
+													"margin"=> "sm",
+													'height'=> "sm",
+													'action'=> array(
+															'type'=> "uri",
+															'label'=> "ลงทะเบียน",
+															'uri'=> "http://bit.ly/2JGBRKv"
+															)
+												   )
+												  )
+											  )
+
+
+											)
+										  ),
+
+										  "styles"=> array(
+
+												"header"=> array(
+												  "backgroundColor"=> "#fdd74a"
+												),
+												"body"=> array(
+												  "backgroundColor"=> "#fffcf2"
+												),
+												"footer"=> array(
+												  "separator"=> true
+												)
+
+										  )
+
+
+
+
 								/* เอามาจากflex*/
 
-//								)
-//							)
+								)
+							)
 					);
                     $client->replyMessage1($event['replyToken'],$a);
  
