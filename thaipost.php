@@ -75,9 +75,9 @@ function tp_get_track($code)
 		$obj = json_decode($returned);
 
 		
-		//echo $obj->response->items->[0]->barcode;
+		echo $obj->response->items->EB315050240TH->barcode;
 		echo '<br>';
-		echo json_encode($obj);
+		echo 'finnish';
 
         //return($returned);
 
