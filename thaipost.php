@@ -36,7 +36,8 @@ function tp_get_track($code)
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 
         $AccessToken = tp_get_token();
-		echo  $AccessToken;
+		$token = json_decode($AccessToken);
+		echo  $token->token;
  
         $header = array(
             "Content-Type: application/json",
