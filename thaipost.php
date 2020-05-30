@@ -292,7 +292,7 @@ else if(substr($_REQUEST['id'],0,-12) == 'E' || substr($_REQUEST['id'],0,-12) ==
 
 	tp_get_token($_REQUEST['id']);
 	//EB315050240TH
-
+}
 else{
 
 
