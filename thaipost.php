@@ -76,7 +76,7 @@ function tp_get_track($token,$code)
 
 		$obj = json_decode($returned);
 
-		echo 'result'.$obj->response->items->[0]->[-1]->barcode;
+		//echo 'result'.$obj->response->items->[0]->[-1]->barcode;
 		echo '<br>';
 		echo $obj->status;
 		echo '<br>';
