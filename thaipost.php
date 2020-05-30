@@ -143,8 +143,8 @@ function tp_get_track($fullurl)
 
 
 
-//tp_get_track('ED852942182TH');
+
 
 echo 'pass';
-
+tp_get_track('ED852942182TH');
 ?>
