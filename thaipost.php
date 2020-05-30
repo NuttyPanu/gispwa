@@ -61,7 +61,7 @@ function tp_get_track($code)
 		  $params = array(
 			'status' => 'all',
 			'language' => 'TH',
-			'barcode' => array("EB315050240TH")
+			'barcode' => array($code)
 			//'barcode' => array("EY145587896TH","RC338848854TH")
 		  );
 
@@ -74,7 +74,7 @@ function tp_get_track($code)
 
 		$obj = json_decode($returned);
 
-		
+		echo 'result';		
 		echo $obj->status;
 		echo '<br>';
 		echo $obj->message;
@@ -147,6 +147,7 @@ function tp_get_track($code)
 
 
 echo 'pass';
+echo '<br>';
 tp_get_track('EB315050240TH');
 
 ?>
