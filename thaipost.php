@@ -38,12 +38,14 @@ function tp_get_token($id)
 		tp_get_track($token->token,$id);
 }
 
-function tp_get_track($accesstoken,$id_) 
+function tp_get_track($token_,$id_) 
 {
 
-		echo $id_;
+		echo 'Id: '.$id_;
 		echo '<br>';
-		echo $accesstoken;
+		echo 'token: '.$token_;
+		echo '<br>';
+
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 
@@ -85,9 +87,9 @@ function tp_get_track($accesstoken,$id_)
 
 		//echo 'result'.$obj->response->items->[0]->[-1]->barcode;
 		echo '<br>';
-		echo $obj->status;
+		echo 'status: '.$obj->status; //1 = true, 0 = false
 		echo '<br>';
-		echo $obj->message;
+		echo 'message: '.$obj->message; //successfull
 
         //return($returned);
 
