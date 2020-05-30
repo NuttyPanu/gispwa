@@ -5217,6 +5217,10 @@ array(
 )
 */
 
+array(
+  "type"=> "carousel",
+  "contents"=> array(
+										array(
 										  "type"=> "bubble",
 										  "header"=> array(
 											"type"=> "box",
@@ -5314,9 +5318,109 @@ array(
 												)
 
 										  )
+										),
+										array(
+										  "type"=> "bubble",
+										  "header"=> array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+												"color"=> "#414141",
+												"gravity"=> "center",
+												"size"=> "lg",
+												"wrap"=> true,
+												"align"=> "center"
+											  )
+											)
+										  ),
+										  "hero"=> array(
+											"type"=> "image",
+											"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
+											"size"=> "full",
+											"aspectRatio"=> "16:9",
+											"aspectMode"=> "cover",
+											"action"=> array(
+											  "type"=> "uri",
+											  "uri"=> "http://bit.ly/2JGBRKv"
+											)
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
+													"size"=> "md",
+													"align"=> "start",
+													"gravity"=> "center"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> 'หนังสือเล่มนี้ดี',
+													"wrap"=> true,
+													"size"=> "lg",
+													"color"=> "#a57f23",
+													"gravity"=> "center"
+													//"flex" => 3 // for auto size image+name more(image<) less(image>)
+												  )
+												)
+											  )
+
+											)
+										  ),
+										  "footer"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+
+											  array(
+												'type'=> "box",
+												'layout'=> "vertical",
+												'contents'=> array(
+												   array(
+													'type'=> "button",
+													'style'=> "primary",
+													"gravity"=> "center",
+													"margin"=> "sm",
+													'height'=> "sm",
+													'action'=> array(
+															'type'=> "uri",
+															'label'=> "ลงทะเบียน",
+															'uri'=> "http://bit.ly/2JGBRKv"
+															)
+												   )
+												  )
+											  )
 
 
+											)
+										  ),
 
+										  "styles"=> array(
+
+												"header"=> array(
+												  "backgroundColor"=> "#fdd74a"
+												),
+												"body"=> array(
+												  "backgroundColor"=> "#fffcf2"
+												),
+												"footer"=> array(
+												  "separator"=> true
+												)
+
+										  )
+										)
+
+  )
+)
 
 								/* เอามาจากflex*/
 
