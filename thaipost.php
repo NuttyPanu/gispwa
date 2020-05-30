@@ -39,11 +39,13 @@ function tp_get_token($id)
 
 function tp_get_track($token_,$id_) 
 {
-
+		/*
 		echo 'Id: '.$id_;
 		echo '<br>';
 		echo 'token: '.$token_;
 		echo '<br>';
+		*/
+
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 
@@ -86,52 +88,47 @@ function tp_get_track($token_,$id_)
 
 		if($obj->status == 1 || $obj->message == 'successfull'){
 
-
-
-			//echo 'result'.$obj->response->items->EB315050240TH;
-			//echo 'result'.$obj->response->items->[0]->[-1]->barcode;
+			/*
 			echo '<br>';
 			echo 'status: '.$obj->status; //1 = true, 0 = false
 			echo '<br>';
 			echo 'message: '.$obj->message; //successfull
-
 			echo '<br>';
-
+			*/
 
 			foreach($obj->response->items as $key=>$value)
 			{
 				if($value[count($value)-1]->barcode == ''){
-					echo 'ไม่พบเลขพัสดุ'.$id_.'โปรดตรวจสอบอีกครัง';
+					echo '<br>';
+					echo 'ไม่พบเลขพัสด ุ'.$id_.' โปรดตรวจสอบอีกครั้ง';
 				}
 				else{
-					  //echo $key;
-					  //echo '<br>';
-					  //echo count($value);
-					  //echo $value[5];
+					//echo $key;
+					//echo '<br>';
+					//echo count($value);
+					//echo $value[5];
 
-					  //แสดงแบบเป็นtext
-					  //echo json_encode($value[count($value)-1]);
+					//แสดงแบบเป็นtext
+					//echo json_encode($value[count($value)-1]);
+					echo '<br>';
+					echo 'เลขพัสดุุ: '.$value[count($value)-1]->barcode;
+					echo '<br>';
+					echo 'สถานะ: '.$value[count($value)-1]->status_description;
+					echo '<br>';
+					echo 'สถานที่: '.$value[count($value)-1]->location;
+					echo '<br>';
+					echo 'วันที่: '.$value[count($value)-1]->status_date;
+					echo '<br>';
 
-					  echo 'เลขพัสดุุ: '.$value[count($value)-1]->barcode;
-					  echo '<br>';
-					  echo 'สถานะ: '.$value[count($value)-1]->status_description;
-					  echo '<br>';
-					  echo 'สถานที่: '.$value[count($value)-1]->location;
-					  echo '<br>';
-					  echo 'วันที่: '.$value[count($value)-1]->status_date;
-					  echo '<br>';
-
-
-
-					 if($value[count($value)-1]->status == 501 || $value[count($value)-1]->delivery_status == 'S'){
-					  echo '<br>';
-					  echo 'สถานะการรับ: '.$value[count($value)-1]->delivery_description;
-					  echo '<br>';
-					  echo 'วันที่รับ: '.$value[count($value)-1]->delivery_datetime;
-					  echo '<br>';
-					  echo 'ผู้รับ: '.$value[count($value)-1]->receiver_name;
-					  echo '<br>';
-					  echo 'ลายเซ็น: '.$value[count($value)-1]->signature;
+					if($value[count($value)-1]->status == 501 || $value[count($value)-1]->delivery_status == 'S'){
+						echo '<br>';
+						echo 'สถานะการรับ: '.$value[count($value)-1]->delivery_description;
+						echo '<br>';
+						echo 'วันที่รับ: '.$value[count($value)-1]->delivery_datetime;
+						echo '<br>';
+						echo 'ผู้รับ: '.$value[count($value)-1]->receiver_name;
+						echo '<br>';
+						echo 'ลายเซ็น: '.$value[count($value)-1]->signature;
 					 }
 					 else{
 
