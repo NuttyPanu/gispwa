@@ -91,7 +91,9 @@ function tp_get_track($token_,$id_)
 
 		echo '<br>';
 
-		echo json_encode($obj);
+		echo 'result: '.json_encode($obj->response->items->EB315050240TH);
+
+		//echo json_encode($obj);
 
 
 
