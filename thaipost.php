@@ -2,7 +2,7 @@
 
 
 
-function tp_get_token($fullurl) 
+function tp_get_token() 
 {
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
@@ -30,12 +30,12 @@ function tp_get_token($fullurl)
         return($returned);
 }
 
-function tp_get_track($fullurl) 
+function tp_get_track($code) 
 {
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 
-        $AccessToken = 'BwGlN2OsLJCMUF/YoAdKJR5GwQYCxU3BLTIPkMLLPC1IjVPH-S2LhD_P0R~GiPKA=JOP8N7MeY1U1ArA3X$LAQ0XfOiVsVxVUO2';
+        $AccessToken = tp_get_token();
  
         $header = array(
             "Content-Type: application/json",
@@ -59,7 +59,7 @@ function tp_get_track($fullurl)
 		  $values = array(
 			'status' => 'all',
 			'language' => 'TH',
-			'barcode' => array("EB315050240TH")
+			'barcode' => array("EB315050240TH,EB315050240TH")
 			//'barcode' => array("EY145587896TH","RC338848854TH")
 		  );
 
@@ -147,4 +147,5 @@ function tp_get_track($fullurl)
 
 echo 'pass';
 tp_get_track('EB315050240TH');
+
 ?>
