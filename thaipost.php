@@ -98,46 +98,48 @@ function tp_get_track($token_,$id_)
 			echo '<br>';
 
 
-			echo 'count: '.count($obj->response->items);
-
-			echo '<br>';
-
-
-
 			foreach($obj->response->items as $key=>$value)
 			{
-			  //echo $key;
-			  //echo '<br>';
-			  //echo count($value);
-			  //echo $value[5];
+				if($value[count($value)-1]->barcode == ''){
+					echo 'ไม่พบเลขพัสดุ'.$id_.'โปรดตรวจสอบอีกครัง';
+				}
+				else{
+					  //echo $key;
+					  //echo '<br>';
+					  //echo count($value);
+					  //echo $value[5];
 
-			  //แสดงแบบเป็นtext
-			  //echo json_encode($value[count($value)-1]);
+					  //แสดงแบบเป็นtext
+					  //echo json_encode($value[count($value)-1]);
 
-			  echo 'เลขพัสดุุ: '.$value[count($value)-1]->barcode;
-			  echo '<br>';
-			  echo 'สถานะ: '.$value[count($value)-1]->status_description;
-			  echo '<br>';
-			  echo 'สถานที่: '.$value[count($value)-1]->location;
-			  echo '<br>';
-			  echo 'วันที่: '.$value[count($value)-1]->status_date;
-			  echo '<br>';
+					  echo 'เลขพัสดุุ: '.$value[count($value)-1]->barcode;
+					  echo '<br>';
+					  echo 'สถานะ: '.$value[count($value)-1]->status_description;
+					  echo '<br>';
+					  echo 'สถานที่: '.$value[count($value)-1]->location;
+					  echo '<br>';
+					  echo 'วันที่: '.$value[count($value)-1]->status_date;
+					  echo '<br>';
 
 
 
-			 if($value[count($value)-1]->status == 501 || $value[count($value)-1]->delivery_status == 'S'){
-			  echo '<br>';
-			  echo 'สถานะการรับ: '.$value[count($value)-1]->delivery_description;
-			  echo '<br>';
-			  echo 'วันที่รับ: '.$value[count($value)-1]->delivery_datetime;
-			  echo '<br>';
-			  echo 'ผู้รับ: '.$value[count($value)-1]->receiver_name;
-			  echo '<br>';
-			  echo 'ลายเซ็น: '.$value[count($value)-1]->signature;
-			 }
-			 else{
+					 if($value[count($value)-1]->status == 501 || $value[count($value)-1]->delivery_status == 'S'){
+					  echo '<br>';
+					  echo 'สถานะการรับ: '.$value[count($value)-1]->delivery_description;
+					  echo '<br>';
+					  echo 'วันที่รับ: '.$value[count($value)-1]->delivery_datetime;
+					  echo '<br>';
+					  echo 'ผู้รับ: '.$value[count($value)-1]->receiver_name;
+					  echo '<br>';
+					  echo 'ลายเซ็น: '.$value[count($value)-1]->signature;
+					 }
+					 else{
 
-			 }
+					 }
+
+				}
+
+
 			}
 
 			//echo 'result: '.json_encode($obj->response->items->EB315050240TH[0]);
