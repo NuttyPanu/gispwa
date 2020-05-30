@@ -2,7 +2,7 @@
 
 	  $token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
 
-function tp_get_token() 
+function tp_get_token($code) 
 {
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
@@ -29,8 +29,13 @@ function tp_get_token()
         curl_close($ch);
 
 		$token = json_decode($AccessToken);
-		//echo  $token->token;
-        return($token->token);
+		echo  $token->token;
+		echo '<br>';
+        //return($token->token);
+
+
+		tp_get_track($token->token,$code);
+
 }
 
 function tp_get_track($token,$code) 
@@ -187,7 +192,6 @@ function tp_get_track($token,$code)
 		*/
 }
 
-
-tp_get_track(tp_get_token(),'EB315050240TH');
+tp_get_token('EB315050240TH');
 
 ?>
