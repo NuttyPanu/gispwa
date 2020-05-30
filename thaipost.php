@@ -4,7 +4,7 @@
 
 function tp_get_token($id) 
 {
-		echo $id;
+		//echo $id;
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
 
@@ -38,8 +38,12 @@ function tp_get_token($id)
 		tp_get_track($token->token,$id);
 }
 
-function tp_get_track($token,$id) 
+function tp_get_track($accesstoken,$id_) 
 {
+
+		echo $id_;
+		echo '<br>';
+		echo $accesstoken;
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 
