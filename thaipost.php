@@ -59,7 +59,7 @@ function tp_get_track($fullurl)
 		  $values = array(
 			'status' => 'all',
 			'language' => 'TH',
-			'barcode' => array("EY145587896TH")
+			'barcode' => array("EB315050240TH")
 			//'barcode' => array("EY145587896TH","RC338848854TH")
 		  );
 
@@ -146,5 +146,5 @@ function tp_get_track($fullurl)
 
 
 echo 'pass';
-tp_get_track('ED852942182TH');
+tp_get_track('EB315050240TH');
 ?>
