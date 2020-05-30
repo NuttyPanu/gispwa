@@ -5320,8 +5320,18 @@ array(
 
 
 				}
-			
 
+				else if ($msg == '#signature') {		
+						$link = 'https://trackimage.thailandpost.co.th/f/signature/QDUwMjQwYjVzMGx1VDMz/QGI1c0VCMGx1VDMx/QGI1czBsVEh1VDM0/QGI1czBsdTMxNTBUMzI';
+						$a = array(
+									array(
+										'type' => 'image',
+										'originalContentUrl' => $link,
+										'previewImageUrl' => $link   
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
+				}
 
                 else{
  
