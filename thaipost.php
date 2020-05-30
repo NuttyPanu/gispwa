@@ -33,7 +33,7 @@ function tp_get_token($id)
 
 		echo  $token->token;
 		echo '<br>';
-        //return($token->token);
+        return($token->token);
 
 
 		//tp_get_track($token->token,$id);
