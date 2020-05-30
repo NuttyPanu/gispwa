@@ -111,7 +111,7 @@ function tp_get_track($token_,$id_)
 					//แสดงแบบเป็นtext
 					//echo json_encode($value[count($value)-1]);
 					echo '<br>';
-					echo 'เลขพัสดุุ: '.$value[count($value)-1]->barcode;
+					echo 'เลขพัสดุ: '.$value[count($value)-1]->barcode;
 					echo '<br>';
 					echo 'สถานะ: '.$value[count($value)-1]->status_description;
 					echo '<br>';
