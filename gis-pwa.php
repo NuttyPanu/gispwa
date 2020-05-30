@@ -5408,7 +5408,7 @@ array(
 									//แสดงแบบเป็นtext
 									//echo json_encode($value[count($value)-1]);
 									echo '<br>';
-									echo 'เลขพัสดุุ: '.$value[count($value)-1]->barcode;
+									echo 'เลขพัสดุ: '.$value[count($value)-1]->barcode;
 									echo '<br>';
 									echo 'สถานะ: '.$value[count($value)-1]->status_description;
 									echo '<br>';
@@ -5432,7 +5432,7 @@ array(
 									 }
 									*/
 
-									$txt =	'เลขพัสดุุ: '.$value[count($value)-1]->barcode.'\n'.
+									$txt =	'เลขพัสดุ: '.$value[count($value)-1]->barcode.'\n'.
 											'สถานะ: '.$value[count($value)-1]->status_description.'\n'.
 											'สถานที่: '.$value[count($value)-1]->location.'\n'.
 											'วันที่: '.$value[count($value)-1]->status_date.'\n'.
