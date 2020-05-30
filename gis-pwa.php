@@ -5779,7 +5779,7 @@ array(
 						$city = $obj->data->city;
 						$temp = $obj->data->current->weather->tp;
 						$aqi =  intval($obj->data->current->pollution->aqius);
-						$icon = "https://gispwa.herokuapp.com/image/".$obj->data->current->weather->ic.".png";
+						$icon = "https://airvisual.com/images/".$obj->data->current->weather->ic.".png";
 
 						$level;
 						$face;
@@ -5856,7 +5856,6 @@ array(
 						//				.aqi-red{color:#af2c3b;background:#fe6a69}
 						//				.aqi-opera-mauve{color:#634675;background:#a97abc}
 						//				.aqi-mauve-taupe{color:#683e51;background:#a87383}
-
 						//				.aqi-who-blue{color:#375c70;background:#60accb}
 
 
