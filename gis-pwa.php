@@ -5058,7 +5058,7 @@ function replyMsg($event, $client)
 								'altText' => '#วิธีการใช้งานไลน์บอท.',
 								'contents'=> array(
 
-										array(
+
 										  "type"=> "bubble",
 										  "body"=> array(
 											"type"=> "box",
@@ -5099,7 +5099,7 @@ function replyMsg($event, $client)
 											  )
 											)
 										  )
-										)
+
 
 								)
 							)
