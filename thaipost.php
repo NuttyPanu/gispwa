@@ -70,7 +70,7 @@ function tp_get_track($token_,$id_)
 		$data_string = json_encode(array(
 									'status' => 'all',
 									'language' => 'TH',
-									'barcode' => array("EB315050240TH")
+									'barcode' => array($id_)
 									//'barcode' => array("EB315050240TH","EB315050240TH")
 						));
 
@@ -285,9 +285,11 @@ else if(is_numeric(substr($_REQUEST['id'],11,13) == true )){
 else if(substr($_REQUEST['id'],0,-12) == 'E' || substr($_REQUEST['id'],0,-12) == 'R'){
 	if(substr($_REQUEST['id'],0,-12) == 'E'){
 		echo 'พัสดุลงทะเบียน EMS';
+		echo '<br>';
 	}
 	if(substr($_REQUEST['id'],0,-12) == 'R'){
 		echo 'พัสดุแบบลงทะเบียน';
+		echo '<br>';
 	}
 
 	tp_get_token($_REQUEST['id']);
