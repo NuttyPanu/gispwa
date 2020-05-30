@@ -56,21 +56,19 @@ function tp_get_track($token,$code)
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($ch, CURLOPT_POST, 1); //POST 
-        curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+        //curl_setopt($ch, CURLOPT_FAILONERROR, 0);
 
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
-		curl_setopt($ch, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+		//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
+		//curl_setopt($ch, CURLOPT_TIMEOUT, 6000); //timeout in seconds
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 
-		  $params = array(
-			'status' => 'all',
-			'language' => 'TH',
-			'barcode' => array('EB315050240TH')
-			//'barcode' => array("EY145587896TH","RC338848854TH")
-		  );
+		$data_string = json_encode(array(
+									'status' => 'all',
+									'language' => 'TH',
+									'barcode' => array('EB315050240TH')));
 
-		curl_setopt($ch, CURLOPT_POSTFIELDS,$params); 
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 
         curl_setopt($ch, CURLOPT_URL, $fullurl);
          
