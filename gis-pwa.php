@@ -5217,7 +5217,7 @@ array(
 )
 */
 
-array(
+
   "type"=> "carousel",
   "contents"=> array(
 										array(
@@ -5420,7 +5420,7 @@ array(
 										)
 
   )
-)
+
 
 								/* เอามาจากflex*/
 
