@@ -56,14 +56,13 @@ function tp_get_track($code)
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 
-		  $values = array(
+		  $params = array(
 			'status' => 'all',
 			'language' => 'TH',
-			'barcode' => array("EB315050240TH,EB315050240TH")
+			'barcode' => array("EB315050240TH","EB315050240TH")
 			//'barcode' => array("EY145587896TH","RC338848854TH")
 		  );
 
-		$params = http_build_query($values);
 		curl_setopt($ch, CURLOPT_POSTFIELDS,$params); 
 
         curl_setopt($ch, CURLOPT_URL, $fullurl);
