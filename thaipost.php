@@ -1,7 +1,5 @@
 <?php
 
-	  $token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
-
 function tp_get_token($id) 
 {
 		//echo $id;
@@ -33,7 +31,7 @@ function tp_get_token($id)
 
 		echo  $token->token;
 		echo '<br>';
-        return($token->token);
+        //return($token->token);
 
 
 		//tp_get_track($token->token,$id);
@@ -198,7 +196,6 @@ function tp_get_track($token_,$id_)
 
 		*/
 }
-
 
 
 tp_get_token('EB315050240TH');
