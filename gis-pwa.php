@@ -5070,7 +5070,7 @@ function replyMsg($event, $client)
 												"contents"=> array(
 												  array(
 													"type"=> "image",
-													"url"=> "https://toscaworld.files.wordpress.com/2014/06/wpid-a2fd688df2c24000.png",
+													"url"=> "https://gispwa.herokuapp.com/image/sally.jpg",
 													"aspectRatio"=> "1:2",
 													"aspectMode"=> "cover"
 												  )
