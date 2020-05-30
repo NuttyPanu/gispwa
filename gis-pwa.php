@@ -5048,6 +5048,70 @@ function replyMsg($event, $client)
  
                 }
 
+
+				else if (preg_match('(#flex|#flex)', $msg) === 1) {
+
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => '#วิธีการใช้งานไลน์บอท.',
+								'contents'=> array(
+
+										array(
+										  "type"=> "bubble",
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> "https://toscaworld.files.wordpress.com/2014/06/wpid-a2fd688df2c24000.png",
+													"aspectRatio"=> "1:2",
+													"aspectMode"=> "cover"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "flex=1",
+													"flex"=> 1,
+													"gravity"=> "center"
+												  ),
+												  array(
+													"type"=> "separator"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "flex=1",
+													"flex"=> 1,
+													"gravity"=> "center"
+												  )
+												)
+											  )
+											)
+										  )
+										)
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+
+
+
+
+
 				else if (preg_match('(#slide|#slide)', $msg) === 1) {
 
 
