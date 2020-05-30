@@ -82,7 +82,7 @@ function tp_get_track($token_,$id_)
         curl_close($ch);
 
 		$obj = json_decode($returned);
-		echo 'result'.$obj->response->items->EB315050240TH->[0]->barcode;
+		//echo 'result'.$obj->response->items->EB315050240TH;
 		//echo 'result'.$obj->response->items->[0]->[-1]->barcode;
 		echo '<br>';
 		echo 'status: '.$obj->status; //1 = true, 0 = false
@@ -91,7 +91,8 @@ function tp_get_track($token_,$id_)
 
 		echo '<br>';
 
-		echo $obj;
+		echo json_encode($obj);
+
 
 
 
