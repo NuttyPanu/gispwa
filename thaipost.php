@@ -27,17 +27,19 @@ function tp_get_token()
          
         $returned =  curl_exec($ch);
         curl_close($ch);
-        return($returned);
+
+		$token = json_decode($AccessToken);
+		//echo  $token->token;
+        return($token->token);
 }
 
-function tp_get_track($code) 
+function tp_get_track($AccessToken,$code) 
 {
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 
-        $AccessToken = tp_get_token();
-		$token = json_decode($AccessToken);
-		echo  $token->token;
+        $token = $AccessToken;
+
  
         $header = array(
             "Content-Type: application/json",
@@ -146,8 +148,13 @@ function tp_get_track($code)
 
 
 
-echo 'pass';
+echo '1. Code:pass';
 echo '<br>';
-tp_get_track('EB315050240TH');
 
+$tk = tp_get_token();
+
+tp_get_track($tk,'EB315050240TH');
+
+echo '<br>';
+echo '2. Result: pass';
 ?>
