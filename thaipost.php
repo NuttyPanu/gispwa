@@ -100,10 +100,9 @@ function tp_get_track($token_,$id_)
 
 			foreach($obj->response->items as $key=>$value)
 			{
-			  echo $key;
-		
-			  echo '<br>';
-			  echo count($value);
+			  //echo $key;
+			  //echo '<br>';
+			  //echo count($value);
 			  //echo $value[5];
 
 			  //แสดงแบบเป็นtext
@@ -273,6 +272,33 @@ function tp_get_track($token_,$id_)
 			*/
 }
 
-tp_get_token($_REQUEST['id']);
-//EB315050240TH
+
+if(strlen($_REQUEST['id']) != 13){
+	echo 'โปรดระบุเลขพัสดุให้ถูกต้อง';
+}
+else if(substr($_REQUEST['id'],0,-12) == 'P'){
+	echo 'พัสดุธรรมดา ไม่สามารถตรวจสอบสถานะได้  ตรวจสอบสถานะได้ที่ Call Center 1545';
+}
+else if(is_numeric(substr($_REQUEST['id'],11,13) == true )){
+	echo 'เลขพัสดุของท่านไม่ถูกต้อง';
+}
+else if(substr($_REQUEST['id'],0,-12) == 'E' || substr($_REQUEST['id'],0,-12) == 'R'){
+	if(substr($_REQUEST['id'],0,-12) == 'E'){
+		echo 'พัสดุลงทะเบียน EMS';
+	}
+	if(substr($_REQUEST['id'],0,-12) == 'R'){
+		echo 'พัสดุแบบลงทะเบียน';
+	}
+
+	tp_get_token($_REQUEST['id']);
+	//EB315050240TH
+
+else{
+
+
+
+}
+
+
+
 ?>
