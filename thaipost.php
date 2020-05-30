@@ -94,9 +94,12 @@ function tp_get_track($token_,$id_)
 
 		foreach($obj->response->items as $key=>$value)
 		{
-		  echo $key[0];
+		  echo $key;
+	
 		  echo '<br>';
-		  echo count($key);
+		  echo count($value);
+		  //echo $value[5];
+		  echo json_encode($value[5]);
 		}
 
 		//echo 'result: '.json_encode($obj->response->items->EB315050240TH[0]);
