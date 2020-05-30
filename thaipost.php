@@ -41,7 +41,7 @@ function tp_get_track($code)
  
         $header = array(
             "Content-Type: application/json",
-            'Authorization: Token '.$AccessToken,
+            'Authorization: Token '.$token,
         );
  
          
