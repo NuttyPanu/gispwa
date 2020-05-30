@@ -40,13 +40,11 @@ function tp_get_track($token,$code)
 
 		//$token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
 
-
         $header = array(
             "Content-Type: application/json",
-            'Authorization: Token '.$token,
+            'Authorization: Token '.$token
         );
  
-         
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_VERBOSE, 1);
@@ -190,8 +188,6 @@ function tp_get_track($token,$code)
 }
 
 
-
-$tk = tp_get_token();
-tp_get_track($tk,'EB315050240TH');
+tp_get_track(tp_get_token(),'EB315050240TH');
 
 ?>
