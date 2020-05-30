@@ -5352,7 +5352,7 @@ array(
 												'contents'=> array(
 												   array(
 													'type'=> "button",
-													'style'=> "primary",
+													'style'=> "link",
 													"gravity"=> "center",
 													"margin"=> "sm",
 													'height'=> "sm",
