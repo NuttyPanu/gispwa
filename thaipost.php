@@ -2,8 +2,9 @@
 
 	  $token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
 
-function tp_get_token($code) 
+function tp_get_token($id) 
 {
+		echo $id;
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
 
@@ -34,11 +35,10 @@ function tp_get_token($code)
         //return($token->token);
 
 
-		tp_get_track($token->token,$code);
-
+		tp_get_track($token->token,$id);
 }
 
-function tp_get_track($token,$code) 
+function tp_get_track($token,$id) 
 {
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
@@ -66,7 +66,7 @@ function tp_get_track($token,$code)
 		$data_string = json_encode(array(
 									'status' => 'all',
 									'language' => 'TH',
-									'barcode' => array($code)
+									'barcode' => array("EB315050240TH")
 									//'barcode' => array("EB315050240TH","EB315050240TH")
 						));
 
@@ -191,6 +191,8 @@ function tp_get_track($token,$code)
 
 		*/
 }
+
+
 
 tp_get_token('EB315050240TH');
 
