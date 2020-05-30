@@ -76,7 +76,10 @@ function tp_get_track($AccessToken,$code)
 
 		$obj = json_decode($returned);
 
-		echo 'result';		
+		echo 'result';
+		
+		echo $returned;
+
 		echo $obj->status;
 		echo '<br>';
 		echo $obj->message;
