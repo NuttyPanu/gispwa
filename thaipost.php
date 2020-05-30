@@ -38,10 +38,7 @@ function tp_get_track($token,$code)
 
 		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 
-
-
-
-	  $token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
+		//$token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
 
 
         $header = array(
@@ -66,7 +63,9 @@ function tp_get_track($token,$code)
 		$data_string = json_encode(array(
 									'status' => 'all',
 									'language' => 'TH',
-									'barcode' => array('EB315050240TH')));
+									'barcode' => array($code)
+									//'barcode' => array("EB315050240TH","EB315050240TH")
+						));
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 
@@ -77,7 +76,7 @@ function tp_get_track($token,$code)
 
 		$obj = json_decode($returned);
 
-		echo 'result=';
+		echo 'result'.$obj->response->items->[0]->[-1]->barcode;
 		echo '<br>';
 		echo $obj->status;
 		echo '<br>';
@@ -86,47 +85,92 @@ function tp_get_track($token,$code)
         //return($returned);
 
 		/*
-		{
-			"response": {
-				"items": {
-					"ED852942182TH": [
-						{
-							"barcode": "ED852942182TH",
+			{
+				"response": {
+					"items": {
+						"EB315050240TH": [{
+							"barcode": "EB315050240TH",
 							"status": "103",
 							"status_description": "รับฝาก",
-							"status_date": "19/07/2562 18:12:26+07:00",
-							"location": "คต.กาดสวนแก้ว",
-							"postcode": "00131",
+							"status_date": "28/05/2563 14:36:00+07:00",
+							"location": "สมุทรปราการ",
+							"postcode": "10270",
 							"delivery_status": null,
 							"delivery_description": null,
 							"delivery_datetime": null,
 							"receiver_name": null,
 							"signature": null
-						},
-						{
-							"barcode": "ED852942182TH",
+						}, {
+							"barcode": "EB315050240TH",
 							"status": "201",
-							"status_description": "ส่งออกจากที่ทำการกลางทาง",
-							"status_date": "20/07/2562 15:12:15+07:00",
-							"location": "คต.กาดสวนแก้ว",
-							"postcode": "00131",
+							"status_description": "อยู่ระหว่างการขนส่ง",
+							"status_date": "28/05/2563 16:31:23+07:00",
+							"location": "สมุทรปราการ",
+							"postcode": "10270",
 							"delivery_status": null,
 							"delivery_description": null,
 							"delivery_datetime": null,
 							"receiver_name": null,
 							"signature": null
-						},...
-					]
+						}, {
+							"barcode": "EB315050240TH",
+							"status": "201",
+							"status_description": "อยู่ระหว่างการขนส่ง",
+							"status_date": "29/05/2563 00:30:59+07:00",
+							"location": "ศป.EMS",
+							"postcode": "10020",
+							"delivery_status": null,
+							"delivery_description": null,
+							"delivery_datetime": null,
+							"receiver_name": null,
+							"signature": null
+						}, {
+							"barcode": "EB315050240TH",
+							"status": "206",
+							"status_description": "ถึงที่ทำการไปรษณีย์",
+							"status_date": "29/05/2563 09:19:37+07:00",
+							"location": "จรเข้บัว",
+							"postcode": "10230",
+							"delivery_status": null,
+							"delivery_description": null,
+							"delivery_datetime": null,
+							"receiver_name": null,
+							"signature": null
+						}, {
+							"barcode": "EB315050240TH",
+							"status": "301",
+							"status_description": "อยู่ระหว่างการนำจ่าย",
+							"status_date": "29/05/2563 09:34:54+07:00",
+							"location": "จรเข้บัว",
+							"postcode": "10230",
+							"delivery_status": null,
+							"delivery_description": null,
+							"delivery_datetime": null,
+							"receiver_name": null,
+							"signature": null
+						}, {
+							"barcode": "EB315050240TH",
+							"status": "501",
+							"status_description": "นำจ่ายสำเร็จ",
+							"status_date": "29/05/2563 10:23:23+07:00",
+							"location": "จรเข้บัว",
+							"postcode": "10230",
+							"delivery_status": "S",
+							"delivery_description": "ผู้รับได้รับสิ่งของเรียบร้อยแล้ว",
+							"delivery_datetime": "29/05/2563 10:23:23+07:00",
+							"receiver_name": "40 ราม 14 /ผู้รับรับเอง",
+							"signature": "https://trackimage.thailandpost.co.th/f/signature/QDUwMjQwYjVzMGx1VDMz/QGI1c0VCMGx1VDMx/QGI1czBsVEh1VDM0/QGI1czBsdTMxNTBUMzI="
+						}]
+					},
+					"track_count": {
+						"track_date": "30/05/2563",
+						"count_number": 6,
+						"track_count_limit": 1000
+					}
 				},
-				"track_count": {
-					"track_date": "27/08/2562",
-					"count_number": 48,
-					"track_count_limit": 1500
-				}
-			},
-			"message": "successful",
-			"status": true
-		}
+				"message": "successful",
+				"status": true
+			}
 
 		status					String	สถานะ
 		status_description		String	คำอธิบายสถานะ
@@ -147,16 +191,7 @@ function tp_get_track($token,$code)
 
 
 
+$tk = tp_get_token();
+tp_get_track($tk,'EB315050240TH');
 
-
-
-echo '1. Code:pass';
-echo '<br>';
-
-//$tk = tp_get_token();
-
-//tp_get_track($tk,'EB315050240TH');
-tp_get_track($token,'EB315050240TH');
-echo '<br>';
-echo '2. Result: pass';
 ?>
