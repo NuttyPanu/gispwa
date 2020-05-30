@@ -162,7 +162,7 @@ echo '<br>';
 //$tk = tp_get_token();
 
 //tp_get_track($tk,'EB315050240TH');
-tp_get_track('token',$code) 
+tp_get_track('token',$code);
 echo '<br>';
 echo '2. Result: pass';
 ?>
