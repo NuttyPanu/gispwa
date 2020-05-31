@@ -2330,7 +2330,7 @@ function replyMsg($event, $client)
         $q_msg = json_decode($json_cmsg); 
  
  
-         if (preg_match('(สอนบอท)', $msg) === 1) {
+        if (preg_match('(สอนบอท)', $msg) === 1) {
  
             if(strstr($msg,"[") && strstr($msg,"|") && strstr($msg,"]")){
  
@@ -2512,8 +2512,212 @@ function replyMsg($event, $client)
             else{
  
 
+				if (preg_match('(#ลบ|#ลบข้อมูล)', $msg) === 1) {
 
-			   if (preg_match('(#ดุ๊กดิ๊ก|#ดุ้กดิ้ก|#ดุกดิก|#ดุ๊กดิ้ก|#ดุ้กดิ๊ก)', $msg) === 1) {
+						$pieces = explode(" ", $msg);
+						$_sel = $pieces[1];
+
+						$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+
+						//query-คำถามที่เคยถามในdb----------------------------------//
+						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$_sel.'"}');
+						$q_json_f = json_decode($json_f); 
+						$q_json_id = $q_json_f[0]->_id;
+						$q_json_oid = '';
+						foreach ($q_json_id as $k=>$v){
+							$q_json_oid = $v; // etc.
+						}
+ 
+						//$_id = '59fb2268bd966f7657da67cc';
+						$url_d = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
+
+						$optsd = array(
+								'http' => array(
+								'method' => "DELETE",
+								'header' => "Content-type: application/json"
+							)
+						);
+	 
+						$contextd = stream_context_create($optsd);
+						$returnValdel = file_get_contents($url_d, false, $contextd);
+
+						$t=array("ลบให้แล้วครับ","จัดให้ครับ","ลบเรียบร้อยครับ");
+						$random_keys=array_rand($t,1);
+						$txt = $t[$random_keys];
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => $txt          
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
+
+
+				}
+
+				else if(preg_match('(#ใครสอน|#ใครสอนคำว่า)', $msg) === 1) {
+
+						$pieces = explode(" ", $msg);
+						$_sel = $pieces[1];
+
+						$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+
+						$msg_encode = urlencode($_sel);
+						$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$msg_encode.'"}');
+						$q_msg = json_decode($json_cmsg); 
+				 
+						if($q_msg){
+							foreach($q_msg as $rec){
+								$a = array(
+											array(
+												'type' => 'text',
+												'text' => $rec->name     
+												//'text' => $rec->originalContentUrl 					
+											),
+											array(
+													'type' => 'image',
+													'originalContentUrl' => $rec->originalContentUrl ,
+													'previewImageUrl' => $rec->originalContentUrl 
+												)
+										);
+								$client->replyMessage1($event['replyToken'],$a);
+							}
+						}
+
+				}
+
+                else if (preg_match('(วิธีใช้งาน|สอนยังไง|วิธีสอน)', $msg) === 1) {
+ 
+                    $t = 'คุณสามารถสอนผมให้ฉลาดได้ เพียงพิมพ์: สอนบอท[คำถาม|คำตอบ]';    
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $t . ''               
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+
+                else if (preg_match('(เสียใจ|ร้องไห้|ไม่ต้องร้อง|ผิดหวัง)', $msg) === 1) {
+                    $a = array(
+                                array(
+                                    'type' => 'sticker',
+                                    'packageId' => 2,
+                                    'stickerId' => 152
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }
+ 
+                else if (preg_match('(ปวดขี้)', $msg) === 1) {
+ 
+                    $a = array(
+                                array(
+                                    'type' => 'sticker',
+                                    'packageId' => 1,
+                                    'stickerId' => 115
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }
+
+                else if (preg_match('(นอนละ|ไปนอน|นอนแล้ว|ฝันดี)', $msg) === 1) {
+ 
+                    $a = array(
+                                array(
+                                    'type' => 'sticker',
+                                    'packageId' => 3,
+                                    'stickerId' => 239
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+ 
+                else if (preg_match('(ด่า|เลว|นิสัยไม่ดี|โดนว่า|น่าเบื่อ|รำคาญ|ชั่ว|สันดาน|บ่น|ถูกว่า)', $msg) === 1) {
+ 
+                    $t = 'การบ่นไม่ใช่การแก้ปัญหา และ การด่าก็ไม่ใช่วิธีการแก้ไข';  
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $t . ''               
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }
+
+                else if (preg_match('(กอล์ฟอยู่ไหน|กอล์ฟมายัง)', $msg) === 1) {
+ 
+					$sticker=array("2,502","2,512","4,290");
+					$random_keys=array_rand($sticker,1);
+					$txt = $sticker[$random_keys];
+
+					$split = explode(",", $txt);
+					$p = $split[0];
+					$s = $split[1];
+					//echo $split[0];
+
+					$locat=array("13.891447,100.565528,ศูนย์ราชการ แจ้งวัฒนะ","13.785380,100.573617,Poseidon Entertainment Complex","13.7677596,100.5992513,THE PIMP CLUB BANGKOK","13.756688,100.541259,เจ้าพระยา 2","13.759238, 100.482953,โรงเรียนวัดอมรินทราราม");
+					$rand_keys=array_rand($locat,1);
+					$txt1 = $locat[$random_keys];
+
+					$split1 = explode(",", $txt1);
+					$lat = $split1[0];
+					$lng = $split1[1];
+					$add = $split1[2];
+
+
+					$client->replyMessage1($event['replyToken'],
+						array(
+							array(
+								'type' => 'sticker',
+								'packageId' => $p,
+								'stickerId' => $s
+							),
+							array(
+									"type"=> "location",
+									"title"=> "ตำแหน่งปัจจุบันของกอล์ฟ",
+									"address"=> $add,
+									"latitude"=> $lat,
+									"longitude"=> $lng		
+								)
+
+						)
+					);
+
+                }
+ 
+                else if (preg_match('(น่ารัก|น่ารักนะ|น่ารักจัง)', $msg) === 1) {
+ 
+                    $t=array("ขอบคุณสำหรับคำชม","เขินจุง","ลอยแล้วๆ");
+                    $random_keys=array_rand($t,1);
+                    $txt = $t[$random_keys];
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $txt          
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }
+ 
+ 
+                else if (preg_match('(เหงา|เหงาจัง|เหงาอ่ะ)', $msg) === 1) {
+ 
+                    $t=array("เราพร้อมจะเป็นเพื่อนคุณนะ","เหงาเหมือนกันเลย","ให้ช่วยแก้เหงามั้ย");
+                    $random_keys=array_rand($t,1);
+                    $txt = $t[$random_keys];
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $txt          
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }
+ 
+			    else if (preg_match('(#ดุ๊กดิ๊ก|#ดุ้กดิ้ก|#ดุกดิก|#ดุ๊กดิ้ก|#ดุ้กดิ๊ก)', $msg) === 1) {
 
 					/*
 					$11537=array("11537,52002734", "11537,52002735", "11537,52002736", "11537,52002737", "11537,52002738", "11537,52002739", "11537,52002740", "11537,52002741", "11537,52002742", "11537,52002743", "11537,52002744", "11537,52002745", "11537,52002746", "11537,52002747", "11537,52002748", "11537,52002749", "11537,52002750", "11537,52002751", "11537,52002752", "11537,52002753", "11537,52002754", "11537,52002755", "11537,52002756", "11537,52002757", "11537,52002758", "11537,52002759", "11537,52002760", "11537,52002761", "11537,52002762", "11537,52002763", "11537,52002764", "11537,52002765", "11537,52002766", "11537,52002767", "11537,52002768", "11537,52002769", "11537,52002770", "11537,52002771", "11537,52002772", "11537,52002773");
@@ -2565,43 +2769,41 @@ function replyMsg($event, $client)
 				}
 
 
-                else if (preg_match('(#ระบบกภส.)', $msg) === 1) {
+                else if (preg_match('(วันนี้|วันอะไร)', $msg) === 1) {
 
-					$client->replyMessage1($event['replyToken'],array(
+					$today = date("Y-m-d");
+					//$today = "2018-07-01";
+					$txt = "";
+					$DayOfWeek = date("w", strtotime($today));
+					if($DayOfWeek == 0 )  // 0 = Sunday, 6 = Saturday;
+					{
+						$txt = "วันนี้เป็นวันหยุด(วันอาทิตย์)";
+						//echo "$today = <font color=red>Holiday(Sunday)</font><br>";
+					}
 
-						array(
-							"type"=> "template",
-							  "altText"=> "this is a image carousel template",
-							  "template"=> 
-							  array(
-								  "type"=> "image_carousel",
-								  "columns"=> 
-								  array ( 
-									  array(
-										"imageUrl"=> "https://swls.pwa.co.th/dmaline/imgToei/logo-PWA.jpg",
-										"action"=> 
-										array(
-										  "type"=> "message",
-										  "label"=> "PWA",
-										  "text"=> "PWA"
-										)
-									  ),
-									  array(
-										"imageUrl"=> "https://swls.pwa.co.th/dmaline/imgToei/sadness200.jpg",
-										"action"=> 
-										array(
-										  "type"=> "uri",
-										  "label"=> "Sadness",
-										  "uri"=> "https://swls.pwa.co.th/dmaline/imgToei/sadness.jpg"
-										)
-									  )
-								  )
-							  )
-						)
+					else if($DayOfWeek ==6)  // 0 = Sunday, 6 = Saturday;
+					{
+						$txt = "วันนี้เป็นวันหยุด(วันเสาร์)";
+						echo "$today = <font color=red>Holiday(Saturday)</font><br>";
+					}
 
-					));
 
-				 }
+					else{
+						$txt = "วันนี้ก็คือวันนี้";
+						//echo "$today = <font color=blue>No Holiday</font><br>";
+
+					}
+
+
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $txt          
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }
+
 
                 else if (preg_match('(บอทครับ|บอทคะ|บอทคับ|ดีบอท|สวัสดีครับบอท|สวัสดีบอท|หวัดดีบอท)', $msg) === 1) {
  
@@ -2649,25 +2851,25 @@ function replyMsg($event, $client)
                                     'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
                                     'previewImageUrl' => 'https://obs.line-apps.com/'.$pathpic[1].'/large'
                                 )
-    //                      ,
-    //                          array(
-    //                              'type' => 'text',
-    //                              'text' => $ty. ' '.$uid. ' '. $gid. ' '.$profile
-    //                          )
-    //                      ,
-    //                          array(
-    //                              'type' => 'text',
-    //                              'text' => 'สวัสดีคุณ '.$obj->displayName.' type='.$ty.' uid='.$uid.' gid='.$gid
-    //                          )
-    //                      ,
-    //                          array(
-    //                              'type' => 'text',
-    //                              'text' => $obj->statusMessage
-    //                          ),
-    //                          array(
-    //                              'type' => 'text',
-    //                              'text' => $obj->pictureUrl
-    //                          )
+                          //,
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => $ty. ' '.$uid. ' '. $gid. ' '.$profile
+                          //    )
+                          //,
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => 'สวัสดีคุณ '.$obj->displayName.' type='.$ty.' uid='.$uid.' gid='.$gid
+                          //    )
+                          //,
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => $obj->statusMessage
+                          //    ),
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => $obj->pictureUrl
+                          //    )
                             );
                         $client->replyMessage1($event['replyToken'],$a);
  
@@ -2721,25 +2923,25 @@ function replyMsg($event, $client)
                                     'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
                                     'previewImageUrl' => 'https://obs.line-apps.com/'.$pathpic[1].'/large'
                                 )
-//                          ,
-//                              array(
-//                                  'type' => 'text',
-//                                  'text' => $ty. ' '.$uid. ' '. $gid. ' '.$profile
-//                              )
-//                          ,
-//                              array(
-//                                  'type' => 'text',
-//                                  'text' => 'สวัสดีคุณ '.$obj->displayName.' type='.$ty.' uid='.$uid.' gid='.$gid
-//                              )
-    //                      ,
-    //                          array(
-    //                              'type' => 'text',
-    //                              'text' => $obj->statusMessage
-    //                          ),
-    //                          array(
-    //                              'type' => 'text',
-    //                              'text' => $obj->pictureUrl
-    //                          )
+                          //,
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => $ty. ' '.$uid. ' '. $gid. ' '.$profile
+                          //    )
+                          //,
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => 'สวัสดีคุณ '.$obj->displayName.' type='.$ty.' uid='.$uid.' gid='.$gid
+                          //    )
+                          //,
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => $obj->statusMessage
+                          //    ),
+                          //    array(
+                          //        'type' => 'text',
+                          //        'text' => $obj->pictureUrl
+                          //    )
                             );
                         $client->replyMessage1($event['replyToken'],$a);
  
@@ -2747,7 +2949,6 @@ function replyMsg($event, $client)
  
                 }
  
-
 				else if(preg_match('(#DGA|#dga|#authen|#ออเทน|#Authen)', $msg) === 1) {
 
 						$urllink = 'https://gisweb1.pwa.co.th/lineservice/dga/get_log_count.php'; 
@@ -3188,215 +3389,6 @@ function replyMsg($event, $client)
 					}
 				}
 
-				else if(preg_match('(#ลบ|#ลบข้อมูล)', $msg) === 1) {
-
-						$pieces = explode(" ", $msg);
-						$_sel = $pieces[1];
-
-						$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$_sel.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
- 
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_d = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$optsd = array(
-								'http' => array(
-								'method' => "DELETE",
-								'header' => "Content-type: application/json"
-							)
-						);
-	 
-						$contextd = stream_context_create($optsd);
-						$returnValdel = file_get_contents($url_d, false, $contextd);
-
-						$t=array("ลบให้แล้วครับ","จัดให้ครับ","ลบเรียบร้อยครับ");
-						$random_keys=array_rand($t,1);
-						$txt = $t[$random_keys];
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => $txt          
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-
-
-				}
-
-				else if(preg_match('(#ใครสอน|#ใครสอนคำว่า)', $msg) === 1) {
-
-						$pieces = explode("|", $msg);
-						$_sel = $pieces[1];
-
-						$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-
-						$msg_encode = urlencode($_sel);
-						$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$msg_encode.'"}');
-						$q_msg = json_decode($json_cmsg); 
-				 
-						if($q_msg){
-							foreach($q_msg as $rec){
-								$a = array(
-											array(
-												'type' => 'text',
-												'text' => $rec->name     
-												//'text' => $rec->originalContentUrl 					
-											),
-											array(
-													'type' => 'image',
-													'originalContentUrl' => $rec->originalContentUrl ,
-													'previewImageUrl' => $rec->originalContentUrl 
-												)
-										);
-								$client->replyMessage1($event['replyToken'],$a);
-							}
-						}
-
-				}
-
-
-                else if (preg_match('(เสียใจ|ร้องไห้|ไม่ต้องร้อง|ผิดหวัง)', $msg) === 1) {
-                    $a = array(
-                                array(
-                                    'type' => 'sticker',
-                                    'packageId' => 2,
-                                    'stickerId' => 152
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
- 
-                else if (preg_match('(ปวดขี้)', $msg) === 1) {
- 
-                    $a = array(
-                                array(
-                                    'type' => 'sticker',
-                                    'packageId' => 1,
-                                    'stickerId' => 115
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
-
-                else if (preg_match('(นอนละ|ไปนอน|นอนแล้ว|ฝันดี)', $msg) === 1) {
- 
-                    $a = array(
-                                array(
-                                    'type' => 'sticker',
-                                    'packageId' => 3,
-                                    'stickerId' => 239
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
- 
-                }
- 
-                else if (preg_match('(ด่า|เลว|นิสัยไม่ดี|โดนว่า|น่าเบื่อ|รำคาญ|ชั่ว|สันดาน|บ่น|ถูกว่า)', $msg) === 1) {
- 
-                    $t = 'การบ่นไม่ใช่การแก้ปัญหา และ การด่าก็ไม่ใช่วิธีการแก้ไข';  
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $t . ''               
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
-
-                else if (preg_match('(กอล์ฟอยู่ไหน|กอล์ฟมายัง)', $msg) === 1) {
- 
-					$sticker=array("2,502","2,512","4,290");
-					$random_keys=array_rand($sticker,1);
-					$txt = $sticker[$random_keys];
-
-					$split = explode(",", $txt);
-					$p = $split[0];
-					$s = $split[1];
-					//echo $split[0];
-
-					$locat=array("13.891447,100.565528,ศูนย์ราชการ แจ้งวัฒนะ","13.785380,100.573617,Poseidon Entertainment Complex","13.7677596,100.5992513,THE PIMP CLUB BANGKOK","13.756688,100.541259,เจ้าพระยา 2","13.759238, 100.482953,โรงเรียนวัดอมรินทราราม");
-					$rand_keys=array_rand($locat,1);
-					$txt1 = $locat[$random_keys];
-
-					$split1 = explode(",", $txt1);
-					$lat = $split1[0];
-					$lng = $split1[1];
-					$add = $split1[2];
-
-
-					$client->replyMessage1($event['replyToken'],
-						array(
-							array(
-								'type' => 'sticker',
-								'packageId' => $p,
-								'stickerId' => $s
-							),
-							array(
-									"type"=> "location",
-									"title"=> "ตำแหน่งปัจจุบันของกอล์ฟ",
-									"address"=> $add,
-									"latitude"=> $lat,
-									"longitude"=> $lng		
-								)
-
-						)
-					);
-
-                }
- 
-
-
-
-                else if (preg_match('(น่ารัก|น่ารักนะ|น่ารักจัง)', $msg) === 1) {
- 
-                    $t=array("ขอบคุณสำหรับคำชม","เขินจุง","ลอยแล้วๆ");
-                    $random_keys=array_rand($t,1);
-                    $txt = $t[$random_keys];
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $txt          
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
- 
- 
-                else if (preg_match('(เหงา|เหงาจัง|เหงาอ่ะ)', $msg) === 1) {
- 
-                    $t=array("เราพร้อมจะเป็นเพื่อนคุณนะ","เหงาเหมือนกันเลย","ให้ช่วยแก้เหงามั้ย");
-                    $random_keys=array_rand($t,1);
-                    $txt = $t[$random_keys];
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $txt          
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
- 
-                else if (preg_match('(วิธีใช้งาน|สอนยังไง|วิธีสอน)', $msg) === 1) {
- 
-                    $t = 'คุณสามารถสอนผมให้ฉลาดได้ เพียงพิมพ์: สอนบอท[คำถาม|คำตอบ]';    
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $t . ''               
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
- 
-                }
- 
 
 				else if (preg_match('(#อัพโหลดภาพ|#Gps|#เช็คgps|#เช็คGps|#เช็ค Gps)', $msg) === 1) {
 
@@ -3444,41 +3436,6 @@ function replyMsg($event, $client)
 							)
 						));
 
-                }
- 
-                else if (preg_match('(วันนี้|วันอะไร)', $msg) === 1) {
-
-					$today = date("Y-m-d");
-					//$today = "2018-07-01";
-					$txt = "";
-					$DayOfWeek = date("w", strtotime($today));
-					if($DayOfWeek == 0 )  // 0 = Sunday, 6 = Saturday;
-					{
-						$txt = "วันนี้เป็นวันหยุด(วันอาทิตย์)";
-						//echo "$today = <font color=red>Holiday(Sunday)</font><br>";
-					}
-
-					else if($DayOfWeek ==6)  // 0 = Sunday, 6 = Saturday;
-					{
-						$txt = "วันนี้เป็นวันหยุด(วันเสาร์)";
-						echo "$today = <font color=red>Holiday(Saturday)</font><br>";
-					}
-
-
-					else{
-						$txt = "วันนี้ก็คือวันนี้";
-						//echo "$today = <font color=blue>No Holiday</font><br>";
-
-					}
-
-
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $txt          
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
                 }
 
 
@@ -4799,7 +4756,6 @@ function replyMsg($event, $client)
                 }
 
 
-
 				else if (preg_match('(#ลงทะเบียน|#register|#Register|#REGISTER)', $msg) === 1) {
 
                     $gid = $event['source']['groupId'];
@@ -5109,9 +5065,6 @@ function replyMsg($event, $client)
                 }
 
 
-
-
-
 				else if (preg_match('(#slide|#slide)', $msg) === 1) {
 
 
@@ -5122,368 +5075,211 @@ function replyMsg($event, $client)
 								'contents'=> array(
 
 								/* เอามาจากflex*/
-/*
-array(
-  "type"=> "carousel",
-  "contents"=> array(
-
-		array(
-		  "type"=> "bubble",
-		  "body"=> array(
-			"type"=> "box",
-			"layout"=> "vertical",
-			"contents"=> array(
-				  array(
-					"type"=> "text",
-					"text"=> "SYSTEM"
-				  )
-			)
-		  )
-		),
-		array(
-		  "type"=> "bubble",
-		  "body"=> array(
-			"type"=> "box",
-			"layout"=> "vertical",
-			"contents"=> array(
-				  array(
-					"type"=> "text",
-					"text"=> "SYSTEM"
-				  )
-			)
-		  )
-		)
-
-  )
-)
-*/
-
-/*
-array(
-  "type"=> "bubble",
-  "styles"=> array(
-    "footer"=> array(
-      "backgroundColor"=> "#42b3f4"
-    )
-  ),
-  "header"=> array(
-    "type"=> "box",
-    "layout"=> "horizontal",
-    "contents"=> array(
-      array(
-        "type"=> "box",
-        "layout"=> "baseline",
-        "contents"=> array(
-          array(
-            "type"=> "icon",
-            "size"=> "xxl",
-            "url"=> "https=>//scontent.fbkk7-2.fna.fbcdn.net/v/t1.0-1/p200x200/22814542_1962234637127047_1607260544847069468_n.png?_nc_cat=0&oh=2a303227c24dfab9e71a405b6d594d50&oe=5BC3965D"
-          )
-        )
-      ),
-      array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "flex"=> 5,
-        "contents"=> array(
-          array(
-            "type"=> "text",
-            "text"=> "โรงพยาบาลอ่างทอง",
-            "weight"=> "bold",
-            "color"=> "#aaaaaa",
-            "size"=> "md",
-            "gravity"=> "top"
-          ),
-          array(
-            "type"=> "text",
-            "text"=> "ขอขอบพระคุณ",
-            "weight"=> "bold",
-            "color"=> "#aaaaaa",
-            "size"=> "lg",
-            "gravity"=> "top"
-          )
-        )
-      )
-    )
-  ),
-  "hero"=> array(
-    "type"=> "image",
-    "url"=> "https=>//scontent.fbkk7-2.fna.fbcdn.net/v/t1.0-9/35076722_2227987830551725_330757188106584064_n.jpg?_nc_cat=0&oh=0f5fa137c5bd65f109a40439afcd59eb&oe=5BB566B6",
-    "size"=> "full",
-    "aspectRatio"=> "16:9",
-    "aspectMode"=> "cover",
-    "action"=> array(
-      "type"=> "uri",
-      "uri"=> "http=>//bit.ly/2JGBRKv"
-    )
-  ),
-  "body"=> array(
-    "type"=> "box",
-    "layout"=> "vertical",
-    "contents"=> array(
-      array(
-        "type"=> "text",
-        "margin"=> "sm",
-        "text"=> "คุณกานต์สินี ไหลสงวนงาม",
-        "weight"=> "bold",
-        "size"=> "md",
-        "wrap"=> true
-      ),
-      array(
-        "type"=> "box",
-        "layout"=> "vertical",
-        "margin"=> "xs",
-        "contents"=> array(
-          array(
-            "type"=> "box",
-            "layout"=> "baseline",
-            "spacing"=> "sm",
-            "contents"=> array(
-              array(
-                "type"=> "text",
-                "text"=> "บริจาคเงินจำนวน ๑๘๐,๐๐๐ บาท เพื่อซื้อครุภัณฑ์ทางการแพทย์ ใช้ในโรงพยาบาลอ่างทอง โดยมีนายแพทย์พงษ์นรินทร์ ชาติรังสรรค์ผู้อำนวยการโรงพยาบาลอ่างทอง เป็นผู้รับมอบ",
-                "wrap"=> true,
-                "color"=> "#666666",
-                "size"=> "sm",
-                "flex"=> 6
-              )
-            )
-          )
-        )
-      ),
-      array(
-        "type"=> "text",
-        "margin"=> "md",
-        "text"=> "วันที่ 12 มิ.ย. 2561",
-        "size"=> "sm",
-        "color"=> "#adadad"
-      )
-    )
-  ),
-  "footer"=> array(
-    "type"=> "box",
-    "layout"=> "vertical",
-    "spacing"=> "sm",
-    "contents"=> array(
-      array(
-        "type"=> "button",
-        "style"=> "link",
-        "color"=> "#FFFFFF",
-        "height"=> "sm",
-        "action"=> array(
-          "type"=> "uri",
-          "label"=> "อ่านต่อ...",
-          "uri"=> "http=>//bit.ly/2JGBRKv"
-        )
-      )
-    )
-  )
-)
-*/
 
 
-  "type"=> "carousel",
-  "contents"=> array(
-										array(
-										  "type"=> "bubble",
-										  "header"=> array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-												"color"=> "#414141",
-												"gravity"=> "center",
-												"size"=> "lg",
-												"wrap"=> true,
-												"align"=> "center"
-											  )
-											)
-										  ),
-										  "hero"=> array(
-											"type"=> "image",
-											"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
-											"size"=> "full",
-											"aspectRatio"=> "16:9",
-											"aspectMode"=> "cover",
-											"action"=> array(
-											  "type"=> "uri",
-											  "uri"=> "http://bit.ly/2JGBRKv"
-											)
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
+									  "type"=> "carousel",
+									  "contents"=> array(
+
+											array(
+											  "type"=> "bubble",
+											  "header"=> array(
 												"type"=> "box",
 												"layout"=> "horizontal",
 												"contents"=> array(
 												  array(
-													"type"=> "image",
-													"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
-													"size"=> "md",
-													"align"=> "start",
-													"gravity"=> "center"
-												  ),
-												  array(
 													"type"=> "text",
-													"text"=> 'หนังสือเล่มนี้ดี',
-													"wrap"=> true,
-													"size"=> "lg",
-													"color"=> "#a57f23",
-													"gravity"=> "center"
-													//"flex" => 3 // for auto size image+name more(image<) less(image>)
-												  )
-												)
-											  )
-
-											)
-										  ),
-										  "footer"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-
-											  array(
-												'type'=> "box",
-												'layout'=> "vertical",
-												'contents'=> array(
-												   array(
-													'type'=> "button",
-													'style'=> "link",
+													"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+													"color"=> "#414141",
 													"gravity"=> "center",
-													"margin"=> "sm",
-													'height'=> "sm",
-													'action'=> array(
-															'type'=> "uri",
-															'label'=> "ลงทะเบียน",
-															'uri'=> "http://bit.ly/2JGBRKv"
-															)
-												   )
+													"size"=> "lg",
+													"wrap"=> true,
+													"align"=> "center"
 												  )
-											  )
-
-
-											)
-										  ),
-
-										  "styles"=> array(
-
-												"header"=> array(
-												  "backgroundColor"=> "#fdd74a"
-												),
-												"body"=> array(
-												  "backgroundColor"=> "#fffcf2"
-												),
-												"footer"=> array(
-												  "separator"=> true
 												)
+											  ),
+											  "hero"=> array(
+												"type"=> "image",
+												"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
+												"size"=> "full",
+												"aspectRatio"=> "16:9",
+												"aspectMode"=> "cover",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "http://bit.ly/2JGBRKv"
+												)
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
+														"size"=> "md",
+														"align"=> "start",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> 'หนังสือเล่มนี้ดี',
+														"wrap"=> true,
+														"size"=> "lg",
+														"color"=> "#a57f23",
+														"gravity"=> "center"
+														//"flex" => 3 // for auto size image+name more(image<) less(image>)
+													  )
+													)
+												  )
 
-										  )
-										),
-										array(
-										  "type"=> "bubble",
-										  "header"=> array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-												"color"=> "#414141",
-												"gravity"=> "center",
-												"size"=> "lg",
-												"wrap"=> true,
-												"align"=> "center"
+												)
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+
+												  array(
+													'type'=> "box",
+													'layout'=> "vertical",
+													'contents'=> array(
+													   array(
+														'type'=> "button",
+														'style'=> "link",
+														"gravity"=> "center",
+														"margin"=> "sm",
+														'height'=> "sm",
+														'action'=> array(
+																'type'=> "uri",
+																'label'=> "ลงทะเบียน",
+																'uri'=> "http://bit.ly/2JGBRKv"
+																)
+													   )
+													  )
+												  )
+
+
+												)
+											  ),
+
+											  "styles"=> array(
+
+													"header"=> array(
+													  "backgroundColor"=> "#fdd74a"
+													),
+													"body"=> array(
+													  "backgroundColor"=> "#fffcf2"
+													),
+													"footer"=> array(
+													  "separator"=> true
+													)
+
 											  )
-											)
-										  ),
-										  "hero"=> array(
-											"type"=> "image",
-											"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
-											"size"=> "full",
-											"aspectRatio"=> "16:9",
-											"aspectMode"=> "cover",
-											"action"=> array(
-											  "type"=> "uri",
-											  "uri"=> "http://bit.ly/2JGBRKv"
-											)
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
+											),
+											array(
+											  "type"=> "bubble",
+											  "header"=> array(
 												"type"=> "box",
 												"layout"=> "horizontal",
 												"contents"=> array(
 												  array(
-													"type"=> "image",
-													"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
-													"size"=> "md",
-													"align"=> "start",
-													"gravity"=> "center"
-												  ),
-												  array(
 													"type"=> "text",
-													"text"=> 'หนังสือเล่มนี้ดี',
-													"wrap"=> true,
-													"size"=> "lg",
-													"color"=> "#a57f23",
-													"gravity"=> "center"
-													//"flex" => 3 // for auto size image+name more(image<) less(image>)
-												  )
-												)
-											  )
-
-											)
-										  ),
-										  "footer"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-
-											  array(
-												'type'=> "box",
-												'layout'=> "vertical",
-												'contents'=> array(
-												   array(
-													'type'=> "button",
-													'style'=> "primary",
+													"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+													"color"=> "#414141",
 													"gravity"=> "center",
-													"margin"=> "sm",
-													'height'=> "sm",
-													'action'=> array(
-															'type'=> "uri",
-															'label'=> "ลงทะเบียน",
-															'uri'=> "http://bit.ly/2JGBRKv"
-															)
-												   )
+													"size"=> "lg",
+													"wrap"=> true,
+													"align"=> "center"
 												  )
-											  )
-
-
-											)
-										  ),
-
-										  "styles"=> array(
-
-												"header"=> array(
-												  "backgroundColor"=> "#fdd74a"
-												),
-												"body"=> array(
-												  "backgroundColor"=> "#fffcf2"
-												),
-												"footer"=> array(
-												  "separator"=> true
 												)
+											  ),
+											  "hero"=> array(
+												"type"=> "image",
+												"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
+												"size"=> "full",
+												"aspectRatio"=> "16:9",
+												"aspectMode"=> "cover",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "http://bit.ly/2JGBRKv"
+												)
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
+														"size"=> "md",
+														"align"=> "start",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> 'หนังสือเล่มนี้ดี',
+														"wrap"=> true,
+														"size"=> "lg",
+														"color"=> "#a57f23",
+														"gravity"=> "center"
+														//"flex" => 3 // for auto size image+name more(image<) less(image>)
+													  )
+													)
+												  )
 
-										  )
+												)
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+
+												  array(
+													'type'=> "box",
+													'layout'=> "vertical",
+													'contents'=> array(
+													   array(
+														'type'=> "button",
+														'style'=> "primary",
+														"gravity"=> "center",
+														"margin"=> "sm",
+														'height'=> "sm",
+														'action'=> array(
+																'type'=> "uri",
+																'label'=> "ลงทะเบียน",
+																'uri'=> "http://bit.ly/2JGBRKv"
+																)
+													   )
+													  )
+												  )
+
+
+												)
+											  ),
+
+											  "styles"=> array(
+
+													"header"=> array(
+													  "backgroundColor"=> "#fdd74a"
+													),
+													"body"=> array(
+													  "backgroundColor"=> "#fffcf2"
+													),
+													"footer"=> array(
+													  "separator"=> true
+													)
+
+											  )
+											)
+
 										)
-
-  )
 
 
 								/* เอามาจากflex*/
@@ -5494,7 +5290,6 @@ array(
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-
 
 
 				else if (preg_match('(#carousel|#carousel)', $msg) === 1) {
@@ -5757,10 +5552,6 @@ array(
                 }
 
 
-
-
-
-
 				else if ($msg == '#ตรวจสอบพื้นที่ให้บริการ') {
 
                     $gid = $event['source']['groupId'];
@@ -5874,12 +5665,6 @@ array(
 					}
 
 
-
-
-
-
-
-
 				}
 
 				else if ($msg == '#สภาพอากาศ') {
@@ -5968,12 +5753,6 @@ array(
 								);
 						$client->replyMessage1($event['replyToken'],$a);
 					}
-
-
-
-
-
-
 
 
 				}
@@ -6135,51 +5914,49 @@ array(
 					}
 
 
-
-
 				}
 
                 else{
  
-//                    $api_="H3f4tWEBNwW1yyBxhzLr8L02U14jQP6Z";
-//                    $urladd = 'https://api.mlab.com/api/1/databases/meter_gis/collections/chatbot?apiKey='.$api_;
-// 
-//                    //Post New Data--------------------------//
-//                    $newDataad = json_encode(
-//                      array(
-//                        'question' => $msg,
-//                        'answer'=> '-'
-//                      )
-//                    );
-// 
-//                    $optsad = array(
-//                      'http' => array(
-//                          'method' => "POST",
-//                          'header' => "Content-type: application/json",
-//                          'content' => $newDataad
-//                       )
-//                    );
-//                    $contextad = stream_context_create($optsad);
-//                    $returnValuead = file_get_contents($urladd,false,$contextad);
-//                    //Post New Data--------------------------//
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-//                    $t=array("คืออะไร ไม่เข้าใจ","ต้องการจะสื่ออะไร?","อืม...ไงดีล่ะ");
-//                    $random_keys=array_rand($t,1);
-//                    $txt = $t[$random_keys];
-//                    $a = array(
-//                                array(
-//                                    'type' => 'text',
-//                                    'text' => $txt          
-//                                )
-//                            );
-//                    $client->replyMessage1($event['replyToken'],$a);
-// 
+					//                    $api_="H3f4tWEBNwW1yyBxhzLr8L02U14jQP6Z";
+					//                    $urladd = 'https://api.mlab.com/api/1/databases/meter_gis/collections/chatbot?apiKey='.$api_;
+					// 
+					//                    //Post New Data--------------------------//
+					//                    $newDataad = json_encode(
+					//                      array(
+					//                        'question' => $msg,
+					//                        'answer'=> '-'
+					//                      )
+					//                    );
+					// 
+					//                    $optsad = array(
+					//                      'http' => array(
+					//                          'method' => "POST",
+					//                          'header' => "Content-type: application/json",
+					//                          'content' => $newDataad
+					//                       )
+					//                    );
+					//                    $contextad = stream_context_create($optsad);
+					//                    $returnValuead = file_get_contents($urladd,false,$contextad);
+					//                    //Post New Data--------------------------//
+					// 
+					// 
+					// 
+					// 
+					// 
+					// 
+					// 
+					//                    $t=array("คืออะไร ไม่เข้าใจ","ต้องการจะสื่ออะไร?","อืม...ไงดีล่ะ");
+					//                    $random_keys=array_rand($t,1);
+					//                    $txt = $t[$random_keys];
+					//                    $a = array(
+					//                                array(
+					//                                    'type' => 'text',
+					//                                    'text' => $txt          
+					//                                )
+					//                            );
+					//                    $client->replyMessage1($event['replyToken'],$a);
+					// 
                 }
                  
             }
@@ -6349,6 +6126,7 @@ array(
 		//$lineid_encode = urlencode($uid);
 		$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
 		$q_msg = json_decode($json_cmsg); 
+
 		if($q_msg){
 			foreach($q_msg as $rec){
 
@@ -6911,13 +6689,8 @@ array(
 						$contextu = stream_context_create($optsu);
 						$returnValup = file_get_contents($url_up, false, $contextu);
 						
-
-
-
-
-
-
 				}
+
 				if($rec->other != 'no'){
 
 
@@ -6979,9 +6752,6 @@ array(
 		else{
 
 		}
-
-
-
 
 
     }
