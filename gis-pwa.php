@@ -5170,7 +5170,7 @@ function replyMsg($event, $client)
 														"contents"=> array(
 														  array(
 															"type"=> "text",
-															"text"=> "จังหวัด".$key->ProvinceNameTh,
+															"text"=> $key->ProvinceNameTh,
 															"align"=> "start",
 															"gravity"=> "center",
 															"weight"=> "bold",
