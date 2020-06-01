@@ -5095,7 +5095,7 @@ function replyMsg($event, $client)
                 }
 
 
-				else if (preg_match('(#forcast|#forcast)', $msg) === 1) {
+				else if (preg_match('(#forcast |#forcast)', $msg) === 1) {
 
 					$stat = 0;
 
