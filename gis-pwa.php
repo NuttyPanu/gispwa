@@ -5153,16 +5153,13 @@ function replyMsg($event, $client)
 							*/
 
 
-							$a = array(
-										array(
-											'type' => 'text',
-											'text' => $key->ProvinceNameTh
-										)
-									);
-							$client->replyMessage1($event['replyToken'],$a);
 
-							/*
+							
 							$a = array(
+									array(
+										'type' => 'text',
+										'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
+									),
 									array(
 										'type' => 'flex',
 										'altText' => 'weather_forcast',
@@ -5322,7 +5319,7 @@ function replyMsg($event, $client)
 															)
 														  )
 														)
-													  ),
+													  )/*,
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5600,7 +5597,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[0]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5645,7 +5642,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[1]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5690,7 +5687,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[2]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5735,7 +5732,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[3]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5780,7 +5777,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[4]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5825,7 +5822,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[5]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5870,7 +5867,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[6]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5910,7 +5907,8 @@ function replyMsg($event, $client)
 														  )
 														),
 														"paddingTop"=> "10px"
-													  )
+													  )*/
+
 													),
 													"backgroundColor"=> "#464F69",
 													"paddingEnd"=> "2px",
@@ -5922,7 +5920,7 @@ function replyMsg($event, $client)
 									)
 							);
 							$client->replyMessage1($event['replyToken'],$a);
-							*/
+							
 
 
 							break;
