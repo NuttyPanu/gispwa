@@ -4883,7 +4883,7 @@ function replyMsg($event, $client)
 
 											array(
 											  "type"=> "bubble",
-											  "size"=> "kilo",// giga,mega,kilo,macro,nano defult:mega
+											  "size"=> "mega",// giga,mega,kilo,macro,nano defult:mega
 											  "header"=> array(
 												"type"=> "box",
 												"layout"=> "horizontal",
