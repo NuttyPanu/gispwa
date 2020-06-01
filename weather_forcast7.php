@@ -44,11 +44,6 @@
 			//echo $key->SevenDaysForecast[0]->WeatherDescription;
 			//echo '<br>';
 
-			echo $prv;
-			echo '<br>';
-			echo $key->ProvinceNameTh;
-			echo '<br>';
-
 			if(preg_match($prv, $key->ProvinceNameTh) === 1){
 
 				//default = ""
@@ -97,6 +92,8 @@
 				break;
 			}
 			else{
+				echo $prv.'-'$key->ProvinceNameTh;
+				echo '<br>';
 				continue;
 			}
 
