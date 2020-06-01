@@ -5161,7 +5161,7 @@ function replyMsg($event, $client)
 										//'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
 										'text' => $key->SevenDaysForecast[6]->Date
 							
-									),
+									)/*,
 									array(
 										'type' => 'flex',
 										'altText' => 'weather_forcast',
@@ -5532,7 +5532,7 @@ function replyMsg($event, $client)
 														  )
 														)
 													  ),
-													  /*
+													  
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5575,7 +5575,7 @@ function replyMsg($event, $client)
 														  )
 														)
 													  ),
-													  */
+													  
 													  
 													  array(
 														"type"=> "box",
@@ -5589,7 +5589,7 @@ function replyMsg($event, $client)
 														),
 														"backgroundColor"=> "#000000",
 														"height"=> "10px"
-													  )/*,
+													  ),
 													  
 													  array(
 														"type"=> "box",
@@ -5913,7 +5913,7 @@ function replyMsg($event, $client)
 														),
 														"paddingTop"=> "10px"
 													  )
-													  */
+													  
 													),
 													"backgroundColor"=> "#464F69",
 													"paddingEnd"=> "2px",
@@ -5923,6 +5923,7 @@ function replyMsg($event, $client)
 
 										)
 									)
+									*/
 							);
 							$client->replyMessage1($event['replyToken'],$a);
 							
