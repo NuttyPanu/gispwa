@@ -1,15 +1,17 @@
 <?php
 
+
+/*
 		$fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
 
-		/*
+		
         $AccessToken = 'BwGlN2OsLJCMUF/YoAdKJR5GwQYCxU3BLTIPkMLLPC1IjVPH-S2LhD_P0R~GiPKA=JOP8N7MeY1U1ArA3X$LAQ0XfOiVsVxVUO2';
  
         $header = array(
             "Content-Type: application/json",
             'Authorization: Token '.$AccessToken,
         );
-		*/
+		
          
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -30,7 +32,7 @@
 		//$json = json_encode($returned);
 		$array = json_decode($json,TRUE);
 		echo $json;
-
+*/
 
 /*
 //$data = "https://data.tmd.go.th/api/WeatherForecast7Days/V1/";
@@ -126,12 +128,15 @@ $returned =  curl_exec($ch);
 curl_close($ch);
 
 $xmlNode = simplexml_load_string($returned);
-//$xmlNode = simplexml_load_file('example.xml');
-$arrayData = xmlToArray($xmlNode);
-echo json_encode($arrayData);
 
-//$array = json_decode($json,TRUE);
-//echo $array-->header;
 */
+
+$xmlNode = simplexml_load_file('weather.xml');
+$arrayData = xmlToArray($xmlNode);
+$json = json_encode($arrayData);
+echo $json;
+$array = json_decode($json,TRUE);
+//echo $array-->header;
+
 
 ?>
