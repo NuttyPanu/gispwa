@@ -1,15 +1,16 @@
 <?php
 
+		$prv=$_REQUEST['prv'];
 
 		$fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
 
 		
-        $AccessToken = 'BwGlN2OsLJCMUF/YoAdKJR5GwQYCxU3BLTIPkMLLPC1IjVPH-S2LhD_P0R~GiPKA=JOP8N7MeY1U1ArA3X$LAQ0XfOiVsVxVUO2';
+        //$AccessToken = 'BwGlN2OsLJCMUF/YoAdKJR5GwQYCxU3BLTIPkMLLPC1IjVPH-S2LhD_P0R~GiPKA=JOP8N7MeY1U1ArA3X$LAQ0XfOiVsVxVUO2';
  
-        $header = array(
-            "Content-Type: application/json",
-            'Authorization: Token '.$AccessToken,
-        );
+       // $header = array(
+       //    "Content-Type: application/json",
+       //     'Authorization: Token '.$AccessToken,
+       // );
 		
          
         $ch = curl_init();
@@ -28,20 +29,27 @@
 		//echo $returned;
 		//echo "<br>";
 		//echo "ok";
-		//$array = json_decode($returned,TRUE); //text
-
-		//header('Content-Type: application/json; charset=utf-8');
-
-		//$json = json_encode($array);
-		//echo $json->Header->Title;
-		
-		//$array = json_decode($json,TRUE); //text
-		//echo $array;
 
 
 		//header('Content-Type: application/json; charset=utf-8');
 		$json = json_decode($returned);
 		echo $json->Provinces[0]->ProvinceNameTh;
+
+		foreach ($json->Provinces as $key->$value) {
+			echo $key.'-'.$value;
+			echo '<br>';
+
+			/*
+			if(preg_match($prv, $key) === 1){
+				
+				break;
+			}
+			else{
+				continue;
+			}
+			*/
+		}
+
 
 		/*
 		$xml = new SimpleXMLElement($xmlString);
