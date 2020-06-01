@@ -50,53 +50,58 @@
 			if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
 
 				echo '<br>';
-				echo '-----------------------------------------------------';
-				echo '<br>';
 				//default = ""
 				echo $key->ProvinceNameTh;
 				echo '<br>';
 				echo $key->ProvinceNameEnglish;
 				echo '<br>';
-
-				echo $key->SevenDaysForecast[0]->Date;  // 0-6  sum 7 days
-				echo '<br>';
-
-				echo $key->SevenDaysForecast[0]->WeatherDescription;  // "ฝนฟ้าคะนอง",ท้องฟ้ามีเมฆบางส่วน
-				echo $key->SevenDaysForecast[0]->WeatherDescriptionEn;  // ""Heavy Rain",",
-				echo '<br>';
-
-				echo $key->SevenDaysForecast[0]->WaveHeight;  // "สงบ",คลื่นสูง 1-2 เมตร"
-				echo $key->SevenDaysForecast[0]->WaveHeightEn;  // "Calm","Wave Height 1-2 m.",
-				echo '<br>';
+				//$key->SevenDaysForecast[0]->Date; 
 
 
-				echo $key->SevenDaysForecast[0]->TempartureLevel;  // "ปกติ",
-				echo $key->SevenDaysForecast[0]->TempartureLevelEn;  // "Normal"
-				echo '<br>';
+				foreach ($key->SevenDaysForecast as $arr) {
+					
+					echo '-----------------------------------------------------';
+					echo '<br>';
+
+					echo $arr->Date;  // 0-6  sum 7 days
+					echo '<br>';
+
+					echo $arr->WeatherDescription;  // "ฝนฟ้าคะนอง",ท้องฟ้ามีเมฆบางส่วน
+					echo $arr->WeatherDescriptionEn;  // ""Heavy Rain",",
+					echo '<br>';
+
+					echo $arr->WaveHeight;  // "สงบ",คลื่นสูง 1-2 เมตร"
+					echo $arr->WaveHeightEn;  // "Calm","Wave Height 1-2 m.",
+					echo '<br>';
 
 
-				echo $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-				echo $key->SevenDaysForecast[0]->MaxTemperature->Unit; //"celcius"
-				echo '<br>';
+					echo $arr->TempartureLevel;  // "ปกติ",
+					echo $arr->TempartureLevelEn;  // "Normal"
+					echo '<br>';
 
-				echo $key->SevenDaysForecast[0]->MinTemperature->Value; 
-				echo $key->SevenDaysForecast[0]->MinTemperature->Unit; //"celcius"
-				echo '<br>';
 
-				echo $key->SevenDaysForecast[0]->WindDirection->Value; 
-				echo $key->SevenDaysForecast[0]->WindDirection->Unit;  //"degree"
-				echo '<br>';
+					echo $arr->MaxTemperature->Value; 
+					echo $arr->MaxTemperature->Unit; //"celcius"
+					echo '<br>';
 
-				echo $key->SevenDaysForecast[0]->WindSpeed->Value; 
-				echo $key->SevenDaysForecast[0]->WindSpeed->Unit; //"km/h"
-				echo '<br>';
+					echo $arr->MinTemperature->Value; 
+					echo $arr->MinTemperature->Unit; //"celcius"
+					echo '<br>';
 
-				echo $key->SevenDaysForecast[0]->Rain->Value; 
-				echo $key->SevenDaysForecast[0]->Rain->Unit; //"%"
-				echo '<br>';
-				echo '-----------------------------------------------------';
-				echo '<br>';
+					echo $arr->WindDirection->Value; 
+					echo $arr->WindDirection->Unit;  //"degree"
+					echo '<br>';
 
+					echo $arr->WindSpeed->Value; 
+					echo $arr->WindSpeed->Unit; //"km/h"
+					echo '<br>';
+
+					echo $arr->Rain->Value; 
+					echo $arr->Rain->Unit; //"%"
+					echo '<br>';
+					echo '-----------------------------------------------------';
+					echo '<br>';
+				}
 
 				break;
 			}
