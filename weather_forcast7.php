@@ -34,7 +34,7 @@
 		echo $json;
 */
 
-/*
+
 //$data = "https://data.tmd.go.th/api/WeatherForecast7Days/V1/";
 function xmlToArray($xml, $options = array()) {
     $defaults = array(
@@ -112,7 +112,7 @@ function xmlToArray($xml, $options = array()) {
         $xml->getName() => $propertiesArray
     );
 }
-
+/*
 
 $fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
 
