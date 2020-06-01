@@ -5361,7 +5361,7 @@ function replyMsg($event, $client)
 															)
 														  )
 														)
-													  )/*,
+													  ),
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5403,7 +5403,7 @@ function replyMsg($event, $client)
 															)
 														  )
 														)
-													  ),
+													  )/*,
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
