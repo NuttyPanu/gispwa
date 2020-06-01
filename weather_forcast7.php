@@ -25,9 +25,9 @@
         $returned =  curl_exec($ch);
         curl_close($ch);
 
-		echo $returned;
-		echo "<br>";
-		echo "ok";
+		//echo $returned;
+		//echo "<br>";
+		//echo "ok";
 		//$array = json_decode($returned,TRUE); //text
 
 		//header('Content-Type: application/json; charset=utf-8');
@@ -39,6 +39,9 @@
 		//echo $array;
 
 
+		//header('Content-Type: application/json; charset=utf-8');
+		$json = json_decode($returned);
+		echo $json->Provinces[0]->ProvinceNameTh;
 
 		/*
 		$xml = new SimpleXMLElement($xmlString);
