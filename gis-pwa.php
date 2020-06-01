@@ -5158,8 +5158,8 @@ function replyMsg($event, $client)
 							$a = array(
 									array(
 										'type' => 'text',
-										//'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
-										'text' => $key->SevenDaysForecast[0]->Date.'-'.$key->SevenDaysForecast[1]->Date.'-'.$key->SevenDaysForecast[2]->Date.'-'.$key->SevenDaysForecast[3]->Date.'-'.$key->SevenDaysForecast[4]->Date.'-'.$key->SevenDaysForecast[5]->Date.'-'.$key->SevenDaysForecast[6]->Date.'------'.end($key)->Date
+										'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
+										//'text' => $key->SevenDaysForecast[0]->Date.'-'.$key->SevenDaysForecast[1]->Date.'-'.$key->SevenDaysForecast[2]->Date.'-'.$key->SevenDaysForecast[3]->Date.'-'.$key->SevenDaysForecast[4]->Date.'-'.$key->SevenDaysForecast[5]->Date.'-'.$key->SevenDaysForecast[6]->Date
 							
 									),
 									array(
@@ -5281,6 +5281,7 @@ function replyMsg($event, $client)
 														),
 														"backgroundColor"=> "#000000"
 													  ),
+					
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5323,7 +5324,7 @@ function replyMsg($event, $client)
 														  )
 														)
 													  ),
-													
+													  /*
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5577,7 +5578,7 @@ function replyMsg($event, $client)
 														  )
 														)
 													  ),								  
-													  
+													  */
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5596,6 +5597,7 @@ function replyMsg($event, $client)
 														"type"=> "box",
 														"layout"=> "horizontal",
 														"contents"=> array(
+														  /*
 														  array(
 															"type"=> "box",
 															"layout"=> "vertical",
@@ -5641,6 +5643,7 @@ function replyMsg($event, $client)
 															),
 															"spacing"=> "xs"
 														  ),
+														  */
 														  array(
 															"type"=> "box",
 															"layout"=> "vertical",
@@ -5865,7 +5868,7 @@ function replyMsg($event, $client)
 															  )
 															),
 															"spacing"=> "xs"
-														  )/*,
+														  ),
 														  array(
 															"type"=> "box",
 															"layout"=> "vertical",
