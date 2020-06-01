@@ -94,6 +94,9 @@
 				echo $key->SevenDaysForecast[0]->Rain->Value; 
 				echo $key->SevenDaysForecast[0]->Rain->Unit; //"%"
 				echo '<br>';
+				echo '-----------------------------------------------------';
+				echo '<br>';
+
 
 				break;
 			}
