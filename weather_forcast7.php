@@ -52,6 +52,8 @@
 			echo $key->SevenDaysForecast[4]->WeatherDescription;
 			echo '<br>';
 			echo $key->SevenDaysForecast[5]->WeatherDescription;
+			echo '<br>';
+			echo $key->SevenDaysForecast[6]->WeatherDescription;
 
 			//if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
 			if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
@@ -114,7 +116,7 @@
 					echo '<br>';
 				}
 
-				break;
+				//break;
 			}
 			else{
 				echo $prv.'-'.$key->ProvinceNameTh;
