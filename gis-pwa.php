@@ -5101,1175 +5101,1186 @@ function replyMsg($event, $client)
 
 					$split = explode(" ", $msg);
 					$prv=$split[1];
-
-					$fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
-					 
-					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_HEADER, 0);
-					curl_setopt($ch, CURLOPT_VERBOSE, 1);
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-					//curl_setopt( $ch, CURLOPT_POST, 1); //POST 
-					//curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-					//curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-					curl_setopt($ch, CURLOPT_URL, $fullurl);
-					 
-					$returned =  curl_exec($ch);
-					curl_close($ch);
-
-					//echo $returned;
-					//echo "<br>";
-					//echo "ok";
-
-
-					//header('Content-Type: application/json; charset=utf-8');
-					$json = json_decode($returned);
-
-					//echo $json->Provinces[0]->ProvinceNameTh;
-
-					foreach ($json->Provinces as $key) {
-						//echo $key->ProvinceNameTh;
-						//echo '<br>';
-
-						//echo $key->SevenDaysForecast[0]->WeatherDescription;
-						//echo '<br>';
-
-						//if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
-						if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
-							$stat =1;
-
-							$d1='-';$w1='-';$ma1='-';$mi1='-';$r1='-';
-							$d2='-';$w2='-';$ma2='-';$mi2='-';$r2='-';
-							$d3='-';$w3='-';$ma3='-';$mi3='-';$r3='-';
-							$d4='-';$w4='-';$ma4='-';$mi4='-';$r4='-';
-							$d5='-';$w5='-';$ma5='-';$mi5='-';$r5='-';
-							$d6='-';$w6='-';$ma6='-';$mi6='-';$r6='-';
-							$d7='-';$w7='-';$ma7='-';$mi7='-';$r7='-';
-
-							$count = count($key->SevenDaysForecast);
-
-
-							/*
-							for ($x = 0; $x < $count; $x++) {
-							  //echo "The number is: $x <br>";
-								"$d".($x+1) = $key->SevenDaysForecast[$x]->Date; 
-								"$w".($x+1) = $key->SevenDaysForecast[$x]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								"$ma".($x+1) = $key->SevenDaysForecast[$x]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								"$mi".($x+1) = $key->SevenDaysForecast[$x]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								"$r".($x+1) = $key->SevenDaysForecast[$x]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-							}							
-							
-							if($count < 7){
-
-								for ($x = $count+1; $x <= 7; $x++) {
-								  //echo "The number is: $x <br>";
-									"$d".$x = '-'; 
-									"$w".$x = '-'; 
-									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-									"$ma".$x = '-'; 
-									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-									"$mi".$x = '-'; 
-									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-									"$r".$x = '-'; 
-									//$key->SevenDaysForecast[0]->Rain->Unit; 
-								}	
-
-							}
-							*/
-
-							if($count >= 7){
-								//$key->ProvinceNameTh;
-								//$key->ProvinceNameEnglish;
-								$d1 = $key->SevenDaysForecast[0]->Date; 
-								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-								$d2 = $key->SevenDaysForecast[1]->Date; 
-								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
-								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
-								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
-								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
-								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
-								//$key->SevenDaysForecast[1]->Rain->Unit; 
-								$d3 = $key->SevenDaysForecast[2]->Date; 
-								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
-								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
-								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
-								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
-								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
-								//$key->SevenDaysForecast[2]->Rain->Unit;
-								$d4 = $key->SevenDaysForecast[3]->Date; 
-								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
-								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
-								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
-								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
-								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
-								//$key->SevenDaysForecast[3]->Rain->Unit;
-								$d5 = $key->SevenDaysForecast[4]->Date; 
-								$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
-								//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
-								$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
-								$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
-								$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
-								//$key->SevenDaysForecast[4]->Rain->Unit;
-								$d6 = $key->SevenDaysForecast[5]->Date; 
-								$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
-								//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
-								$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
-								$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
-								$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
-								//$key->SevenDaysForecast[5]->Rain->Unit;
-								$d7 = $key->SevenDaysForecast[6]->Date; 
-								$w7 = $key->SevenDaysForecast[6]->WeatherDescription; 
-								//$key->SevenDaysForecast[6]->WeatherDescriptionEn; 
-								$ma7 = $key->SevenDaysForecast[6]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[6]->MaxTemperature->Unit; 
-								$mi7 = $key->SevenDaysForecast[6]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[6]->MinTemperature->Unit; 
-								$r7 = $key->SevenDaysForecast[6]->Rain->Value; 
-								//$key->SevenDaysForecast[6]->Rain->Unit;
-							}	
-							else if($count == 6){
-								//$key->ProvinceNameTh;
-								//$key->ProvinceNameEnglish;
-								$d1 = $key->SevenDaysForecast[0]->Date; 
-								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-								$d2 = $key->SevenDaysForecast[1]->Date; 
-								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
-								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
-								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
-								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
-								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
-								//$key->SevenDaysForecast[1]->Rain->Unit; 
-								$d3 = $key->SevenDaysForecast[2]->Date; 
-								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
-								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
-								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
-								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
-								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
-								//$key->SevenDaysForecast[2]->Rain->Unit;
-								$d4 = $key->SevenDaysForecast[3]->Date; 
-								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
-								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
-								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
-								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
-								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
-								//$key->SevenDaysForecast[3]->Rain->Unit;
-								$d5 = $key->SevenDaysForecast[4]->Date; 
-								$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
-								//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
-								$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
-								$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
-								$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
-								//$key->SevenDaysForecast[4]->Rain->Unit;
-								$d6 = $key->SevenDaysForecast[5]->Date; 
-								$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
-								//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
-								$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
-								$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
-								$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
-								//$key->SevenDaysForecast[5]->Rain->Unit;
-							}
-							else if($count == 5){
-								//$key->ProvinceNameTh;
-								//$key->ProvinceNameEnglish;
-								$d1 = $key->SevenDaysForecast[0]->Date; 
-								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-								$d2 = $key->SevenDaysForecast[1]->Date; 
-								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
-								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
-								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
-								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
-								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
-								//$key->SevenDaysForecast[1]->Rain->Unit; 
-								$d3 = $key->SevenDaysForecast[2]->Date; 
-								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
-								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
-								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
-								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
-								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
-								//$key->SevenDaysForecast[2]->Rain->Unit;
-								$d4 = $key->SevenDaysForecast[3]->Date; 
-								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
-								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
-								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
-								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
-								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
-								//$key->SevenDaysForecast[3]->Rain->Unit;
-								$d5 = $key->SevenDaysForecast[4]->Date; 
-								$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
-								//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
-								$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
-								$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
-								$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
-								//$key->SevenDaysForecast[4]->Rain->Unit;
-							}
-						
-							else if($count == 4){
-								//$key->ProvinceNameTh;
-								//$key->ProvinceNameEnglish;
-								$d1 = $key->SevenDaysForecast[0]->Date; 
-								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-								$d2 = $key->SevenDaysForecast[1]->Date; 
-								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
-								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
-								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
-								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
-								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
-								//$key->SevenDaysForecast[1]->Rain->Unit; 
-								$d3 = $key->SevenDaysForecast[2]->Date; 
-								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
-								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
-								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
-								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
-								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
-								//$key->SevenDaysForecast[2]->Rain->Unit;
-								$d4 = $key->SevenDaysForecast[3]->Date; 
-								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
-								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
-								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
-								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
-								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
-								//$key->SevenDaysForecast[3]->Rain->Unit;
-							}
-							else if($count == 3){
-								//$key->ProvinceNameTh;
-								//$key->ProvinceNameEnglish;
-								$d1 = $key->SevenDaysForecast[0]->Date; 
-								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-								$d2 = $key->SevenDaysForecast[1]->Date; 
-								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
-								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
-								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
-								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
-								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
-								//$key->SevenDaysForecast[1]->Rain->Unit; 
-								$d3 = $key->SevenDaysForecast[2]->Date; 
-								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
-								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
-								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
-								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
-								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
-								//$key->SevenDaysForecast[2]->Rain->Unit;
-							}
-							else if($count == 2){
-								//$key->ProvinceNameTh;
-								//$key->ProvinceNameEnglish;
-								$d1 = $key->SevenDaysForecast[0]->Date; 
-								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-								$d2 = $key->SevenDaysForecast[1]->Date; 
-								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
-								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
-								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
-								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
-								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
-								//$key->SevenDaysForecast[1]->Rain->Unit; 
-							}
-
-							else if($count == 1){							
-								//$key->ProvinceNameTh;
-								//$key->ProvinceNameEnglish;
-								$d1 = $key->SevenDaysForecast[0]->Date; 
-								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-								//$key->SevenDaysForecast[0]->Rain->Unit; 
-							}
-
-							
-
-					
+					if(!$prv || $prv ==''){
 							$a = array(
-									array(
-										'type' => 'text',
-										//'text' => $count.'|'.$d1.'|'.$d2.'|'.$d3.'|'.$d4.'|'.$d5.'|'.$d6.'|'.$d7
+										array(
+											'type' => 'text',
+											'text' => 'โปรดระบุชื่อ จังหวัด เช่น  #forcast กรุงเทพมหานคร'
+										)
+									);
+							$client->replyMessage1($event['replyToken'],$a);
+					}
 
-										'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
-										//'text' => $key->SevenDaysForecast[0]->Date.'-'.$key->SevenDaysForecast[1]->Date.'-'.$key->SevenDaysForecast[2]->Date.'-'.$key->SevenDaysForecast[3]->Date.'-'.$key->SevenDaysForecast[4]->Date.'-'.$key->SevenDaysForecast[5]->Date.'-'.$key->SevenDaysForecast[6]->Date
+					else {
+
+						$fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
+						 
+						$ch = curl_init();
+						curl_setopt($ch, CURLOPT_HEADER, 0);
+						curl_setopt($ch, CURLOPT_VERBOSE, 1);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+						//curl_setopt( $ch, CURLOPT_POST, 1); //POST 
+						//curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+						//curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+						curl_setopt($ch, CURLOPT_URL, $fullurl);
+						 
+						$returned =  curl_exec($ch);
+						curl_close($ch);
+
+						//echo $returned;
+						//echo "<br>";
+						//echo "ok";
+
+
+						//header('Content-Type: application/json; charset=utf-8');
+						$json = json_decode($returned);
+
+						//echo $json->Provinces[0]->ProvinceNameTh;
+
+						foreach ($json->Provinces as $key) {
+							//echo $key->ProvinceNameTh;
+							//echo '<br>';
+
+							//echo $key->SevenDaysForecast[0]->WeatherDescription;
+							//echo '<br>';
+
+							//if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
+							if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
+								$stat =1;
+
+								$d1='-';$w1='-';$ma1='-';$mi1='-';$r1='-';
+								$d2='-';$w2='-';$ma2='-';$mi2='-';$r2='-';
+								$d3='-';$w3='-';$ma3='-';$mi3='-';$r3='-';
+								$d4='-';$w4='-';$ma4='-';$mi4='-';$r4='-';
+								$d5='-';$w5='-';$ma5='-';$mi5='-';$r5='-';
+								$d6='-';$w6='-';$ma6='-';$mi6='-';$r6='-';
+								$d7='-';$w7='-';$ma7='-';$mi7='-';$r7='-';
+
+								$count = count($key->SevenDaysForecast);
+
+
+								/*
+								for ($x = 0; $x < $count; $x++) {
+								  //echo "The number is: $x <br>";
+									"$d".($x+1) = $key->SevenDaysForecast[$x]->Date; 
+									"$w".($x+1) = $key->SevenDaysForecast[$x]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									"$ma".($x+1) = $key->SevenDaysForecast[$x]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									"$mi".($x+1) = $key->SevenDaysForecast[$x]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									"$r".($x+1) = $key->SevenDaysForecast[$x]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+								}							
+								
+								if($count < 7){
+
+									for ($x = $count+1; $x <= 7; $x++) {
+									  //echo "The number is: $x <br>";
+										"$d".$x = '-'; 
+										"$w".$x = '-'; 
+										//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+										"$ma".$x = '-'; 
+										//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+										"$mi".$x = '-'; 
+										//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+										"$r".$x = '-'; 
+										//$key->SevenDaysForecast[0]->Rain->Unit; 
+									}	
+
+								}
+								*/
+
+								if($count >= 7){
+									//$key->ProvinceNameTh;
+									//$key->ProvinceNameEnglish;
+									$d1 = $key->SevenDaysForecast[0]->Date; 
+									$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+									$d2 = $key->SevenDaysForecast[1]->Date; 
+									$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+									//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+									$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+									$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+									$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+									//$key->SevenDaysForecast[1]->Rain->Unit; 
+									$d3 = $key->SevenDaysForecast[2]->Date; 
+									$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+									//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+									$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+									$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+									$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+									//$key->SevenDaysForecast[2]->Rain->Unit;
+									$d4 = $key->SevenDaysForecast[3]->Date; 
+									$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+									//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+									$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+									$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+									$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+									//$key->SevenDaysForecast[3]->Rain->Unit;
+									$d5 = $key->SevenDaysForecast[4]->Date; 
+									$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
+									//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
+									$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
+									$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
+									$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
+									//$key->SevenDaysForecast[4]->Rain->Unit;
+									$d6 = $key->SevenDaysForecast[5]->Date; 
+									$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
+									//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
+									$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
+									$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
+									$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
+									//$key->SevenDaysForecast[5]->Rain->Unit;
+									$d7 = $key->SevenDaysForecast[6]->Date; 
+									$w7 = $key->SevenDaysForecast[6]->WeatherDescription; 
+									//$key->SevenDaysForecast[6]->WeatherDescriptionEn; 
+									$ma7 = $key->SevenDaysForecast[6]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[6]->MaxTemperature->Unit; 
+									$mi7 = $key->SevenDaysForecast[6]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[6]->MinTemperature->Unit; 
+									$r7 = $key->SevenDaysForecast[6]->Rain->Value; 
+									//$key->SevenDaysForecast[6]->Rain->Unit;
+								}	
+								else if($count == 6){
+									//$key->ProvinceNameTh;
+									//$key->ProvinceNameEnglish;
+									$d1 = $key->SevenDaysForecast[0]->Date; 
+									$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+									$d2 = $key->SevenDaysForecast[1]->Date; 
+									$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+									//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+									$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+									$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+									$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+									//$key->SevenDaysForecast[1]->Rain->Unit; 
+									$d3 = $key->SevenDaysForecast[2]->Date; 
+									$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+									//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+									$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+									$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+									$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+									//$key->SevenDaysForecast[2]->Rain->Unit;
+									$d4 = $key->SevenDaysForecast[3]->Date; 
+									$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+									//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+									$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+									$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+									$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+									//$key->SevenDaysForecast[3]->Rain->Unit;
+									$d5 = $key->SevenDaysForecast[4]->Date; 
+									$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
+									//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
+									$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
+									$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
+									$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
+									//$key->SevenDaysForecast[4]->Rain->Unit;
+									$d6 = $key->SevenDaysForecast[5]->Date; 
+									$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
+									//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
+									$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
+									$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
+									$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
+									//$key->SevenDaysForecast[5]->Rain->Unit;
+								}
+								else if($count == 5){
+									//$key->ProvinceNameTh;
+									//$key->ProvinceNameEnglish;
+									$d1 = $key->SevenDaysForecast[0]->Date; 
+									$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+									$d2 = $key->SevenDaysForecast[1]->Date; 
+									$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+									//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+									$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+									$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+									$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+									//$key->SevenDaysForecast[1]->Rain->Unit; 
+									$d3 = $key->SevenDaysForecast[2]->Date; 
+									$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+									//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+									$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+									$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+									$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+									//$key->SevenDaysForecast[2]->Rain->Unit;
+									$d4 = $key->SevenDaysForecast[3]->Date; 
+									$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+									//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+									$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+									$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+									$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+									//$key->SevenDaysForecast[3]->Rain->Unit;
+									$d5 = $key->SevenDaysForecast[4]->Date; 
+									$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
+									//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
+									$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
+									$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
+									$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
+									//$key->SevenDaysForecast[4]->Rain->Unit;
+								}
 							
-									),
-									array(
-										'type' => 'flex',
-										'altText' => 'weather_forcast',
-										'contents'=> array(
+								else if($count == 4){
+									//$key->ProvinceNameTh;
+									//$key->ProvinceNameEnglish;
+									$d1 = $key->SevenDaysForecast[0]->Date; 
+									$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+									$d2 = $key->SevenDaysForecast[1]->Date; 
+									$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+									//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+									$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+									$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+									$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+									//$key->SevenDaysForecast[1]->Rain->Unit; 
+									$d3 = $key->SevenDaysForecast[2]->Date; 
+									$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+									//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+									$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+									$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+									$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+									//$key->SevenDaysForecast[2]->Rain->Unit;
+									$d4 = $key->SevenDaysForecast[3]->Date; 
+									$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+									//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+									$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+									$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+									$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+									//$key->SevenDaysForecast[3]->Rain->Unit;
+								}
+								else if($count == 3){
+									//$key->ProvinceNameTh;
+									//$key->ProvinceNameEnglish;
+									$d1 = $key->SevenDaysForecast[0]->Date; 
+									$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+									$d2 = $key->SevenDaysForecast[1]->Date; 
+									$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+									//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+									$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+									$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+									$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+									//$key->SevenDaysForecast[1]->Rain->Unit; 
+									$d3 = $key->SevenDaysForecast[2]->Date; 
+									$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+									//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+									$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+									$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+									$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+									//$key->SevenDaysForecast[2]->Rain->Unit;
+								}
+								else if($count == 2){
+									//$key->ProvinceNameTh;
+									//$key->ProvinceNameEnglish;
+									$d1 = $key->SevenDaysForecast[0]->Date; 
+									$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+									$d2 = $key->SevenDaysForecast[1]->Date; 
+									$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+									//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+									$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+									$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+									$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+									//$key->SevenDaysForecast[1]->Rain->Unit; 
+								}
 
-												  "type"=> "bubble",
-												  "size"=> "giga",
-												  "header"=> array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
+								else if($count == 1){							
+									//$key->ProvinceNameTh;
+									//$key->ProvinceNameEnglish;
+									$d1 = $key->SevenDaysForecast[0]->Date; 
+									$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+								}
+
+								
+
+						
+								$a = array(
+										array(
+											'type' => 'text',
+											//'text' => $count.'|'.$d1.'|'.$d2.'|'.$d3.'|'.$d4.'|'.$d5.'|'.$d6.'|'.$d7
+
+											'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
+											//'text' => $key->SevenDaysForecast[0]->Date.'-'.$key->SevenDaysForecast[1]->Date.'-'.$key->SevenDaysForecast[2]->Date.'-'.$key->SevenDaysForecast[3]->Date.'-'.$key->SevenDaysForecast[4]->Date.'-'.$key->SevenDaysForecast[5]->Date.'-'.$key->SevenDaysForecast[6]->Date
+								
+										),
+										array(
+											'type' => 'flex',
+											'altText' => 'weather_forcast',
+											'contents'=> array(
+
+													  "type"=> "bubble",
+													  "size"=> "giga",
+													  "header"=> array(
 														"type"=> "box",
 														"layout"=> "vertical",
 														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "จังหวัด".$key->ProvinceNameTh,
-															"align"=> "start",
-															"gravity"=> "center",
-															"weight"=> "bold",
-															"size"=> "lg"
-														  )
-														),
-														"paddingStart"=> "10px",
-														"paddingTop"=> "5px"
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "image",
-															"url"=> "https://gispwa.herokuapp.com/image/weather.jpg",
-															"size"=> "full",
-															"aspectRatio"=> "3:1",
-															"aspectMode"=> "cover",
-															"align"=> "center",
-															"gravity"=> "center"
-														  ),
 														  array(
 															"type"=> "box",
-															"layout"=> "horizontal",
+															"layout"=> "vertical",
 															"contents"=> array(
 															  array(
 																"type"=> "text",
-																"text"=> "7 days",
-																"size"=> "sm",
-																"color"=> "#ffffff",
+																"text"=> "จังหวัด".$key->ProvinceNameTh,
 																"align"=> "start",
-																"gravity"=> "center"
+																"gravity"=> "center",
+																"weight"=> "bold",
+																"size"=> "lg"
 															  )
 															),
-															"backgroundColor"=> "#EC3D44",
-															"paddingAll"=> "2px",
 															"paddingStart"=> "10px",
-															"paddingEnd"=> "10px",
-															"position"=> "absolute",
-															"offsetStart"=> "18px",
-															"cornerRadius"=> "50px",
-															"height"=> "20px",
-															"width"=> "62px",
-															"offsetTop"=> "18px"
-														  )
-														),
-														"offsetTop"=> "5px"
-													  )
-													),
-													"paddingAll"=> "0px"
-												  ),
-												  "body"=> array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
+															"paddingTop"=> "5px"
+														  ),
 														  array(
 															"type"=> "box",
-															"layout"=> "horizontal",
+															"layout"=> "vertical",
 															"contents"=> array(
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/weather.jpg",
+																"size"=> "full",
+																"aspectRatio"=> "3:1",
+																"aspectMode"=> "cover",
+																"align"=> "center",
+																"gravity"=> "center"
+															  ),
 															  array(
 																"type"=> "box",
 																"layout"=> "horizontal",
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
-																	"text"=> "วันที่",
+																	"text"=> "7 days",
+																	"size"=> "sm",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
+																	"align"=> "start",
+																	"gravity"=> "center"
+																  )
+																),
+																"backgroundColor"=> "#EC3D44",
+																"paddingAll"=> "2px",
+																"paddingStart"=> "10px",
+																"paddingEnd"=> "10px",
+																"position"=> "absolute",
+																"offsetStart"=> "18px",
+																"cornerRadius"=> "50px",
+																"height"=> "20px",
+																"width"=> "62px",
+																"offsetTop"=> "18px"
+															  )
+															),
+															"offsetTop"=> "5px"
+														  )
+														),
+														"paddingAll"=> "0px"
+													  ),
+													  "body"=> array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
 																  array(
-																	"type"=> "text",
-																	"text"=> "สภาพอากาศ",
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> "วันที่",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> "สภาพอากาศ",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> "อุณหภูมิ",
+																		"color"=> "#ffffff",
+																		"wrap"=> true,
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> "ฝน",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
+																  )
+																)
+															  )
+															),
+															"backgroundColor"=> "#000000"
+														  ),
+						
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
 																  array(
-																	"type"=> "text",
-																	"text"=> "อุณหภูมิ",
-																	"color"=> "#ffffff",
-																	"wrap"=> true,
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> "ฝน",
-																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> $d1,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $w1,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $ma1."/".$mi1."°C",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $r1."%",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
 																  )
 																)
 															  )
 															)
-														  )
-														),
-														"backgroundColor"=> "#000000"
-													  ),
-					
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
+														  ),
 														  array(
 															"type"=> "box",
-															"layout"=> "horizontal",
+															"layout"=> "vertical",
 															"contents"=> array(
 															  array(
 																"type"=> "box",
 																"layout"=> "horizontal",
 																"contents"=> array(
 																  array(
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> $d2,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $w2,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $ma2."/".$mi2."°C",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $r2."%",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
+																  )
+																)
+															  )
+															)
+														  ),								  
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> $d3,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $w3,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $ma3."/".$mi3."°C",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $r3."%",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
+																  )
+																)
+															  )
+															)
+														  ),													  
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> $d4,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $w4,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $ma4."/".$mi4."°C",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $r4."%",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
+																  )
+																)
+															  )
+															)
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> $d5,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $w5,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $ma5."/".$mi5."°C",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $r5."%",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
+																  )
+																)
+															  )
+															)
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> $d6,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $w6,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $ma6."/".$mi6."°C",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $r6."%",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
+																  )
+																)
+															  )
+															)
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "box",
+																	"layout"=> "horizontal",
+																	"contents"=> array(
+																	  array(
+																		"type"=> "text",
+																		"text"=> $d7,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $w7,
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $ma7."/".$mi7."°C",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  ),
+																	  array(
+																		"type"=> "text",
+																		"text"=> $r7."%",
+																		"color"=> "#ffffff",
+																		"align"=> "center"
+																	  )
+																	)
+																  )
+																)
+															  )
+															)
+														  ),
+
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> " ss",
+																"color"=> "#000000"
+															  )
+															),
+															"backgroundColor"=> "#000000",
+															"height"=> "10px"
+														  ),
+														
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  
+															  array(
+																"type"=> "box",
+																"layout"=> "vertical",
+																"contents"=> array(
+																  array(
 																	"type"=> "text",
 																	"text"=> $d1,
+																	"size"=> "xxs",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"gravity"=> "center",
+																	"wrap"=> true
+																  ),
+																  array(
+																	"type"=> "image",
+																	"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																	"size"=> "xs"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $w1,
+																	"text"=> $ma1."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $ma1."/".$mi1."°C",
+																	"text"=> $mi1."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
 																	"text"=> $r1."%",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"size"=> "xxs",
+																	"align"=> "center",
+																	"gravity"=> "center"
 																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
+																),
+																"spacing"=> "xs"
+															  ),
 															  array(
 																"type"=> "box",
-																"layout"=> "horizontal",
+																"layout"=> "vertical",
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
 																	"text"=> $d2,
+																	"size"=> "xxs",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"gravity"=> "center",
+																	"wrap"=> true
+																  ),
+																  array(
+																	"type"=> "image",
+																	"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																	"size"=> "xs"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $w2,
+																	"text"=> $ma2."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $ma2."/".$mi2."°C",
+																	"text"=> $mi2."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
 																	"text"=> $r2."%",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"size"=> "xxs",
+																	"align"=> "center",
+																	"gravity"=> "center"
 																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),								  
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
+																),
+																"spacing"=> "xs"
+															  ),														  
 															  array(
 																"type"=> "box",
-																"layout"=> "horizontal",
+																"layout"=> "vertical",
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
 																	"text"=> $d3,
+																	"size"=> "xxs",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"gravity"=> "center",
+																	"wrap"=> true
+																  ),
+																  array(
+																	"type"=> "image",
+																	"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																	"size"=> "xs"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $w3,
+																	"text"=> $ma3."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $ma3."/".$mi3."°C",
+																	"text"=> $mi3."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
 																	"text"=> $r3."%",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"size"=> "xxs",
+																	"align"=> "center",
+																	"gravity"=> "center"
 																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),													  
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
+																),
+																"spacing"=> "xs"
+															  ),
 															  array(
 																"type"=> "box",
-																"layout"=> "horizontal",
+																"layout"=> "vertical",
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
 																	"text"=> $d4,
+																	"size"=> "xxs",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"gravity"=> "center",
+																	"wrap"=> true
+																  ),
+																  array(
+																	"type"=> "image",
+																	"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																	"size"=> "xs"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $w4,
+																	"text"=> $ma4."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $ma4."/".$mi4."°C",
+																	"text"=> $mi4."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
 																	"text"=> $r4."%",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"size"=> "xxs",
+																	"align"=> "center",
+																	"gravity"=> "center"
 																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
+																),
+																"spacing"=> "xs"
+															  ),
 															  array(
 																"type"=> "box",
-																"layout"=> "horizontal",
+																"layout"=> "vertical",
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
 																	"text"=> $d5,
+																	"size"=> "xxs",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"gravity"=> "center",
+																	"wrap"=> true
+																  ),
+																  array(
+																	"type"=> "image",
+																	"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																	"size"=> "xs"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $w5,
+																	"text"=> $ma5."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $ma5."/".$mi5."°C",
+																	"text"=> $mi5."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
 																	"text"=> $r5."%",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"size"=> "xxs",
+																	"align"=> "center",
+																	"gravity"=> "center"
 																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
+																),
+																"spacing"=> "xs"
+															  ),
 															  array(
 																"type"=> "box",
-																"layout"=> "horizontal",
+																"layout"=> "vertical",
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
 																	"text"=> $d6,
+																	"size"=> "xxs",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"gravity"=> "center",
+																	"wrap"=> true
+																  ),
+																  array(
+																	"type"=> "image",
+																	"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																	"size"=> "xs"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $w6,
+																	"text"=> $ma6."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $ma6."/".$mi6."°C",
+																	"text"=> $mi6."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
 																	"text"=> $r6."%",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"size"=> "xxs",
+																	"align"=> "center",
+																	"gravity"=> "center"
 																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
+																),
+																"spacing"=> "xs"
+															  ),
 															  array(
 																"type"=> "box",
-																"layout"=> "horizontal",
+																"layout"=> "vertical",
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
 																	"text"=> $d7,
+																	"size"=> "xxs",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"gravity"=> "center",
+																	"wrap"=> true
+																  ),
+																  array(
+																	"type"=> "image",
+																	"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																	"size"=> "xs"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $w7,
+																	"text"=> $ma7."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $ma7."/".$mi7."°C",
+																	"text"=> $mi7."°C",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"align"=> "center",
+																	"size"=> "xxs",
+																	"gravity"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
 																	"text"=> $r7."%",
 																	"color"=> "#ffffff",
-																	"align"=> "center"
+																	"size"=> "xxs",
+																	"align"=> "center",
+																	"gravity"=> "center"
 																  )
-																)
+																),
+																"spacing"=> "xs"
 															  )
-															)
+															),
+															"paddingTop"=> "10px"
 														  )
-														)
-													  ),
-
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> " ss",
-															"color"=> "#000000"
-														  )
-														),
-														"backgroundColor"=> "#000000",
-														"height"=> "10px"
-													  ),
-													
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
 														  
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $d1,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $ma1."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $mi1."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $r1."%",
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  ),
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $d2,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $ma2."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $mi2."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $r2."%",
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  ),														  
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $d3,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $ma3."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $mi3."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $r3."%",
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  ),
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $d4,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $ma4."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $mi4."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $r4."%",
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  ),
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $d5,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $ma5."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $mi5."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $r5."%",
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  ),
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $d6,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $ma6."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $mi6."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $r6."%",
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  ),
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $d7,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $ma7."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $mi7."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $r7."%",
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  )
 														),
+														"backgroundColor"=> "#464F69",
+														"paddingEnd"=> "2px",
+														"paddingStart"=> "2px",
 														"paddingTop"=> "10px"
 													  )
-													  
-													),
-													"backgroundColor"=> "#464F69",
-													"paddingEnd"=> "2px",
-													"paddingStart"=> "2px",
-													"paddingTop"=> "10px"
-												  )
 
+											)
 										)
-									)
-									
-							);
-							$client->replyMessage1($event['replyToken'],$a);
-							
-
-
-							break;
-
-
-						}
-						else{
-							continue;
-						}
-
-
-
-
-					}
-
-					if ($stat == 0){
-
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดระบุชื่อจังหวัดให้ถูกต้อง'
-									)
+										
 								);
-						$client->replyMessage1($event['replyToken'],$a);
+								$client->replyMessage1($event['replyToken'],$a);
+								
+
+
+								break;
+
+
+							}
+							else{
+								continue;
+							}
+
+
+
+
+						}
+
+						if ($stat == 0){
+
+							$a = array(
+										array(
+											'type' => 'text',
+											'text' => 'โปรดระบุชื่อจังหวัดให้ถูกต้อง'
+										)
+									);
+							$client->replyMessage1($event['replyToken'],$a);
+
+						}
 
 					}
-
-
 
 
 				}
