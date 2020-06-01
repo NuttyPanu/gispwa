@@ -5590,7 +5590,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[0]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5635,7 +5635,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[1]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5680,7 +5680,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[2]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5725,7 +5725,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[3]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5770,7 +5770,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[4]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5815,7 +5815,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[5]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
@@ -5860,7 +5860,7 @@ function replyMsg($event, $client)
 															  array(
 																"type"=> "text",
 																"text"=> $key->SevenDaysForecast[6]->Date,
-																"size"=> "xs",
+																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"gravity"=> "center",
