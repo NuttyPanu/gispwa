@@ -5213,10 +5213,12 @@ function replyMsg($event, $client)
 							$a = array(
 									array(
 										'type' => 'text',
-										'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
+										'text' => $d1.$d2.$d3.$d4.$d5.$d6.$d7
+
+										//'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
 										//'text' => $key->SevenDaysForecast[0]->Date.'-'.$key->SevenDaysForecast[1]->Date.'-'.$key->SevenDaysForecast[2]->Date.'-'.$key->SevenDaysForecast[3]->Date.'-'.$key->SevenDaysForecast[4]->Date.'-'.$key->SevenDaysForecast[5]->Date.'-'.$key->SevenDaysForecast[6]->Date
 							
-									),
+									)/*,
 									array(
 										'type' => 'flex',
 										'altText' => 'weather_forcast',
@@ -5979,7 +5981,7 @@ function replyMsg($event, $client)
 
 										)
 									)
-									
+									*/
 							);
 							$client->replyMessage1($event['replyToken'],$a);
 							
