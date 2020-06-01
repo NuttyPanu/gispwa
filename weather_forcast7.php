@@ -33,10 +33,10 @@
 
 
 $fileContents= file_get_contents("https://data.tmd.go.th/api/WeatherForecast7Days/V1/");
-$fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
-$fileContents = trim(str_replace('"', "'", $fileContents));
-$simpleXml = simplexml_load_string($fileContents);
-$json = json_encode($simpleXml);
+//$fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
+//$fileContents = trim(str_replace('"', "'", $fileContents));
+//$simpleXml = simplexml_load_string($fileContents);
+$json = json_encode($fileContents);
 $array = json_decode($json,TRUE); // convert the JSON-encoded string to a PHP variable
 //return $array;
 
