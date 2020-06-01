@@ -43,8 +43,8 @@
 
 			//echo $key->SevenDaysForecast[0]->WeatherDescription;
 			//echo '<br>';
-
-			if(preg_match($prv, $key->ProvinceNameTh) === 1){
+			if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1
+			//if(preg_match($prv, $key->ProvinceNameTh) === 1){
 
 				//default = ""
 				echo $key->ProvinceNameTh;
