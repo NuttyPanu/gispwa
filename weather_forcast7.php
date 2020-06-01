@@ -25,12 +25,15 @@
         $returned =  curl_exec($ch);
         curl_close($ch);
 
-		echo $returned;
-		echo "<br>";
-		//$xml = simplexml_load_string($returned);
+		//echo $returned;
+		//echo "<br>";
+
+		header('Content-Type: application/json; charset=utf-8');
 		$json = json_encode($returned);
-		$array = json_decode($json,TRUE);
-		echo $json;
+		echo $json->Header->Title;
+		
+		//$array = json_decode($json,TRUE); //text
+		//echo $array;
 
 
 
