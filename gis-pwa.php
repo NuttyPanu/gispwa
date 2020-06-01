@@ -5493,7 +5493,7 @@ function replyMsg($event, $client)
 														"contents"=> array(
 														  array(
 															"type"=> "text",
-															"text"=> $key->ProvinceNameTh,
+															"text"=> "จังหวัด".$key->ProvinceNameTh,
 															"align"=> "start",
 															"gravity"=> "center",
 															"weight"=> "bold",
