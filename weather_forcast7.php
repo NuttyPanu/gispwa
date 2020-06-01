@@ -41,11 +41,10 @@
 			//echo '<br>';
 
 
-			echo $key->SevenDaysForecast[0]->WeatherDescription;
-			echo '<br>';
+			//echo $key->SevenDaysForecast[0]->WeatherDescription;
+			//echo '<br>';
 
-
-			if(preg_match($prv, $key) === 1){
+			if(preg_match($prv, $key->ProvinceNameTh) === 1){
 
 				//default = ""
 				echo $key->ProvinceNameTh;
@@ -55,7 +54,7 @@
 
 				echo $key->SevenDaysForecast[0]->Date;  // 0-6  sum 7 days
 
-				echo $key->SevenDaysForecast[0]->WeatherDescription;  // "ฝนฟ้าคะนอง",
+				echo $key->SevenDaysForecast[0]->WeatherDescription;  // "ฝนฟ้าคะนอง",ท้องฟ้ามีเมฆบางส่วน
 				echo $key->SevenDaysForecast[0]->WeatherDescriptionEn;  // ""Heavy Rain",",
 
 
