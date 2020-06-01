@@ -43,9 +43,15 @@
 
 			//echo $key->SevenDaysForecast[0]->WeatherDescription;
 			//echo '<br>';
-			if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
-			//if(preg_match($prv, $key->ProvinceNameTh) === 1){
 
+
+
+			//if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
+			if(preg_match('/($prv)/', $key->ProvinceNameTh) === 1){
+
+				echo '<br>';
+				echo '-----------------------------------------------------';
+				echo '<br>';
 				//default = ""
 				echo $key->ProvinceNameTh;
 				echo '<br>';
@@ -53,41 +59,41 @@
 				echo '<br>';
 
 				echo $key->SevenDaysForecast[0]->Date;  // 0-6  sum 7 days
+				echo '<br>';
 
 				echo $key->SevenDaysForecast[0]->WeatherDescription;  // "ฝนฟ้าคะนอง",ท้องฟ้ามีเมฆบางส่วน
 				echo $key->SevenDaysForecast[0]->WeatherDescriptionEn;  // ""Heavy Rain",",
-
+				echo '<br>';
 
 				echo $key->SevenDaysForecast[0]->WaveHeight;  // "สงบ",คลื่นสูง 1-2 เมตร"
 				echo $key->SevenDaysForecast[0]->WaveHeightEn;  // "Calm","Wave Height 1-2 m.",
+				echo '<br>';
+
+
 				echo $key->SevenDaysForecast[0]->TempartureLevel;  // "ปกติ",
 				echo $key->SevenDaysForecast[0]->TempartureLevelEn;  // "Normal"
+				echo '<br>';
 
 
 				echo $key->SevenDaysForecast[0]->MaxTemperature->Value; 
 				echo $key->SevenDaysForecast[0]->MaxTemperature->Unit; //"celcius"
+				echo '<br>';
 
 				echo $key->SevenDaysForecast[0]->MinTemperature->Value; 
 				echo $key->SevenDaysForecast[0]->MinTemperature->Unit; //"celcius"
-
+				echo '<br>';
 
 				echo $key->SevenDaysForecast[0]->WindDirection->Value; 
 				echo $key->SevenDaysForecast[0]->WindDirection->Unit;  //"degree"
-
+				echo '<br>';
 
 				echo $key->SevenDaysForecast[0]->WindSpeed->Value; 
 				echo $key->SevenDaysForecast[0]->WindSpeed->Unit; //"km/h"
+				echo '<br>';
 
 				echo $key->SevenDaysForecast[0]->Rain->Value; 
 				echo $key->SevenDaysForecast[0]->Rain->Unit; //"%"
-
-
-
 				echo '<br>';
-
-
-
-
 
 				break;
 			}
