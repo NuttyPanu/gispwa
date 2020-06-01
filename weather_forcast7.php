@@ -41,10 +41,17 @@
 			//echo '<br>';
 
 
-			//echo $key->SevenDaysForecast[0]->WeatherDescription;
-			//echo '<br>';
-
-
+			echo $key->SevenDaysForecast[0]->WeatherDescription;
+			echo '<br>';
+			echo $key->SevenDaysForecast[1]->WeatherDescription;
+			echo '<br>';
+			echo $key->SevenDaysForecast[2]->WeatherDescription;
+			echo '<br>';
+			echo $key->SevenDaysForecast[3]->WeatherDescription;
+			echo '<br>';
+			echo $key->SevenDaysForecast[4]->WeatherDescription;
+			echo '<br>';
+			echo $key->SevenDaysForecast[5]->WeatherDescription;
 
 			//if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
 			if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
