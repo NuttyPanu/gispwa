@@ -1,7 +1,6 @@
 <?php
 
 
-/
 		$fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
 
 		
