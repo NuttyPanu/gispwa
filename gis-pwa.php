@@ -5138,23 +5138,78 @@ function replyMsg($event, $client)
 						if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
 							$stat =1;
 
-							/*
+							
 							//$key->ProvinceNameTh;
 							//$key->ProvinceNameEnglish;
-							//$key->SevenDaysForecast[0]->Date; 
-							//$key->SevenDaysForecast[0]->WeatherDescription; 
+							$d1 = $key->SevenDaysForecast[0]->Date; 
+							$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
 							//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-							//$key->SevenDaysForecast[0]->MaxTemperature->Value; 
+							$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
 							//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-							//$key->SevenDaysForecast[0]->MinTemperature->Value; 
+							$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
 							//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-							//$key->SevenDaysForecast[0]->Rain->Value; 
+							$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
 							//$key->SevenDaysForecast[0]->Rain->Unit; 
-							*/
+							$d2 = $key->SevenDaysForecast[1]->Date; 
+							$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+							//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+							$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+							//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+							$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+							//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+							$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+							//$key->SevenDaysForecast[1]->Rain->Unit; 
+							$d3 = $key->SevenDaysForecast[2]->Date; 
+							$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+							//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+							$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+							//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+							$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+							//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+							$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+							//$key->SevenDaysForecast[2]->Rain->Unit;
+							$d4 = $key->SevenDaysForecast[3]->Date; 
+							$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+							//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+							$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+							//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+							$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+							//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+							$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+							//$key->SevenDaysForecast[3]->Rain->Unit;
+							$d5 = $key->SevenDaysForecast[4]->Date; 
+							$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
+							//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
+							$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
+							//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
+							$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
+							//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
+							$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
+							//$key->SevenDaysForecast[4]->Rain->Unit;
+							$d6 = $key->SevenDaysForecast[5]->Date; 
+							$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
+							//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
+							$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
+							//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
+							$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
+							//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
+							$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
+							//$key->SevenDaysForecast[5]->Rain->Unit;
+							$d7 = $key->SevenDaysForecast[6]->Date; 
+							$w7 = $key->SevenDaysForecast[6]->WeatherDescription; 
+							//$key->SevenDaysForecast[6]->WeatherDescriptionEn; 
+							$ma7 = $key->SevenDaysForecast[6]->MaxTemperature->Value; 
+							//$key->SevenDaysForecast[6]->MaxTemperature->Unit; 
+							$mi7 = $key->SevenDaysForecast[6]->MinTemperature->Value; 
+							//$key->SevenDaysForecast[6]->MinTemperature->Unit; 
+							$r7 = $key->SevenDaysForecast[6]->Rain->Value; 
+							//$key->SevenDaysForecast[6]->Rain->Unit;
 
 
 
 							
+
+					
 							$a = array(
 									array(
 										'type' => 'text',
@@ -5296,68 +5351,25 @@ function replyMsg($event, $client)
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[0]->Date,
+																	"text"=> $d1,
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[0]->WeatherDescription,
+																	"text"=> $w1,
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[0]->MaxTemperature->Value."/".$key->SevenDaysForecast[0]->MinTemperature->Value."°C",
+																	"text"=> $ma1."/".$mi1."°C",
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[0]->Rain->Value.$key->SevenDaysForecast[0]->Rain->Unit,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  /*
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
-															  array(
-																"type"=> "box",
-																"layout"=> "horizontal",
-																"contents"=> array(
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[1]->Date,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[1]->WeatherDescription,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[1]->MaxTemperature->Value."/".$key->SevenDaysForecast[1]->MinTemperature->Value."°C",
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[1]->Rain->Value.$key->SevenDaysForecast[1]->Rain->Unit,
+																	"text"=> $r1."%",
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  )
@@ -5381,194 +5393,25 @@ function replyMsg($event, $client)
 																"contents"=> array(
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[2]->Date,
+																	"text"=> $d2,
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[2]->WeatherDescription,
+																	"text"=> $w2,
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[2]->MaxTemperature->Value."/".$key->SevenDaysForecast[2]->MinTemperature->Value."°C",
+																	"text"=> $ma2."/".$mi2."°C",
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  ),
 																  array(
 																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[2]->Rain->Value.$key->SevenDaysForecast[2]->Rain->Unit,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
-															  array(
-																"type"=> "box",
-																"layout"=> "horizontal",
-																"contents"=> array(
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[3]->Date,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[3]->WeatherDescription,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[3]->MaxTemperature->Value."/".$key->SevenDaysForecast[3]->MinTemperature->Value."°C",
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[3]->Rain->Value.$key->SevenDaysForecast[3]->Rain->Unit,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
-															  array(
-																"type"=> "box",
-																"layout"=> "horizontal",
-																"contents"=> array(
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[4]->Date,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[4]->WeatherDescription,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[4]->MaxTemperature->Value."/".$key->SevenDaysForecast[4]->MinTemperature->Value."°C",
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[4]->Rain->Value.$key->SevenDaysForecast[4]->Rain->Unit,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
-															  array(
-																"type"=> "box",
-																"layout"=> "horizontal",
-																"contents"=> array(
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[5]->Date,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[5]->WeatherDescription,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[5]->MaxTemperature->Value."/".$key->SevenDaysForecast[5]->MinTemperature->Value."°C",
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[5]->Rain->Value.$key->SevenDaysForecast[5]->Rain->Unit,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  )
-																)
-															  )
-															)
-														  )
-														)
-													  ),
-													  
-													  array(
-														"type"=> "box",
-														"layout"=> "vertical",
-														"contents"=> array(
-														  array(
-															"type"=> "box",
-															"layout"=> "horizontal",
-															"contents"=> array(
-															  array(
-																"type"=> "box",
-																"layout"=> "horizontal",
-																"contents"=> array(
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[6]->Date,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[6]->WeatherDescription,
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[6]->MaxTemperature->Value."/".$key->SevenDaysForecast[6]->MinTemperature->Value."°C",
-																	"color"=> "#ffffff",
-																	"align"=> "center"
-																  ),
-																  array(
-																	"type"=> "text",
-																	"text"=> $key->SevenDaysForecast[6]->Rain->Value.$key->SevenDaysForecast[6]->Rain->Unit,
+																	"text"=> $r2."%",
 																	"color"=> "#ffffff",
 																	"align"=> "center"
 																  )
@@ -5578,7 +5421,217 @@ function replyMsg($event, $client)
 														  )
 														)
 													  ),								  
-													  */
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $d3,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $w3,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $ma3."/".$mi3."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $r3."%",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),													  
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $d4,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $w4,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $ma4."/".$mi4."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $r4."%",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $d5,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $w5,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $ma5."/".$mi5."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $r5."%",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $d6,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $w6,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $ma6."/".$mi6."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $r6."%",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $d7,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $w7,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $ma7."/".$mi7."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $r7."%",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5591,7 +5644,7 @@ function replyMsg($event, $client)
 														),
 														"backgroundColor"=> "#000000",
 														"height"=> "10px"
-													  )/*,
+													  ),
 													
 													  array(
 														"type"=> "box",
@@ -5604,7 +5657,7 @@ function replyMsg($event, $client)
 															"contents"=> array(
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[0]->Date,
+																"text"=> $d1,
 																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
@@ -5618,7 +5671,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[0]->MaxTemperature->Value."°C",
+																"text"=> $ma1."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5626,7 +5679,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[0]->MinTemperature->Value."°C",
+																"text"=> $mi1."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5634,53 +5687,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[0]->Rain->Value.$key->SevenDaysForecast[0]->Rain->Unit,
-																"color"=> "#ffffff",
-																"size"=> "xxs",
-																"align"=> "center",
-																"gravity"=> "center"
-															  )
-															),
-															"spacing"=> "xs"
-														  ),
-														  
-														  array(
-															"type"=> "box",
-															"layout"=> "vertical",
-															"contents"=> array(
-															  array(
-																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[1]->Date,
-																"size"=> "xxs",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"gravity"=> "center",
-																"wrap"=> true
-															  ),
-															  array(
-																"type"=> "image",
-																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-																"size"=> "xs"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[1]->MaxTemperature->Value."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[1]->MinTemperature->Value."°C",
-																"color"=> "#ffffff",
-																"align"=> "center",
-																"size"=> "xxs",
-																"gravity"=> "center"
-															  ),
-															  array(
-																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[1]->Rain->Value.$key->SevenDaysForecast[1]->Rain->Unit,
+																"text"=> $r1."%",
 																"color"=> "#ffffff",
 																"size"=> "xxs",
 																"align"=> "center",
@@ -5695,7 +5702,7 @@ function replyMsg($event, $client)
 															"contents"=> array(
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[2]->Date,
+																"text"=> $d2,
 																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
@@ -5709,7 +5716,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[2]->MaxTemperature->Value."°C",
+																"text"=> $ma2."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5717,7 +5724,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[2]->MinTemperature->Value."°C",
+																"text"=> $mi2."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5725,7 +5732,52 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[2]->Rain->Value.$key->SevenDaysForecast[2]->Rain->Unit,
+																"text"=> $r2."%",
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  ),														  
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $d3,
+																"size"=> "xxs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $ma3."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $mi3."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $r3."%",
 																"color"=> "#ffffff",
 																"size"=> "xxs",
 																"align"=> "center",
@@ -5740,7 +5792,7 @@ function replyMsg($event, $client)
 															"contents"=> array(
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[3]->Date,
+																"text"=> $d4,
 																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
@@ -5754,7 +5806,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[3]->MaxTemperature->Value."°C",
+																"text"=> $ma4."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5762,7 +5814,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[3]->MinTemperature->Value."°C",
+																"text"=> $mi4."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5770,7 +5822,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[3]->Rain->Value.$key->SevenDaysForecast[3]->Rain->Unit,
+																"text"=> $r4."%",
 																"color"=> "#ffffff",
 																"size"=> "xxs",
 																"align"=> "center",
@@ -5785,7 +5837,7 @@ function replyMsg($event, $client)
 															"contents"=> array(
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[4]->Date,
+																"text"=> $d5,
 																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
@@ -5799,7 +5851,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[4]->MaxTemperature->Value."°C",
+																"text"=> $ma5."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5807,7 +5859,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[4]->MinTemperature->Value."°C",
+																"text"=> $mi5."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5815,7 +5867,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[4]->Rain->Value.$key->SevenDaysForecast[4]->Rain->Unit,
+																"text"=> $r5."%",
 																"color"=> "#ffffff",
 																"size"=> "xxs",
 																"align"=> "center",
@@ -5830,7 +5882,7 @@ function replyMsg($event, $client)
 															"contents"=> array(
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[5]->Date,
+																"text"=> $d6,
 																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
@@ -5844,7 +5896,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[5]->MaxTemperature->Value."°C",
+																"text"=> $ma6."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5852,7 +5904,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[5]->MinTemperature->Value."°C",
+																"text"=> $mi6."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5860,7 +5912,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[5]->Rain->Value.$key->SevenDaysForecast[5]->Rain->Unit,
+																"text"=> $r6."%",
 																"color"=> "#ffffff",
 																"size"=> "xxs",
 																"align"=> "center",
@@ -5875,7 +5927,7 @@ function replyMsg($event, $client)
 															"contents"=> array(
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[6]->Date,
+																"text"=> $d7,
 																"size"=> "xxs",
 																"color"=> "#ffffff",
 																"align"=> "center",
@@ -5889,7 +5941,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[6]->MaxTemperature->Value."°C",
+																"text"=> $ma7."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5897,7 +5949,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[6]->MinTemperature->Value."°C",
+																"text"=> $mi7."°C",
 																"color"=> "#ffffff",
 																"align"=> "center",
 																"size"=> "xxs",
@@ -5905,7 +5957,7 @@ function replyMsg($event, $client)
 															  ),
 															  array(
 																"type"=> "text",
-																"text"=> $key->SevenDaysForecast[6]->Rain->Value.$key->SevenDaysForecast[6]->Rain->Unit,
+																"text"=> $r7."%",
 																"color"=> "#ffffff",
 																"size"=> "xxs",
 																"align"=> "center",
@@ -5917,7 +5969,7 @@ function replyMsg($event, $client)
 														),
 														"paddingTop"=> "10px"
 													  )
-													  */
+													  
 													),
 													"backgroundColor"=> "#464F69",
 													"paddingEnd"=> "2px",
