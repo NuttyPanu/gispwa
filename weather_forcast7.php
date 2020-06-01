@@ -34,7 +34,6 @@
 		echo $json;
 */
 
-/*
 //$data = "https://data.tmd.go.th/api/WeatherForecast7Days/V1/";
 function xmlToArray($xml, $options = array()) {
     $defaults = array(
@@ -112,7 +111,7 @@ function xmlToArray($xml, $options = array()) {
         $xml->getName() => $propertiesArray
     );
 }
-
+/*
 
 $fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
 
@@ -132,13 +131,13 @@ $xmlNode = simplexml_load_string($returned);
 */
 
 $xmlNode = simplexml_load_file('https://gispwa.herokuapp.com/weather.xml');
-//$arrayData = xmlToArray($xmlNode);
+$arrayData = xmlToArray($xmlNode);
 $json = json_encode($arrayData);
 echo $json;
 $array = json_decode($json,TRUE);
 //echo $array-->header;
 
-
+/*
 $xml = new SimpleXMLElement($xmlString);
 echo $xml->bbb->cccc->dddd['Id'];
 echo $xml->bbb->cccc->eeee['name'];
@@ -148,5 +147,5 @@ foreach ($xml->bbb->cccc as $element) {
    echo "{$key}: {$val}";
   }
 }
-
+*/
 ?>
