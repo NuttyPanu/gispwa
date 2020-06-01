@@ -5150,14 +5150,14 @@ function replyMsg($event, $client)
 
 							for ($x = 0; $x < $count; $x++) {
 							  //echo "The number is: $x <br>";
-								"$d".$x+1 = $key->SevenDaysForecast[$x]->Date; 
-								"$w".$x+1 = $key->SevenDaysForecast[$x]->WeatherDescription; 
+								"$d".($x+1) = $key->SevenDaysForecast[$x]->Date; 
+								"$w".($x+1) = $key->SevenDaysForecast[$x]->WeatherDescription; 
 								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								"$ma".$x+1 = $key->SevenDaysForecast[$x]->MaxTemperature->Value; 
+								"$ma".($x+1) = $key->SevenDaysForecast[$x]->MaxTemperature->Value; 
 								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								"$mi".$x+1 = $key->SevenDaysForecast[$x]->MinTemperature->Value; 
+								"$mi".($x+1) = $key->SevenDaysForecast[$x]->MinTemperature->Value; 
 								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								"$r".$x+1 = $key->SevenDaysForecast[$x]->Rain->Value; 
+								"$r".($x+1) = $key->SevenDaysForecast[$x]->Rain->Value; 
 								//$key->SevenDaysForecast[0]->Rain->Unit; 
 							}							
 							
@@ -5177,6 +5177,8 @@ function replyMsg($event, $client)
 								}	
 
 							}
+							
+
 
 							/*
 							//$key->ProvinceNameTh;
