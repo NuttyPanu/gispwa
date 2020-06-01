@@ -5138,34 +5138,32 @@ function replyMsg($event, $client)
 						if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
 							$stat =1;
 
-							$d1,$w1,$ma1,$mi1,$r1,
-							$d2,$w2,$ma2,$mi2,$r2,
-							$d3,$w3,$ma3,$mi3,$r3,
-							$d4,$w4,$ma4,$mi4,$r4,
-							$d5,$w5,$ma5,$mi5,$r5,
-							$d6,$w6,$ma6,$mi6,$r6,
-							$d7,$w7,$ma7,$mi7,$r7;
+							$d1;$w1;$ma1;$mi1;$r1;
+							$d2;$w2;$ma2;$mi2;$r2;
+							$d3;$w3;$ma3;$mi3;$r3;
+							$d4;$w4;$ma4;$mi4;$r4;
+							$d5;$w5;$ma5;$mi5;$r5;
+							$d6;$w6;$ma6;$mi6;$r6;
+							$d7;$w7;$ma7;$mi7;$r7;
 
 							$count = count($key->SevenDaysForecast);
 
 							for ($x = 0; $x < $count; $x++) {
 							  //echo "The number is: $x <br>";
-								"$d".$x = $key->SevenDaysForecast[$x]->Date; 
-								"$w".$x = $key->SevenDaysForecast[$x]->WeatherDescription; 
+								"$d".$x+1 = $key->SevenDaysForecast[$x]->Date; 
+								"$w".$x+1 = $key->SevenDaysForecast[$x]->WeatherDescription; 
 								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-								"$ma".$x = $key->SevenDaysForecast[$x]->MaxTemperature->Value; 
+								"$ma".$x+1 = $key->SevenDaysForecast[$x]->MaxTemperature->Value; 
 								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-								"$mi".$x = $key->SevenDaysForecast[$x]->MinTemperature->Value; 
+								"$mi".$x+1 = $key->SevenDaysForecast[$x]->MinTemperature->Value; 
 								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-								"$r".$x = $key->SevenDaysForecast[$x]->Rain->Value; 
+								"$r".$x+1 = $key->SevenDaysForecast[$x]->Rain->Value; 
 								//$key->SevenDaysForecast[0]->Rain->Unit; 
 							}							
 							
-							if($count != 7){
+							if($count < 7){
 
-								$count_ex = 7 - $count;
-
-								for ($x = $count; $x < $count_ex; $x++) {
+								for ($x = $count+1; $x <= 7; $x++) {
 								  //echo "The number is: $x <br>";
 									"$d".$x = '-'; 
 									"$w".$x = '-'; 
