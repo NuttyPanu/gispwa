@@ -5148,6 +5148,8 @@ function replyMsg($event, $client)
 
 							$count = count($key->SevenDaysForecast);
 
+
+							/*
 							for ($x = 0; $x < $count; $x++) {
 							  //echo "The number is: $x <br>";
 								"$d".($x+1) = $key->SevenDaysForecast[$x]->Date; 
@@ -5177,10 +5179,10 @@ function replyMsg($event, $client)
 								}	
 
 							}
+							*/
+
+
 							
-
-
-							/*
 							//$key->ProvinceNameTh;
 							//$key->ProvinceNameEnglish;
 							$d1 = $key->SevenDaysForecast[0]->Date; 
@@ -5252,8 +5254,23 @@ function replyMsg($event, $client)
 							//$key->SevenDaysForecast[6]->MinTemperature->Unit; 
 							$r7 = $key->SevenDaysForecast[6]->Rain->Value; 
 							//$key->SevenDaysForecast[6]->Rain->Unit;
-							*/
 							
+							if($count < 7){
+
+								for ($x = $count+1; $x <= 7; $x++) {
+								  //echo "The number is: $x <br>";
+									"$d".$x = '-'; 
+									"$w".$x = '-'; 
+									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+									"$ma".$x = '-'; 
+									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+									"$mi".$x = '-'; 
+									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+									"$r".$x = '-'; 
+									//$key->SevenDaysForecast[0]->Rain->Unit; 
+								}	
+
+							}							
 
 
 							
