@@ -5152,6 +5152,16 @@ function replyMsg($event, $client)
 							//$key->SevenDaysForecast[0]->Rain->Unit; 
 							*/
 
+
+							$a = array(
+										array(
+											'type' => 'text',
+											'text' => $key->ProvinceNameTh
+										)
+									);
+							$client->replyMessage1($event['replyToken'],$a);
+
+							/*
 							$a = array(
 									array(
 										'type' => 'flex',
@@ -5912,7 +5922,7 @@ function replyMsg($event, $client)
 									)
 							);
 							$client->replyMessage1($event['replyToken'],$a);
-		 
+							*/
 
 
 							break;
