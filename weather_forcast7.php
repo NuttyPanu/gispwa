@@ -33,21 +33,69 @@
 
 		//header('Content-Type: application/json; charset=utf-8');
 		$json = json_decode($returned);
-		echo $json->Provinces[0]->ProvinceNameTh;
+
+		//echo $json->Provinces[0]->ProvinceNameTh;
 
 		foreach ($json->Provinces as $key) {
-			echo $key->ProvinceNameTh;
+			//echo $key->ProvinceNameTh;
+			//echo '<br>';
+
+
+			echo $key->SevenDaysForecast[0]->WeatherDescription;
 			echo '<br>';
 
-			/*
+
 			if(preg_match($prv, $key) === 1){
-				
+
+				//default = ""
+				echo $key->ProvinceNameTh;
+				echo '<br>';
+				echo $key->ProvinceNameEnglish;
+				echo '<br>';
+
+				echo $key->SevenDaysForecast[0]->Date;  // 0-6  sum 7 days
+
+				echo $key->SevenDaysForecast[0]->WeatherDescription;  // "ฝนฟ้าคะนอง",
+				echo $key->SevenDaysForecast[0]->WeatherDescriptionEn;  // ""Heavy Rain",",
+
+
+				echo $key->SevenDaysForecast[0]->WaveHeight;  // "สงบ",คลื่นสูง 1-2 เมตร"
+				echo $key->SevenDaysForecast[0]->WaveHeightEn;  // "Calm","Wave Height 1-2 m.",
+				echo $key->SevenDaysForecast[0]->TempartureLevel;  // "ปกติ",
+				echo $key->SevenDaysForecast[0]->TempartureLevelEn;  // "Normal"
+
+
+				echo $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+				echo $key->SevenDaysForecast[0]->MaxTemperature->Unit; //"celcius"
+
+				echo $key->SevenDaysForecast[0]->MinTemperature->Value; 
+				echo $key->SevenDaysForecast[0]->MinTemperature->Unit; //"celcius"
+
+
+				echo $key->SevenDaysForecast[0]->WindDirection->Value; 
+				echo $key->SevenDaysForecast[0]->WindDirection->Unit;  //"degree"
+
+
+				echo $key->SevenDaysForecast[0]->WindSpeed->Value; 
+				echo $key->SevenDaysForecast[0]->WindSpeed->Unit; //"km/h"
+
+				echo $key->SevenDaysForecast[0]->Rain->Value; 
+				echo $key->SevenDaysForecast[0]->Rain->Unit; //"%"
+
+
+
+				echo '<br>';
+
+
+
+
+
 				break;
 			}
 			else{
 				continue;
 			}
-			*/
+
 		}
 
 
