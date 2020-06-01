@@ -5600,7 +5600,8 @@ function replyMsg($event, $client)
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
-																	)
+																	),
+																	"paddingTop"=> "3px"
 																  )
 																)
 															  )
