@@ -25,8 +25,8 @@
         curl_close($ch);
 
 
-		$xml = simplexml_load_string($returned);
-		$json = json_encode($xml);
+		//$xml = simplexml_load_string($returned);
+		$json = json_encode($returned);
 		$array = json_decode($json,TRUE);
 		echo $json;
 
