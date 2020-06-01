@@ -5583,6 +5583,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> "สภาพอากาศ",
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5628,6 +5629,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $w1,
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5670,6 +5672,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $w2,
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5712,6 +5715,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $w3,
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5754,6 +5758,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $w4,
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5796,6 +5801,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $w5,
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5838,6 +5844,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $w6,
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5880,6 +5887,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $w7,
+																		"flex"=> "3",
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
