@@ -92,7 +92,7 @@
 				break;
 			}
 			else{
-				echo $prv.'-'$key->ProvinceNameTh;
+				echo $prv.'-'.$key->ProvinceNameTh;
 				echo '<br>';
 				continue;
 			}
