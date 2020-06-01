@@ -5158,7 +5158,9 @@ function replyMsg($event, $client)
 							$a = array(
 									array(
 										'type' => 'text',
-										'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
+										//'text' => "โปรดรอสักครู่ ระบบกำลังประมวลผล..."
+										'text' => $key->SevenDaysForecast[6]->Date
+							
 									),
 									array(
 										'type' => 'flex',
