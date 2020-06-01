@@ -35,8 +35,8 @@
 		$json = json_decode($returned);
 		echo $json->Provinces[0]->ProvinceNameTh;
 
-		foreach ($json->Provinces as $key->$value) {
-			echo $key.'-'.$value;
+		foreach ($json->Provinces as $key) {
+			echo $key->ProvinceNameTh;
 			echo '<br>';
 
 			/*
