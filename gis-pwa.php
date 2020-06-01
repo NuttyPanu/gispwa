@@ -5095,7 +5095,7 @@ function replyMsg($event, $client)
                 }
 
 
-				else if (preg_match('(#forcast|#weather)', $msg) === 1) {
+				else if (preg_match('(#forcast|#forcast)', $msg) === 1) {
 
 					$stat = 0;
 
@@ -5151,9 +5151,6 @@ function replyMsg($event, $client)
 							//$key->SevenDaysForecast[0]->Rain->Value; 
 							//$key->SevenDaysForecast[0]->Rain->Unit; 
 							*/
-
-
-							break;
 
 							$a = array(
 									array(
@@ -5916,6 +5913,9 @@ function replyMsg($event, $client)
 							);
 							$client->replyMessage1($event['replyToken'],$a);
 		 
+
+
+							break;
 
 
 						}
