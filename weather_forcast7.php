@@ -25,12 +25,15 @@
         $returned =  curl_exec($ch);
         curl_close($ch);
 
-		//echo $returned;
-		//echo "<br>";
+		echo $returned;
+		echo "<br>";
+		echo "ok";
+		//$array = json_decode($returned,TRUE); //text
 
-		header('Content-Type: application/json; charset=utf-8');
-		$json = json_encode($returned);
-		echo $json->Header->Title;
+		//header('Content-Type: application/json; charset=utf-8');
+
+		//$json = json_encode($array);
+		//echo $json->Header->Title;
 		
 		//$array = json_decode($json,TRUE); //text
 		//echo $array;
