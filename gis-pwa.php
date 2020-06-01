@@ -5529,7 +5529,8 @@ function replyMsg($event, $client)
 															)
 														  )
 														)
-													  )/*,
+													  ),
+													  /*
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5573,7 +5574,7 @@ function replyMsg($event, $client)
 														)
 													  ),
 													  */
-													  /*
+													  
 													  array(
 														"type"=> "box",
 														"layout"=> "vertical",
@@ -5586,7 +5587,8 @@ function replyMsg($event, $client)
 														),
 														"backgroundColor"=> "#000000",
 														"height"=> "10px"
-													  ),
+													  )/*,
+													  
 													  array(
 														"type"=> "box",
 														"layout"=> "horizontal",
