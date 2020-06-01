@@ -5138,13 +5138,13 @@ function replyMsg($event, $client)
 						if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
 							$stat =1;
 
-							$d1;$w1;$ma1;$mi1;$r1;
-							$d2;$w2;$ma2;$mi2;$r2;
-							$d3;$w3;$ma3;$mi3;$r3;
-							$d4;$w4;$ma4;$mi4;$r4;
-							$d5;$w5;$ma5;$mi5;$r5;
-							$d6;$w6;$ma6;$mi6;$r6;
-							$d7;$w7;$ma7;$mi7;$r7;
+							$d1='-';$w1='-';$ma1='-';$mi1='-';$r1='-';
+							$d2='-';$w2='-';$ma2='-';$mi2='-';$r2='-';
+							$d3='-';$w3='-';$ma3='-';$mi3='-';$r3='-';
+							$d4='-';$w4='-';$ma4='-';$mi4='-';$r4='-';
+							$d5='-';$w5='-';$ma5='-';$mi5='-';$r5='-';
+							$d6='-';$w6='-';$ma6='-';$mi6='-';$r6='-';
+							$d7='-';$w7='-';$ma7='-';$mi7='-';$r7='-';
 
 							$count = count($key->SevenDaysForecast);
 
@@ -5181,97 +5181,288 @@ function replyMsg($event, $client)
 							}
 							*/
 
+							if($count >= 7){
+								//$key->ProvinceNameTh;
+								//$key->ProvinceNameEnglish;
+								$d1 = $key->SevenDaysForecast[0]->Date; 
+								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+								//$key->SevenDaysForecast[0]->Rain->Unit; 
+								$d2 = $key->SevenDaysForecast[1]->Date; 
+								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+								//$key->SevenDaysForecast[1]->Rain->Unit; 
+								$d3 = $key->SevenDaysForecast[2]->Date; 
+								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+								//$key->SevenDaysForecast[2]->Rain->Unit;
+								$d4 = $key->SevenDaysForecast[3]->Date; 
+								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+								//$key->SevenDaysForecast[3]->Rain->Unit;
+								$d5 = $key->SevenDaysForecast[4]->Date; 
+								$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
+								//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
+								$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
+								$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
+								$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
+								//$key->SevenDaysForecast[4]->Rain->Unit;
+								$d6 = $key->SevenDaysForecast[5]->Date; 
+								$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
+								//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
+								$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
+								$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
+								$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
+								//$key->SevenDaysForecast[5]->Rain->Unit;
+								$d7 = $key->SevenDaysForecast[6]->Date; 
+								$w7 = $key->SevenDaysForecast[6]->WeatherDescription; 
+								//$key->SevenDaysForecast[6]->WeatherDescriptionEn; 
+								$ma7 = $key->SevenDaysForecast[6]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[6]->MaxTemperature->Unit; 
+								$mi7 = $key->SevenDaysForecast[6]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[6]->MinTemperature->Unit; 
+								$r7 = $key->SevenDaysForecast[6]->Rain->Value; 
+								//$key->SevenDaysForecast[6]->Rain->Unit;
+							}	
+							else if($count == 6){
+								//$key->ProvinceNameTh;
+								//$key->ProvinceNameEnglish;
+								$d1 = $key->SevenDaysForecast[0]->Date; 
+								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+								//$key->SevenDaysForecast[0]->Rain->Unit; 
+								$d2 = $key->SevenDaysForecast[1]->Date; 
+								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+								//$key->SevenDaysForecast[1]->Rain->Unit; 
+								$d3 = $key->SevenDaysForecast[2]->Date; 
+								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+								//$key->SevenDaysForecast[2]->Rain->Unit;
+								$d4 = $key->SevenDaysForecast[3]->Date; 
+								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+								//$key->SevenDaysForecast[3]->Rain->Unit;
+								$d5 = $key->SevenDaysForecast[4]->Date; 
+								$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
+								//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
+								$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
+								$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
+								$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
+								//$key->SevenDaysForecast[4]->Rain->Unit;
+								$d6 = $key->SevenDaysForecast[5]->Date; 
+								$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
+								//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
+								$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
+								$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
+								$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
+								//$key->SevenDaysForecast[5]->Rain->Unit;
+							}
+							else if($count == 5){
+								//$key->ProvinceNameTh;
+								//$key->ProvinceNameEnglish;
+								$d1 = $key->SevenDaysForecast[0]->Date; 
+								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+								//$key->SevenDaysForecast[0]->Rain->Unit; 
+								$d2 = $key->SevenDaysForecast[1]->Date; 
+								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+								//$key->SevenDaysForecast[1]->Rain->Unit; 
+								$d3 = $key->SevenDaysForecast[2]->Date; 
+								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+								//$key->SevenDaysForecast[2]->Rain->Unit;
+								$d4 = $key->SevenDaysForecast[3]->Date; 
+								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+								//$key->SevenDaysForecast[3]->Rain->Unit;
+								$d5 = $key->SevenDaysForecast[4]->Date; 
+								$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
+								//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
+								$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
+								$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
+								$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
+								//$key->SevenDaysForecast[4]->Rain->Unit;
+							}
+						
+							else if($count == 4){
+								//$key->ProvinceNameTh;
+								//$key->ProvinceNameEnglish;
+								$d1 = $key->SevenDaysForecast[0]->Date; 
+								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+								//$key->SevenDaysForecast[0]->Rain->Unit; 
+								$d2 = $key->SevenDaysForecast[1]->Date; 
+								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+								//$key->SevenDaysForecast[1]->Rain->Unit; 
+								$d3 = $key->SevenDaysForecast[2]->Date; 
+								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+								//$key->SevenDaysForecast[2]->Rain->Unit;
+								$d4 = $key->SevenDaysForecast[3]->Date; 
+								$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
+								//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
+								$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
+								$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
+								$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
+								//$key->SevenDaysForecast[3]->Rain->Unit;
+							}
+							else if($count == 3){
+								//$key->ProvinceNameTh;
+								//$key->ProvinceNameEnglish;
+								$d1 = $key->SevenDaysForecast[0]->Date; 
+								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+								//$key->SevenDaysForecast[0]->Rain->Unit; 
+								$d2 = $key->SevenDaysForecast[1]->Date; 
+								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+								//$key->SevenDaysForecast[1]->Rain->Unit; 
+								$d3 = $key->SevenDaysForecast[2]->Date; 
+								$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
+								//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
+								$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
+								$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
+								$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
+								//$key->SevenDaysForecast[2]->Rain->Unit;
+							}
+							else if($count == 2){
+								//$key->ProvinceNameTh;
+								//$key->ProvinceNameEnglish;
+								$d1 = $key->SevenDaysForecast[0]->Date; 
+								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+								//$key->SevenDaysForecast[0]->Rain->Unit; 
+								$d2 = $key->SevenDaysForecast[1]->Date; 
+								$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
+								//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
+								$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
+								$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
+								$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
+								//$key->SevenDaysForecast[1]->Rain->Unit; 
+							}
 
-							
-							//$key->ProvinceNameTh;
-							//$key->ProvinceNameEnglish;
-							$d1 = $key->SevenDaysForecast[0]->Date; 
-							$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
-							//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-							$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
-							//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-							$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
-							//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-							$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
-							//$key->SevenDaysForecast[0]->Rain->Unit; 
-
-							$d2 = $key->SevenDaysForecast[1]->Date; 
-							$w2 = $key->SevenDaysForecast[1]->WeatherDescription; 
-							//$key->SevenDaysForecast[1]->WeatherDescriptionEn; 
-							$ma2 = $key->SevenDaysForecast[1]->MaxTemperature->Value; 
-							//$key->SevenDaysForecast[1]->MaxTemperature->Unit; 
-							$mi2 = $key->SevenDaysForecast[1]->MinTemperature->Value; 
-							//$key->SevenDaysForecast[1]->MinTemperature->Unit; 
-							$r2 = $key->SevenDaysForecast[1]->Rain->Value; 
-							//$key->SevenDaysForecast[1]->Rain->Unit; 
-
-							$d3 = $key->SevenDaysForecast[2]->Date; 
-							$w3 = $key->SevenDaysForecast[2]->WeatherDescription; 
-							//$key->SevenDaysForecast[2]->WeatherDescriptionEn; 
-							$ma3 = $key->SevenDaysForecast[2]->MaxTemperature->Value; 
-							//$key->SevenDaysForecast[2]->MaxTemperature->Unit; 
-							$mi3 = $key->SevenDaysForecast[2]->MinTemperature->Value; 
-							//$key->SevenDaysForecast[2]->MinTemperature->Unit; 
-							$r3 = $key->SevenDaysForecast[2]->Rain->Value; 
-							//$key->SevenDaysForecast[2]->Rain->Unit;
-
-							$d4 = $key->SevenDaysForecast[3]->Date; 
-							$w4 = $key->SevenDaysForecast[3]->WeatherDescription; 
-							//$key->SevenDaysForecast[3]->WeatherDescriptionEn; 
-							$ma4 = $key->SevenDaysForecast[3]->MaxTemperature->Value; 
-							//$key->SevenDaysForecast[3]->MaxTemperature->Unit; 
-							$mi4 = $key->SevenDaysForecast[3]->MinTemperature->Value; 
-							//$key->SevenDaysForecast[3]->MinTemperature->Unit; 
-							$r4 = $key->SevenDaysForecast[3]->Rain->Value; 
-							//$key->SevenDaysForecast[3]->Rain->Unit;
-
-							$d5 = $key->SevenDaysForecast[4]->Date; 
-							$w5 = $key->SevenDaysForecast[4]->WeatherDescription; 
-							//$key->SevenDaysForecast[4]->WeatherDescriptionEn; 
-							$ma5 = $key->SevenDaysForecast[4]->MaxTemperature->Value; 
-							//$key->SevenDaysForecast[4]->MaxTemperature->Unit; 
-							$mi5 = $key->SevenDaysForecast[4]->MinTemperature->Value; 
-							//$key->SevenDaysForecast[4]->MinTemperature->Unit; 
-							$r5 = $key->SevenDaysForecast[4]->Rain->Value; 
-							//$key->SevenDaysForecast[4]->Rain->Unit;
-
-							$d6 = $key->SevenDaysForecast[5]->Date; 
-							$w6 = $key->SevenDaysForecast[5]->WeatherDescription; 
-							//$key->SevenDaysForecast[5]->WeatherDescriptionEn; 
-							$ma6 = $key->SevenDaysForecast[5]->MaxTemperature->Value; 
-							//$key->SevenDaysForecast[5]->MaxTemperature->Unit; 
-							$mi6 = $key->SevenDaysForecast[5]->MinTemperature->Value; 
-							//$key->SevenDaysForecast[5]->MinTemperature->Unit; 
-							$r6 = $key->SevenDaysForecast[5]->Rain->Value; 
-							//$key->SevenDaysForecast[5]->Rain->Unit;
-
-							$d7 = $key->SevenDaysForecast[6]->Date; 
-							$w7 = $key->SevenDaysForecast[6]->WeatherDescription; 
-							//$key->SevenDaysForecast[6]->WeatherDescriptionEn; 
-							$ma7 = $key->SevenDaysForecast[6]->MaxTemperature->Value; 
-							//$key->SevenDaysForecast[6]->MaxTemperature->Unit; 
-							$mi7 = $key->SevenDaysForecast[6]->MinTemperature->Value; 
-							//$key->SevenDaysForecast[6]->MinTemperature->Unit; 
-							$r7 = $key->SevenDaysForecast[6]->Rain->Value; 
-							//$key->SevenDaysForecast[6]->Rain->Unit;
-							
-							if($count < 7){
-
-								for ($x = $count+1; $x <= 7; $x++) {
-								  //echo "The number is: $x <br>";
-									"$d".$x = '-'; 
-									"$w".$x = '-'; 
-									//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
-									"$ma".$x = '-'; 
-									//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
-									"$mi".$x = '-'; 
-									//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
-									"$r".$x = '-'; 
-									//$key->SevenDaysForecast[0]->Rain->Unit; 
-								}	
-
-							}							
-
+							else if($count == 1){							
+								//$key->ProvinceNameTh;
+								//$key->ProvinceNameEnglish;
+								$d1 = $key->SevenDaysForecast[0]->Date; 
+								$w1 = $key->SevenDaysForecast[0]->WeatherDescription; 
+								//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+								$ma1 = $key->SevenDaysForecast[0]->MaxTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+								$mi1 = $key->SevenDaysForecast[0]->MinTemperature->Value; 
+								//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+								$r1 = $key->SevenDaysForecast[0]->Rain->Value; 
+								//$key->SevenDaysForecast[0]->Rain->Unit; 
+							}
 
 							
 
