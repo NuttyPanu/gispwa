@@ -55,7 +55,11 @@
 				echo '<br>';
 				echo $key->ProvinceNameEnglish;
 				echo '<br>';
-				//$key->SevenDaysForecast[0]->Date; 
+				echo $key->SevenDaysForecast[0]->Date; 
+				echo '<br>';
+				echo '<br>';
+				echo $key->SevenDaysForecast[6]->Date; 
+				echo '<br>';
 
 
 				foreach ($key->SevenDaysForecast as $arr) {
