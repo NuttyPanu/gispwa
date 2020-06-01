@@ -5096,771 +5096,852 @@ function replyMsg($event, $client)
 
 
 				else if (preg_match('(#forcast|#weather)', $msg) === 1) {
-					$a = array(
-							array(
-								'type' => 'flex',
-								'altText' => 'weather_forcast',
-								'contents'=> array(
 
-										  "type"=> "bubble",
-										  "size"=> "giga",
-										  "header"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "จังหวัดพระนครศรีอยุธยา",
-													"align"=> "start",
-													"gravity"=> "center",
-													"weight"=> "bold",
-													"size"=> "lg"
-												  )
-												),
-												"paddingStart"=> "10px",
-												"paddingTop"=> "5px"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "image",
-													"url"=> "https://gispwa.herokuapp.com/image/weather.jpg",
-													"size"=> "full",
-													"aspectRatio"=> "3:1",
-													"aspectMode"=> "cover",
-													"align"=> "center",
-													"gravity"=> "center"
-												  ),
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "7 days",
-														"size"=> "sm",
-														"color"=> "#ffffff",
-														"align"=> "start",
-														"gravity"=> "center"
-													  )
-													),
-													"backgroundColor"=> "#EC3D44",
-													"paddingAll"=> "2px",
-													"paddingStart"=> "10px",
-													"paddingEnd"=> "10px",
-													"position"=> "absolute",
-													"offsetStart"=> "18px",
-													"cornerRadius"=> "50px",
-													"height"=> "20px",
-													"width"=> "62px",
-													"offsetTop"=> "18px"
-												  )
-												),
-												"offsetTop"=> "5px"
-											  )
-											),
-											"paddingAll"=> "0px"
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "วันที่",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "สภาพอากาศ",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "อุณหภูมิ",
-															"color"=> "#ffffff",
-															"wrap"=> true,
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝน",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  )
-												),
-												"backgroundColor"=> "#000000"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "01/05/63",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝนฟ้าคะนอง",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "36/20 °C",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "40 %",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "01/05/63",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝนฟ้าคะนอง",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "36/20 °C",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "40 %",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "01/05/63",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝนฟ้าคะนอง",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "36/20 °C",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "40 %",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "01/05/63",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝนฟ้าคะนอง",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "36/20 °C",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "40 %",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "01/05/63",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝนฟ้าคะนอง",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "36/20 °C",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "40 %",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "01/05/63",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝนฟ้าคะนอง",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "36/20 °C",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "40 %",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "box",
-														"layout"=> "horizontal",
-														"contents"=> array(
-														  array(
-															"type"=> "text",
-															"text"=> "01/05/63",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "ฝนฟ้าคะนอง",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "36/20 °C",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  ),
-														  array(
-															"type"=> "text",
-															"text"=> "40 %",
-															"color"=> "#ffffff",
-															"align"=> "center"
-														  )
-														)
-													  )
-													)
-												  ),
-												  array(
-													"type"=> "separator",
-													"margin"=> "md",
-													"color"=> "#000000"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> " ss",
-													"color"=> "#000000"
-												  )
-												),
-												"backgroundColor"=> "#000000",
-												"height"=> "10px"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "01/05/63",
-														"size"=> "xs",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"gravity"=> "center",
-														"wrap"=> true
-													  ),
-													  array(
-														"type"=> "image",
-														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-														"size"=> "xs"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "30 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "20 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "40%",
-														"color"=> "#ffffff",
-														"size"=> "xxs",
-														"align"=> "center",
-														"gravity"=> "center"
-													  )
-													),
-													"spacing"=> "xs"
-												  ),
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "01/05/63",
-														"size"=> "xs",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"gravity"=> "center",
-														"wrap"=> true
-													  ),
-													  array(
-														"type"=> "image",
-														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-														"size"=> "xs"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "30 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "20 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "40%",
-														"color"=> "#ffffff",
-														"size"=> "xxs",
-														"align"=> "center",
-														"gravity"=> "center"
-													  )
-													),
-													"spacing"=> "xs"
-												  ),
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "01/05/63",
-														"size"=> "xs",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"gravity"=> "center",
-														"wrap"=> true
-													  ),
-													  array(
-														"type"=> "image",
-														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-														"size"=> "xs"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "30 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "20 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "40%",
-														"color"=> "#ffffff",
-														"size"=> "xxs",
-														"align"=> "center",
-														"gravity"=> "center"
-													  )
-													),
-													"spacing"=> "xs"
-												  ),
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "01/05/63",
-														"size"=> "xs",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"gravity"=> "center",
-														"wrap"=> true
-													  ),
-													  array(
-														"type"=> "image",
-														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-														"size"=> "xs"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "30 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "20 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "40%",
-														"color"=> "#ffffff",
-														"size"=> "xxs",
-														"align"=> "center",
-														"gravity"=> "center"
-													  )
-													),
-													"spacing"=> "xs"
-												  ),
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "01/05/63",
-														"size"=> "xs",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"gravity"=> "center",
-														"wrap"=> true
-													  ),
-													  array(
-														"type"=> "image",
-														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-														"size"=> "xs"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "30 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "20 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "40%",
-														"color"=> "#ffffff",
-														"size"=> "xxs",
-														"align"=> "center",
-														"gravity"=> "center"
-													  )
-													),
-													"spacing"=> "xs"
-												  ),
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "01/05/63",
-														"size"=> "xs",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"gravity"=> "center",
-														"wrap"=> true
-													  ),
-													  array(
-														"type"=> "image",
-														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-														"size"=> "xs"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "30 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "20 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "40%",
-														"color"=> "#ffffff",
-														"size"=> "xxs",
-														"align"=> "center",
-														"gravity"=> "center"
-													  )
-													),
-													"spacing"=> "xs"
-												  ),
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "text",
-														"text"=> "01/05/63",
-														"size"=> "xs",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"gravity"=> "center",
-														"wrap"=> true
-													  ),
-													  array(
-														"type"=> "image",
-														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
-														"size"=> "xs"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "30 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "20 °C",
-														"color"=> "#ffffff",
-														"align"=> "center",
-														"size"=> "xxs",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> "40%",
-														"color"=> "#ffffff",
-														"size"=> "xxs",
-														"align"=> "center",
-														"gravity"=> "center"
-													  )
-													),
-													"spacing"=> "xs"
-												  )
-												),
-												"paddingTop"=> "10px"
-											  )
-											),
-											"backgroundColor"=> "#464F69",
-											"paddingEnd"=> "2px",
-											"paddingStart"=> "2px",
-											"paddingTop"=> "10px"
-										  )
+					$stat = 0;
 
-								)
-							)
-					);
-                    $client->replyMessage1($event['replyToken'],$a);
- 
+					$split = explode(" ", $msg);
+					$prv=$split[1];
+
+					$fullurl = 'https://data.tmd.go.th/api/WeatherForecast7Days/V1/';
+					 
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_HEADER, 0);
+					curl_setopt($ch, CURLOPT_VERBOSE, 1);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+					//curl_setopt( $ch, CURLOPT_POST, 1); //POST 
+					//curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+					//curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+					curl_setopt($ch, CURLOPT_URL, $fullurl);
+					 
+					$returned =  curl_exec($ch);
+					curl_close($ch);
+
+					//echo $returned;
+					//echo "<br>";
+					//echo "ok";
+
+
+					//header('Content-Type: application/json; charset=utf-8');
+					$json = json_decode($returned);
+
+					//echo $json->Provinces[0]->ProvinceNameTh;
+
+					foreach ($json->Provinces as $key) {
+						//echo $key->ProvinceNameTh;
+						//echo '<br>';
+
+						//echo $key->SevenDaysForecast[0]->WeatherDescription;
+						//echo '<br>';
+
+						//if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
+						if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
+							$stat =1;
+
+							/*
+							//$key->ProvinceNameTh;
+							//$key->ProvinceNameEnglish;
+							//$key->SevenDaysForecast[0]->Date; 
+							//$key->SevenDaysForecast[0]->WeatherDescription; 
+							//$key->SevenDaysForecast[0]->WeatherDescriptionEn; 
+							//$key->SevenDaysForecast[0]->MaxTemperature->Value; 
+							//$key->SevenDaysForecast[0]->MaxTemperature->Unit; 
+							//$key->SevenDaysForecast[0]->MinTemperature->Value; 
+							//$key->SevenDaysForecast[0]->MinTemperature->Unit; 
+							//$key->SevenDaysForecast[0]->Rain->Value; 
+							//$key->SevenDaysForecast[0]->Rain->Unit; 
+							*/
+
+
+							break;
+
+							$a = array(
+									array(
+										'type' => 'flex',
+										'altText' => 'weather_forcast',
+										'contents'=> array(
+
+												  "type"=> "bubble",
+												  "size"=> "giga",
+												  "header"=> array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> $key->ProvinceNameTh,
+															"align"=> "start",
+															"gravity"=> "center",
+															"weight"=> "bold",
+															"size"=> "lg"
+														  )
+														),
+														"paddingStart"=> "10px",
+														"paddingTop"=> "5px"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "image",
+															"url"=> "https://gispwa.herokuapp.com/image/weather.jpg",
+															"size"=> "full",
+															"aspectRatio"=> "3:1",
+															"aspectMode"=> "cover",
+															"align"=> "center",
+															"gravity"=> "center"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> "7 days",
+																"size"=> "sm",
+																"color"=> "#ffffff",
+																"align"=> "start",
+																"gravity"=> "center"
+															  )
+															),
+															"backgroundColor"=> "#EC3D44",
+															"paddingAll"=> "2px",
+															"paddingStart"=> "10px",
+															"paddingEnd"=> "10px",
+															"position"=> "absolute",
+															"offsetStart"=> "18px",
+															"cornerRadius"=> "50px",
+															"height"=> "20px",
+															"width"=> "62px",
+															"offsetTop"=> "18px"
+														  )
+														),
+														"offsetTop"=> "5px"
+													  )
+													),
+													"paddingAll"=> "0px"
+												  ),
+												  "body"=> array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> "วันที่",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> "สภาพอากาศ",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> "อุณหภูมิ",
+																	"color"=> "#ffffff",
+																	"wrap"=> true,
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> "ฝน",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														),
+														"backgroundColor"=> "#000000"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[0]->Date,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[0]->WeatherDescription,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[0]->MaxTemperature->Value."/".$key->SevenDaysForecast[0]->MinTemperature->Value."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[0]->Rain->Value.$key->SevenDaysForecast[0]->Rain->Unit,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[1]->Date,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[1]->WeatherDescription,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[1]->MaxTemperature->Value."/".$key->SevenDaysForecast[1]->MinTemperature->Value."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[1]->Rain->Value.$key->SevenDaysForecast[1]->Rain->Unit,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[2]->Date,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[2]->WeatherDescription,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[2]->MaxTemperature->Value."/".$key->SevenDaysForecast[2]->MinTemperature->Value."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[2]->Rain->Value.$key->SevenDaysForecast[2]->Rain->Unit,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[3]->Date,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[3]->WeatherDescription,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[3]->MaxTemperature->Value."/".$key->SevenDaysForecast[3]->MinTemperature->Value."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[3]->Rain->Value.$key->SevenDaysForecast[3]->Rain->Unit,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[4]->Date,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[4]->WeatherDescription,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[4]->MaxTemperature->Value."/".$key->SevenDaysForecast[4]->MinTemperature->Value."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[4]->Rain->Value.$key->SevenDaysForecast[4]->Rain->Unit,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[5]->Date,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[5]->WeatherDescription,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[5]->MaxTemperature->Value."/".$key->SevenDaysForecast[5]->MinTemperature->Value."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[5]->Rain->Value.$key->SevenDaysForecast[5]->Rain->Unit,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "horizontal",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[6]->Date,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[6]->WeatherDescription,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[6]->MaxTemperature->Value."/".$key->SevenDaysForecast[6]->MinTemperature->Value."°C",
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  ),
+																  array(
+																	"type"=> "text",
+																	"text"=> $key->SevenDaysForecast[6]->Rain->Value.$key->SevenDaysForecast[6]->Rain->Unit,
+																	"color"=> "#ffffff",
+																	"align"=> "center"
+																  )
+																)
+															  )
+															)
+														  )
+														)
+													  ),
+
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> " ss",
+															"color"=> "#000000"
+														  )
+														),
+														"backgroundColor"=> "#000000",
+														"height"=> "10px"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[0]->Date,
+																"size"=> "xs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[0]->MaxTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[0]->MinTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[0]->Rain->Value.$key->SevenDaysForecast[0]->Rain->Unit,
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[1]->Date,
+																"size"=> "xs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[1]->MaxTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[1]->MinTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[1]->Rain->Value.$key->SevenDaysForecast[1]->Rain->Unit,
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[2]->Date,
+																"size"=> "xs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[2]->MaxTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[2]->MinTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[2]->Rain->Value.$key->SevenDaysForecast[2]->Rain->Unit,
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[3]->Date,
+																"size"=> "xs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[3]->MaxTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[3]->MinTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[3]->Rain->Value.$key->SevenDaysForecast[3]->Rain->Unit,
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[4]->Date,
+																"size"=> "xs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[4]->MaxTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[4]->MinTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[4]->Rain->Value.$key->SevenDaysForecast[4]->Rain->Unit,
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[5]->Date,
+																"size"=> "xs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[5]->MaxTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[5]->MinTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[5]->Rain->Value.$key->SevenDaysForecast[5]->Rain->Unit,
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[6]->Date,
+																"size"=> "xs",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"gravity"=> "center",
+																"wrap"=> true
+															  ),
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+																"size"=> "xs"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[6]->MaxTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[6]->MinTemperature->Value."°C",
+																"color"=> "#ffffff",
+																"align"=> "center",
+																"size"=> "xxs",
+																"gravity"=> "center"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> $key->SevenDaysForecast[6]->Rain->Value.$key->SevenDaysForecast[6]->Rain->Unit,
+																"color"=> "#ffffff",
+																"size"=> "xxs",
+																"align"=> "center",
+																"gravity"=> "center"
+															  )
+															),
+															"spacing"=> "xs"
+														  )
+														),
+														"paddingTop"=> "10px"
+													  )
+													),
+													"backgroundColor"=> "#464F69",
+													"paddingEnd"=> "2px",
+													"paddingStart"=> "2px",
+													"paddingTop"=> "10px"
+												  )
+
+										)
+									)
+							);
+							$client->replyMessage1($event['replyToken'],$a);
+		 
+
+
+						}
+						else{
+							continue;
+						}
+
+
+
+
+					}
+
+					if ($stat == 0){
+
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => 'โปรดระบุชื่อจังหวัดให้ถูกต้อง'
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
+
+					}
+
+
+
 
 				}
 

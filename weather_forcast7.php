@@ -66,7 +66,7 @@
 					echo $arr->Date;  // 0-6  sum 7 days
 					echo '<br>';
 
-					echo $arr->WeatherDescription;  // "ฝนฟ้าคะนอง",ท้องฟ้ามีเมฆบางส่วน
+					echo $arr->WeatherDescription;  // "ฝนฟ้าคะนอง",ท้องฟ้ามีเมฆบางส่วน ---ท้องฟ้าโปร่ง
 					echo $arr->WeatherDescriptionEn;  // ""Heavy Rain",",
 					echo '<br>';
 
@@ -125,5 +125,9 @@
 		  }
 		}
 		*/
+
+$type_weather= array("Hot"=>"อากาศร้อน","Very Hot"=>"อากาศร้อนจัด","Cool"=>"อากาศเย็น","Cold"=>"อากาศหนาว","Very Cold"=>"อากาศหนาวจัด",
+"Isolated"=>"ฝนบางพื้นที่","Widely Scattered"=>"ฝนกระจายเป็นแห่งๆ","Scattered"=>"ฝนกระจาย","Almost Widespread"=>"ฝนเกือบทั่วไป","Widespread"=>"ฝนทั่วไป",
+"Light Rain"=>"ฝนเล็กน้อย","Moderate Rain"=>"ฝนปานกลาง","Heavy Rain"=>"ฝนหนัก","Very Heavy Rain"=>"ฝนหนักมาก","Fine"=>"ท้องฟ้าแจ่มใส","Fair="=>"ท้องฟ้าโปร่ง","Partly Cloudy Sky"=>"ท้องฟ้ามีเมฆบางส่วน","Cloudy Sky"=>"ท้องฟ้ามีเมฆเป็นส่วนมาก","Very Cloudy Sky"=>"ท้องฟ้ามีเมฆมาก","Overcast Sky"=>"ท้องฟ้ามีเมฆเต็มท้องฟ้า")
 
 ?>
