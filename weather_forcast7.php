@@ -38,7 +38,7 @@ $fileContents = trim(str_replace('"', "'", $fileContents));
 $simpleXml = simplexml_load_string($fileContents);
 $json = json_encode($simpleXml);
 $array = json_decode($json,TRUE); // convert the JSON-encoded string to a PHP variable
-return $array;
+//return $array;
 
 header('Content-Type: application/json; charset=utf-8');
 echo $json;
