@@ -5095,6 +5095,776 @@ function replyMsg($event, $client)
                 }
 
 
+				else if (preg_match('(#forcast|#weather)', $msg) === 1) {
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => 'weather_forcast',
+								'contents'=> array(
+
+										  "type"=> "bubble",
+										  "size"=> "giga",
+										  "header"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "จังหวัดพระนครศรีอยุธยา",
+													"align"=> "start",
+													"gravity"=> "center",
+													"weight"=> "bold",
+													"size"=> "lg"
+												  )
+												),
+												"paddingStart"=> "10px",
+												"paddingTop"=> "5px"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> "https://gispwa.herokuapp.com/image/weather.jpg",
+													"size"=> "full",
+													"aspectRatio"=> "3:1",
+													"aspectMode"=> "cover",
+													"align"=> "center",
+													"gravity"=> "center"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "7 days",
+														"size"=> "sm",
+														"color"=> "#ffffff",
+														"align"=> "start",
+														"gravity"=> "center"
+													  )
+													),
+													"backgroundColor"=> "#EC3D44",
+													"paddingAll"=> "2px",
+													"paddingStart"=> "10px",
+													"paddingEnd"=> "10px",
+													"position"=> "absolute",
+													"offsetStart"=> "18px",
+													"cornerRadius"=> "50px",
+													"height"=> "20px",
+													"width"=> "62px",
+													"offsetTop"=> "18px"
+												  )
+												),
+												"offsetTop"=> "5px"
+											  )
+											),
+											"paddingAll"=> "0px"
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "วันที่",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "สภาพอากาศ",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "อุณหภูมิ",
+															"color"=> "#ffffff",
+															"wrap"=> true,
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝน",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  )
+												),
+												"backgroundColor"=> "#000000"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "01/05/63",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝนฟ้าคะนอง",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "36/20 °C",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "40 %",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "01/05/63",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝนฟ้าคะนอง",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "36/20 °C",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "40 %",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "01/05/63",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝนฟ้าคะนอง",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "36/20 °C",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "40 %",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "01/05/63",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝนฟ้าคะนอง",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "36/20 °C",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "40 %",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "01/05/63",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝนฟ้าคะนอง",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "36/20 °C",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "40 %",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "01/05/63",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝนฟ้าคะนอง",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "36/20 °C",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "40 %",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "01/05/63",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ฝนฟ้าคะนอง",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "36/20 °C",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "40 %",
+															"color"=> "#ffffff",
+															"align"=> "center"
+														  )
+														)
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "separator",
+													"margin"=> "md",
+													"color"=> "#000000"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> " ss",
+													"color"=> "#000000"
+												  )
+												),
+												"backgroundColor"=> "#000000",
+												"height"=> "10px"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "01/05/63",
+														"size"=> "xs",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"gravity"=> "center",
+														"wrap"=> true
+													  ),
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+														"size"=> "xs"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "30 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "20 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "40%",
+														"color"=> "#ffffff",
+														"size"=> "xxs",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"spacing"=> "xs"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "01/05/63",
+														"size"=> "xs",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"gravity"=> "center",
+														"wrap"=> true
+													  ),
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+														"size"=> "xs"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "30 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "20 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "40%",
+														"color"=> "#ffffff",
+														"size"=> "xxs",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"spacing"=> "xs"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "01/05/63",
+														"size"=> "xs",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"gravity"=> "center",
+														"wrap"=> true
+													  ),
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+														"size"=> "xs"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "30 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "20 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "40%",
+														"color"=> "#ffffff",
+														"size"=> "xxs",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"spacing"=> "xs"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "01/05/63",
+														"size"=> "xs",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"gravity"=> "center",
+														"wrap"=> true
+													  ),
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+														"size"=> "xs"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "30 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "20 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "40%",
+														"color"=> "#ffffff",
+														"size"=> "xxs",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"spacing"=> "xs"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "01/05/63",
+														"size"=> "xs",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"gravity"=> "center",
+														"wrap"=> true
+													  ),
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+														"size"=> "xs"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "30 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "20 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "40%",
+														"color"=> "#ffffff",
+														"size"=> "xxs",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"spacing"=> "xs"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "01/05/63",
+														"size"=> "xs",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"gravity"=> "center",
+														"wrap"=> true
+													  ),
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+														"size"=> "xs"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "30 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "20 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "40%",
+														"color"=> "#ffffff",
+														"size"=> "xxs",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"spacing"=> "xs"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "01/05/63",
+														"size"=> "xs",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"gravity"=> "center",
+														"wrap"=> true
+													  ),
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/icon_w.png",
+														"size"=> "xs"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "30 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "20 °C",
+														"color"=> "#ffffff",
+														"align"=> "center",
+														"size"=> "xxs",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> "40%",
+														"color"=> "#ffffff",
+														"size"=> "xxs",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"spacing"=> "xs"
+												  )
+												),
+												"paddingTop"=> "10px"
+											  )
+											),
+											"backgroundColor"=> "#464F69",
+											"paddingEnd"=> "2px",
+											"paddingStart"=> "2px",
+											"paddingTop"=> "10px"
+										  )
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+
+				}
+
+
 				else if (preg_match('(#carousel|#carousel)', $msg) === 1) {
 
 
