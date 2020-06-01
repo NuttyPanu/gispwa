@@ -5591,13 +5591,13 @@ function replyMsg($event, $client)
 														),
 														"backgroundColor"=> "#000000",
 														"height"=> "10px"
-													  ),
+													  )/*,
 													
 													  array(
 														"type"=> "box",
 														"layout"=> "horizontal",
 														"contents"=> array(
-														  /*
+														  
 														  array(
 															"type"=> "box",
 															"layout"=> "vertical",
@@ -5643,7 +5643,7 @@ function replyMsg($event, $client)
 															),
 															"spacing"=> "xs"
 														  ),
-														  */
+														  
 														  array(
 															"type"=> "box",
 															"layout"=> "vertical",
@@ -5917,7 +5917,7 @@ function replyMsg($event, $client)
 														),
 														"paddingTop"=> "10px"
 													  )
-													  
+													  */
 													),
 													"backgroundColor"=> "#464F69",
 													"paddingEnd"=> "2px",
