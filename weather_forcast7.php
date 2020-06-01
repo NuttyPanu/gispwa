@@ -41,6 +41,6 @@ $array = json_decode($json,TRUE); // convert the JSON-encoded string to a PHP va
 return $array;
 
 header('Content-Type: application/json; charset=utf-8');
-echo $array;
+echo $json;
 
 ?>
