@@ -47,7 +47,7 @@
 
 
 			//if(preg_match('(กรุงเทพ|กรุงเทพมหานคร)', $key->ProvinceNameTh) === 1){
-			if(preg_match('/($prv)/', $key->ProvinceNameTh) === 1){
+			if(preg_match("'".$prv."'", $key->ProvinceNameTh) === 1){
 
 				echo '<br>';
 				echo '-----------------------------------------------------';
