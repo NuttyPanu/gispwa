@@ -5864,7 +5864,7 @@ function replyMsg($event, $client)
 															  )
 															),
 															"spacing"=> "xs"
-														  ),
+														  )/*,
 														  array(
 															"type"=> "box",
 															"layout"=> "vertical",
@@ -5910,6 +5910,7 @@ function replyMsg($event, $client)
 															),
 															"spacing"=> "xs"
 														  )
+														  */
 														),
 														"paddingTop"=> "10px"
 													  )
