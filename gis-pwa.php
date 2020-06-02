@@ -4238,7 +4238,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
@@ -4251,7 +4251,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
@@ -4279,7 +4279,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
@@ -4292,7 +4292,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
@@ -4432,26 +4432,26 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "สภาพอากาศ",
-													'text'=> '#สภาพอากาศ'
+													'label'=> "คุณภาพอากาศ",
+													'text'=> '#คุณภาพอากาศ'
 													)
 										   ),
 										   array(
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "โควิด 19",
-													'text'=> '#คำสั่งโควิด'
+													'label'=> "พยากรณ์อากาศ",
+													'text'=> '#forcast'
 													)
 										   )
 										  )
@@ -4474,7 +4474,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
@@ -4487,7 +4487,7 @@ function replyMsg($event, $client)
 											'type'=> "button",
 											'style'=> "primary",
 											'height'=> "sm",
-											//'flex'=> "6",
+											//'flex'=> 6,
 											'margin'=> "md",
 											//"gravity"=> "center",
 											'action'=> array(
@@ -4496,8 +4496,52 @@ function replyMsg($event, $client)
 													'text'=> '#คำสั่งนัดหมาย'
 													)
 										   )
+
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  ),
+										  array(
+											"type"=> "separator"
 										  )
-										
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "horizontal",
+										'contents'=> array(
+
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											//'flex'=> 6,
+											'margin'=> "md",
+											//"gravity"=> "center",
+											'action'=> array(
+													'type'=> "message",
+													'label'=> "ติดตามพัสดุไปรษณีย์",
+													'text'=> '#track เลขพัสดุ'
+													)
+										   ),
+										   array(
+											'type'=> "button",
+											'style'=> "primary",
+											'height'=> "sm",
+											//'flex'=> 6,
+											'margin'=> "md",
+											//"gravity"=> "center",
+											'action'=> array(
+													'type'=> "message",
+													'label'=> "โควิด 19",
+													'text'=> '#คำสั่งโควิด'
+													)
+										   )
+										  )
 									  ),
 									  array(
 										"type"=> "box",
@@ -6693,7 +6737,7 @@ function replyMsg($event, $client)
 
 				}
 
-				else if ($msg == '#สภาพอากาศ') {
+				else if ($msg == '#คุณภาพอากาศ') {
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
