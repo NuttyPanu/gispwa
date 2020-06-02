@@ -3565,7 +3565,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "link",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
