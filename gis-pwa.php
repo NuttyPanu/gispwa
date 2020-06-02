@@ -5577,6 +5577,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> "วันที่",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5624,6 +5625,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $d1,
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5667,6 +5669,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $d2,
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5710,6 +5713,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $d3,
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5753,6 +5757,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $d4,
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5796,6 +5801,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $d5,
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5839,6 +5845,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $d6,
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
@@ -5882,6 +5889,7 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $d7,
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
