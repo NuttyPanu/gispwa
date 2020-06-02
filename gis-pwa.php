@@ -4849,6 +4849,14 @@ function replyMsg($event, $client)
 
 				else if (preg_match('(#sally|#sally)', $msg) === 1) {
 
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => '#sally.',
+								'contents'=> array(
+
+
 										  "type"=> "bubble",
 										  "size"=> "mega",// giga,mega,kilo,macro,nano defult:mega
 										  "body"=> array(
