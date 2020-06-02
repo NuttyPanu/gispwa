@@ -4856,12 +4856,10 @@ function replyMsg($event, $client)
 								'altText' => '#วิธีการใช้งานไลน์บอท.',
 								'contents'=> array(
 
-								/* เอามาจากflex*/
-
-
 									  "type"=> "carousel",
 									  "contents"=> array(
 
+										array(
 										  "type"=> "bubble",
 										  "size"=> "mega",// giga,mega,kilo,macro,nano defult:mega
 										  "body"=> array(
@@ -4903,8 +4901,53 @@ function replyMsg($event, $client)
 											  )
 											)
 										  )
-
+										),
+										array(
+										  "type"=> "bubble",
+										  "size"=> "mega",// giga,mega,kilo,macro,nano defult:mega
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> "https://gispwa.herokuapp.com/image/sally.jpg",
+													"aspectRatio"=> "1:2",
+													"aspectMode"=> "cover"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "flex=1",
+													"flex"=> 1,
+													"gravity"=> "center"
+												  ),
+												  array(
+													"type"=> "separator"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "flex=1",
+													"flex"=> 1,
+													"gravity"=> "center"
+												  )
+												)
+											  )
+											)
+										  )
 										)
+
+									   )
+
 								)
 							)
 					);
