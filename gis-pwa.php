@@ -4856,6 +4856,11 @@ function replyMsg($event, $client)
 								'altText' => '#วิธีการใช้งานไลน์บอท.',
 								'contents'=> array(
 
+								/* เอามาจากflex*/
+
+
+									  "type"=> "carousel",
+									  "contents"=> array(
 
 										  "type"=> "bubble",
 										  "size"=> "mega",// giga,mega,kilo,macro,nano defult:mega
@@ -4899,7 +4904,7 @@ function replyMsg($event, $client)
 											)
 										  )
 
-
+										)
 								)
 							)
 					);
