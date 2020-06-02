@@ -4504,9 +4504,6 @@ function replyMsg($event, $client)
 										"contents"=> array(
 										  array(
 											"type"=> "spacer"
-										  ),
-										  array(
-											"type"=> "separator"
 										  )
 										)
 									  ),
