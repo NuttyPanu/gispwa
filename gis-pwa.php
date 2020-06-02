@@ -4496,7 +4496,7 @@ function replyMsg($event, $client)
 													'text'=> '#คำสั่งนัดหมาย'
 													)
 										   )
-
+										  )
 									  ),
 									  array(
 										"type"=> "box",
@@ -4555,6 +4555,7 @@ function replyMsg($event, $client)
 										  )
 										)
 									  )
+
 									)
 								  )/*,
 								  "footer"=> array(
