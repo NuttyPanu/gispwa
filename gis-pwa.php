@@ -304,16 +304,16 @@ if ( $_REQUEST['send'] == 'register' )
 
 if ($_REQUEST['send'] == 'memo'){
 	$id;
-	if($_REQUEST['to'] == 'gispwa'){
+	if($_REQUEST['by'] == 'gispwa'){
         $id = "C6c9793d99e321e4659397c52365a68d3"; // gis_pwa
 	}
-	if($_REQUEST['to'] == 'meter'){
+	else if($_REQUEST['by'] == 'meter'){
         $id = "C6cf4977144b0d1c6aa8b5be22b04272c"; // METER
 	}
-	if($_REQUEST['to'] == 'gisdev'){
+	else if($_REQUEST['by'] == 'gisdev'){
         $id = "C6d63e07eb0065b5019b861f11073fc41"; // $GISDEV
 	}
-	if($_REQUEST['to'] == 'nut'){
+	else if($_REQUEST['by'] == 'nut'){
         $id = "U87b618904b23471df5c43312458c016b"; // $NUT
 	}
 	else{
