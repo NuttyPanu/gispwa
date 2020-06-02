@@ -466,7 +466,7 @@ if (!is_null($events['events'])) {
 			}
 
 
-			else if (preg_match('(สถานการณ์โควิด|สรุปโควิด)', $text) === 1) {
+			else if (preg_match('(#สถานการณ์โควิด|#สรุปโควิด)', $text) === 1) {
 
 				$handle1 = curl_init();
 				 
@@ -4535,7 +4535,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "โควิด 19",
-													'text'=> '#คำสั่งโควิด'
+													'text'=> '#สรุปโควิด'
 													)
 										   )
 										  )
