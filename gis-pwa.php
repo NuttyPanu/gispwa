@@ -3301,7 +3301,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3327,7 +3327,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3353,7 +3353,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3403,7 +3403,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3429,7 +3429,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3455,7 +3455,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3481,7 +3481,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
@@ -3531,7 +3531,7 @@ function replyMsg($event, $client)
 										'contents'=> array(
 										   array(
 											'type'=> "button",
-											'style'=> "primary",
+											'style'=> "secondary",
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "uri",
