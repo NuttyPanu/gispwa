@@ -5591,13 +5591,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> "อุณหภูมิ",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
-																		"wrap"=> true,
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> "ฝน",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
@@ -5639,12 +5640,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $ma1."/".$mi1."°C",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> $r1."%",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
@@ -5683,12 +5686,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $ma2."/".$mi2."°C",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> $r2."%",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
@@ -5727,12 +5732,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $ma3."/".$mi3."°C",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> $r3."%",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
@@ -5771,12 +5778,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $ma4."/".$mi4."°C",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> $r4."%",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
@@ -5815,12 +5824,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $ma5."/".$mi5."°C",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> $r5."%",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
@@ -5859,12 +5870,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $ma6."/".$mi6."°C",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> $r6."%",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
@@ -5903,12 +5916,14 @@ function replyMsg($event, $client)
 																	  array(
 																		"type"=> "text",
 																		"text"=> $ma7."/".$mi7."°C",
+																		"flex"=> 2,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  ),
 																	  array(
 																		"type"=> "text",
 																		"text"=> $r7."%",
+																		"flex"=> 1,
 																		"color"=> "#ffffff",
 																		"align"=> "center"
 																	  )
