@@ -303,26 +303,26 @@ if ( $_REQUEST['send'] == 'register' )
 
 
 if ($_REQUEST['send'] == 'memo'){
-	$ugid;
+	$id;
 	if($_REQUEST['to'] == 'gispwa'){
-        $ugid = "C6c9793d99e321e4659397c52365a68d3"; // gis_pwa
+        $id = "C6c9793d99e321e4659397c52365a68d3"; // gis_pwa
 	}
 	if($_REQUEST['to'] == 'meter'){
-        $ugid = "C6cf4977144b0d1c6aa8b5be22b04272c"; // METER
+        $id = "C6cf4977144b0d1c6aa8b5be22b04272c"; // METER
 	}
 	if($_REQUEST['to'] == 'gisdev'){
-        $ugid = "C6d63e07eb0065b5019b861f11073fc41"; // $GISDEV
+        $id = "C6d63e07eb0065b5019b861f11073fc41"; // $GISDEV
 	}
 	if($_REQUEST['to'] == 'nut'){
-        $ugid = "U87b618904b23471df5c43312458c016b"; // $NUT
+        $id = "U87b618904b23471df5c43312458c016b"; // $NUT
 	}
 	else{
-		$ugid = "U87b618904b23471df5c43312458c016b"; // $NUT
+		$id = "U87b618904b23471df5c43312458c016b"; // $NUT
 	}
 
 	//$key_noti =$key_notify['Nutty'];
 	//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
-	$message = '';
+	$mหg = '';
 	$memo_=array(
 		"03-06-2020"=>"วันหยุดนะครับวันหยุด (3 มิ.ย. 63)",
 		"12-06-2020"=>"หมด เวลา wfh แล้วนะจ๊ะ (12 มิ.ย. 63)",
@@ -340,30 +340,30 @@ if ($_REQUEST['send'] == 'memo'){
 	if(array_key_exists($s7d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
+		$mหg .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
 	}
 	if(array_key_exists($s3d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
+		$mหg .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
 	}
 	if(array_key_exists($s2d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
+		$mหg .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
 	}
 	if(array_key_exists($s1d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
+		$mหg .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
 	}
 
 	if(array_key_exists($today_, $memo_))
 	{
-		$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
+		$mหg .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
 	}				
 
-	notify($ugid,$message);
+	notify($id,$mหg);
 		
 
 }
