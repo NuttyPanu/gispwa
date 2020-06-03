@@ -5933,7 +5933,8 @@ function replyMsg($event, $client)
 															"style"=> "italic"
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
@@ -6056,7 +6057,8 @@ function replyMsg($event, $client)
 															"style"=> "italic"
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
@@ -6179,7 +6181,8 @@ function replyMsg($event, $client)
 															"style"=> "italic"
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
@@ -6328,7 +6331,8 @@ function replyMsg($event, $client)
 															"wrap"=> true
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
@@ -6398,6 +6402,159 @@ function replyMsg($event, $client)
 
 				}
 
+				else if (preg_match('(#web3|#web3)', $msg) === 1) {
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => 'ระบบกภส.',
+								'contents'=> array(
+
+								/* เอามาจากflex*/
+
+
+									  "type"=> "carousel",
+									  "contents"=> array(
+
+												array(
+												  "type"=> "bubble",
+												  "header"=> array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "image",
+															"url"=> "https://gispwa.herokuapp.com/image/bg_01.jpg",
+															"size"=> "full",
+															"aspectMode"=> "cover",
+															"aspectRatio"=> "2:1",
+															"gravity"=> "center",
+															"flex"=> 1
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "สนับสนุนระบบงานอื่นๆ",
+															"size"=> "md",
+															"weight"=> "bold",
+															"align"=> "center",
+															"gravity"=> "center"
+														  )
+														),
+														"backgroundColor"=> "#99ff99"
+													  )
+													),
+													"paddingAll"=> "0px"
+												  ),
+												  "body"=> array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"contents"=> array(),
+																"size"=> "lg",
+																"wrap"=> true,
+																"text"=> "ระบบคัดสำเนาการทะเบียน",
+																"weight"=> "bold",
+																"decoration"=> "underline"
+															  ),
+															  array(
+																"type"=> "text",
+																"text"=> "พัฒนาขึ้นเพื่อรองรับการยกเลิกการขอสำเนาบัตรประจำตัวประชาชน สำเนาทะเบียนบ้าน และสำเนาเอกสารอื่นๆ ที่ทางราชการออกให้กับประชาชนฯ",
+																"size"=> "sm",
+																"margin"=> "md",
+																"style"=> "italic",
+																"wrap"=> true
+															  )
+															),
+															"spacing"=> "sm",
+															"paddingAll"=> "5px"
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "box",
+																"layout"=> "vertical",
+																"contents"=> array(
+																  array(
+																	"type"=> "text",
+																	"contents"=> array(),
+																	"size"=> "sm",
+																	"wrap"=> true,
+																	"margin"=> "lg",
+																	"text"=> "*สำหรับพนักงานที่มีสิทธิ์เท่านั้น"
+																  )
+																)
+															  )
+															),
+															"backgroundColor"=> "#ffffff1A",
+															"cornerRadius"=> "2px",
+															"margin"=> "md",
+															"paddingStart"=> "13px",
+															"paddingEnd"=> "13px",
+															"paddingTop"=> "5px"
+														  )
+														)
+													  )
+													),
+													"backgroundColor"=> "#ffffff",
+													"paddingTop"=> "10px"
+												  ),
+												  "footer"=> array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "button",
+														"action"=> array(
+														  "type"=> "uri",
+														  "label"=> "เข้าระบบ",
+														  "uri"=> "https://gisweb1.pwa.co.th/dga/"
+														),
+														"height"=> "sm",
+														"style"=> "link",
+														"gravity"=> "center",
+														"color"=> "#ffffff"
+													  )
+													),
+													"paddingAll"=> "0px",
+													"backgroundColor"=> "#007cc2"
+												  )
+												)
+
+										)
+
+
+								/* เอามาจากflex*/
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+
+
+
+				}
 
 
 
