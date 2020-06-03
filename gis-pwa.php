@@ -5230,7 +5230,7 @@ function replyMsg($event, $client)
 
 
 
-				else if (preg_match('(#web|#web)', $msg) === 1) {
+				else if (preg_match('(#web1|#web1)', $msg) === 1) {
 
 					$a = array(
 							array(
@@ -8234,24 +8234,48 @@ function replyMsg($event, $client)
 										'type' => 'flex',
 										'altText' => 'ขอใช้น้ำประปา กปภ.',
 										'contents'=> array(
-													'type'=> 'bubble',
-													"size"=> "nano",// giga,mega,kilo,macro,nano defult:mega
-													'body'=> array(
-															 'type'=> "box",
-															 'layout'=> "vertical",
-															 'contents'=> array(
-																			  array(
-																			   'type'=> "button",
-																			   'style'=> "primary",
-																			   'height'=> "sm",
-																			   'action'=> array(
-																							'type'=> "uri",
-																							'label'=> "ขอใช้น้ำประปา กปภ.",
-																							'uri'=> 'https://customer-application.pwa.co.th/register-service/add'
-																						   )
-																			  )
-															 )
-													)
+													  "type"=> "bubble",
+													  "body"=> array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "horizontal",
+															"contents"=> array(
+															  array(
+																"type"=> "image",
+																"url"=> "https://gispwa.herokuapp.com/image/pwa.jpg",
+																"size"=> "full",
+																"aspectMode"=> "cover",
+																"aspectRatio"=> "5:3",
+																"gravity"=> "center",
+																"flex"=> 1
+															  )
+															)
+														  ),
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "button",
+																"action"=> array(
+																  "type"=> "uri",
+																  "label"=> "ขอใช้น้ำประปา กปภ.",
+																  "uri"=> "https://customer-application.pwa.co.th/register-service/add"
+																),
+																"style"=> "primary",
+																"color"=> "#3366ff",
+																"height"=> "sm",
+																"gravity"=> "center"
+															  )
+															),
+															"paddingAll"=> "15px"
+														  )
+														),
+														"paddingAll"=> "0px"
+													  )
 										)
 									)
 									/*
