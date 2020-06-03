@@ -868,7 +868,7 @@ if (!is_null($events['events'])) {
 
 
 			/*
-			else if ($text == '#ตรวจสอบพื้นที่ให้บริการ') {
+			else if ($text == '#"=>นที่ให้บริการ') {
 
 				$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
 				$res = get_url($urllink); 
@@ -877,7 +877,7 @@ if (!is_null($events['events'])) {
 				if ($str == 'found'){
 					$messages = [
 					'type' => 'text',
-					'text' => 'โปรดแชร์ Location เพื่อตรวจสอบพื้นที่ให้บริการ'
+					'text' => 'โปรดแชร์ Location เพื่อ"=>นที่ให้บริการ'
 					];
 				}
 				else if ($str == 'notfound'){
@@ -4444,7 +4444,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> "ตรวจสอบพื้นที่ให้บริการ",
+													'label'=> ""=>นที่ให้บริการ",
 													'text'=> '#คำสั่งservicearea'
 													)
 										   )
@@ -8156,33 +8156,21 @@ function replyMsg($event, $client)
 				}
 				if($rec->pwaarea != 'no'){
 
-
+					/*
 					$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
 						$res = get_url($urllink); 
 						$str = trim($res); 
 
 					if ($str == 'found'){
-						/*
-						$text = [
-								"type"=> "location",
-								"title"=> 'ตำแหน่งของท่าน',
-								"address"=> $address,
-								"latitude"=> $latitude,
-								"longitude"=> $longitude
-								];       
-						$uid = $event['replyToken']; // id reply
-						$client->replyMessage($uid, $text);
-						*/
 
-					   /*
-						$client->replyMessage1($event['replyToken'],array(
-										array(
-											'type' => 'text',
-											'text' => 'GPS'				
-										)
-									)
-						);
-						*/
+
+					}
+
+					else if ($str == 'notfound'){
+
+					}
+					*/
+
 
 						if ($gid){
 							$t = 'กำลังตรวจสอบตำแหน่งของท่าน โปรดรอสักครู่ ...';	
@@ -8266,7 +8254,7 @@ function replyMsg($event, $client)
 																  "uri"=> "https://customer-application.pwa.co.th/register-service/add"
 																),
 																"style"=> "primary",
-																"color"=> "#3366ff",
+																"color"=> "#1a75ff",
 																"height"=> "sm",
 																"gravity"=> "center"
 															  )
@@ -8378,15 +8366,6 @@ function replyMsg($event, $client)
 						
 
 
-
-
-
-
-					}
-
-					else if ($str == 'notfound'){
-
-					}
 
 
 				}
