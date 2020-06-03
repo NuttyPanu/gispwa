@@ -4202,7 +4202,7 @@ function replyMsg($event, $client)
  
                 }
 
-				else if (preg_match('(#help|#help)', $msg) === 1) {
+				else if (preg_match('(#helpdesk|#helpdesk)', $msg) === 1) {
 
 
 					$a = array(
@@ -4260,7 +4260,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#web1"
+															}
 														  )
 														)
 													  ),
@@ -4284,7 +4289,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#web2"
+															}
 														  )
 														)
 													  ),
@@ -4308,7 +4318,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#web3"
+															}
 														  )
 														)
 													  )
@@ -4353,7 +4368,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#ลงทะเบียน"
+															}
 														  )
 														)
 													  ),
@@ -4377,7 +4397,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#dga"
+															}
 														  )
 														)
 													  ),
@@ -4401,7 +4426,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#helpupload"
+															}
 														  )
 														)
 													  ),
@@ -4425,7 +4455,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#helpmeterstat"
+															}
 														  )
 														)
 													  )
@@ -4493,7 +4528,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#ค้นหาตำแหน่งกปภ."
+															}
 														  )
 														)
 													  ),
@@ -4517,7 +4557,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#ตรวจสอบพื้นที่ให้บริการ"
+															}
 														  )
 														)
 													  ),
@@ -4541,7 +4586,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#นัดหมาย"
+															}
 														  )
 														)
 													  ),
@@ -4565,7 +4615,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#bot"
+															}
 														  )
 														)
 													  )
@@ -4640,7 +4695,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#คุณภาพอากาศ"
+															}
 														  )
 														)
 													  ),
@@ -4664,7 +4724,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#สภาพอากาศ"
+															}
 														  )
 														)
 													  ),
@@ -4688,7 +4753,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#track"
+															}
 														  )
 														)
 													  ),
@@ -4712,7 +4782,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#สรุปโควิด"
+															}
 														  )
 														)
 													  ),
@@ -4737,7 +4812,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#ราคาน้ำมัน"
+															}
 														  )
 														)
 													  ),
@@ -4762,7 +4842,12 @@ function replyMsg($event, $client)
 															"text"=> "More...",
 															"size"=> "sm",
 															"align"=> "end",
-															"color"=> "#aaaaaa"
+															"color"=> "#aaaaaa",
+															"action": {
+															  "type": "message",
+															  "label": "More...",
+															  "text": "#ราคาทองคำ"
+															}
 														  )
 														)
 													  )
