@@ -5706,7 +5706,7 @@ function replyMsg($event, $client)
 														"aspectRatio"=> "2:1",
 														"gravity"=> "center",
 														"flex"=> 1
-													  ),
+													  )/*,
 													  array(
 														"type"=> "box",
 														"layout"=> "horizontal",
@@ -5731,7 +5731,7 @@ function replyMsg($event, $client)
 														"cornerRadius"=> "100px",
 														"width"=> "48px",
 														"height"=> "25px"
-													  )
+													  )*/
 													)
 												  ),
 												  array(
@@ -6450,7 +6450,7 @@ function replyMsg($event, $client)
 															"gravity"=> "center"
 														  )
 														),
-														"backgroundColor"=> "#99ff99"
+														"backgroundColor"=> "#ffcc99"
 													  )
 													),
 													"paddingAll"=> "0px"
