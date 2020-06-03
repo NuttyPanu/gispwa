@@ -4222,20 +4222,12 @@ function replyMsg($event, $client)
 												"url"=> "https://gispwa.herokuapp.com/image/bg_web.jpg",
 												"size"=> "full",
 												"aspectRatio"=> "20:12",
-												"aspectMode"=> "cover",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "https://linecorp.com"
-												)
+												"aspectMode"=> "cover"
 											  ),
 											  "body"=> array(
 												"type"=> "box",
 												"layout"=> "vertical",
 												"spacing"=> "md",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "https://linecorp.com"
-												),
 												"contents"=> array(
 												  array(
 													"type"=> "text",
@@ -4449,20 +4441,12 @@ function replyMsg($event, $client)
 												"url"=> "https://www.callcentrehelper.com/images/stories/2016/07/customer-service.jpg",
 												"size"=> "full",
 												"aspectRatio"=> "20:12",
-												"aspectMode"=> "cover",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "https://linecorp.com"
-												)
+												"aspectMode"=> "cover"
 											  ),
 											  "body"=> array(
 												"type"=> "box",
 												"layout"=> "vertical",
 												"spacing"=> "md",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "https://linecorp.com"
-												),
 												"contents"=> array(
 												  array(
 													"type"=> "text",
@@ -4604,20 +4588,12 @@ function replyMsg($event, $client)
 												"url"=> "https://www.callcentrehelper.com/images/stories/2016/07/customer-service.jpg",
 												"size"=> "full",
 												"aspectRatio"=> "20:12",
-												"aspectMode"=> "cover",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "https://linecorp.com"
-												)
+												"aspectMode"=> "cover"
 											  ),
 											  "body"=> array(
 												"type"=> "box",
 												"layout"=> "vertical",
 												"spacing"=> "md",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "https://linecorp.com"
-												),
 												"contents"=> array(
 												  array(
 													"type"=> "text",
