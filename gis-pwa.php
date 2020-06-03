@@ -4213,6 +4213,617 @@ function replyMsg($event, $client)
 
 								/* เอามาจากflex*/
 
+										  "type"=> "carousel",
+										  "contents"=> array(
+											array(
+											  "type"=> "bubble",
+											  "hero"=> array(
+												"type"=> "image",
+												"url"=> "https://gispwa.herokuapp.com/image/bg_web.jpg",
+												"size"=> "full",
+												"aspectRatio"=> "20:12",
+												"aspectMode"=> "cover",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "https://linecorp.com"
+												)
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"spacing"=> "md",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "https://linecorp.com"
+												),
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "ระบบที่พัฒนาโดย กภส.",
+													"size"=> "xl",
+													"weight"=> "bold"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"spacing"=> "sm",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "สนับสนุนระบบงานกปภ.",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "สนับสนุนระบบงาน GIS",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "สนับสนุนระบบงานอื่นๆ",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"spacing"=> "sm",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "สำหรับพนักงาน",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  )
+														),
+														"paddingTop"=> "10px"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "การลงทะเบียน",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ตรวจสอบโควต้า DGA",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ตรวจสอบการอัพโหลด GIS",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "จัดการสิทธิ์ติดตามมาตร",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  )
+													)
+												  )
+												)
+											  )
+											),
+											array(
+											  "type"=> "bubble",
+											  "hero"=> array(
+												"type"=> "image",
+												"url"=> "https://www.callcentrehelper.com/images/stories/2016/07/customer-service.jpg",
+												"size"=> "full",
+												"aspectRatio"=> "20:12",
+												"aspectMode"=> "cover",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "https://linecorp.com"
+												)
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"spacing"=> "md",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "https://linecorp.com"
+												),
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "Service & API",
+													"size"=> "xl",
+													"weight"=> "bold"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"spacing"=> "sm",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "บริการของกปภ.",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  )
+														),
+														"paddingTop"=> "10px"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ค้นหาตำแหน่ง กปภ.",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ตรวจสอบพื้นที่ให้บริการ",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "นัดหมาย",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "สอนบอท",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "*อยู่ระหว่างการพัฒนาปรับปรุงระบบ",
+													"wrap"=> true,
+													"color"=> "#aaaaaa",
+													"size"=> "xxs"
+												  )
+												)
+											  )
+											),
+											array(
+											  "type"=> "bubble",
+											  "hero"=> array(
+												"type"=> "image",
+												"url"=> "https://www.callcentrehelper.com/images/stories/2016/07/customer-service.jpg",
+												"size"=> "full",
+												"aspectRatio"=> "20:12",
+												"aspectMode"=> "cover",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "https://linecorp.com"
+												)
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"spacing"=> "md",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "https://linecorp.com"
+												),
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "Service & API",
+													"size"=> "xl",
+													"weight"=> "bold"
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"spacing"=> "sm",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "บริการอื่นๆ",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  )
+														),
+														"paddingTop"=> "10px"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ตรวจสอบคุณภาพอากาศ",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "พยากรณ์อากาศ 7 วัน",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "ติดตามพัสดุไปรษณีย์",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "สถานการณ์โควิด 19",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "เช็คราคาน้ำมัน",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0,
+															"color"=> "#ff9999"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "baseline",
+														"contents"=> array(
+														  array(
+															"type"=> "icon",
+															"url"=> "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "เช็คราคาทองคำ",
+															"weight"=> "bold",
+															"margin"=> "sm",
+															"flex"=> 0,
+															"color"=> "#ff9999"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "More...",
+															"size"=> "sm",
+															"align"=> "end",
+															"color"=> "#aaaaaa"
+														  )
+														)
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "*อยู่ระหว่างการพัฒนาปรับปรุงระบบ",
+													"wrap"=> true,
+													"color"=> "#aaaaaa",
+													"size"=> "xxs"
+												  )
+												)
+											  )
+											)
+										  )
+
+
+								/* เอามาจากflex*/
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+				else if (preg_match('(#ช่วยเหลือold|#ช่วยเหลือold)', $msg) === 1) {
+
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => '#วิธีการใช้งานไลน์บอท.',
+								'contents'=> array(
+
+								/* เอามาจากflex*/
+
 								  "type"=> "bubble",
 						          "size"=> "giga",// giga,mega,kilo,macro,nano defult:mega
 								  "header"=> array(
@@ -4689,7 +5300,6 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-
 
 				else if (preg_match('(#ลงทะเบียน|#register|#Register|#REGISTER)', $msg) === 1) {
 
