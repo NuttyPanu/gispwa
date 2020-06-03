@@ -4202,7 +4202,7 @@ function replyMsg($event, $client)
  
                 }
 
-				else if (preg_match('(#ช่วยเหลือ|#ช่วยเหลือ)', $msg) === 1) {
+				else if (preg_match('(#บริการของเรา|#บริการของเรา)', $msg) === 1) {
 
 
 					$a = array(
@@ -4874,7 +4874,7 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-				else if (preg_match('(#helpdesk|#helpdesk)', $msg) === 1) {
+				else if (preg_match('(#ช่วยเหลือ|#ช่วยเหลือ)', $msg) === 1) {
 
 
 					$a = array(
