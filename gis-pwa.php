@@ -5278,7 +5278,6 @@ function replyMsg($event, $client)
 														),
 														"backgroundColor"=> "#EC3D44",
 														"paddingAll"=> "2px",
-														"paddingTop"=> "4px",
 														"paddingStart"=> "4px",
 														"paddingEnd"=> "4px",
 														"flex"=> 0,
@@ -5337,7 +5336,8 @@ function replyMsg($event, $client)
 															"margin"=> "md"
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
