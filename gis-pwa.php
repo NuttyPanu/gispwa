@@ -5229,6 +5229,625 @@ function replyMsg($event, $client)
                 }
 
 
+
+				else if (preg_match('(#web|#web)', $msg) === 1) {
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => 'ระบบกภส.',
+								'contents'=> array(
+
+								/* เอามาจากflex*/
+
+
+									  "type"=> "carousel",
+									  "contents"=> array(
+
+											array(
+											  "type"=> "bubble",
+											  "header"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/bg_01.jpg",
+														"size"=> "full",
+														"aspectMode"=> "cover",
+														"aspectRatio"=> "2:1",
+														"gravity"=> "center",
+														"flex"=> 1
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "NEW",
+															"size"=> "xs",
+															"color"=> "#ffffff",
+															"align"=> "center",
+															"gravity"=> "center"
+														  )
+														),
+														"backgroundColor"=> "#EC3D44",
+														"paddingAll"=> "2px",
+														"paddingStart"=> "4px",
+														"paddingEnd"=> "4px",
+														"flex"=> 0,
+														"position"=> "absolute",
+														"offsetStart"=> "18px",
+														"offsetTop"=> "14px",
+														"cornerRadius"=> "100px",
+														"width"=> "48px",
+														"height"=> "25px"
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "สนับสนุนระบบงานกปภ.",
+														"size"=> "md",
+														"weight"=> "bold",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"backgroundColor"=> "#ffff99"
+												  )
+												),
+												"paddingAll"=> "0px"
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"contents"=> array(),
+															"size"=> "lg",
+															"wrap"=> true,
+															"text"=> "ระบบติดตามมาตรวัดน้ำ",
+															"weight"=> "bold",
+															"decoration"=> "underline"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "หน่วยงานรับผิดชอบ: กองมาตรวัดน้ำ",
+															"size"=> "sm",
+															"margin"=> "md"
+														  )
+														),
+														"spacing"=> "sm"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"contents"=> array(),
+																"size"=> "sm",
+																"wrap"=> true,
+																"margin"=> "lg",
+																"text"=> "*เฉพาะพนักงานที่ได้รับสิทธิ์ใช้งานเท่านั้น"
+															  )
+															)
+														  )
+														),
+														"backgroundColor"=> "#ffffff1A",
+														"cornerRadius"=> "2px",
+														"margin"=> "md",
+														"paddingStart"=> "13px",
+														"paddingEnd"=> "13px",
+														"paddingTop"=> "5px"
+													  )
+													)
+												  )
+												),
+												"backgroundColor"=> "#ffffff",
+												"paddingTop"=> "10px"
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "button",
+													"action"=> array(
+													  "type"=> "uri",
+													  "label"=> "เข้าระบบ",
+													  "uri"=> "https://gisweb1.pwa.co.th/meterstat/"
+													),
+													"height"=> "sm",
+													"style"=> "link",
+													"gravity"=> "center",
+													"color"=> "#ffffff"
+												  )
+												),
+												"paddingAll"=> "0px",
+												"backgroundColor"=> "#007cc2"
+											  )
+											),
+											array(
+											  "type"=> "bubble",
+											  "header"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/bg_01.jpg",
+														"size"=> "full",
+														"aspectMode"=> "cover",
+														"aspectRatio"=> "2:1",
+														"gravity"=> "center",
+														"flex"=> 1
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "NEW",
+															"size"=> "xs",
+															"color"=> "#ffffff",
+															"align"=> "center",
+															"gravity"=> "center"
+														  )
+														),
+														"backgroundColor"=> "#EC3D44",
+														"paddingAll"=> "2px",
+														"paddingStart"=> "4px",
+														"paddingEnd"=> "4px",
+														"flex"=> 0,
+														"position"=> "absolute",
+														"offsetStart"=> "18px",
+														"offsetTop"=> "14px",
+														"cornerRadius"=> "100px",
+														"width"=> "48px",
+														"height"=> "25px"
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "สนับสนุนระบบงานกปภ.",
+														"size"=> "md",
+														"weight"=> "bold",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"backgroundColor"=> "#ffff99"
+												  )
+												),
+												"paddingAll"=> "0px"
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"contents"=> array(),
+															"size"=> "lg",
+															"wrap"=> true,
+															"text"=> "พื้นที่ศักยภาพการเพิ่มผู้ใช้น้ำ",
+															"weight"=> "bold",
+															"decoration"=> "underline"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "หน่วยงานรับผิดชอบ: -",
+															"size"=> "sm",
+															"margin"=> "md"
+														  )
+														),
+														"spacing"=> "sm"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"contents"=> array(),
+																"size"=> "sm",
+																"wrap"=> true,
+																"margin"=> "lg",
+																"text"=> "*เฉพาะพนักงานเท่านั้น"
+															  )
+															)
+														  )
+														),
+														"backgroundColor"=> "#ffffff1A",
+														"cornerRadius"=> "2px",
+														"margin"=> "md",
+														"paddingStart"=> "13px",
+														"paddingEnd"=> "13px",
+														"paddingTop"=> "5px"
+													  )
+													)
+												  )
+												),
+												"backgroundColor"=> "#ffffff",
+												"paddingTop"=> "10px"
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "button",
+													"action"=> array(
+													  "type"=> "uri",
+													  "label"=> "เข้าระบบ",
+													  "uri"=> "https://gisweb1.pwa.co.th/potential_service/"
+													),
+													"height"=> "sm",
+													"style"=> "link",
+													"gravity"=> "center",
+													"color"=> "#ffffff"
+												  )
+												),
+												"paddingAll"=> "0px",
+												"backgroundColor"=> "#007cc2"
+											  )
+											),
+											array(
+											  "type"=> "bubble",
+											  "header"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/bg_01.jpg",
+														"size"=> "full",
+														"aspectMode"=> "cover",
+														"aspectRatio"=> "2:1",
+														"gravity"=> "center",
+														"flex"=> 1
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "NEW",
+															"size"=> "xs",
+															"color"=> "#ffffff",
+															"align"=> "center",
+															"gravity"=> "center"
+														  )
+														),
+														"backgroundColor"=> "#EC3D44",
+														"paddingAll"=> "2px",
+														"paddingStart"=> "4px",
+														"paddingEnd"=> "4px",
+														"flex"=> 0,
+														"position"=> "absolute",
+														"offsetStart"=> "18px",
+														"offsetTop"=> "14px",
+														"cornerRadius"=> "100px",
+														"width"=> "48px",
+														"height"=> "25px"
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "สนับสนุนระบบงานกปภ.",
+														"size"=> "md",
+														"weight"=> "bold",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"backgroundColor"=> "#ffff99"
+												  )
+												),
+												"paddingAll"=> "0px"
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"contents"=> array(),
+															"size"=> "lg",
+															"wrap"=> true,
+															"text"=> "พื้นที่บริการของ กปภ.",
+															"weight"=> "bold",
+															"decoration"=> "underline"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "หน่วยงานรับผิดชอบ: -",
+															"size"=> "sm",
+															"margin"=> "md"
+														  )
+														),
+														"spacing"=> "sm"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"contents"=> array(),
+																"size"=> "sm",
+																"wrap"=> true,
+																"margin"=> "lg",
+																"text"=> "*เฉพาะพนักงานเท่านั้น"
+															  )
+															)
+														  )
+														),
+														"backgroundColor"=> "#ffffff1A",
+														"cornerRadius"=> "2px",
+														"margin"=> "md",
+														"paddingStart"=> "13px",
+														"paddingEnd"=> "13px",
+														"paddingTop"=> "5px"
+													  )
+													)
+												  )
+												),
+												"backgroundColor"=> "#ffffff",
+												"paddingTop"=> "10px"
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "button",
+													"action"=> array(
+													  "type"=> "uri",
+													  "label"=> "เข้าระบบ",
+													  "uri"=> "https://gisweb1.pwa.co.th/gis_servicearea/"
+													),
+													"height"=> "sm",
+													"style"=> "link",
+													"gravity"=> "center",
+													"color"=> "#ffffff"
+												  )
+												),
+												"paddingAll"=> "0px",
+												"backgroundColor"=> "#007cc2"
+											  )
+											),
+											array(
+											  "type"=> "bubble",
+											  "header"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> "https://gispwa.herokuapp.com/image/bg_01.jpg",
+														"size"=> "full",
+														"aspectMode"=> "cover",
+														"aspectRatio"=> "2:1",
+														"gravity"=> "center",
+														"flex"=> 1
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "horizontal",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"text"=> "NEW",
+															"size"=> "xs",
+															"color"=> "#ffffff",
+															"align"=> "center",
+															"gravity"=> "center"
+														  )
+														),
+														"backgroundColor"=> "#EC3D44",
+														"paddingAll"=> "2px",
+														"paddingStart"=> "4px",
+														"paddingEnd"=> "4px",
+														"flex"=> 0,
+														"position"=> "absolute",
+														"offsetStart"=> "18px",
+														"offsetTop"=> "14px",
+														"cornerRadius"=> "100px",
+														"width"=> "48px",
+														"height"=> "25px"
+													  )
+													)
+												  ),
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "text",
+														"text"=> "สนับสนุนระบบงานกปภ.",
+														"size"=> "md",
+														"weight"=> "bold",
+														"align"=> "center",
+														"gravity"=> "center"
+													  )
+													),
+													"backgroundColor"=> "#ffff99"
+												  )
+												),
+												"paddingAll"=> "0px"
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "text",
+															"contents"=> array(),
+															"size"=> "lg",
+															"wrap"=> true,
+															"text"=> "Lab Cluster",
+															"weight"=> "bold",
+															"decoration"=> "underline"
+														  ),
+														  array(
+															"type"=> "text",
+															"text"=> "หน่วยงานรับผิดชอบ: กองควบคุมคุณภาพน้ำ",
+															"size"=> "sm",
+															"margin"=> "md"
+														  )
+														),
+														"spacing"=> "sm"
+													  ),
+													  array(
+														"type"=> "box",
+														"layout"=> "vertical",
+														"contents"=> array(
+														  array(
+															"type"=> "box",
+															"layout"=> "vertical",
+															"contents"=> array(
+															  array(
+																"type"=> "text",
+																"contents"=> array(),
+																"size"=> "sm",
+																"wrap"=> true,
+																"margin"=> "lg",
+																"text"=> "*"
+															  )
+															)
+														  )
+														),
+														"backgroundColor"=> "#ffffff1A",
+														"cornerRadius"=> "2px",
+														"margin"=> "md",
+														"paddingStart"=> "13px",
+														"paddingEnd"=> "13px",
+														"paddingTop"=> "5px"
+													  )
+													)
+												  )
+												),
+												"backgroundColor"=> "#ffffff",
+												"paddingTop"=> "10px"
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "button",
+													"action"=> array(
+													  "type"=> "uri",
+													  "label"=> "เข้าระบบ",
+													  "uri"=> "https://gisweb1.pwa.co.th/labcluster/"
+													),
+													"height"=> "sm",
+													"style"=> "link",
+													"gravity"=> "center",
+													"color"=> "#ffffff"
+												  )
+												),
+												"paddingAll"=> "0px",
+												"backgroundColor"=> "#007cc2"
+											  )
+											)
+
+										)
+
+
+								/* เอามาจากflex*/
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+
+
+
+				}
+
+
 				else if (preg_match('(#forcast|#forcast )', $msg) === 1) {
 
 					$stat = 0;
