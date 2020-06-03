@@ -657,6 +657,7 @@ if (!is_null($events['events'])) {
 
 
 			}
+
 			else if ($text == '#วัน') {
 				$messages = [
 				   "type"=> "text",
@@ -759,6 +760,7 @@ if (!is_null($events['events'])) {
 					];
 				}
             }
+
             else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1 && preg_match('(รัฐ)', $text) === 1) {	
 
 				$t=array("https://gispwa.herokuapp.com/image/st.jpg,https://gispwa.herokuapp.com/image/covid4.jpeg");
@@ -3423,6 +3425,32 @@ function replyMsg($event, $client)
 													'type'=> "uri",
 													'label'=> "พื้นที่ให้บริการของ กปภ.",
 													'uri'=> 'https://gisweb1.pwa.co.th/gis_servicearea/'
+													)
+										   )
+										  )
+										
+									  ),
+									  array(
+										"type"=> "box",
+										"layout"=> "vertical",
+										"contents"=> array(
+										  array(
+											"type"=> "spacer"
+										  )
+										)
+									  ),
+									  array(
+										'type'=> "box",
+										'layout'=> "vertical",
+										'contents'=> array(
+										   array(
+											'type'=> "button",
+											'style'=> "secondary",
+											'height'=> "sm",
+											'action'=> array(
+													'type'=> "uri",
+													'label'=> "Lab Cluster",
+													'uri'=> 'https://gisweb1.pwa.co.th/labcluster/'
 													)
 										   )
 										  )
@@ -7047,6 +7075,240 @@ function replyMsg($event, $client)
 
 
 				}
+
+
+/*
+				else if(preg_match('(#addmemo |#delmemo |#showmemo )', $msg) === 1) {
+				{
+                    $gid = $event['source']['groupId'];
+                    $uid = $event['source']['userId'];
+
+
+					if (chk_friend($uid) == true){
+						//$gid = $event['source']['groupId'];
+						$uid = $event['source']['userId'];
+
+						$url = 'https://api.line.me/v2/bot/profile/'.$uid;
+						//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+						$profile = get_profile($url);
+						$obj = json_decode($profile);
+
+						$nameid = $obj->displayName;
+						$status = $obj->statusMessage;
+						$pathpic = explode("cdn.net/", $obj->pictureUrl);
+
+
+
+
+
+							$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+							$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
+
+							//$lineid_encode = urlencode($uid);
+							//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
+							//$q_msg = json_decode($json_cmsg); 
+						 
+							//count-question---------//
+							$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
+							$count = json_decode($json_c);  //จำนวนที่นับได้
+							//count-question---------//
+						 
+							$id = $event['source']['userId'];
+							$urlp = 'https://api.line.me/v2/bot/profile/'.$id;
+							$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+
+							$header = array(
+								"Content-Type: application/json",
+								'Authorization: Bearer '.$channelAccessToken2,
+							);
+
+							$ch = curl_init();
+							//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
+							//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+							//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+							curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+							//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+							curl_setopt($ch, CURLOPT_FAILONERROR, 0);       ;
+							//curl_setopt($ch, CURLOPT_HTTPGET, 1);
+							//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+							//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+							curl_setopt($ch, CURLOPT_HEADER, 0);
+							curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+							curl_setopt($ch, CURLOPT_URL, $urlp);
+							 
+							$profile =  curl_exec($ch);
+							curl_close($ch);
+							$obj = json_decode($profile);
+
+
+							$pathpic = explode("cdn.net/", $obj->pictureUrl);
+						 
+							if ($count == 0){
+
+								//Post New Data--------------------------//
+								$newData = json_encode(
+								  array(
+									'lineid'=> $uid,
+									'name'=> $obj->displayName,
+									'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+
+									'user_id'=> '-',
+									'pwacode'=> '-',
+
+									'manage_db'=> 'no',
+									'chk_db'=> 'no',
+
+									'pwaarea'=> 'no',
+									'weather'=> 'no',
+									'other'=> 'no',
+
+									'lat'=> '-',
+									'lng'=> '-',
+
+									'datetime'=> date("Y-m-d h:i:sa"),
+									'status' => 'add_friend'
+								  )
+								);
+
+								$opts = array(
+								  'http' => array(
+									  'method' => "POST",
+									  'header' => "Content-type: application/json",
+									  'content' => $newData
+								   )
+								);
+								$context = stream_context_create($opts);
+								$returnValue = file_get_contents($url,false,$context);
+								//Post New Data--------------------------//
+
+
+								$sec = explode('"$oid" : "', $returnValue);
+								$sec_id = explode('"', $sec[1]);
+
+								 
+								$t=array("ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ");
+								$random_keys=array_rand($t,1);
+								$txt = $t[$random_keys];
+								$a = array(
+											array(
+												'type' => 'text',
+												//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
+												'text' => $txt
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a);
+
+
+							}
+							else if ($count == 1){  
+
+								//query-คำถามที่เคยถามในdb----------------------------------//
+								$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
+								$q_json_f = json_decode($json_f); 
+								$q_json_id = $q_json_f[0]->_id;
+								$q_json_oid = '';
+								foreach ($q_json_id as $k=>$v){
+									$q_json_oid = $v; // etc.
+								}
+
+								//update-----------------------------------//
+								//$_id = '59fb2268bd966f7657da67cc';
+								$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
+
+								$newupdate = json_encode(
+									array(
+										'$set' => array('lineid'=> $uid),
+										'$set' => array('name'=> $obj->displayName),
+										'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+
+										//'$set' => array('user_id'=> '-'),
+										//'$set' => array('pwacode'=> '-'),
+										//'$set' => array('manage_db'=> 'no'),
+										//'$set' => array('chk_db'=> 'no'),
+
+										//'$set' => array('pwaarea'=> 'no'),
+										//'$set' => array('weather'=> 'no'),
+										//'$set' => array('other'=> 'no'),
+
+										//'$set' => array('lat'=> '-'),
+										//'$set' => array('lng'=> '-'),
+
+										'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+										'$set' => array('status'=> 'add_friend')
+
+									)
+								);
+
+								$optsu = array(
+									'http' => array(
+										'method' => "PUT",
+										'header' => "Content-type: application/json",
+										'content' => $newupdate
+									)
+								);
+
+								$contextu = stream_context_create($optsu);
+								$returnValup = file_get_contents($url_up, false, $contextu);
+
+
+								$t=array("ยินดีต้อนรับกลับมาเป็นเพื่อนครับ","อย่าบล็อคผมอีกนะครับ");
+								$random_keys=array_rand($t,1);
+								$txt = $t[$random_keys];
+								//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
+								$a = array(
+											array(
+												'type' => 'text',
+												//'text' => $txt." อัพเดท id:".$q_json_oid." count:".$count
+												'text' => $txt
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a);
+							}
+						
+
+
+
+
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => 'กำลังดำเนินการครับ'. $nameid,  
+										'sender' => array( 
+														'name' => $nameid,
+														'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
+													)
+									),
+									array(
+										'type' => 'text',
+										'text' => 'กำลังดำเนินการครับ'. $nameid,  
+										'sender' => array( 
+														'name' => $nameid,
+														'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
+													)
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a);
+
+					}
+					else{
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนครับ'         
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
+					}
+
+
+					
+
+
+				}
+*/
+
+
 
                 else{
  
