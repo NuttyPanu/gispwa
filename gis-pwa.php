@@ -5278,7 +5278,7 @@ function replyMsg($event, $client)
 														),
 														"backgroundColor"=> "#EC3D44",
 														"paddingAll"=> "2px",
-														"paddingTop": "4px",
+														"paddingTop"=> "4px",
 														"paddingStart"=> "4px",
 														"paddingEnd"=> "4px",
 														"flex"=> 0,
