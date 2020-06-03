@@ -868,7 +868,7 @@ if (!is_null($events['events'])) {
 
 
 			/*
-			else if ($text == '#"=>นที่ให้บริการ') {
+			else if ($text == '#ตรวจสอบพื้นที่ให้บริการ') {
 
 				$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
 				$res = get_url($urllink); 
@@ -877,7 +877,7 @@ if (!is_null($events['events'])) {
 				if ($str == 'found'){
 					$messages = [
 					'type' => 'text',
-					'text' => 'โปรดแชร์ Location เพื่อ"=>นที่ให้บริการ'
+					'text' => 'โปรดแชร์ Location เพื่อตรวจสอบพื้นที่ให้บริการ'
 					];
 				}
 				else if ($str == 'notfound'){
@@ -4444,7 +4444,7 @@ function replyMsg($event, $client)
 											'height'=> "sm",
 											'action'=> array(
 													'type'=> "message",
-													'label'=> ""=>นที่ให้บริการ",
+													'label'=> "ตรวจสอบพื้นที่ให้บริการ",
 													'text'=> '#คำสั่งservicearea'
 													)
 										   )
@@ -8171,7 +8171,6 @@ function replyMsg($event, $client)
 					}
 					*/
 
-
 						if ($gid){
 							$t = 'กำลังตรวจสอบตำแหน่งของท่าน โปรดรอสักครู่ ...';	
 							$client->pushMessage1($gid,array(
@@ -8364,9 +8363,6 @@ function replyMsg($event, $client)
 						$contextu = stream_context_create($optsu);
 						$returnValup = file_get_contents($url_up, false, $contextu);
 						
-
-
-
 
 				}
 				if($rec->weather != 'no'){
