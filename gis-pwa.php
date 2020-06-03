@@ -5484,7 +5484,8 @@ function replyMsg($event, $client)
 															"margin"=> "md"
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
@@ -5631,7 +5632,8 @@ function replyMsg($event, $client)
 															"margin"=> "md"
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
@@ -5778,7 +5780,8 @@ function replyMsg($event, $client)
 															"margin"=> "md"
 														  )
 														),
-														"spacing"=> "sm"
+														"spacing"=> "sm",
+														"paddingAll"=> "5px"
 													  ),
 													  array(
 														"type"=> "box",
