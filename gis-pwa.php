@@ -4728,7 +4728,7 @@ function replyMsg($event, $client)
 															"action"=> array(
 															  "type"=> "message",
 															  "label"=> "More...",
-															  "text"=> "#สภาพอากาศ"
+															  "text"=> "#forcast"
 															)
 														  )
 														)
