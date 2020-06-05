@@ -2845,7 +2845,18 @@ function replyMsg($event, $client)
 
 					$pwa_name = trim($pwa_name);
 
-					$pwa_name = str_replace(" ","",$pwa_name);
+					if(preg_match('(กปภ.สาขา |กปภ.สาขา )', $pwa_name) === 1){
+						$pwa_name = str_replace("กปภ.สาขา","",$pwa_name);
+					}
+					if(preg_match('(การประปาส่วนภูมิภาคสาขา |การประปาส่วนภูมิภาคสาขา)', $pwa_name) === 1){
+						$pwa_name = str_replace("การประปาส่วนภูมิภาคสาขา","",$pwa_name);
+					}
+					if(preg_match('(สาขา |สาขา)', $pwa_name) === 1){
+						$pwa_name = str_replace("สาขา","",$pwa_name);
+					}
+
+
+					//$pwa_name = str_replace(" ","",$pwa_name);
 
 					//$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split[1]);
 					 
