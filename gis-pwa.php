@@ -2839,19 +2839,19 @@ function replyMsg($event, $client)
 					
 				}
 
-				else if(preg_match('(#ไป |#ไป )', $msg) === 1) {
-					$msg_split = explode("ไป", $msg);
-					$pwa_name = $msg_split[1];
+				else if(preg_match('(#ไป |#ไป)', $msg) === 1) {
 
-					$pwa_name = trim($pwa_name);
+					$msg_split = explode("#ไป", $msg);
 
-					if(preg_match('(กปภ.สาขา |กปภ.สาขา )', $pwa_name) === 1){
-						$pwa_name = str_replace("กปภ.สาขา","",$pwa_name);
+					$pwa_name = trim($msg_split[1]);
+
+					if(preg_match('(กปภ.|กปภ.)', $pwa_name) === 1){
+						$pwa_name = str_replace("กปภ.","",$pwa_name);
 					}
-					if(preg_match('(การประปาส่วนภูมิภาคสาขา |การประปาส่วนภูมิภาคสาขา)', $pwa_name) === 1){
-						$pwa_name = str_replace("การประปาส่วนภูมิภาคสาขา","",$pwa_name);
+					if(preg_match('(การประปาส่วนภูมิภาค|การประปาส่วนภูมิภาค)', $pwa_name) === 1){
+						$pwa_name = str_replace("การประปาส่วนภูมิภาค","",$pwa_name);
 					}
-					if(preg_match('(สาขา |สาขา)', $pwa_name) === 1){
+					if(preg_match('(สาขา|สาขา)', $pwa_name) === 1){
 						$pwa_name = str_replace("สาขา","",$pwa_name);
 					}
 
@@ -2867,7 +2867,7 @@ function replyMsg($event, $client)
 					//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
 					$str = get_url($urllink); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
-					if($str == ''){
+					if($str == 'ไม่พบตำแหน่ง'){
 
 						$a_ = array(
 
