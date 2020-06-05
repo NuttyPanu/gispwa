@@ -9207,7 +9207,7 @@ function replyMsg($event, $client)
 				}
 
 
-				else if(preg_match('(#ดูนัดหมาย |#เพิ่มนัดหมาย |#ลบนัดหมาย )', $msg) === 1) {
+				else if(preg_match('(#ดูนัดหมาย|#เพิ่มนัดหมาย|#ลบนัดหมาย)', $msg) === 1) {
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
@@ -9218,7 +9218,7 @@ function replyMsg($event, $client)
 
 					if (chk_friend($uid) == true){
 						
-						if(preg_match('(#ดูนัดหมาย |#ดูนัดหมาย |#ดูนัดหมาย )', $msg) === 1){
+						if(preg_match('(#ดูนัดหมาย|#ดูนัดหมาย|#ดูนัดหมาย)', $msg) === 1){
 
 
 							$url = 'https://api.line.me/v2/bot/profile/'.$uid;
@@ -9285,15 +9285,6 @@ function replyMsg($event, $client)
 							$msg_split = explode("#เพิ่มนัดหมาย", $msg);
 
 							$txt = trim($msg_split[1]);
-
-								$a_ = array(
-
-											array(
-												'type' => 'text',
-												'text' => $msg_split[1]						
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a_);	
 
 
 							if($txt ==''){
@@ -9378,7 +9369,7 @@ function replyMsg($event, $client)
 							}
 
 						}
-						else if (preg_match('(#ลบนัดหมาย |#ลบนัดหมาย |#ลบนัดหมาย )', $msg) === 1){
+						else if (preg_match('(#ลบนัดหมาย|#ลบนัดหมาย|#ลบนัดหมาย)', $msg) === 1){
 
 
 
