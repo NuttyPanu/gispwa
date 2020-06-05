@@ -9213,6 +9213,9 @@ function replyMsg($event, $client)
                     $uid = $event['source']['userId'];
 
 
+
+
+
 					if (chk_friend($uid) == true){
 						
 						if(preg_match('(#ดูนัดหมาย |#ดูนัดหมาย |#ดูนัดหมาย )', $msg) === 1){
@@ -9279,6 +9282,8 @@ function replyMsg($event, $client)
 						}
 						else if (preg_match('(#เพิ่มนัดหมาย |#เพิ่มนัดหมาย |#เพิ่มนัดหมาย )', $msg) === 1){
 
+							$date_memo = '2020-08-05';
+							$txt_memo = 'นัดหมาย';
 
 							$url_profile = 'https://api.line.me/v2/bot/profile/'.$uid;
 							//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
@@ -9302,8 +9307,8 @@ function replyMsg($event, $client)
 								'name'=> $obj->displayName,
 								'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
 								
-								'date'=> date("Y-m-d"),
-								'detail'=> $txt,								
+								'date'=> $date_memo,
+								'detail'=> $txt_memo,								
 
 								'datetime'=> date("Y-m-d h:i:sa")
 
