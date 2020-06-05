@@ -9283,11 +9283,13 @@ function replyMsg($event, $client)
 						else if (preg_match('(#เพิ่มนัดหมาย|#เพิ่มนัดหมาย|#เพิ่มนัดหมาย)', $msg) === 1){
 
 							$msg_split = explode("#เพิ่มนัดหมาย", $msg);
+							
+							$msg_split_use = explode(" ", $msg);
 
 							$txt = trim($msg_split[1]);
 
-							$date_memo = $msg_split[1];
-							$txt_memo = $msg_split[2];
+							$date_memo = $msg_split_use[1];
+							$txt_memo = $msg_split_use[2];
 
 
 
