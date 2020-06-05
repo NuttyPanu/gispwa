@@ -2858,61 +2858,77 @@ function replyMsg($event, $client)
 					if($pwa_name ==''){
 
 						$pwa_name = "ค้นหาตำแหน่ง กปภ.สาขา \n โดย พิมพ์ #ไป ตามด้วยชื่อสาขา เช่น #ไป ระยอง";
-
-					}
-
-
-					//$pwa_name = str_replace(" ","",$pwa_name);
-
-					//$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split[1]);
-					 
-					//$pwa_name = preg_replace('/[^a-z0-9\_\- ]/i', '', $msg_split[1]);
-					//$pwacode = substr($text,-7);
-					//---------------------------------//
-					$urllink = 'https://gisweb1.pwa.co.th/lineservice/pwa_location/get_office_bot.php?name='.$pwa_name; 
-					//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
-					$str = get_url($urllink); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
-
-					if($str == 'ไม่พบตำแหน่ง'){
-
 						$a_ = array(
 
 									array(
 										'type' => 'text',
-										'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name	.'"'							
+										'text' => $pwa_name						
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);	
+
+
 					}
 					else{
 
-						$split = explode(",", $str);
-						//echo $split[0];
-						//echo $split[1];
-						//echo $split[2];
-						
-						if ($split[3]){
+
+						//$pwa_name = str_replace(" ","",$pwa_name);
+
+						//$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split[1]);
+						 
+						//$pwa_name = preg_replace('/[^a-z0-9\_\- ]/i', '', $msg_split[1]);
+						//$pwacode = substr($text,-7);
+						//---------------------------------//
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/pwa_location/get_office_bot.php?name='.$pwa_name; 
+						//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
+						$str = get_url($urllink); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+
+						if($str == 'ไม่พบตำแหน่ง'){
 
 							$a_ = array(
 
 										array(
 											'type' => 'text',
-											'text' => $pwa_name
-										),
-										array(
-											'type' => 'location',
-											'title' => "ตำแหน่ง",
-											"address"=> $split[3]." ".$split[2],
-											"latitude"=> $split[0],
-											"longitude"=> $split[1]									
+											'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name	.'"'							
 										)
-
 									);
 							$client->replyMessage1($event['replyToken'],$a_);	
-
-
 						}
+						else{
+
+							$split = explode(",", $str);
+							//echo $split[0];
+							//echo $split[1];
+							//echo $split[2];
+							
+							if ($split[3]){
+
+								$a_ = array(
+
+											array(
+												'type' => 'text',
+												'text' => $pwa_name
+											),
+											array(
+												'type' => 'location',
+												'title' => "ตำแหน่ง",
+												"address"=> $split[3]." ".$split[2],
+												"latitude"=> $split[0],
+												"longitude"=> $split[1]									
+											)
+
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
+
+							}
+						}
+
+
+
 					}
+
+
 				}
 
 
