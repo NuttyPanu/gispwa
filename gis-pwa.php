@@ -9343,9 +9343,6 @@ function replyMsg($event, $client)
 								}
 
 
-								$date_memo = $msg_split[1];
-								$txt_memo = $msg_split[2];
-
 								//$date_memo = '2020-08-05';
 								//$txt_memo = 'นัดหมาย';
 
