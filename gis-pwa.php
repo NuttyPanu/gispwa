@@ -9286,15 +9286,24 @@ function replyMsg($event, $client)
 
 							$txt = trim($msg_split[1]);
 
+								$a_ = array(
 
-							if(!$txt||$txt ==''){
+											array(
+												'type' => 'text',
+												'text' => $msg_split[1]						
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
+
+							if($txt ==''){
 
 								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
 								$a_ = array(
 
 											array(
 												'type' => 'text',
-												'text' => $msg_split[1]						
+												'text' => $reply						
 											)
 										);
 								$client->replyMessage1($event['replyToken'],$a_);	
