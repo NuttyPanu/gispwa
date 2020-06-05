@@ -2889,7 +2889,7 @@ function replyMsg($event, $client)
 
 										array(
 											'type' => 'text',
-											'text' => 'คงต้องหาทางไป "'.$pwa_name	.'" ด้วยตัวเองนะครับ'							
+											'text' => 'คงต้องหาทางไป ด้วยตัวเองนะครับ'							
 										),
 										array(
 											'type' => 'text',
