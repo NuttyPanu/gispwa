@@ -2856,33 +2856,7 @@ function replyMsg($event, $client)
 					//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
 					$str = get_url($urllink); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
-					$split = explode(",", $str);
-					//echo $split[0];
-					//echo $split[1];
-					//echo $split[2];
-					
-					if ($split[3]){
-
-						$a_ = array(
-
-									array(
-										'type' => 'text',
-										'text' => $pwa_name
-									),
-									array(
-										'type' => 'location',
-										'title' => "ตำแหน่ง",
-										"address"=> $split[3]." ".$split[2],
-										"latitude"=> $split[0],
-										"longitude"=> $split[1]									
-									)
-
-								);
-						$client->replyMessage1($event['replyToken'],$a_);	
-
-
-					}
-					else{
+					if($str == ''){
 
 						$a_ = array(
 
@@ -2892,9 +2866,36 @@ function replyMsg($event, $client)
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);	
-
 					}
+					else{
 
+						$split = explode(",", $str);
+						//echo $split[0];
+						//echo $split[1];
+						//echo $split[2];
+						
+						if ($split[3]){
+
+							$a_ = array(
+
+										array(
+											'type' => 'text',
+											'text' => $pwa_name
+										),
+										array(
+											'type' => 'location',
+											'title' => "ตำแหน่ง",
+											"address"=> $split[3]." ".$split[2],
+											"latitude"=> $split[0],
+											"longitude"=> $split[1]									
+										)
+
+									);
+							$client->replyMessage1($event['replyToken'],$a_);	
+
+
+						}
+					}
 				}
 
 
