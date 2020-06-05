@@ -9282,6 +9282,10 @@ function replyMsg($event, $client)
 						}
 						else if (preg_match('(#เพิ่มนัดหมาย |#เพิ่มนัดหมาย |#เพิ่มนัดหมาย )', $msg) === 1){
 
+							if(!$gid){
+								$gid = '-'; 
+							}
+
 							$date_memo = '2020-08-05';
 							$txt_memo = 'นัดหมาย';
 
