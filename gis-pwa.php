@@ -2889,7 +2889,7 @@ function replyMsg($event, $client)
 
 										array(
 											'type' => 'text',
-											'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name.'"'							
+											'text' => 'ขออภัย เราไม่สามารถพาท่านไป  "'.$pwa_name.'" ได้'							
 										),
 										array(
 											'type' => 'text',
