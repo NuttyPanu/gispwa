@@ -2855,6 +2855,11 @@ function replyMsg($event, $client)
 						$pwa_name = str_replace("สาขา","",$pwa_name);
 					}
 
+					if($pwa_name ==''){
+
+						$pwa_name = "ค้นหาตำแหน่ง กปภ.สาขาโดย พิมพ์ #ไป ตามด้วยชื่อสาขา เช่น #ไป ระยอง";
+
+					}
 						$a_ = array(
 
 									array(
