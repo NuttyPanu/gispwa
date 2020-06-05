@@ -9286,6 +9286,10 @@ function replyMsg($event, $client)
 
 							$txt = trim($msg_split[1]);
 
+							$date_memo = $msg_split[1];
+							$txt_memo = $msg_split[2];
+
+
 
 							if($txt ==''){
 
@@ -9300,14 +9304,48 @@ function replyMsg($event, $client)
 								$client->replyMessage1($event['replyToken'],$a_);	
 
 							}
+							else if($date_memo != 'ผิดรูปแบบ'){
+
+								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
+								$a_ = array(
+
+											array(
+												'type' => 'text',
+												'text' => $reply						
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
+							}
+							else if($txt_memo == ''){
+
+								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
+								$a_ = array(
+
+											array(
+												'type' => 'text',
+												'text' => $reply						
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
+							}
+
+
 							else{
+
+
 
 								if(!$gid){
 									$gid = '-'; 
 								}
 
-								$date_memo = '2020-08-05';
-								$txt_memo = 'นัดหมาย';
+
+								$date_memo = $msg_split[1];
+								$txt_memo = $msg_split[2];
+
+								//$date_memo = '2020-08-05';
+								//$txt_memo = 'นัดหมาย';
 
 								$url_profile = 'https://api.line.me/v2/bot/profile/'.$uid;
 								//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
