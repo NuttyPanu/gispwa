@@ -9280,72 +9280,93 @@ function replyMsg($event, $client)
 						
 
 						}
-						else if (preg_match('(#เพิ่มนัดหมาย |#เพิ่มนัดหมาย |#เพิ่มนัดหมาย )', $msg) === 1){
+						else if (preg_match('(#เพิ่มนัดหมาย|#เพิ่มนัดหมาย|#เพิ่มนัดหมาย)', $msg) === 1){
 
-							if(!$gid){
-								$gid = '-'; 
+							$msg_split = explode("#เพิ่มนัดหมาย", $msg);
+
+							$txt = trim($msg_split[1]);
+
+
+							if($txt ==''){
+
+								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
+								$a_ = array(
+
+											array(
+												'type' => 'text',
+												'text' => $reply						
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
 							}
+							else{
 
-							$date_memo = '2020-08-05';
-							$txt_memo = 'นัดหมาย';
+								if(!$gid){
+									$gid = '-'; 
+								}
 
-							$url_profile = 'https://api.line.me/v2/bot/profile/'.$uid;
-							//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-							$profile = get_profile($url_profile);
-							$obj = json_decode($profile);
+								$date_memo = '2020-08-05';
+								$txt_memo = 'นัดหมาย';
 
-							$nameid = $obj->displayName;
-							$status = $obj->statusMessage;
-							$pathpic = explode("cdn.net/", $obj->pictureUrl);
+								$url_profile = 'https://api.line.me/v2/bot/profile/'.$uid;
+								//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+								$profile = get_profile($url_profile);
+								$obj = json_decode($profile);
 
-
-							$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-							$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
-
-							//Post New Data--------------------------//
-							$newData = json_encode(
-							  array(
-								'gid'=> $gid,
-								'uid'=> $uid,
-
-								'name'=> $obj->displayName,
-								'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
-								
-								'date'=> $date_memo,
-								'detail'=> $txt_memo,								
-
-								'datetime'=> date("Y-m-d h:i:sa")
-
-							  )
-							);
-
-							$opts = array(
-							  'http' => array(
-								  'method' => "POST",
-								  'header' => "Content-type: application/json",
-								  'content' => $newData
-							   )
-							);
-							$context = stream_context_create($opts);
-							$returnValue = file_get_contents($url,false,$context);
-							//Post New Data--------------------------//
+								$nameid = $obj->displayName;
+								$status = $obj->statusMessage;
+								$pathpic = explode("cdn.net/", $obj->pictureUrl);
 
 
-							//$sec = explode('"$oid" : "', $returnValue);
-							//$sec_id = explode('"', $sec[1]);
+								$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+								$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
 
-							 
-							$t=array("เพิ่มนัดหมายให้แล้วครับ","เพิ่มนัดหมายแล้วเสร็จ");
-							$random_keys=array_rand($t,1);
-							$txt = $t[$random_keys];
-							$a = array(
-										array(
-											'type' => 'text',
-											//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
-											'text' => $txt
-										)
-									);
-							$client->replyMessage1($event['replyToken'],$a);
+								//Post New Data--------------------------//
+								$newData = json_encode(
+								  array(
+									'gid'=> $gid,
+									'uid'=> $uid,
+
+									'name'=> $obj->displayName,
+									'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+									
+									'date'=> $date_memo,
+									'detail'=> $txt_memo,								
+
+									'datetime'=> date("Y-m-d h:i:sa")
+
+								  )
+								);
+
+								$opts = array(
+								  'http' => array(
+									  'method' => "POST",
+									  'header' => "Content-type: application/json",
+									  'content' => $newData
+								   )
+								);
+								$context = stream_context_create($opts);
+								$returnValue = file_get_contents($url,false,$context);
+								//Post New Data--------------------------//
+
+
+								//$sec = explode('"$oid" : "', $returnValue);
+								//$sec_id = explode('"', $sec[1]);
+
+								 
+								$t=array("เพิ่มนัดหมายให้แล้วครับ","เพิ่มนัดหมายแล้วเสร็จ");
+								$random_keys=array_rand($t,1);
+								$txt = $t[$random_keys];
+								$a = array(
+											array(
+												'type' => 'text',
+												//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
+												'text' => $txt
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a);
+							}
 
 						}
 						else if (preg_match('(#ลบนัดหมาย |#ลบนัดหมาย |#ลบนัดหมาย )', $msg) === 1){
