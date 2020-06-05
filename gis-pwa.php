@@ -9208,7 +9208,7 @@ function replyMsg($event, $client)
 
 
 				else if(preg_match('(#ดูนัดหมาย |#เพิ่มนัดหมาย |#ลบนัดหมาย )', $msg) === 1) {
-				{
+
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
