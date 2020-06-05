@@ -2839,7 +2839,7 @@ function replyMsg($event, $client)
 					
 				}
 
-				else if(preg_match('(#ไป |#ไป  )', $msg) === 1) {
+				else if(preg_match('(#ไป |#ไป )', $msg) === 1) {
 					$msg_split = explode("#ไป", $msg);
 					$pwa_name = $msg_split[1];
 
