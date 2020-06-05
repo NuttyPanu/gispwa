@@ -2832,12 +2832,65 @@ function replyMsg($event, $client)
 										'type' => 'text',
 										'text' => $res
 										
-									),
+									)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);						
 
 					
 				}
+
+				else if(preg_match('(#ไป |#ไป  )', $msg) === 1) {
+					$msg_split = explode("#ไป ", $msg);
+					$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split);
+					 
+					//$pwa_name = preg_replace('/[^a-z0-9\_\- ]/i', '', $msg_split);
+					//$pwacode = substr($text,-7);
+					//---------------------------------//
+					$urllink = 'https://gisweb1.pwa.co.th/lineservice/pwa_location/get_office_bot.php?name='.$pwa_name; 
+					//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
+					$str = get_url($urllink); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+
+					$split = explode(",", $str);
+					//echo $split[0];
+					//echo $split[1];
+					//echo $split[2];
+					
+					if ($split[3]){
+
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => $pwa_name
+									),
+									array(
+										'type' => 'location',
+										'title' => "ตำแหน่ง",
+										"address"=> $split[3]." ".$split[2],
+										"latitude"=> $split[0],
+										"longitude"=> $split[1]									
+									)
+
+								);
+						$client->replyMessage1($event['replyToken'],$a_);	
+
+
+					}
+					else{
+
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name	.'"'							
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a_);	
+
+					}
+
+				}
+
 
 
 				else if(preg_match('(#อัพโหลด|#Upload|#upload|#สถานะอัพโหลด|#อับโหลด|#สถานะอับโหลด)', $msg) === 1) {
