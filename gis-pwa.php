@@ -9287,7 +9287,7 @@ function replyMsg($event, $client)
 							$txt = trim($msg_split[1]);
 
 
-							if($txt ==''){
+							if(!$txt||$txt ==''){
 
 								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
 								$a_ = array(
