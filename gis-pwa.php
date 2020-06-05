@@ -2890,6 +2890,10 @@ function replyMsg($event, $client)
 										array(
 											'type' => 'text',
 											'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name	.'"'							
+										),
+										array(
+											'type' => 'text',
+											'text' => 'ค้นหาตำแหน่ง กปภ.สาขา \nโดย พิมพ์ #ไป ตามด้วยชื่อสาขา เช่น \n#ไป ระยอง'	
 										)
 									);
 							$client->replyMessage1($event['replyToken'],$a_);	
