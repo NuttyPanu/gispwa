@@ -2860,14 +2860,7 @@ function replyMsg($event, $client)
 						$pwa_name = "ค้นหาตำแหน่ง กปภ.สาขาโดย พิมพ์ #ไป ตามด้วยชื่อสาขา เช่น #ไป ระยอง";
 
 					}
-						$a_ = array(
 
-									array(
-										'type' => 'text',
-										'text' => $pwa_name							
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a_);	
 
 					//$pwa_name = str_replace(" ","",$pwa_name);
 
