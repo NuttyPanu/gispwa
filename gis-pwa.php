@@ -2841,7 +2841,7 @@ function replyMsg($event, $client)
 
 				else if(preg_match('(#ไป |#ไป  )', $msg) === 1) {
 					$msg_split = explode("#ไป ", $msg);
-					$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split);
+					$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split[1]);
 					 
 					//$pwa_name = preg_replace('/[^a-z0-9\_\- ]/i', '', $msg_split);
 					//$pwacode = substr($text,-7);
