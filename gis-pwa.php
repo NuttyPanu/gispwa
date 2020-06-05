@@ -9294,7 +9294,7 @@ function replyMsg($event, $client)
 
 											array(
 												'type' => 'text',
-												'text' => $reply						
+												'text' => $msg_split[1]						
 											)
 										);
 								$client->replyMessage1($event['replyToken'],$a_);	
