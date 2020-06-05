@@ -2883,13 +2883,13 @@ function replyMsg($event, $client)
 						//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
 						$str = get_url($urllink); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
-						if($str == ' notfound'){
+						if(preg_match('(notfound|notfound)', $str) === 1){
 
 							$a_ = array(
 
 										array(
 											'type' => 'text',
-											'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name	.'"'							
+											'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name.'"'							
 										),
 										array(
 											'type' => 'text',
