@@ -2882,15 +2882,6 @@ function replyMsg($event, $client)
 						$urllink = 'https://gisweb1.pwa.co.th/lineservice/pwa_location/get_office_bot.php?name='.$pwa_name; 
 						//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
 						$str = get_url($urllink); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
-							$a_ = array(
-
-										array(
-											'type' => 'text',
-											'text' => $str							
-										)
-									);
-							$client->replyMessage1($event['replyToken'],$a_);	
-
 
 						if($str == 'notfound'){
 
@@ -2898,7 +2889,7 @@ function replyMsg($event, $client)
 
 										array(
 											'type' => 'text',
-											'text' => 'ไม่พบตำแหน่งของ "'.$pwa_name	.'"'							
+											'text' => 'คงต้องหาทางไป "'.$pwa_name	.'" ด้วยตัวเองนะครับ'							
 										),
 										array(
 											'type' => 'text',
