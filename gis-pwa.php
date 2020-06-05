@@ -2840,8 +2840,13 @@ function replyMsg($event, $client)
 				}
 
 				else if(preg_match('(#ไป |#ไป  )', $msg) === 1) {
-					$msg_split = explode(" ", $msg);
+					$msg_split = explode("#ไป", $msg);
 					$pwa_name = $msg_split[1];
+
+					$pwa_name = trim($pwa_name);
+
+					$pwa_name = str_replace(" ","",$pwa_name);
+
 					//$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split[1]);
 					 
 					//$pwa_name = preg_replace('/[^a-z0-9\_\- ]/i', '', $msg_split[1]);
