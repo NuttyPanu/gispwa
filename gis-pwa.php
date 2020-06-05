@@ -9304,7 +9304,7 @@ function replyMsg($event, $client)
 								$client->replyMessage1($event['replyToken'],$a_);	
 
 							}
-							else if($date_memo != 'ผิดรูปแบบ'){
+							else if($date_memo == 'ผิดรูปแบบ'){
 
 								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
 								$a_ = array(
