@@ -565,60 +565,6 @@ if (!is_null($events['events'])) {
 			}
 
 
-			else if (preg_match('(#นัดหมาย|#เตือน)', $text) === 1) {
-                $ugid;
-				if($event['source']['groupId']){
-                                   $ugid = $event['source']['groupId'];
-				}
-				else{
-                                   $ugid = $event['source']['userId'];
-				}
-				
-				//$key_noti =$key_notify['Nutty'];
-				//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
-				$message = '';
-				$memo_=array(
-					"29-05-2020"=>"เงินเดือนออกนะครับ (29 พ.ค. 63) ",
-					"01-06-2020"=>"อย่าลืมมาทำงานกันนะครับ (1 มิ.ย. 63) ",
-				);				
-
-				$today_ = date("d-m-Y");
-
-				$s7d = date("d-m-Y",strtotime("+7 days",strtotime($today_)));
-				$s3d = date("d-m-Y",strtotime("+3 days",strtotime($today_)));
-				$s2d = date("d-m-Y",strtotime("+2 days",strtotime($today_)));
-				$s1d = date("d-m-Y",strtotime("+1 days",strtotime($today_)));
-
-
-				if(array_key_exists($s7d, $memo_))  // holiday;
-				//else if(in_array($today, $holiday))  // holiday;
-				{
-					$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
-				}
-				if(array_key_exists($s3d, $memo_))  // holiday;
-				//else if(in_array($today, $holiday))  // holiday;
-				{
-					$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
-				}
-				if(array_key_exists($s2d, $memo_))  // holiday;
-				//else if(in_array($today, $holiday))  // holiday;
-				{
-					$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
-				}
-				if(array_key_exists($s1d, $memo_))  // holiday;
-				//else if(in_array($today, $holiday))  // holiday;
-				{
-					$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
-				}
-
-				if(array_key_exists($today_, $memo_))
-				{
-					$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
-				}				
-
-				notify($ugid,$message);
-
-			}
 
 
 			else if (preg_match('(#ทดสอบ|#ทดสอบ)', $text) === 1) {
@@ -4659,7 +4605,7 @@ function replyMsg($event, $client)
 															"action"=> array(
 															  "type"=> "message",
 															  "label"=> "More...",
-															  "text"=> "#ค้นหาตำแหน่งกปภ."
+															  "text"=> "#ไป"
 															)
 														  )
 														)
@@ -4717,7 +4663,7 @@ function replyMsg($event, $client)
 															"action"=> array(
 															  "type"=> "message",
 															  "label"=> "More...",
-															  "text"=> "#นัดหมาย"
+															  "text"=> "#helpmemo"
 															)
 														  )
 														)
@@ -5384,7 +5330,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "นัดหมาย",
-													'text'=> '#คำสั่งนัดหมาย'
+													'text'=> '#helpmemo'
 													)
 										   )
 										  )
@@ -9205,190 +9151,124 @@ function replyMsg($event, $client)
 
 				}
 
+				else if (preg_match('(#เตือน|#เตือน)', $text) === 1) {
+					$ugid;
+					if($event['source']['groupId']){
+									   $ugid = $event['source']['groupId'];
+					}
+					else{
+									   $ugid = $event['source']['userId'];
+					}
+					
+					//$key_noti =$key_notify['Nutty'];
+					//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
+					$message = '';
+					$memo_=array(
+						"29-05-2020"=>"เงินเดือนออกนะครับ (29 พ.ค. 63) ",
+						"01-06-2020"=>"อย่าลืมมาทำงานกันนะครับ (1 มิ.ย. 63) ",
+					);				
 
-/*
-				else if(preg_match('(#addmemo |#delmemo |#showmemo )', $msg) === 1) {
+					$today_ = date("d-m-Y");
+
+					$s7d = date("d-m-Y",strtotime("+7 days",strtotime($today_)));
+					$s3d = date("d-m-Y",strtotime("+3 days",strtotime($today_)));
+					$s2d = date("d-m-Y",strtotime("+2 days",strtotime($today_)));
+					$s1d = date("d-m-Y",strtotime("+1 days",strtotime($today_)));
+
+
+					if(array_key_exists($s7d, $memo_))  // holiday;
+					//else if(in_array($today, $holiday))  // holiday;
+					{
+						$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
+					}
+					if(array_key_exists($s3d, $memo_))  // holiday;
+					//else if(in_array($today, $holiday))  // holiday;
+					{
+						$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
+					}
+					if(array_key_exists($s2d, $memo_))  // holiday;
+					//else if(in_array($today, $holiday))  // holiday;
+					{
+						$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
+					}
+					if(array_key_exists($s1d, $memo_))  // holiday;
+					//else if(in_array($today, $holiday))  // holiday;
+					{
+						$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
+					}
+
+					if(array_key_exists($today_, $memo_))
+					{
+						$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
+					}				
+
+					notify($ugid,$message);
+
+				}
+
+
+				else if(preg_match('(#ดูนัดหมาย |#เพิ่มนัดหมาย |#ลบนัดหมาย )', $msg) === 1) {
 				{
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
 
 					if (chk_friend($uid) == true){
-						//$gid = $event['source']['groupId'];
-						$uid = $event['source']['userId'];
-
-						$url = 'https://api.line.me/v2/bot/profile/'.$uid;
-						//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-						$profile = get_profile($url);
-						$obj = json_decode($profile);
-
-						$nameid = $obj->displayName;
-						$status = $obj->statusMessage;
-						$pathpic = explode("cdn.net/", $obj->pictureUrl);
+						
+						if(preg_match('(#ดูนัดหมาย |#ดูนัดหมาย |#ดูนัดหมาย )', $msg) === 1){
 
 
+							$url = 'https://api.line.me/v2/bot/profile/'.$uid;
+							//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+							$profile = get_profile($url);
+							$obj = json_decode($profile);
 
+							$nameid = $obj->displayName;
+							$status = $obj->statusMessage;
+							$pathpic = explode("cdn.net/", $obj->pictureUrl);
 
 
 							$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 							$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
+							$count;
 
-							//$lineid_encode = urlencode($uid);
-							//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
-							//$q_msg = json_decode($json_cmsg); 
-						 
-							//count-question---------//
-							$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
-							$count = json_decode($json_c);  //จำนวนที่นับได้
-							//count-question---------//
-						 
-							$id = $event['source']['userId'];
-							$urlp = 'https://api.line.me/v2/bot/profile/'.$id;
-							$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+							if($gid){
+								//count-question---------//
+								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.'"}&c=true');
+								$count = json_decode($json_c);  //จำนวนที่นับได้
+								//count-question---------//
+							}
+							else{
+								//count-question---------//
+								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}&c=true');
+								$count = json_decode($json_c);  //จำนวนที่นับได้
+								//count-question---------//
+							}
 
-							$header = array(
-								"Content-Type: application/json",
-								'Authorization: Bearer '.$channelAccessToken2,
-							);
-
-							$ch = curl_init();
-							//curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
-							//curl_setopt($ch, CURLOPT_VERBOSE, 1);
-							//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-							curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-							//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-							curl_setopt($ch, CURLOPT_FAILONERROR, 0);       ;
-							//curl_setopt($ch, CURLOPT_HTTPGET, 1);
-							//curl_setopt($ch, CURLOPT_USERAGENT, $agent);
-							//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-							curl_setopt($ch, CURLOPT_HEADER, 0);
-							curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-							curl_setopt($ch, CURLOPT_URL, $urlp);
-							 
-							$profile =  curl_exec($ch);
-							curl_close($ch);
-							$obj = json_decode($profile);
-
-
-							$pathpic = explode("cdn.net/", $obj->pictureUrl);
 						 
 							if ($count == 0){
-
-								//Post New Data--------------------------//
-								$newData = json_encode(
-								  array(
-									'lineid'=> $uid,
-									'name'=> $obj->displayName,
-									'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
-
-									'user_id'=> '-',
-									'pwacode'=> '-',
-
-									'manage_db'=> 'no',
-									'chk_db'=> 'no',
-
-									'pwaarea'=> 'no',
-									'weather'=> 'no',
-									'other'=> 'no',
-
-									'lat'=> '-',
-									'lng'=> '-',
-
-									'datetime'=> date("Y-m-d h:i:sa"),
-									'status' => 'add_friend'
-								  )
-								);
-
-								$opts = array(
-								  'http' => array(
-									  'method' => "POST",
-									  'header' => "Content-type: application/json",
-									  'content' => $newData
-								   )
-								);
-								$context = stream_context_create($opts);
-								$returnValue = file_get_contents($url,false,$context);
-								//Post New Data--------------------------//
-
-
-								$sec = explode('"$oid" : "', $returnValue);
-								$sec_id = explode('"', $sec[1]);
-
-								 
-								$t=array("ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ");
-								$random_keys=array_rand($t,1);
-								$txt = $t[$random_keys];
-								$a = array(
-											array(
-												'type' => 'text',
-												//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
-												'text' => $txt
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a);
-
-
-							}
-							else if ($count == 1){  
-
-								//query-คำถามที่เคยถามในdb----------------------------------//
-								$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-								$q_json_f = json_decode($json_f); 
-								$q_json_id = $q_json_f[0]->_id;
-								$q_json_oid = '';
-								foreach ($q_json_id as $k=>$v){
-									$q_json_oid = $v; // etc.
-								}
-
-								//update-----------------------------------//
-								//$_id = '59fb2268bd966f7657da67cc';
-								$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-								$newupdate = json_encode(
-									array(
-										'$set' => array('lineid'=> $uid),
-										'$set' => array('name'=> $obj->displayName),
-										'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-										//'$set' => array('user_id'=> '-'),
-										//'$set' => array('pwacode'=> '-'),
-										//'$set' => array('manage_db'=> 'no'),
-										//'$set' => array('chk_db'=> 'no'),
-
-										//'$set' => array('pwaarea'=> 'no'),
-										//'$set' => array('weather'=> 'no'),
-										//'$set' => array('other'=> 'no'),
-
-										//'$set' => array('lat'=> '-'),
-										//'$set' => array('lng'=> '-'),
-
-										'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-										'$set' => array('status'=> 'add_friend')
-
-									)
-								);
-
-								$optsu = array(
-									'http' => array(
-										'method' => "PUT",
-										'header' => "Content-type: application/json",
-										'content' => $newupdate
-									)
-								);
-
-								$contextu = stream_context_create($optsu);
-								$returnValup = file_get_contents($url_up, false, $contextu);
-
-
-								$t=array("ยินดีต้อนรับกลับมาเป็นเพื่อนครับ","อย่าบล็อคผมอีกนะครับ");
+								$t=array("ไม่พบนัดหมาย","ไม่พบนัดหมาย");
 								$random_keys=array_rand($t,1);
 								$txt = $t[$random_keys];
 								//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
 								$a = array(
 											array(
 												'type' => 'text',
-												//'text' => $txt." อัพเดท id:".$q_json_oid." count:".$count
+												'text' => $txt
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a);
+
+							}
+							else {  
+
+								$t=array("พบนัดหมาย ".$count,"พบนัดหมายจำนวน  ".$count);
+								$random_keys=array_rand($t,1);
+								$txt = $t[$random_keys];
+								//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
+								$a = array(
+											array(
+												'type' => 'text',
 												'text' => $txt
 											)
 										);
@@ -9396,28 +9276,76 @@ function replyMsg($event, $client)
 							}
 						
 
+						}
+						else if (preg_match('(#เพิ่มนัดหมาย |#เพิ่มนัดหมาย |#เพิ่มนัดหมาย )', $msg) === 1){
+
+
+							$url_profile = 'https://api.line.me/v2/bot/profile/'.$uid;
+							//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+							$profile = get_profile($url_profile);
+							$obj = json_decode($profile);
+
+							$nameid = $obj->displayName;
+							$status = $obj->statusMessage;
+							$pathpic = explode("cdn.net/", $obj->pictureUrl);
+
+
+							$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+							$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
+
+							//Post New Data--------------------------//
+							$newData = json_encode(
+							  array(
+								'gid'=> $gid,
+								'uid'=> $uid,
+
+								'name'=> $obj->displayName,
+								'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+								
+								'date'=> date("Y-m-d"),
+								'detail'=> $txt,								
+
+								'datetime'=> date("Y-m-d h:i:sa")
+
+							  )
+							);
+
+							$opts = array(
+							  'http' => array(
+								  'method' => "POST",
+								  'header' => "Content-type: application/json",
+								  'content' => $newData
+							   )
+							);
+							$context = stream_context_create($opts);
+							$returnValue = file_get_contents($url,false,$context);
+							//Post New Data--------------------------//
+
+
+							//$sec = explode('"$oid" : "', $returnValue);
+							//$sec_id = explode('"', $sec[1]);
+
+							 
+							$t=array("เพิ่มนัดหมายให้แล้วครับ","เพิ่มนัดหมายแล้วเสร็จ");
+							$random_keys=array_rand($t,1);
+							$txt = $t[$random_keys];
+							$a = array(
+										array(
+											'type' => 'text',
+											//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
+											'text' => $txt
+										)
+									);
+							$client->replyMessage1($event['replyToken'],$a);
+
+						}
+						else if (preg_match('(#ลบนัดหมาย |#ลบนัดหมาย |#ลบนัดหมาย )', $msg) === 1){
 
 
 
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'กำลังดำเนินการครับ'. $nameid,  
-										'sender' => array( 
-														'name' => $nameid,
-														'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
-													)
-									),
-									array(
-										'type' => 'text',
-										'text' => 'กำลังดำเนินการครับ'. $nameid,  
-										'sender' => array( 
-														'name' => $nameid,
-														'iconUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
-													)
-									),
-								);
-						$client->replyMessage1($event['replyToken'],$a);
+						}
+
+
 
 					}
 					else{
@@ -9431,11 +9359,9 @@ function replyMsg($event, $client)
 					}
 
 
-					
-
-
+				
 				}
-*/
+
 
 
 
