@@ -2855,6 +2855,14 @@ function replyMsg($event, $client)
 						$pwa_name = str_replace("สาขา","",$pwa_name);
 					}
 
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => $pwa_name							
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a_);	
 
 					//$pwa_name = str_replace(" ","",$pwa_name);
 
