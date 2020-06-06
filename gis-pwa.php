@@ -8130,7 +8130,7 @@ function replyMsg($event, $client)
 
 							}
 							else {  
-
+								$count=0;
 								$memo_=array();				
 								$message='';
 								$json_f;
@@ -8140,6 +8140,7 @@ function replyMsg($event, $client)
 									$q_json_f = json_decode($json_f);
 									foreach ($q_json_f as $i){
 										$memo_[$i->date] = $i->detail; 
+										$count++;
 									}
 
 								}
@@ -8152,6 +8153,7 @@ function replyMsg($event, $client)
 										//$message.= '|';
 										if($i->gid == '-'){
 											$memo_[$i->date] = $i->detail;
+											$count++;
 										}
 									}
 
