@@ -2833,13 +2833,11 @@ function replyMsg($event, $client)
 						}
 						else{
 
-
-							//$pwa_name = str_replace(" ","",$pwa_name);
-
-							//$pwa_name = preg_replace('/[^\w\s_-]/', '', $msg_split[1]);
-							 
-							//$pwa_name = preg_replace('/[^a-z0-9\_\- ]/i', '', $msg_split[1]);
-							//$pwacode = substr($text,-7);
+							//$txt = '123456ทดสอบ!@#$%^&*()_+=?\/><{}';
+							//$txt = strtolower(str_replace(" ","%",$txt));
+							$pwa_name = strtolower(preg_replace('~[^a-z0-9ก-๙]~iu','',$pwa_name));
+							//$txt = strtolower(preg_replace('~[^a-z0-9ก-๙\.\-\_]~iu','',$pwa_name));
+							
 							//---------------------------------//
 							$urllink = 'https://gisweb1.pwa.co.th/lineservice/pwa_location/get_office_bot.php?name='.$pwa_name; 
 							//$urllink = 'https://gisweb1.pwa.co.th/bot_line/service/get_office_bot.php?pwa_code='.$pwacode; 
@@ -2905,17 +2903,14 @@ function replyMsg($event, $client)
 					}
 
 
-
-
-
-
 				}
 
 
 
-				else if(preg_match('(#อัพโหลด|#Upload|#upload|#สถานะอัพโหลด|#อับโหลด|#สถานะอับโหลด)', $msg) === 1) {
+				else if(preg_match('(#สถานะอัพโหลด|#สถานะอัพโหลด|#สถานะอัพโหลด|#สถานะอัพโหลด|#สถานะอัพโหลด|#สถานะอัพโหลด)', $msg) === 1) {
 
-					$div = explode(" ",$msg);
+					$div = explode("#สถานะอัพโหลด",$msg);
+
 					if(preg_match('(meter|bldg|pipe|firehydrant|valve)', $div[1]) === 1){
 						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle.php?ly='.$div[1]; 
 						$chl = curl_init();
@@ -2936,8 +2931,26 @@ function replyMsg($event, $client)
 								);
 						$client->replyMessage1($event['replyToken'],$a_);
 					}
+					else if($div[1] == '' || !$div[1]){
+						$a_ = array(
+
+									array(
+										'type' => 'text',
+										'text' => 'ตรวจสอบสถานะการอัพโหลดข้อมูล GIS ได้ 2 รูปแบบ คือ \n1.ชั้นข้อมูล \n2.ชื่อกปภ.สาขา \nตัวอย่างการใช้งาน\n#สถานะอัพโหลด meter \n#สถานะอัพโหลด ระโนด'
+									),
+								);
+						$client->replyMessage1($event['replyToken'],$a_);
+
+					}
 					else{
-						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle_pwacode.php?name='.$div[1]; 
+
+						//$txt = '123456ทดสอบ!@#$%^&*()_+=?\/><{}';
+						//$txt = strtolower(str_replace(" ","%",$txt));
+						$pwaname = strtolower(preg_replace('~[^a-z0-9ก-๙]~iu','',$div[1]));
+						//$pwaname = strtolower(preg_replace('~[^a-z0-9ก-๙\.\-\_]~iu','',$div[1]));
+						
+
+						$urllink = 'https://gisweb1.pwa.co.th/lineservice/gisdatastat/check_postgres_vs_oracle_pwacode.php?name='.$pwaname; 
 						$chl = curl_init();
 						curl_setopt( $chl, CURLOPT_URL, $urllink); 
 						curl_setopt($chl, CURLOPT_RETURNTRANSFER , 1);
@@ -5081,7 +5094,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ติดตามมาตร",
-													'text'=> '#คำสั่งmeterstat'
+													'text'=> '#helpmeterstat'
 													)
 										   ),
 										   array(
@@ -5094,7 +5107,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "คัดสำเนา",
-													'text'=> '#คำสั่งdga'
+													'text'=> '#dga'
 													)
 										   )
 										  )
@@ -5122,7 +5135,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ข้อมูล GIS",
-													'text'=> '#คำสั่งgisdb'
+													'text'=> '#สถานะอัพโหลด'
 													)
 										   ),
 										   array(
@@ -5135,7 +5148,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ลงทะเบียน",
-													'text'=> '#คำสั่งลงทะเบียน'
+													'text'=> '#ลงทะเบียน'
 													)
 										   )
 										  )
@@ -5190,7 +5203,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ตรวจสอบพื้นที่ให้บริการ",
-													'text'=> '#คำสั่งservicearea'
+													'text'=> '#ตรวจสอบพื้นที่ให้บริการ'
 													)
 										   )
 										  )
@@ -5216,7 +5229,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ค้นหาตำแหน่ง กปภ.",
-													'text'=> '#คำสั่งsearchpwa'
+													'text'=> '#ไป'
 													)
 										   )
 										  )
@@ -5317,7 +5330,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "สอนบอท",
-													'text'=> '#คำสั่งbot'
+													'text'=> '#bot'
 													)
 										   ),
 										   array(
@@ -5359,7 +5372,7 @@ function replyMsg($event, $client)
 											'action'=> array(
 													'type'=> "message",
 													'label'=> "ติดตามพัสดุไปรษณีย์",
-													'text'=> '#track เลขพัสดุ'
+													'text'=> '#track'
 													)
 										   ),
 										   array(
@@ -5596,12 +5609,12 @@ function replyMsg($event, $client)
  
 					$t = "คำสั่งการใช้งาน ระบบติดตามมาตรฯ 
 					\n 1.การเพิ่ม/ลบ สิทธิ์
-					\n #เพิ่มสิทธิ์ หรือ #เพิ่มสิทธิ์มาตร หรือ #เพิ่มสิทธิ์ระบบมาตร หรือ #เพิ่มสิทธิ์ระบบมาตรฯ 
+					\n #เพิ่มสิทธิ์ 
 					\n (เพิ่มสิทธิ์ได้มากสุด ครั้งละไม่เกิน 59 user)
 					\n ตัวอย่าง
 					\n  1.1.1 กรณีเพิ่มสิทธิ์ 1 คน => #เพิ่มสิทธิ์ 12974
 					\n  1.1.2 กรณีเพิ่มสิทธิ์ มากกว่า 1 คน => #เพิ่มสิทธิ์ 12974 12975 12976
-					\n #ลบสิทธิ์ หรือ #ลบสิทธิ์มาตร หรือ #ลบสิทธิ์ระบบมาตร หรือ #ลบสิทธิ์ระบบมาตรฯ 
+					\n #ลบสิทธิ์ 
 					\n (ลบสิทธิ์ได้มากสุด ครั้งละไม่เกิน 59 user)
 					\n  ตัวอย่าง
 					\n  1.2.1 กรณีลบสิทธิ์ 1 คน => #ลบสิทธิ์ 12974
@@ -5652,12 +5665,14 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-                else if (preg_match('(#helpdga|#helpdga|#helpdga)', $msg) === 1) {
+                else if (preg_match('(#helpupload|#helpupload|#helpupload)', $msg) === 1) {
  
-					$t = "คำสั่งการใช้งาน ระบบคัดสำเนา
-					\n 1.ตรวจสอบจำนวนโควต้าของคนออเทนในปัจจุบัน
-					\n #dga
-
+					$t = "ตรวจสอบสถานะการอัพโหลดข้อมูล GIS ได้ 2 รูปแบบ คือ
+					\n 1.ชั้นข้อมูล
+					\n 2.ชื่อกปภ.สาขา
+					\n ตัวอย่างการใช้งาน
+					\n #สถานะอัพโหลด meter
+					\n #สถานะอัพโหลด ระโนด
 					";					
 					
 					/*
@@ -5681,298 +5696,35 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
+                else if (preg_match('(#helpmemo|#helpmemo|#helpmemo)', $msg) === 1) {
+ 
+					$t = "คำสั่งการใช้งานนัดหมาย
+					\n 1.#ดูนัดหมาย
+					\n 2.#เพิ่มนัดหมาย
+					\n 3.#ลบนัดหมาย
+					";					
+					
+					/*
+					$text_reply = "คำสั่งของไลน์บอทต่างๆ 
+					\n  1.ค้นหาข้อมูลความยาวท่อ => ท่อ [ชนิด] [ขนาด] [อายุ]
+					\n  2.ค้นหาข้อมูลมาตรฯ => มาตรฯ [    ]
+					\n  3.ค้นหาตำแหน่ง => location
+					\n  4.เช็คสถานะDBระบบติดตามมาตร => meterstat 
+					\n  5.ค้นหาตำแหน่งกปภ.สาขา => #ไป [กปภ.สาขา] 
+					\n  6.555, sticker, รูป, พื้นที่ให้บริการ 
+					";
+					*/
 
-
-				else if (preg_match('(#sally|#sally)', $msg) === 1) {
-
-
-					$a = array(
-							array(
-								'type' => 'flex',
-								'altText' => '#sally.',
-								'contents'=> array(
-
-
-										  "type"=> "bubble",
-										  "size"=> "mega",// giga,mega,kilo,macro,nano defult:mega
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "horizontal",
-											"contents"=> array(
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "image",
-													"url"=> "https://gispwa.herokuapp.com/image/sally.jpg",
-													"aspectRatio"=> "1:2",
-													"aspectMode"=> "cover"
-												  )
-												)
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "flex=1",
-													"flex"=> 1,
-													"gravity"=> "center"
-												  ),
-												  array(
-													"type"=> "separator"
-												  ),
-												  array(
-													"type"=> "text",
-													"text"=> "flex=1",
-													"flex"=> 1,
-													"gravity"=> "center"
-												  )
-												)
-											  )
-											)
-										  )
-
-
-								)
-							)
-					);
+                    //$t = 'ช่วยเหลือ';    
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $t . ''               
+                                )
+                            );
                     $client->replyMessage1($event['replyToken'],$a);
  
                 }
-
-
-				else if (preg_match('(#slide|#slide)', $msg) === 1) {
-
-
-					$a = array(
-							array(
-								'type' => 'flex',
-								'altText' => '#วิธีการใช้งานไลน์บอท.',
-								'contents'=> array(
-
-								/* เอามาจากflex*/
-
-
-									  "type"=> "carousel",
-									  "contents"=> array(
-
-											array(
-											  "type"=> "bubble",
-											  "size"=> "kilo",// giga,mega,kilo,macro,nano defult:mega
-											  "header"=> array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-													"color"=> "#414141",
-													"gravity"=> "center",
-													"size"=> "lg",
-													"wrap"=> true,
-													"align"=> "center"
-												  )
-												)
-											  ),
-											  "hero"=> array(
-												"type"=> "image",
-												"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
-												"size"=> "full",
-												"aspectRatio"=> "16:9",
-												"aspectMode"=> "cover",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "http://bit.ly/2JGBRKv"
-												)
-											  ),
-											  "body"=> array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "image",
-														"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
-														"size"=> "md",
-														"align"=> "start",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> 'หนังสือเล่มนี้ดี',
-														"wrap"=> true,
-														"size"=> "lg",
-														"color"=> "#a57f23",
-														"gravity"=> "center"
-														//"flex" => 3 // for auto size image+name more(image<) less(image>)
-													  )
-													)
-												  )
-
-												)
-											  ),
-											  "footer"=> array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-
-												  array(
-													'type'=> "box",
-													'layout'=> "vertical",
-													'contents'=> array(
-													   array(
-														'type'=> "button",
-														'style'=> "link",
-														"gravity"=> "center",
-														"margin"=> "sm",
-														'height'=> "sm",
-														'action'=> array(
-																'type'=> "uri",
-																'label'=> "ลงทะเบียน",
-																'uri'=> "http://bit.ly/2JGBRKv"
-																)
-													   )
-													  )
-												  )
-
-
-												)
-											  ),
-
-											  "styles"=> array(
-
-													"header"=> array(
-													  "backgroundColor"=> "#fdd74a"
-													),
-													"body"=> array(
-													  "backgroundColor"=> "#fffcf2"
-													),
-													"footer"=> array(
-													  "separator"=> true
-													)
-
-											  )
-											),
-											array(
-											  "type"=> "bubble",
-											  "size"=> "kilo",// giga,mega,kilo,macro,nano defult:mega
-											  "header"=> array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
-													"color"=> "#414141",
-													"gravity"=> "center",
-													"size"=> "lg",
-													"wrap"=> true,
-													"align"=> "center"
-												  )
-												)
-											  ),
-											  "hero"=> array(
-												"type"=> "image",
-												"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
-												"size"=> "full",
-												"aspectRatio"=> "16:9",
-												"aspectMode"=> "cover",
-												"action"=> array(
-												  "type"=> "uri",
-												  "uri"=> "http://bit.ly/2JGBRKv"
-												)
-											  ),
-											  "body"=> array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "horizontal",
-													"contents"=> array(
-													  array(
-														"type"=> "image",
-														"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
-														"size"=> "md",
-														"align"=> "start",
-														"gravity"=> "center"
-													  ),
-													  array(
-														"type"=> "text",
-														"text"=> 'หนังสือเล่มนี้ดี',
-														"wrap"=> true,
-														"size"=> "lg",
-														"color"=> "#a57f23",
-														"gravity"=> "center"
-														//"flex" => 3 // for auto size image+name more(image<) less(image>)
-													  )
-													)
-												  )
-
-												)
-											  ),
-											  "footer"=> array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-
-												  array(
-													'type'=> "box",
-													'layout'=> "vertical",
-													'contents'=> array(
-													   array(
-														'type'=> "button",
-														'style'=> "primary",
-														"gravity"=> "center",
-														"margin"=> "sm",
-														'height'=> "sm",
-														'action'=> array(
-																'type'=> "uri",
-																'label'=> "ลงทะเบียน",
-																'uri'=> "http://bit.ly/2JGBRKv"
-																)
-													   )
-													  )
-												  )
-
-
-												)
-											  ),
-
-											  "styles"=> array(
-
-													"header"=> array(
-													  "backgroundColor"=> "#fdd74a"
-													),
-													"body"=> array(
-													  "backgroundColor"=> "#fffcf2"
-													),
-													"footer"=> array(
-													  "separator"=> true
-													)
-
-											  )
-											)
-
-										)
-
-
-								/* เอามาจากflex*/
-
-								)
-							)
-					);
-                    $client->replyMessage1($event['replyToken'],$a);
- 
-                }
-
-
 
 				else if (preg_match('(#web1|#web1)', $msg) === 1) {
 
@@ -7301,15 +7053,14 @@ function replyMsg($event, $client)
 				}
 
 
-
-
-
-				else if (preg_match('(#forcast|#forcast )', $msg) === 1) {
+				else if (preg_match('(#forcast|#forcast)', $msg) === 1) {
 
 					$stat = 0;
 
-					$split = explode(" ", $msg);
-					$prv=$split[1];
+					$split = explode("#forcast", $msg);
+
+					$prv = trim($split[1]);
+
 					if(!$prv || $prv ==''){
 							$a = array(
 										array(
@@ -8527,266 +8278,6 @@ function replyMsg($event, $client)
 				}
 
 
-				else if (preg_match('(#carousel|#carousel)', $msg) === 1) {
-
-
-					$a = array(
-							array(
-								'type' => 'flex',
-								'altText' => '#วิธีการใช้งานไลน์บอท.',
-								'contents'=> array(
-
-
-									  "type"=> "carousel",
-									  "contents"=> array(
-										array(
-										  "type"=> "bubble",
-										  "size"=> "nano",// giga,mega,kilo,macro,nano defult:mega
-										  "header"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "In Progress",
-												"color"=> "#ffffff",
-												"align"=> "start",
-												"size"=> "md",
-												"gravity"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "70%",
-												"color"=> "#ffffff",
-												"align"=> "start",
-												"size"=> "xs",
-												"gravity"=> "center",
-												"margin"=> "lg"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "filler"
-													  )
-													),
-													"width"=> "70%",
-													"backgroundColor"=> "#0D8186",
-													"height"=> "6px"
-												  )
-												),
-												"backgroundColor"=> "#9FD8E36E",
-												"height"=> "6px",
-												"margin"=> "sm"
-											  )
-											),
-											"backgroundColor"=> "#27ACB2",
-											"paddingTop"=> "19px",
-											"paddingAll"=> "12px",
-											"paddingBottom"=> "16px"
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "Buy milk and lettuce before class",
-													"color"=> "#8C8C8C",
-													"size"=> "sm",
-													"wrap"=> true
-												  )
-												),
-												"flex"=> 1
-											  )
-											),
-											"spacing"=> "md",
-											"paddingAll"=> "12px"
-										  ),
-										  "styles"=> array(
-											"footer"=> array(
-											  "separator"=> false
-											)
-										  )
-										),
-										array(
-										  "type"=> "bubble",
-										  "size"=> "nano",// giga,mega,kilo,macro,nano defult:mega
-										  "header"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "Pending",
-												"color"=> "#ffffff",
-												"align"=> "start",
-												"size"=> "md",
-												"gravity"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "30%",
-												"color"=> "#ffffff",
-												"align"=> "start",
-												"size"=> "xs",
-												"gravity"=> "center",
-												"margin"=> "lg"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "filler"
-													  )
-													),
-													"width"=> "30%",
-													"backgroundColor"=> "#DE5658",
-													"height"=> "6px"
-												  )
-												),
-												"backgroundColor"=> "#FAD2A76E",
-												"height"=> "6px",
-												"margin"=> "sm"
-											  )
-											),
-											"backgroundColor"=> "#FF6B6E",
-											"paddingTop"=> "19px",
-											"paddingAll"=> "12px",
-											"paddingBottom"=> "16px"
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "Wash my car",
-													"color"=> "#8C8C8C",
-													"size"=> "sm",
-													"wrap"=> true
-												  )
-												),
-												"flex"=> 1
-											  )
-											),
-											"spacing"=> "md",
-											"paddingAll"=> "12px"
-										  ),
-										  "styles"=> array(
-											"footer"=> array(
-											  "separator"=> false
-											)
-										  )
-										),
-										array(
-										  "type"=> "bubble",
-										  "size"=> "nano",// giga,mega,kilo,macro,nano defult:mega
-										  "header"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "text",
-												"text"=> "In Progress",
-												"color"=> "#ffffff",
-												"align"=> "start",
-												"size"=> "md",
-												"gravity"=> "center"
-											  ),
-											  array(
-												"type"=> "text",
-												"text"=> "100%",
-												"color"=> "#ffffff",
-												"align"=> "start",
-												"size"=> "xs",
-												"gravity"=> "center",
-												"margin"=> "lg"
-											  ),
-											  array(
-												"type"=> "box",
-												"layout"=> "vertical",
-												"contents"=> array(
-												  array(
-													"type"=> "box",
-													"layout"=> "vertical",
-													"contents"=> array(
-													  array(
-														"type"=> "filler"
-													  )
-													),
-													"width"=> "100%",
-													"backgroundColor"=> "#7D51E4",
-													"height"=> "6px"
-												  )
-												),
-												"backgroundColor"=> "#9FD8E36E",
-												"height"=> "6px",
-												"margin"=> "sm"
-											  )
-											),
-											"backgroundColor"=> "#A17DF5",
-											"paddingTop"=> "19px",
-											"paddingAll"=> "12px",
-											"paddingBottom"=> "16px"
-										  ),
-										  "body"=> array(
-											"type"=> "box",
-											"layout"=> "vertical",
-											"contents"=> array(
-											  array(
-												"type"=> "box",
-												"layout"=> "horizontal",
-												"contents"=> array(
-												  array(
-													"type"=> "text",
-													"text"=> "Buy milk and lettuce before class",
-													"color"=> "#8C8C8C",
-													"size"=> "sm",
-													"wrap"=> true
-												  )
-												),
-												"flex"=> 1
-											  )
-											),
-											"spacing"=> "md",
-											"paddingAll"=> "12px"
-										  ),
-										  "styles"=> array(
-											"footer"=> array(
-											  "separator"=> false
-											)
-										  )
-										)
-									  )
-
-
-								)
-							)
-					);
-                    $client->replyMessage1($event['replyToken'],$a);
- 
-                }
-
-
 				else if ($msg == '#ตรวจสอบพื้นที่ให้บริการ') {
 
                     $gid = $event['source']['groupId'];
@@ -8992,11 +8483,11 @@ function replyMsg($event, $client)
 
 				}
 
-				else if (preg_match('(#track |#track )', $msg) === 1) {
-					
-					$split = explode("#track ", $msg);
+				else if (preg_match('(#track|#track)', $msg) === 1) {
 
-					$id = $split[1];
+					$split = explode("#track", $msg);
+
+					$id = trim($split[1]);
 
 
 					if(strlen($id) != 13){
@@ -9429,6 +8920,553 @@ function replyMsg($event, $client)
 				
 				}
 
+
+				// test---------------------------------------------------------------------------------
+				else if (preg_match('(#sally|#sally)', $msg) === 1) {
+
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => '#sally.',
+								'contents'=> array(
+
+
+										  "type"=> "bubble",
+										  "size"=> "mega",// giga,mega,kilo,macro,nano defult:mega
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "horizontal",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "image",
+													"url"=> "https://gispwa.herokuapp.com/image/sally.jpg",
+													"aspectRatio"=> "1:2",
+													"aspectMode"=> "cover"
+												  )
+												)
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "flex=1",
+													"flex"=> 1,
+													"gravity"=> "center"
+												  ),
+												  array(
+													"type"=> "separator"
+												  ),
+												  array(
+													"type"=> "text",
+													"text"=> "flex=1",
+													"flex"=> 1,
+													"gravity"=> "center"
+												  )
+												)
+											  )
+											)
+										  )
+
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+				else if (preg_match('(#slide|#slide)', $msg) === 1) {
+
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => '#วิธีการใช้งานไลน์บอท.',
+								'contents'=> array(
+
+								/* เอามาจากflex*/
+
+
+									  "type"=> "carousel",
+									  "contents"=> array(
+
+											array(
+											  "type"=> "bubble",
+											  "size"=> "kilo",// giga,mega,kilo,macro,nano defult:mega
+											  "header"=> array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+													"color"=> "#414141",
+													"gravity"=> "center",
+													"size"=> "lg",
+													"wrap"=> true,
+													"align"=> "center"
+												  )
+												)
+											  ),
+											  "hero"=> array(
+												"type"=> "image",
+												"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
+												"size"=> "full",
+												"aspectRatio"=> "16:9",
+												"aspectMode"=> "cover",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "http://bit.ly/2JGBRKv"
+												)
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
+														"size"=> "md",
+														"align"=> "start",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> 'หนังสือเล่มนี้ดี',
+														"wrap"=> true,
+														"size"=> "lg",
+														"color"=> "#a57f23",
+														"gravity"=> "center"
+														//"flex" => 3 // for auto size image+name more(image<) less(image>)
+													  )
+													)
+												  )
+
+												)
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+
+												  array(
+													'type'=> "box",
+													'layout'=> "vertical",
+													'contents'=> array(
+													   array(
+														'type'=> "button",
+														'style'=> "link",
+														"gravity"=> "center",
+														"margin"=> "sm",
+														'height'=> "sm",
+														'action'=> array(
+																'type'=> "uri",
+																'label'=> "ลงทะเบียน",
+																'uri'=> "http://bit.ly/2JGBRKv"
+																)
+													   )
+													  )
+												  )
+
+
+												)
+											  ),
+
+											  "styles"=> array(
+
+													"header"=> array(
+													  "backgroundColor"=> "#fdd74a"
+													),
+													"body"=> array(
+													  "backgroundColor"=> "#fffcf2"
+													),
+													"footer"=> array(
+													  "separator"=> true
+													)
+
+											  )
+											),
+											array(
+											  "type"=> "bubble",
+											  "size"=> "kilo",// giga,mega,kilo,macro,nano defult:mega
+											  "header"=> array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "ผูกบัญชีไลน์กับข้อมูลพนักงาน",
+													"color"=> "#414141",
+													"gravity"=> "center",
+													"size"=> "lg",
+													"wrap"=> true,
+													"align"=> "center"
+												  )
+												)
+											  ),
+											  "hero"=> array(
+												"type"=> "image",
+												"url"=> "https://gispwa.herokuapp.com/image/kpi.jpg",
+												"size"=> "full",
+												"aspectRatio"=> "16:9",
+												"aspectMode"=> "cover",
+												"action"=> array(
+												  "type"=> "uri",
+												  "uri"=> "http://bit.ly/2JGBRKv"
+												)
+											  ),
+											  "body"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "horizontal",
+													"contents"=> array(
+													  array(
+														"type"=> "image",
+														"url"=> 'https://gispwa.herokuapp.com/image/ic-face-red.png',
+														"size"=> "md",
+														"align"=> "start",
+														"gravity"=> "center"
+													  ),
+													  array(
+														"type"=> "text",
+														"text"=> 'หนังสือเล่มนี้ดี',
+														"wrap"=> true,
+														"size"=> "lg",
+														"color"=> "#a57f23",
+														"gravity"=> "center"
+														//"flex" => 3 // for auto size image+name more(image<) less(image>)
+													  )
+													)
+												  )
+
+												)
+											  ),
+											  "footer"=> array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+
+												  array(
+													'type'=> "box",
+													'layout'=> "vertical",
+													'contents'=> array(
+													   array(
+														'type'=> "button",
+														'style'=> "primary",
+														"gravity"=> "center",
+														"margin"=> "sm",
+														'height'=> "sm",
+														'action'=> array(
+																'type'=> "uri",
+																'label'=> "ลงทะเบียน",
+																'uri'=> "http://bit.ly/2JGBRKv"
+																)
+													   )
+													  )
+												  )
+
+
+												)
+											  ),
+
+											  "styles"=> array(
+
+													"header"=> array(
+													  "backgroundColor"=> "#fdd74a"
+													),
+													"body"=> array(
+													  "backgroundColor"=> "#fffcf2"
+													),
+													"footer"=> array(
+													  "separator"=> true
+													)
+
+											  )
+											)
+
+										)
+
+
+								/* เอามาจากflex*/
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+				else if (preg_match('(#carousel|#carousel)', $msg) === 1) {
+
+
+					$a = array(
+							array(
+								'type' => 'flex',
+								'altText' => '#วิธีการใช้งานไลน์บอท.',
+								'contents'=> array(
+
+
+									  "type"=> "carousel",
+									  "contents"=> array(
+										array(
+										  "type"=> "bubble",
+										  "size"=> "nano",// giga,mega,kilo,macro,nano defult:mega
+										  "header"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "In Progress",
+												"color"=> "#ffffff",
+												"align"=> "start",
+												"size"=> "md",
+												"gravity"=> "center"
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "70%",
+												"color"=> "#ffffff",
+												"align"=> "start",
+												"size"=> "xs",
+												"gravity"=> "center",
+												"margin"=> "lg"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "filler"
+													  )
+													),
+													"width"=> "70%",
+													"backgroundColor"=> "#0D8186",
+													"height"=> "6px"
+												  )
+												),
+												"backgroundColor"=> "#9FD8E36E",
+												"height"=> "6px",
+												"margin"=> "sm"
+											  )
+											),
+											"backgroundColor"=> "#27ACB2",
+											"paddingTop"=> "19px",
+											"paddingAll"=> "12px",
+											"paddingBottom"=> "16px"
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "Buy milk and lettuce before class",
+													"color"=> "#8C8C8C",
+													"size"=> "sm",
+													"wrap"=> true
+												  )
+												),
+												"flex"=> 1
+											  )
+											),
+											"spacing"=> "md",
+											"paddingAll"=> "12px"
+										  ),
+										  "styles"=> array(
+											"footer"=> array(
+											  "separator"=> false
+											)
+										  )
+										),
+										array(
+										  "type"=> "bubble",
+										  "size"=> "nano",// giga,mega,kilo,macro,nano defult:mega
+										  "header"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "Pending",
+												"color"=> "#ffffff",
+												"align"=> "start",
+												"size"=> "md",
+												"gravity"=> "center"
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "30%",
+												"color"=> "#ffffff",
+												"align"=> "start",
+												"size"=> "xs",
+												"gravity"=> "center",
+												"margin"=> "lg"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "filler"
+													  )
+													),
+													"width"=> "30%",
+													"backgroundColor"=> "#DE5658",
+													"height"=> "6px"
+												  )
+												),
+												"backgroundColor"=> "#FAD2A76E",
+												"height"=> "6px",
+												"margin"=> "sm"
+											  )
+											),
+											"backgroundColor"=> "#FF6B6E",
+											"paddingTop"=> "19px",
+											"paddingAll"=> "12px",
+											"paddingBottom"=> "16px"
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "Wash my car",
+													"color"=> "#8C8C8C",
+													"size"=> "sm",
+													"wrap"=> true
+												  )
+												),
+												"flex"=> 1
+											  )
+											),
+											"spacing"=> "md",
+											"paddingAll"=> "12px"
+										  ),
+										  "styles"=> array(
+											"footer"=> array(
+											  "separator"=> false
+											)
+										  )
+										),
+										array(
+										  "type"=> "bubble",
+										  "size"=> "nano",// giga,mega,kilo,macro,nano defult:mega
+										  "header"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "text",
+												"text"=> "In Progress",
+												"color"=> "#ffffff",
+												"align"=> "start",
+												"size"=> "md",
+												"gravity"=> "center"
+											  ),
+											  array(
+												"type"=> "text",
+												"text"=> "100%",
+												"color"=> "#ffffff",
+												"align"=> "start",
+												"size"=> "xs",
+												"gravity"=> "center",
+												"margin"=> "lg"
+											  ),
+											  array(
+												"type"=> "box",
+												"layout"=> "vertical",
+												"contents"=> array(
+												  array(
+													"type"=> "box",
+													"layout"=> "vertical",
+													"contents"=> array(
+													  array(
+														"type"=> "filler"
+													  )
+													),
+													"width"=> "100%",
+													"backgroundColor"=> "#7D51E4",
+													"height"=> "6px"
+												  )
+												),
+												"backgroundColor"=> "#9FD8E36E",
+												"height"=> "6px",
+												"margin"=> "sm"
+											  )
+											),
+											"backgroundColor"=> "#A17DF5",
+											"paddingTop"=> "19px",
+											"paddingAll"=> "12px",
+											"paddingBottom"=> "16px"
+										  ),
+										  "body"=> array(
+											"type"=> "box",
+											"layout"=> "vertical",
+											"contents"=> array(
+											  array(
+												"type"=> "box",
+												"layout"=> "horizontal",
+												"contents"=> array(
+												  array(
+													"type"=> "text",
+													"text"=> "Buy milk and lettuce before class",
+													"color"=> "#8C8C8C",
+													"size"=> "sm",
+													"wrap"=> true
+												  )
+												),
+												"flex"=> 1
+											  )
+											),
+											"spacing"=> "md",
+											"paddingAll"=> "12px"
+										  ),
+										  "styles"=> array(
+											"footer"=> array(
+											  "separator"=> false
+											)
+										  )
+										)
+									  )
+
+
+								)
+							)
+					);
+                    $client->replyMessage1($event['replyToken'],$a);
+ 
+                }
+				// test---------------------------------------------------------------------------------
 
 
 
