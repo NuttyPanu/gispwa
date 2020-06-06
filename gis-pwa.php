@@ -8148,6 +8148,7 @@ function replyMsg($event, $client)
 									);
 								}
 
+								$message.= date("Y-m-d");
 								
 								$today_ = date("Y-m-d");
 								//$today_ = date("d-m-Y");
