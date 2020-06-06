@@ -8110,6 +8110,8 @@ function replyMsg($event, $client)
 								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}&c=true');
 								$count = json_decode($json_c);  //จำนวนที่นับได้
 								//count-question---------//
+
+
 							}
 
 						 
@@ -8129,14 +8131,69 @@ function replyMsg($event, $client)
 							}
 							else {  
 
+								$memo_=array();				
+
 								$t=array("พบนัดหมาย ".$count,"พบนัดหมายจำนวน  ".$count);
 								$random_keys=array_rand($t,1);
 								$txt = $t[$random_keys];
-								//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
+
+
+ 
+								//query-คำถามที่เคยถามในdb----------------------------------//
+								$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}');
+								$q_json_f = json_decode($json_f);
+								
+								foreach ($q_json_f as $i){
+									array_push($memo_arr, array(
+												$i->date => $i->detail
+												)
+									);
+								}
+
+								$message='';
+								$today_ = date("d-m-Y");
+
+								$s7d = date("d-m-Y",strtotime("+7 days",strtotime($today_)));
+								$s3d = date("d-m-Y",strtotime("+3 days",strtotime($today_)));
+								$s2d = date("d-m-Y",strtotime("+2 days",strtotime($today_)));
+								$s1d = date("d-m-Y",strtotime("+1 days",strtotime($today_)));
+
+
+								if(array_key_exists($s7d, $memo_))  // holiday;
+								//else if(in_array($today, $holiday))  // holiday;
+								{
+									$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
+								}
+								if(array_key_exists($s3d, $memo_))  // holiday;
+								//else if(in_array($today, $holiday))  // holiday;
+								{
+									$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
+								}
+								if(array_key_exists($s2d, $memo_))  // holiday;
+								//else if(in_array($today, $holiday))  // holiday;
+								{
+									$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
+								}
+								if(array_key_exists($s1d, $memo_))  // holiday;
+								//else if(in_array($today, $holiday))  // holiday;
+								{
+									$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
+								}
+
+								if(array_key_exists($today_, $memo_))
+								{
+									$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
+								}				
+
+
 								$a = array(
 											array(
 												'type' => 'text',
 												'text' => $txt
+											),
+											array(
+												'type' => 'text',
+												'text' => $message
 											)
 										);
 								$client->replyMessage1($event['replyToken'],$a);
