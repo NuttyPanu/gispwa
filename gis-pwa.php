@@ -8134,21 +8134,19 @@ function replyMsg($event, $client)
 								$memo_=array();				
 								$message='';
 
-
-
 								//query-คำถามที่เคยถามในdb----------------------------------//
 								$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}');
 								$q_json_f = json_decode($json_f);
 								
 								foreach ($q_json_f as $i){
-									$message.=$i->date;
+									//$message.=$i->date;
 									array_push($memo_, array(
 												$i->date => $i->detail
 												)
 									);
 								}
 
-								$message.= date("Y-m-d");
+								//$message.= date("Y-m-d");
 								
 								$today_ = date("Y-m-d");
 								//$today_ = date("d-m-Y");
@@ -8198,7 +8196,12 @@ function replyMsg($event, $client)
 											array(
 												'type' => 'text',
 												'text' => $message
+											),
+											array(
+												'type' => 'text',
+												'text' => implode(" ",$memo_)
 											)
+
 										);
 								$client->replyMessage1($event['replyToken'],$a);
 
