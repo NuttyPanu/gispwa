@@ -8139,15 +8139,15 @@ function replyMsg($event, $client)
 								$q_json_f = json_decode($json_f);
 								
 								foreach ($q_json_f as $i){
-									//$message.=$i->date;
+									$message.=$i->date;
+									$message.= '|';
 									array_push($memo_, array(
 												$i->date => $i->detail
 												)
 									);
 								}
 
-								//$message.= date("Y-m-d");
-								
+							
 								$today_ = date("Y-m-d");
 								//$today_ = date("d-m-Y");
 
@@ -8155,6 +8155,18 @@ function replyMsg($event, $client)
 								$s3d = date("Y-m-d",strtotime("+3 days",strtotime($today_)));
 								$s2d = date("Y-m-d",strtotime("+2 days",strtotime($today_)));
 								$s1d = date("Y-m-d",strtotime("+1 days",strtotime($today_)));
+
+								$message.= '|';
+								$message.= date("Y-m-d");
+								$message.= '|';
+								$message.= $s7d;
+								$message.= '|';
+								$message.= $s3d;
+								$message.= '|';
+								$message.= $s2d;
+								$message.= '|';
+								$message.= $s1d;
+
 
 
 								if(array_key_exists($s7d, $memo_))  // holiday;
@@ -8196,10 +8208,6 @@ function replyMsg($event, $client)
 											array(
 												'type' => 'text',
 												'text' => $message
-											),
-											array(
-												'type' => 'text',
-												'text' => implode(" ",$memo_)
 											)
 
 										);
