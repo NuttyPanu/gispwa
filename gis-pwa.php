@@ -8133,9 +8133,14 @@ function replyMsg($event, $client)
 
 								$memo_=array();				
 								$message='';
+								$json_f;
+								if($gid){
+									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.'"}');
+								}
+								else{
+									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}');
+								}
 
-								//query-คำถามที่เคยถามในdb----------------------------------//
-								$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}');
 								$q_json_f = json_decode($json_f);
 								
 								foreach ($q_json_f as $i){
@@ -8162,31 +8167,31 @@ function replyMsg($event, $client)
 								if(array_key_exists($s7d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." 
+									$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]."(".$s7d.")"." 
 									\n";
 								}
 								if(array_key_exists($s3d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." 
+									$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]."(".$s3d.")"." 
 									\n";
 								}
 								if(array_key_exists($s2d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." 
+									$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]."(".$s2d.")"." 
 									\n";
 								}
 								if(array_key_exists($s1d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." 
+									$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]."(".$s1d.")"." 
 									\n";
 								}
 
 								if(array_key_exists($today_, $memo_))
 								{
-									$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." 
+									$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]."(".$today_.")"." 
 									\n";
 								}				
 
