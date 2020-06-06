@@ -8133,12 +8133,6 @@ function replyMsg($event, $client)
 
 								$memo_=array();				
 
-								$t=array("พบนัดหมาย ".$count,"พบนัดหมายจำนวน  ".$count);
-								$random_keys=array_rand($t,1);
-								$txt = $t[$random_keys];
-
-
- 
 								//query-คำถามที่เคยถามในdb----------------------------------//
 								$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}');
 								$q_json_f = json_decode($json_f);
@@ -8149,7 +8143,15 @@ function replyMsg($event, $client)
 												)
 									);
 								}
-
+								$a = array(
+											array(
+												'type' => 'text',
+												'text' => $memo_->2020-06-08
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a);
+								/*
+								
 								$message='';
 								$today_ = date("d-m-Y");
 
@@ -8185,6 +8187,10 @@ function replyMsg($event, $client)
 									$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
 								}				
 
+								$t=array("พบนัดหมาย ".$count,"พบนัดหมายจำนวน  ".$count);
+								$random_keys=array_rand($t,1);
+								$txt = $t[$random_keys];
+
 
 								$a = array(
 											array(
@@ -8197,6 +8203,8 @@ function replyMsg($event, $client)
 											)
 										);
 								$client->replyMessage1($event['replyToken'],$a);
+
+								*/
 							}
 						
 
