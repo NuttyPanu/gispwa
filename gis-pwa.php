@@ -8141,10 +8141,13 @@ function replyMsg($event, $client)
 								foreach ($q_json_f as $i){
 									//$message.=$i->date;
 									//$message.= '|';
+									/*
 									array_push($memo_, array(
 												$i->date => $i->detail
 												)
 									);
+									*/
+									$memo_[$i->date] = $i->detail; 
 								}
 
 							
@@ -8192,14 +8195,14 @@ function replyMsg($event, $client)
 												'type' => 'text',
 												'text' => $txt
 											),
-											/*array(
+											array(
 												'type' => 'text',
 												'text' => $message
-											),*/
+											)/*,
 											array(
 												'type' => 'text',
 												'text' => json_encode($memo_)
-											)
+											)*/
 
 										);
 								$client->replyMessage1($event['replyToken'],$a);
