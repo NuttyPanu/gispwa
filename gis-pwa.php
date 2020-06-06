@@ -8143,22 +8143,17 @@ function replyMsg($event, $client)
 												)
 									);
 								}
-								$a = array(
-											array(
-												'type' => 'text',
-												'text' => $memo_->2020-06-08
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a);
-								/*
+
+								
 								
 								$message='';
-								$today_ = date("d-m-Y");
+								$today_ = date("Y-m-d");
+								//$today_ = date("d-m-Y");
 
-								$s7d = date("d-m-Y",strtotime("+7 days",strtotime($today_)));
-								$s3d = date("d-m-Y",strtotime("+3 days",strtotime($today_)));
-								$s2d = date("d-m-Y",strtotime("+2 days",strtotime($today_)));
-								$s1d = date("d-m-Y",strtotime("+1 days",strtotime($today_)));
+								$s7d = date("Y-m-d",strtotime("+7 days",strtotime($today_)));
+								$s3d = date("Y-m-d",strtotime("+3 days",strtotime($today_)));
+								$s2d = date("Y-m-d",strtotime("+2 days",strtotime($today_)));
+								$s1d = date("Y-m-d",strtotime("+1 days",strtotime($today_)));
 
 
 								if(array_key_exists($s7d, $memo_))  // holiday;
@@ -8204,7 +8199,7 @@ function replyMsg($event, $client)
 										);
 								$client->replyMessage1($event['replyToken'],$a);
 
-								*/
+								
 							}
 						
 
