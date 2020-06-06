@@ -8153,13 +8153,18 @@ function replyMsg($event, $client)
 							$txt = trim($msg_split[1]);
 
 							$date_memo = $msg_split_use[1];
+							$y = substr($date_memo,0,4);
+							$m = substr($date_memo,5,-3);
+							$d = substr($date_memo,-2);
+
 							$txt_memo = $msg_split_use[2];
 
 
-
 							if($txt ==''){
-
-								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
+								$reply = "ตัวอย่างการเพิ่มนัดหมาย 
+								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
+								";					
+								
 								$a_ = array(
 
 											array(
@@ -8170,9 +8175,58 @@ function replyMsg($event, $client)
 								$client->replyMessage1($event['replyToken'],$a_);	
 
 							}
-							else if($date_memo == 'ผิดรูปแบบ'){
 
-								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
+							else if(!$date_memo|| strlen($date_memo) != 10 || substr($date_memo,4,-5) != '-' || substr($date_memo,7,-2) != '-'){
+								$reply = "รูปแบบ ปี-เดือน-วัน ตัวอย่างการเพิ่มนัดหมาย 
+								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
+								";					
+								
+								$a_ = array(
+
+											array(
+												'type' => 'text',
+												'text' => $reply						
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
+							}
+
+							else if(preg_match("/^[0-9]{4}$/", $y) == 0 || strlen(number_format($y)) != 5|| intval($y)>= 2500 || intval($y)< 2020){
+								$reply = "ระบุปีผิด ตัวอย่างการเพิ่มนัดหมาย 
+								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
+								";					
+								
+								$a_ = array(
+
+											array(
+												'type' => 'text',
+												'text' => $reply						
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
+							}
+							else if(preg_match("/^[0-9]{2}$/", $m) == 0 || strlen($m) != 2|| intval($m)> 12 || intval($m)< 1){
+								$reply = "ระบุเดือนผิด ตัวอย่างการเพิ่มนัดหมาย 
+								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
+								";					
+								
+								$a_ = array(
+
+											array(
+												'type' => 'text',
+												'text' => $reply						
+											)
+										);
+								$client->replyMessage1($event['replyToken'],$a_);	
+
+							}
+							else if(preg_match("/^[0-9]{2}$/", $d) == 0 || strlen($d) != 2|| intval($d)> 31 || intval($d)< 1){
+								$reply = "ระบุวันผิด ตัวอย่างการเพิ่มนัดหมาย 
+								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
+								";					
+								
 								$a_ = array(
 
 											array(
@@ -8184,8 +8238,10 @@ function replyMsg($event, $client)
 
 							}
 							else if($txt_memo == ''){
-
-								$reply = "ตัวอย่างการเพิ่มนัดหมาย\n#เพิ่มนัดหมาย 2020-06-06 วันเสาร์เป็นวันหยุด";
+								$reply = "ตัวอย่างการเพิ่มนัดหมาย 
+								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
+								";					
+												
 								$a_ = array(
 
 											array(
