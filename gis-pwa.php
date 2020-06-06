@@ -6431,13 +6431,16 @@ function replyMsg($event, $client)
 					$prv = trim($split[1]);
 
 					if(!$prv || $prv ==''){
-							$a = array(
-										array(
-											'type' => 'text',
-											'text' => 'โปรดระบุชื่อ จังหวัด เช่น  \n#forcast กรุงเทพมหานคร'
-										)
-									);
-							$client->replyMessage1($event['replyToken'],$a);
+						
+						$t = 'โปรดระบุชื่อ จังหวัด เช่น  
+							\n#forcast กรุงเทพมหานคร';
+						$a = array(
+									array(
+										'type' => 'text',
+										'text' => $t
+									)
+								);
+						$client->replyMessage1($event['replyToken'],$a);
 					}
 
 					else {
@@ -7857,10 +7860,12 @@ function replyMsg($event, $client)
 
 					if(strlen($id) != 13){
 						//echo 'โปรดระบุเลขพัสดุให้ถูกต้อง';
+						$t = 'โปรดระบุเลขพัสดุให้ถูกต้อง เช่น 
+							\n#track EN123456789TH';
 						$a = array(
 									array(
 										'type' => 'text',
-										'text' => 'โปรดระบุเลขพัสดุให้ถูกต้อง เช่น \n#track EN123456789TH'
+										'text' => $t
 									)
 								);
 						$client->replyMessage1($event['replyToken'],$a);
