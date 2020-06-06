@@ -2462,6 +2462,7 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
                 }
 
+/*
                 else if (preg_match('(กอล์ฟอยู่ไหน|กอล์ฟมายัง)', $msg) === 1) {
  
 					$sticker=array("2,502","2,512","4,290");
@@ -2507,7 +2508,7 @@ function replyMsg($event, $client)
 					);
 
                 }
- 
+ */
                 else if (preg_match('(น่ารัก|น่ารักนะ|น่ารักจัง)', $msg) === 1) {
  
                     $t=array("ขอบคุณสำหรับคำชม","เขินจุง","ลอยแล้วๆ");
