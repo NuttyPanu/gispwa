@@ -8141,10 +8141,7 @@ function replyMsg($event, $client)
 								foreach ($q_json_f as $i){
 									$message.=$i->date;
 									$message.= '|';
-									array_push($memo_, array(
-												$i->date => $i->detail
-												)
-									);
+									array_push($memo_, $i->date => $i->detail);
 								}
 
 							
