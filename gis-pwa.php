@@ -8162,27 +8162,32 @@ function replyMsg($event, $client)
 								if(array_key_exists($s7d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
+									$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." 
+									\n";
 								}
 								if(array_key_exists($s3d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
+									$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." 
+									\n";
 								}
 								if(array_key_exists($s2d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
+									$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." 
+									\n";
 								}
 								if(array_key_exists($s1d, $memo_))  // holiday;
 								//else if(in_array($today, $holiday))  // holiday;
 								{
-									$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
+									$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." 
+									\n";
 								}
 
 								if(array_key_exists($today_, $memo_))
 								{
-									$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
+									$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." 
+									\n";
 								}				
 
 								$t=array("พบนัดหมาย ".$count,"พบนัดหมายจำนวน  ".$count);
