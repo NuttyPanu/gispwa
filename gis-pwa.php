@@ -8138,7 +8138,7 @@ function replyMsg($event, $client)
 								$q_json_f = json_decode($json_f);
 								
 								foreach ($q_json_f as $i){
-									array_push($memo_arr, array(
+									array_push($memo_, array(
 												$i->date => $i->detail
 												)
 									);
@@ -8146,7 +8146,7 @@ function replyMsg($event, $client)
 
 								
 								
-								$message='';
+								$message='-';
 								$today_ = date("Y-m-d");
 								//$today_ = date("d-m-Y");
 
