@@ -8150,11 +8150,7 @@ function replyMsg($event, $client)
 									foreach ($q_json_f as $i){
 										//$message.=$i->date;
 										//$message.= '|';
-
-										if($i->gid == $gid){
-											continue;
-										}
-										else{
+										if($i->gid == '-'){
 											$memo_[$i->date] = $i->detail;
 										}
 									}
