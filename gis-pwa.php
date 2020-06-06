@@ -569,7 +569,7 @@ if (!is_null($events['events'])) {
 
 			else if (preg_match('(#ทดสอบ|#ทดสอบ)', $text) === 1) {
 
-				if (chk_friend($uid) == true){
+				if (chk_friend($event['source']['userId']) == true){
 					//$gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
@@ -7969,12 +7969,12 @@ function replyMsg($event, $client)
 									*/
 
 									$txt =	'เลขพัสดุ: '.$value[count($value)-1]->barcode.' 
-											\n'.'สถานะ: '.$value[count($value)-1]->status_description.' 
-											\n'.'สถานที่: '.$value[count($value)-1]->location.' 
-											\n'.'วันที่: '.$value[count($value)-1]->status_date.' 
-											\n'.'สถานะการรับ: '.$value[count($value)-1]->delivery_description.' 
-											\n'.'วันที่รับ: '.$value[count($value)-1]->delivery_datetime.' 
-											\n'.'ผู้รับ: '.$value[count($value)-1]->receiver_name;
+									\n'.'สถานะ: '.$value[count($value)-1]->status_description.' 
+									\n'.'สถานที่: '.$value[count($value)-1]->location.' 
+									\n'.'วันที่: '.$value[count($value)-1]->status_date.' 
+									\n'.'สถานะการรับ: '.$value[count($value)-1]->delivery_description.' 
+									\n'.'วันที่รับ: '.$value[count($value)-1]->delivery_datetime.' 
+									\n'.'ผู้รับ: '.$value[count($value)-1]->receiver_name;
 											
 									//$link = 'https://trackimage.thailandpost.co.th/f/signature/QDUwMjQwYjVzMGx1VDMz/QGI1c0VCMGx1VDMx/QGI1czBsVEh1VDM0/QGI1czBsdTMxNTBUMzI';
 									$a = array(
