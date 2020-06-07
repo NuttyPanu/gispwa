@@ -8441,6 +8441,7 @@ function replyMsg($event, $client)
 									foreach ($q_json_id as $k=>$v){
 										$q_json_oid = $v; // etc.
 									}
+
 									//count($q_json_f);
 
 
@@ -8448,19 +8449,24 @@ function replyMsg($event, $client)
 									//$_id = '59fb2268bd966f7657da67cc';
 									$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db/'.$q_json_oid.'?apiKey='.$api_key;
 
-									$update = json_encode(
-										//array('$set' => array('name'=> $nameid),'$set' => array('originalContentUrl'=> $pic),'$set' => array('detail'=> $txt_memo),'$set' => array('date'=> $date_memo),'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
-										)
-										array('$set' => array('detail'=> $txt_memo),'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
-										)
+									$newupdate = json_encode(
+										array(
+									
+											'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+											'$set' => array('detail'=> $txt_memo),
+											'$set' => array('name'=> $nameid),
+											'$set' => array('originalContentUrl'=> $pic),
+											'$set' => array('date'=> $date_memo),
+											'$set' => array('detail'=> $txt_memo)
 
+										)
 									);
 
 									$optsu = array(
 										'http' => array(
 											'method' => "PUT",
 											'header' => "Content-type: application/json",
-											'content' => $update
+											'content' => $newupdate
 										)
 									);
 
