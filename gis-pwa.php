@@ -8365,14 +8365,12 @@ function replyMsg($event, $client)
 
 								if($gid){
 									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
-									$q_json_c = json_decode($json_c); 
-									$count = count($q_json_c);
+									$count = json_decode($json_c);  //จำนวนที่นับได
 								}
 								else{
 
 									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
-									$q_json_c = json_decode($json_c); 
-									$count = count($q_json_c);
+									$count = json_decode($json_c);  //จำนวนที่นับได
 								}
 
 							 
