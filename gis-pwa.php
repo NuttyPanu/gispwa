@@ -8483,7 +8483,7 @@ function replyMsg($event, $client)
 											array(
 												'type' => 'text',
 												//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
-												'text' => $txt.'count='.$count
+												'text' => $txt//.'count='.$count
 											)
 										);
 								$client->replyMessage1($event['replyToken'],$a);
