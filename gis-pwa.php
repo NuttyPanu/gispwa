@@ -8364,13 +8364,13 @@ function replyMsg($event, $client)
 								$count;
 
 								if($gid_ != '-'){
-									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
+									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}&c=true');	
 									$count = json_decode($json_c);  //จำนวนที่นับได
 
 									$a = array(
 												array(
 													'type' => 'text',
-													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true'.'
+													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}&c=true'.'
 									count='.$count
 												)
 											);
@@ -8455,7 +8455,7 @@ function replyMsg($event, $client)
 										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
 									}
 									else{
-										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.'","uid":"'.$uid.'","date":"'.$date_memo.'"}');	
 									}
 
 									$q_json_f = json_decode($json_f); 
