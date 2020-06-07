@@ -8457,20 +8457,8 @@ function replyMsg($event, $client)
 									//$_id = '59fb2268bd966f7657da67cc';
 									$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db/'.$q_json_oid.'?apiKey='.$api_key;
 
-									$newupdate = json_encode(
-										array(
-									
-											//'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-											//'$set' => array('detail'=> $txt_memo),
-											'$set' => array('name'=> '-'),
-											'$set' => array('pic'=> '-'),
-
-
-											//'$set' => array('name'=> $nameid),
-											//'$set' => array('originalContentUrl'=> $pic)
-											//'$set' => array('date'=> $date_memo),
-											//'$set' => array('detail'=> $txt_memo)
-
+									$update = json_encode(
+										array('$set' => array('name'=> $nameid),'$set' => array('originalContentUrl'=> $pic),'$set' => array('detail'=> $txt_memo),'$set' => array('date'=> $date_memo),'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
 										)
 									);
 
@@ -8478,7 +8466,7 @@ function replyMsg($event, $client)
 										'http' => array(
 											'method' => "PUT",
 											'header' => "Content-type: application/json",
-											'content' => $newupdate
+											'content' => $update
 										)
 									);
 
