@@ -8366,11 +8366,31 @@ function replyMsg($event, $client)
 								if($gid_ != '-'){
 									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
 									$count = json_decode($json_c);  //จำนวนที่นับได
+
+									$a = array(
+												array(
+													'type' => 'text',
+													'text' => 'count='.$count
+												)
+											);
+									$client->replyMessage1($event['replyToken'],$a);
+
+
 								}
 								else{
 
 									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
 									$count = json_decode($json_c);  //จำนวนที่นับได
+
+									$a = array(
+												array(
+													'type' => 'text',
+													'text' => 'count='.$count
+												)
+											);
+									$client->replyMessage1($event['replyToken'],$a);
+
+
 								}
 
 							 
