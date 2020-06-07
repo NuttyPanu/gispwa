@@ -8357,7 +8357,7 @@ function replyMsg($event, $client)
 								$nameid = $obj->displayName;
 								$status = $obj->statusMessage;
 								$pathpic = explode("cdn.net/", $obj->pictureUrl);
-
+								$pic = 'https://obs.line-apps.com/'.$pathpic[1];
 
 								$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 								//$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
@@ -8393,8 +8393,8 @@ function replyMsg($event, $client)
 										'gid'=> $gid_,
 										'uid'=> $uid,
 
-										'name'=> $obj->displayName,
-										'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+										'name'=> $nameid,
+										'originalContentUrl' => $pic,
 										
 										'date'=> $date_memo,
 										'detail'=> $txt_memo,								
@@ -8460,11 +8460,9 @@ function replyMsg($event, $client)
 										array(
 									
 											'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-											'$set' => array('detail'=> $txt_memo)
-									
-
-											//'$set' => array('name'=> $obj->displayName),
-											//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+											'$set' => array('detail'=> $txt_memo),
+											'$set' => array('name'=> $nameid),
+											'$set' => array('originalContentUrl'=> $pic)
 											//'$set' => array('date'=> $date_memo),
 											//'$set' => array('detail'=> $txt_memo)
 
