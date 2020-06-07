@@ -8459,10 +8459,10 @@ function replyMsg($event, $client)
 									$newupdate = json_encode(
 										array(
 									
-											'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-											'$set' => array('detail'=> $txt_memo),
+											//'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+											//'$set' => array('detail'=> $txt_memo),
 											'$set' => array('name'=> '-'),
-											'$set' => array('pic'=> '-')
+											'$set' => array('pic'=> '-'),
 
 
 											//'$set' => array('name'=> $nameid),
