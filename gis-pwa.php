@@ -8338,6 +8338,13 @@ function replyMsg($event, $client)
 
 							else{
 
+								$gid_;
+								if(!$gid){
+									$gid_='-';
+								}
+								else{
+									$gid_= $gid;
+								}
 
 								//$date_memo = '2020-08-05';
 								//$txt_memo = 'นัดหมาย';
@@ -8353,23 +8360,24 @@ function replyMsg($event, $client)
 
 
 								$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-
-								$json_f;
+								//$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
 								$count;
 
-								if(!$gid){							
-									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
-									$q_json_f = json_decode($json_f); 
-									$count = count($q_json_f);
+								if($gid){
+									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
+									$q_json_c = json_decode($json_c); 
+									$count = count($q_json_c);
 								}
 								else{
-									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
-									$q_json_f = json_decode($json_f); 
-									$count = count($q_json_f);
+
+									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
+									$q_json_c = json_decode($json_c); 
+									$count = count($q_json_c);
 								}
 
-								
-								if($count == 0){
+							 
+								if ($count == 0){
+
 									$gid_;
 									if(!$gid){
 										$gid_='-';
@@ -8419,6 +8427,19 @@ function replyMsg($event, $client)
 								else{
 
 
+									$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+
+									$json_f;
+								
+
+									if(!$gid){							
+										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+									}
+									else{
+										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+									}
+
+									$q_json_f = json_decode($json_f); 
 									$q_json_id = $q_json_f[0]->_id;
 									$q_json_oid = '';
 									foreach ($q_json_id as $k=>$v){
@@ -8452,10 +8473,9 @@ function replyMsg($event, $client)
 									$contextu = stream_context_create($optsu);
 									$returnValup = file_get_contents($url_up, false, $contextu);
 
-
 								}
 
-
+					
 								$t=array("เพิ่มนัดหมายให้แล้วครับ","เพิ่มนัดหมายแล้วเสร็จ");
 								$random_keys=array_rand($t,1);
 								$txt = $t[$random_keys];
