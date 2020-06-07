@@ -8370,7 +8370,8 @@ function replyMsg($event, $client)
 									$a = array(
 												array(
 													'type' => 'text',
-													'text' => 'count='.$count
+													'text' => $json_c.'
+									count='.$count
 												)
 											);
 									$client->replyMessage1($event['replyToken'],$a);
@@ -8385,11 +8386,11 @@ function replyMsg($event, $client)
 									$a = array(
 												array(
 													'type' => 'text',
-													'text' => 'count='.$count
+													'text' => $json_c.'
+									count='.$count
 												)
 											);
 									$client->replyMessage1($event['replyToken'],$a);
-
 
 								}
 
