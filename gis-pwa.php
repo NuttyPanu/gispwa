@@ -8449,8 +8449,6 @@ function replyMsg($event, $client)
 
 									$newupdate = json_encode(
 										array(
-											//'$set' => array('gid'=> $gid),
-											//'$set' => array('uid'=> $uid),
 											'$set' => array('name'=> $obj->displayName),
 											'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
 											'$set' => array('date'=> $date_memo),
