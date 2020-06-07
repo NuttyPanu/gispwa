@@ -8363,7 +8363,6 @@ function replyMsg($event, $client)
 								}
 								else{
 									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
-
 								}
 
 								$q_json_f = json_decode($json_f); 
@@ -8454,7 +8453,7 @@ function replyMsg($event, $client)
 											array(
 												'type' => 'text',
 												//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
-												'text' => $txt
+												'text' => $txt.'count='.count($q_json_f)
 											)
 										);
 								$client->replyMessage1($event['replyToken'],$a);
