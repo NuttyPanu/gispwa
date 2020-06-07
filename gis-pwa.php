@@ -8159,7 +8159,8 @@ function replyMsg($event, $client)
 
 								$showmemo;
 								foreach ($memo_ as $k=>$v){
-									$showmemo.= '\n '.$k.':'.$v;
+									$showmemo.= '
+												'.$k.':'.$v;
 								}							
 
 							
