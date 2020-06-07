@@ -8110,8 +8110,6 @@ function replyMsg($event, $client)
 								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}&c=true');
 								$count = json_decode($json_c);  //จำนวนที่นับได้
 								//count-question---------//
-
-
 							}
 
 						 
@@ -8354,16 +8352,18 @@ function replyMsg($event, $client)
 								$pathpic = explode("cdn.net/", $obj->pictureUrl);
 
 
+								$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+
 								$json_f;
 								$count;
 
 								if(!$gid){							
-									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
 									$q_json_f = json_decode($json_f); 
 									$count = count($q_json_f);
 								}
 								else{
-									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true');	
 									$q_json_f = json_decode($json_f); 
 									$count = count($q_json_f);
 								}
