@@ -8449,11 +8449,11 @@ function replyMsg($event, $client)
 
 									$newupdate = json_encode(
 										array(
-											'$set' => array('name'=> $obj->displayName),
-											'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-											'$set' => array('date'=> $date_memo),
+											'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
 											'$set' => array('detail'=> $txt_memo),
-											'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
+											'$set' => array('date'=> $date_memo),
+											'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+											'$set' => array('name'=> $obj->displayName)
 										)
 									);
 
