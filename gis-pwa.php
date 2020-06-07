@@ -8434,6 +8434,17 @@ function replyMsg($event, $client)
 									$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}');	
 
+
+									$a = array(
+												array(
+													'type' => 'text',
+													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}'
+												)
+											);
+									$client->replyMessage1($event['replyToken'],$a);
+
+
+
 									$q_json_f = json_decode($json_f); 
 									$q_json_id = $q_json_f[0]->_id;
 									$q_json_oid = '';
