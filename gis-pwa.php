@@ -8341,7 +8341,6 @@ function replyMsg($event, $client)
 							else{
 
 
-
 								if(!$gid){
 									$gid = '-'; 
 								}
@@ -8360,42 +8359,101 @@ function replyMsg($event, $client)
 								$pathpic = explode("cdn.net/", $obj->pictureUrl);
 
 
-								$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-								$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
-
-								//Post New Data--------------------------//
-								$newData = json_encode(
-								  array(
-									'gid'=> $gid,
-									'uid'=> $uid,
-
-									'name'=> $obj->displayName,
-									'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
-									
-									'date'=> $date_memo,
-									'detail'=> $txt_memo,								
-
-									'datetime'=> date("Y-m-d h:i:sa")
-
-								  )
-								);
-
-								$opts = array(
-								  'http' => array(
-									  'method' => "POST",
-									  'header' => "Content-type: application/json",
-									  'content' => $newData
-								   )
-								);
-								$context = stream_context_create($opts);
-								$returnValue = file_get_contents($url,false,$context);
-								//Post New Data--------------------------//
+								//count-question---------//
+								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"date":"'.$date_memo.'"}&c=true');
+								$count = json_decode($json_c);  //จำนวนที่นับได้
+								//count-question---------//
 
 
-								//$sec = explode('"$oid" : "', $returnValue);
-								//$sec_id = explode('"', $sec[1]);
+								if($count == 0){
 
-								 
+									$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
+									$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
+
+									//Post New Data--------------------------//
+									$newData = json_encode(
+									  array(
+										'gid'=> $gid,
+										'uid'=> $uid,
+
+										'name'=> $obj->displayName,
+										'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
+										
+										'date'=> $date_memo,
+										'detail'=> $txt_memo,								
+
+										'datetime'=> date("Y-m-d h:i:sa")
+
+									  )
+									);
+
+									$opts = array(
+									  'http' => array(
+										  'method' => "POST",
+										  'header' => "Content-type: application/json",
+										  'content' => $newData
+									   )
+									);
+									$context = stream_context_create($opts);
+									$returnValue = file_get_contents($url,false,$context);
+									//Post New Data--------------------------//
+
+
+									//$sec = explode('"$oid" : "', $returnValue);
+									//$sec_id = explode('"', $sec[1]);
+
+								}
+								else{
+
+									$json_f;
+
+
+									if(!$gid){							
+										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+									}
+									else{
+										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+
+									}
+
+									$q_json_f = json_decode($json_f); 
+									$q_json_id = $q_json_f[0]->_id;
+									$q_json_oid = '';
+									foreach ($q_json_id as $k=>$v){
+										$q_json_oid = $v; // etc.
+									}
+
+									//update-----------------------------------//
+									//$_id = '59fb2268bd966f7657da67cc';
+									$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db/'.$q_json_oid.'?apiKey='.$api_key;
+
+									$newupdate = json_encode(
+										array(
+											//'$set' => array('gid'=> $gid),
+											//'$set' => array('uid'=> $uid),
+											'$set' => array('name'=> $obj->displayName),
+											'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
+											'$set' => array('date'=> $date_memo),
+											'$set' => array('detail'=> $txt_memo),
+											'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
+										)
+									);
+
+									$optsu = array(
+										'http' => array(
+											'method' => "PUT",
+											'header' => "Content-type: application/json",
+											'content' => $newupdate
+										)
+									);
+
+									$contextu = stream_context_create($optsu);
+									$returnValup = file_get_contents($url_up, false, $contextu);
+
+
+								}
+
+
 								$t=array("เพิ่มนัดหมายให้แล้วครับ","เพิ่มนัดหมายแล้วเสร็จ");
 								$random_keys=array_rand($t,1);
 								$txt = $t[$random_keys];
