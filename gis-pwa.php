@@ -8457,12 +8457,17 @@ function replyMsg($event, $client)
 									$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db/'.$q_json_oid.'?apiKey='.$api_key;
 
 									$newupdate = json_encode(
-										array('$set' => array('detail'=> $txt_memo),
+										array(
+									
+											'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
+											'$set' => array('detail'=> $txt_memo)
+									
+
 											//'$set' => array('name'=> $obj->displayName),
 											//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
 											//'$set' => array('date'=> $date_memo),
-											//'$set' => array('detail'=> $txt_memo),
-											'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
+											//'$set' => array('detail'=> $txt_memo)
+
 										)
 									);
 
