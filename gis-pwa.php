@@ -8341,11 +8341,6 @@ function replyMsg($event, $client)
 							else{
 
 
-								if(!$gid){
-									$gid = '-'; 
-								}
-
-
 								//$date_memo = '2020-08-05';
 								//$txt_memo = 'นัดหมาย';
 
@@ -8359,13 +8354,21 @@ function replyMsg($event, $client)
 								$pathpic = explode("cdn.net/", $obj->pictureUrl);
 
 
-								//count-question---------//
-								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"date":"'.$date_memo.'"}&c=true');
-								$count = json_decode($json_c);  //จำนวนที่นับได้
-								//count-question---------//
+
+								$json_f;
 
 
-								if($count == 0){
+								if(!$gid){							
+									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+								}
+								else{
+									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+
+								}
+
+								$q_json_f = json_decode($json_f); 
+
+								if(count($q_json_f) == 0){
 
 									$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 									$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
@@ -8402,21 +8405,11 @@ function replyMsg($event, $client)
 									//$sec = explode('"$oid" : "', $returnValue);
 									//$sec_id = explode('"', $sec[1]);
 
+
 								}
 								else{
 
-									$json_f;
 
-
-									if(!$gid){							
-										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
-									}
-									else{
-										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
-
-									}
-
-									$q_json_f = json_decode($json_f); 
 									$q_json_id = $q_json_f[0]->_id;
 									$q_json_oid = '';
 									foreach ($q_json_id as $k=>$v){
