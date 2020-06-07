@@ -8461,8 +8461,12 @@ function replyMsg($event, $client)
 									
 											'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
 											'$set' => array('detail'=> $txt_memo),
-											'$set' => array('name'=> $nameid),
-											'$set' => array('originalContentUrl'=> $pic)
+											'$set' => array('name'=> '-'),
+											'$set' => array('pic'=> '-')
+
+
+											//'$set' => array('name'=> $nameid),
+											//'$set' => array('originalContentUrl'=> $pic)
 											//'$set' => array('date'=> $date_memo),
 											//'$set' => array('detail'=> $txt_memo)
 
