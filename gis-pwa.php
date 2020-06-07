@@ -8159,7 +8159,7 @@ function replyMsg($event, $client)
 
 								$showmemo;
 								foreach ($memo_ as $k){
-									$showmemo.= $k.':'.$k->detail.' \n ';
+									$showmemo.= $k->date.':'.$k->detail.' \n ';
 								}							
 
 							
