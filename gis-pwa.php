@@ -8370,7 +8370,7 @@ function replyMsg($event, $client)
 									$a = array(
 												array(
 													'type' => 'text',
-													'text' => $json_c.'
+													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.',"uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true'.'
 									count='.$count
 												)
 											);
@@ -8386,7 +8386,7 @@ function replyMsg($event, $client)
 									$a = array(
 												array(
 													'type' => 'text',
-													'text' => $json_c.'
+													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}&c=true'.'
 									count='.$count
 												)
 											);
