@@ -8355,16 +8355,18 @@ function replyMsg($event, $client)
 
 
 								$json_f;
+								$q_json_f;
 
 								if(!$gid){							
 									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+									$q_json_f = json_decode($json_f); 
 								}
 								else{
 									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.',"uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+									$q_json_f = json_decode($json_f); 
 								}
 
-								$q_json_f = json_decode($json_f); 
-
+								
 								if(count($q_json_f) == 0){
 									$gid_;
 									if(!$gid){
