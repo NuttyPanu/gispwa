@@ -8157,7 +8157,10 @@ function replyMsg($event, $client)
 
 								}
 
-
+								$showmemo;
+								foreach ($memo_ as $k){
+									$showmemo.= $k.':'.$k->detail.' \n ';
+								}							
 
 							
 								$today_ = date("Y-m-d");
@@ -8212,11 +8215,11 @@ function replyMsg($event, $client)
 											array(
 												'type' => 'text',
 												'text' => $message
-											)/*,
+											),
 											array(
 												'type' => 'text',
-												'text' => json_encode($memo_)
-											)*/
+												'text' => $showmemo
+											)
 
 										);
 								$client->replyMessage1($event['replyToken'],$a);
