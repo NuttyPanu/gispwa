@@ -8441,16 +8441,7 @@ function replyMsg($event, $client)
 									foreach ($q_json_id as $k=>$v){
 										$q_json_oid = $v; // etc.
 									}
-
-
-									$a = array(
-												array(
-													'type' => 'text',
-													'text' => count($q_json_f)
-												)
-											);
-									$client->replyMessage1($event['replyToken'],$a);
-
+									//count($q_json_f);
 
 
 									//update-----------------------------------//
@@ -8458,8 +8449,11 @@ function replyMsg($event, $client)
 									$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db/'.$q_json_oid.'?apiKey='.$api_key;
 
 									$update = json_encode(
-										array('$set' => array('name'=> $nameid),'$set' => array('originalContentUrl'=> $pic),'$set' => array('detail'=> $txt_memo),'$set' => array('date'=> $date_memo),'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
+										//array('$set' => array('name'=> $nameid),'$set' => array('originalContentUrl'=> $pic),'$set' => array('detail'=> $txt_memo),'$set' => array('date'=> $date_memo),'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
 										)
+										array('$set' => array('detail'=> $txt_memo),'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
+										)
+
 									);
 
 									$optsu = array(
