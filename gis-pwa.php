@@ -8438,7 +8438,7 @@ function replyMsg($event, $client)
 									$a = array(
 												array(
 													'type' => 'text',
-													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}'
+													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}'.$txt_memo
 												)
 											);
 									$client->replyMessage1($event['replyToken'],$a);
@@ -8460,7 +8460,7 @@ function replyMsg($event, $client)
 										array(
 											'$set' => array('name'=> $obj->displayName),
 											'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-											'$set' => array('date'=> $date_memo),
+											//'$set' => array('date'=> $date_memo),
 											'$set' => array('detail'=> $txt_memo),
 											'$set' => array('datetime'=> date("Y-m-d h:i:sa"))
 										)
