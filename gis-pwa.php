@@ -8435,22 +8435,23 @@ function replyMsg($event, $client)
 									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}');	
 
 
-									$a = array(
-												array(
-													'type' => 'text',
-													'text' => 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}'.$txt_memo.$obj->displayName.'https://obs.line-apps.com/'.$pathpic[1]
-												)
-											);
-									$client->replyMessage1($event['replyToken'],$a);
-
-
-
 									$q_json_f = json_decode($json_f); 
 									$q_json_id = $q_json_f[0]->_id;
 									$q_json_oid = '';
 									foreach ($q_json_id as $k=>$v){
 										$q_json_oid = $v; // etc.
 									}
+
+
+									$a = array(
+												array(
+													'type' => 'text',
+													'text' => count($q_json_f)
+												)
+											);
+									$client->replyMessage1($event['replyToken'],$a);
+
+
 
 									//update-----------------------------------//
 									//$_id = '59fb2268bd966f7657da67cc';
