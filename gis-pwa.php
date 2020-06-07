@@ -8451,7 +8451,7 @@ function replyMsg($event, $client)
 								
 
 									if(!$gid){							
-										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.',"date":"'.$date_memo.'"}');	
+										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.'","date":"'.$date_memo.'"}');	
 									}
 									else{
 										$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.'","uid":"'.$uid.'","date":"'.$date_memo.'"}');	
