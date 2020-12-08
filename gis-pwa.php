@@ -1,24 +1,40 @@
 <?php
+
+//---------------bot gis-pwa--------------------///
+$access_token = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+
+$channelAccessToken = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
+
+$channelSecret = 'b8c9ec55b321b2d04d2a6f131168ecd4';
+
+//---------------bot gis-pwa--------------------///
+
+/*
+//---------------bot ilove gis-pwa--------------------///
+$access_token = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
+
+$channelAccessToken = 'ZaSUNStHedsjKECFq8pZbaq15CW5M/Ct1RX71FctIJi2HrOtrBNSK+XLiJ6Mp4IfPOMajN2TIH5EzaPL1vdmGO2SDZ+oPrN/Wva9hJ5gHj0iL6lC0cP9UIu8tHPrPzgyL8hTcCZWd8Pb/IyfdWHHBwdB04t89/1O/w1cDnyilFU=';
+
+$channelSecret = '1d50de27a0f29d9728c29ba9ccc495b0';
+
+//---------------bot ilove gis-pwa--------------------///
+*/
+
 date_default_timezone_set('Asia/Bangkok');
 header('Content-Type: text/html; charset=utf-8');
+//@ini_set('display_errors', '0'); //ไม่แสดงerror
+
 
 ini_set("log_errors", 1);
 ini_set("error_log", "php-error.txt");
+
 
 // for test debug file
 require_once('LINEBotTiny.php');
 
 
-
-$access_token = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
-
-$channelAccessToken = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
-$channelSecret = 'b8c9ec55b321b2d04d2a6f131168ecd4';
-
-
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
-
 
 $GISPWA= 'C6c9793d99e321e4659397c52365a68d3';
 $METER= 'C6cf4977144b0d1c6aa8b5be22b04272c';
@@ -27,6 +43,317 @@ $GISDEV= 'C6d63e07eb0065b5019b861f11073fc41';
 
 
 $key_notify=array("Nutty"=>"OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv","GIS_DEV"=>"gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE","GIS_PWA"=>"6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns","METER_GIS"=>"MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW");
+
+/*
+//----------function--114 chk_db_list------------//
+function chk_db_type() {
+
+  $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, "https://gisweb1.pwa.co.th/lineservice/chk_db.php");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($curl, CURLOPT_POST, 1);
+
+	//curl_setopt($curl, CURLOPT_MAXCONNECTS, 6000); //timeout in sconds
+	//curl_setopt($curl, CURLOPT_TIMECONDITION, 6000); //timeout in sconds
+	//CURLOPT_CONNECTTIMEOUT - The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
+	//CURLOPT_TIMEOUT - The maximum number of seconds to allow cURL functions to execute.
+	curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 0); 
+	curl_setopt($curl, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+
+    curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+	  $values = array(
+		'gid' => $gid,
+		'uid' => $uid,
+		'act' => $act,
+		'u' => $u,
+		'id' => $id
+		//'data' => $data
+	  );
+	$params = http_build_query($values);
+
+	curl_setopt($curl, CURLOPT_POSTFIELDS,$params); 
+
+    $res = curl_exec($curl);
+    curl_close($curl);
+    //return $res;
+
+	$obj = json_decode($res);
+	//echo $obj[0]->result;
+	return $obj[0]->result;
+	//return $obj[0]->pwa_id;
+	//return $obj[0]->name;
+	//return $obj[0]->position;
+	//return $obj[0]->registime;
+
+	//return $obj[0]->line_id;
+	//return $obj[0]->line_name;
+	//return $obj[0]->line_pic;
+	//return $obj[0]->manage_db;
+	//return $obj[0]->chk_db;
+	//return $obj[0]->meterstat;
+	//return $obj[0]->thaipost;
+	//return $obj[0]->other;
+	//return $obj[0]->lat;
+	//return $obj[0]->lng;
+	//return $obj[0]->status;
+	//return $obj[0]->update_time;
+
+}
+//---------------------------------//
+*/
+
+/*
+//----------function--114 chk_db------------//
+function chk_db_114() {
+  $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, "https://gisweb1.pwa.co.th/lineservice/chk_db.php?act=check_regis&u=12974");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    $data = curl_exec($curl);
+    curl_close($curl);
+    return $data;
+
+	//$obj = json_decode($data);
+	//return $obj[0]->result;
+	//return $obj[0]->pwa_id;
+	//return $obj[0]->name;
+	//return $obj[0]->position;
+	//return $obj[0]->registime;
+
+	//return $obj[0]->line_id;
+	//return $obj[0]->line_name;
+	//return $obj[0]->line_pic;
+	//return $obj[0]->manage_db;
+	//return $obj[0]->chk_db;
+	//return $obj[0]->meterstat;
+	//return $obj[0]->thaipost;
+	//return $obj[0]->other;
+	//return $obj[0]->lat;
+	//return $obj[0]->lng;
+	//return $obj[0]->status;
+	//return $obj[0]->update_time;
+
+}
+//---------------------------------//
+*/
+
+function tp_get_token($id) 
+{
+
+		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
+
+        $AccessToken = 'BwGlN2OsLJCMUF/YoAdKJR5GwQYCxU3BLTIPkMLLPC1IjVPH-S2LhD_P0R~GiPKA=JOP8N7MeY1U1ArA3X$LAQ0XfOiVsVxVUO2';
+ 
+        $header = array(
+            "Content-Type: application/json",
+            'Authorization: Token '.$AccessToken,
+        );
+ 
+         
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt( $ch, CURLOPT_POST, 1); //POST 
+        curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_URL, $fullurl);
+         
+        $returned =  curl_exec($ch);
+        curl_close($ch);
+
+		$token = json_decode($returned);
+
+		//echo $id;
+		//echo '<br>';
+		//echo  $token->token;
+		//echo '<br>';
+        //return($token->token);
+
+		$res = tp_get_track($token->token,$id);
+		return $res;
+}
+
+function tp_get_track($token_,$id_) 
+{
+		/*
+		echo 'Id: '.$id_;
+		echo '<br>';
+		echo 'token: '.$token_;
+		echo '<br>';
+		*/
+
+
+		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
+
+		//$token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
+
+        $header = array(
+            "Content-Type: application/json",
+            'Authorization: Token '.$token_
+        );
+ 
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt($ch, CURLOPT_POST, 1); //POST 
+        //curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+
+		//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
+		//curl_setopt($ch, CURLOPT_TIMEOUT, 6000); //timeout in seconds
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+		$data_string = json_encode(array(
+									'status' => 'all',
+									'language' => 'TH',
+									'barcode' => array($id_)
+									//'barcode' => array("EB315050240TH","EB315050240TH")
+						));
+
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+
+        curl_setopt($ch, CURLOPT_URL, $fullurl);
+         
+        $returned =  curl_exec($ch);
+        curl_close($ch);
+
+		$obj = json_decode($returned);
+		return $obj;
+
+
+			//return($returned);
+
+			/*
+				{
+					"response": {
+						"items": {
+							"EB315050240TH": [{
+								"barcode": "EB315050240TH",
+								"status": "103",
+								"status_description": "รับฝาก",
+								"status_date": "28/05/2563 14:36:00+07:00",
+								"location": "สมุทรปราการ",
+								"postcode": "10270",
+								"delivery_status": null,
+								"delivery_description": null,
+								"delivery_datetime": null,
+								"receiver_name": null,
+								"signature": null
+							}, {
+								"barcode": "EB315050240TH",
+								"status": "201",
+								"status_description": "อยู่ระหว่างการขนส่ง",
+								"status_date": "28/05/2563 16:31:23+07:00",
+								"location": "สมุทรปราการ",
+								"postcode": "10270",
+								"delivery_status": null,
+								"delivery_description": null,
+								"delivery_datetime": null,
+								"receiver_name": null,
+								"signature": null
+							}, {
+								"barcode": "EB315050240TH",
+								"status": "201",
+								"status_description": "อยู่ระหว่างการขนส่ง",
+								"status_date": "29/05/2563 00:30:59+07:00",
+								"location": "ศป.EMS",
+								"postcode": "10020",
+								"delivery_status": null,
+								"delivery_description": null,
+								"delivery_datetime": null,
+								"receiver_name": null,
+								"signature": null
+							}, {
+								"barcode": "EB315050240TH",
+								"status": "206",
+								"status_description": "ถึงที่ทำการไปรษณีย์",
+								"status_date": "29/05/2563 09:19:37+07:00",
+								"location": "จรเข้บัว",
+								"postcode": "10230",
+								"delivery_status": null,
+								"delivery_description": null,
+								"delivery_datetime": null,
+								"receiver_name": null,
+								"signature": null
+							}, {
+								"barcode": "EB315050240TH",
+								"status": "301",
+								"status_description": "อยู่ระหว่างการนำจ่าย",
+								"status_date": "29/05/2563 09:34:54+07:00",
+								"location": "จรเข้บัว",
+								"postcode": "10230",
+								"delivery_status": null,
+								"delivery_description": null,
+								"delivery_datetime": null,
+								"receiver_name": null,
+								"signature": null
+							}, {
+								"barcode": "EB315050240TH",
+								"status": "501",
+								"status_description": "นำจ่ายสำเร็จ",
+								"status_date": "29/05/2563 10:23:23+07:00",
+								"location": "จรเข้บัว",
+								"postcode": "10230",
+								"delivery_status": "S",
+								"delivery_description": "ผู้รับได้รับสิ่งของเรียบร้อยแล้ว",
+								"delivery_datetime": "29/05/2563 10:23:23+07:00",
+								"receiver_name": "40 ราม 14 /ผู้รับรับเอง",
+								"signature": "https://trackimage.thailandpost.co.th/f/signature/QDUwMjQwYjVzMGx1VDMz/QGI1c0VCMGx1VDMx/QGI1czBsVEh1VDM0/QGI1czBsdTMxNTBUMzI="
+							}]
+						},
+						"track_count": {
+							"track_date": "30/05/2563",
+							"count_number": 6,
+							"track_count_limit": 1000
+						}
+					},
+					"message": "successful",
+					"status": true
+				}
+
+
+			       รหัส	สถานะ
+			  101	เตรียมการฝากส่ง
+			  102	รับฝากผ่านตัวแทน
+			  103	รับฝาก
+			  201	อยู่ระหว่างการขนส่ง
+			  202	ดำเนินพิธีการศุลกากร
+			  203	ส่งคืนต้นทาง
+			  301	อยู่ระหว่างการนำจ่าย
+			  302	นำจ่าย ณ จุดรับสิ่งของ
+			  401	นำจ่ายไม่สำเร็จ
+			  501	นำจ่ายสำเร็จ
+			  204	ถึงที่ทำการแลกปลี่ยนระหว่างประเทศขาออก
+			  205	ถึงที่ทำการแลกปลี่ยนระหว่างประเทศขาเข้า
+			  206	ถึงที่ทำการไปรษณีย์
+			  207	เตรียมการขนส่ง
+
+
+
+
+			status					String	สถานะ
+			status_description		String	คำอธิบายสถานะ
+			status_date				String	สถานะของวันที่
+			location				String	สถานที่ตั้ง
+			postcode				String	รหัสไปรษณีย์
+			delivery_status			Int		สถานะการจัดส่ง
+
+			delivery_description	Int		คำอธิบายการจัดส่ง
+			delivery_datetime		Int		วันที่จัดส่ง
+			receiver_name			Int		ชื่อผู้รับ
+			signature				Int		ลายเซ็น
+			barcode					String	หมายเลขสิ่งของ
+			message					String	ข้อความตอบกลับ
+
+			*/
+}
 
 function notify($id,$msg){
 	$key_noti='OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';
@@ -79,7 +406,6 @@ function notify($id,$msg){
 
 }
 
-
 //----------function--114------------//
 function get_url($urllink) {
   $curl = curl_init();
@@ -93,32 +419,16 @@ function get_url($urllink) {
 }
 //---------------------------------//
 function chk_friend($uid){
-
-	$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-	$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-	//$lineid_encode = urlencode($uid);
-	$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-	$q_msg = json_decode($json_cmsg); 
-	if($q_msg){
-		foreach($q_msg as $rec){
-			if($rec->status == 'add_friend'){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
+	/*
+	if($rec->status == 'add_friend'){
+		return true;
 	}
 	else{
 		return false;
 	}
-
-
+	*/
+	return true;
 }
-
-
-
 
 function get_profile($fullurl) 
 {
@@ -145,7 +455,10 @@ function get_profile($fullurl)
         return($returned);
 }
 
+
+
 //-----------auto send----push message------------------//
+
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test
 // Example : https://gispwaai.herokuapp.com/bot/bot.php?send=auto&text=test&uid=R058c5b58c97773c8d032eef585b9dbd0
 
@@ -153,7 +466,6 @@ function get_profile($fullurl)
 //https://gispwa.herokuapp.com/gis-pwa.php?send=text&text=ข้อความ&id=C6cf4977144b0d1c6aa8b5be22b04272c // METER
 //https://gispwa.herokuapp.com/gis-pwa.php?send=text&text=ข้อความ&id=C6c9793d99e321e4659397c52365a68d3 // กภส
 //https://gispwa.herokuapp.com/gis-pwa.php?send=text&text=ข้อความ&id=C6d63e07eb0065b5019b861f11073fc41 // gis_dev
-
 
 if ( $_GET['send'] == 'text' )
 {
@@ -300,8 +612,6 @@ if ( $_REQUEST['send'] == 'register' )
 }
 //---------------------------------------------------------//
 
-
-
 if ($_REQUEST['send'] == 'memo'){
 	$id;
 	if($_REQUEST['by'] == 'gispwa'){
@@ -364,13 +674,7 @@ if ($_REQUEST['send'] == 'memo'){
 	}				
 
 	notify($id,$mหg);
-		
-
 }
-
-
-
-
 
 //ส่งแบบข้อความแบบ-multi----แบบ array มี sub array-------------//
 if ( $_GET['send'] == 'location' )
@@ -422,6 +726,8 @@ if ( $_GET['send'] == 'notify' )
 	//Close connect 
 	curl_close( $chOne ); 
 }
+
+//-----------auto send----push message------------------//
 
 
 // Get POST body content
@@ -566,7 +872,6 @@ if (!is_null($events['events'])) {
 
 
 
-
 			else if (preg_match('(#ทดสอบ|#ทดสอบ)', $text) === 1) {
 
 				if (chk_friend($event['source']['userId']) == true){
@@ -599,7 +904,6 @@ if (!is_null($events['events'])) {
 					];
 
 				}
-
 
 
 			}
@@ -682,9 +986,9 @@ if (!is_null($events['events'])) {
 			}
 
 
-
 			else if (preg_match('(#เช็ค|#check)', $text) === 1) {
-
+				//improve
+				/*
 				$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
 				$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
 
@@ -705,6 +1009,7 @@ if (!is_null($events['events'])) {
 					'text' => 'ผมไม่ฟังคำสั่งของคนแปลกหน้าหรอกครับ'
 					];
 				}
+				*/
             }
 
             else if(preg_match('(covid|Covid|โควิด|โควิท|โคโรนา|โคโรน่า)', $text) === 1 && preg_match('(รัฐ)', $text) === 1) {	
@@ -1668,11 +1973,16 @@ echo "OK";
 //echo "OK2";
 
 
-//------------ gis
-//C0258185eadd1aef77466dfb30d189e56 metergis
- //Cbb266cca8a0e0b7ae940dec7f3dc15dc gis+pjoe
-//ฟังก์ชั่น ReplyMessage-------------------------------------------------------------//
 
+
+
+
+//-gis--
+//C0258185eadd1aef77466dfb30d189e56 metergis
+//Cbb266cca8a0e0b7ae940dec7f3dc15dc gis+pjoe
+
+
+//----------------------------จบฟังก์ชั่น ReplyMessage----------------------------------//
 function replyMsg1($event, $client)
 {
     $uid;
@@ -1693,17 +2003,6 @@ function replyMsg1($event, $client)
 	if ($event['type'] == 'follow') {
 	 //U87b618904b23471df5c43312458c016b
 
-		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-		//$lineid_encode = urlencode($uid);
-		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"line_id":"'.$uid.'"}');
-		//$q_msg = json_decode($json_cmsg); 
-	 
-		//count-question---------//
-		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
-		$count = json_decode($json_c);  //จำนวนที่นับได้
-		//count-question---------//
 	 
 		$id = $event['source']['userId'];
 		$urlp = 'https://api.line.me/v2/bot/profile/'.$id;
@@ -1736,49 +2035,6 @@ function replyMsg1($event, $client)
 
 		$pathpic = explode("cdn.net/", $obj->pictureUrl);
 	 
-		if ($count == 0){
-
-			//Post New Data--------------------------//
-			$newData = json_encode(
-			  array(
-				'lineid'=> $uid,
-				'name'=> $obj->displayName,
-				'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
-
-				'user_id'=> '-',
-				'pwacode'=> '-',
-
-				'manage_db'=> 'no',
-				'chk_db'=> 'no',
-
-				'pwaarea'=> 'no',
-				'weather'=> 'no',
-				'other'=> 'no',
-
-				'lat'=> '-',
-				'lng'=> '-',
-
-				'datetime'=> date("Y-m-d h:i:sa"),
-				'status' => 'add_friend'
-			  )
-			);
-
-			$opts = array(
-			  'http' => array(
-				  'method' => "POST",
-				  'header' => "Content-type: application/json",
-				  'content' => $newData
-			   )
-			);
-			$context = stream_context_create($opts);
-			$returnValue = file_get_contents($url,false,$context);
-			//Post New Data--------------------------//
-
-
-			$sec = explode('"$oid" : "', $returnValue);
-			$sec_id = explode('"', $sec[1]);
-
-			 
 			$t=array("ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ","ขอบคุณที่แอดเราเป็นเพื่อนนะ");
 			$random_keys=array_rand($t,1);
 			$txt = $t[$random_keys];
@@ -1792,58 +2048,7 @@ function replyMsg1($event, $client)
 			$client->replyMessage1($event['replyToken'],$a);
 
 
-		}
-		else if ($count == 1){  
-
-			//query-คำถามที่เคยถามในdb----------------------------------//
-			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-			$q_json_f = json_decode($json_f); 
-			$q_json_id = $q_json_f[0]->_id;
-			$q_json_oid = '';
-			foreach ($q_json_id as $k=>$v){
-				$q_json_oid = $v; // etc.
-			}
-
-			//update-----------------------------------//
-			//$_id = '59fb2268bd966f7657da67cc';
-			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-			$newupdate = json_encode(
-				array(
-					'$set' => array('lineid'=> $uid),
-					'$set' => array('name'=> $obj->displayName),
-					'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-					//'$set' => array('user_id'=> '-'),
-					//'$set' => array('pwacode'=> '-'),
-					//'$set' => array('manage_db'=> 'no'),
-					//'$set' => array('chk_db'=> 'no'),
-
-					//'$set' => array('pwaarea'=> 'no'),
-					//'$set' => array('weather'=> 'no'),
-					//'$set' => array('other'=> 'no'),
-
-					//'$set' => array('lat'=> '-'),
-					//'$set' => array('lng'=> '-'),
-
-					'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-					'$set' => array('status'=> 'add_friend')
-
-				)
-			);
-
-			$optsu = array(
-				'http' => array(
-					'method' => "PUT",
-					'header' => "Content-type: application/json",
-					'content' => $newupdate
-				)
-			);
-
-			$contextu = stream_context_create($optsu);
-			$returnValup = file_get_contents($url_up, false, $contextu);
-
-
+			/*
 			$t=array("ยินดีต้อนรับกลับมาเป็นเพื่อนครับ","อย่าบล็อคผมอีกนะครับ");
 			$random_keys=array_rand($t,1);
 			$txt = $t[$random_keys];
@@ -1856,25 +2061,12 @@ function replyMsg1($event, $client)
 						)
 					);
 			$client->replyMessage1($event['replyToken'],$a);
-		}
-	
+			*/
 
 	}
 	else if ($event['type'] == 'unfollow') {
 	 //U87b618904b23471df5c43312458c016b
 
-		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-		//$lineid_encode = urlencode($uid);
-		//$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-		//$q_msg = json_decode($json_cmsg); 
-	 
-		//count-question---------//
-		$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
-		$count = json_decode($json_c);  //จำนวนที่นับได้
-		//count-question---------//
-	 
 		$id = $event['source']['userId'];
 		$urlp = 'https://api.line.me/v2/bot/profile/'.$id;
 		$channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
@@ -1906,49 +2098,7 @@ function replyMsg1($event, $client)
 
 		$pathpic = explode("cdn.net/", $obj->pictureUrl);
 	 
-		if ($count == 0){
 
-			//Post New Data--------------------------//
-			$newData = json_encode(
-			  array(
-				'lineid'=> $uid,
-				'name'=> $obj->displayName,
-				'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1],
-
-				'user_id'=> '-',
-				'pwacode'=> '-',
-
-				'manage_db'=> 'no',
-				'chk_db'=> 'no',
-
-				'pwaarea'=> 'no',
-				'weather'=> 'no',
-				'other'=> 'no',
-
-				'lat'=> '-',
-				'lng'=> '-',
-
-				'datetime'=> date("Y-m-d h:i:sa"),
-				'status' => 'unfriend'
-			  )
-			);
-
-			$opts = array(
-			  'http' => array(
-				  'method' => "POST",
-				  'header' => "Content-type: application/json",
-				  'content' => $newData
-			   )
-			);
-			$context = stream_context_create($opts);
-			$returnValue = file_get_contents($url,false,$context);
-			//Post New Data--------------------------//
-
-
-			$sec = explode('"$oid" : "', $returnValue);
-			$sec_id = explode('"', $sec[1]);
-
-			 
 			$t=array("Unfriend เราไปแล้ว","เสียใจ");
 			$random_keys=array_rand($t,1);
 			$txt = $t[$random_keys];
@@ -1961,70 +2111,6 @@ function replyMsg1($event, $client)
 					);
 			$client->replyMessage1($event['replyToken'],$a);
 
-
-		}
-		else if ($count == 1){  
-
-			//query-คำถามที่เคยถามในdb----------------------------------//
-			$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-			$q_json_f = json_decode($json_f); 
-			$q_json_id = $q_json_f[0]->_id;
-			$q_json_oid = '';
-			foreach ($q_json_id as $k=>$v){
-				$q_json_oid = $v; // etc.
-			}
-
-			//update-----------------------------------//
-			//$_id = '59fb2268bd966f7657da67cc';
-			$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-			$newupdate = json_encode(
-				array(
-					'$set' => array('lineid'=> $uid),
-					'$set' => array('name'=> $obj->displayName),
-					'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-					//'$set' => array('user_id'=> '-'),
-					//'$set' => array('pwacode'=> '-'),
-					//'$set' => array('manage_db'=> 'no'),
-					//'$set' => array('chk_db'=> 'no'),
-
-					//'$set' => array('pwaarea'=> 'no'),
-					//'$set' => array('lat'=> '-'),
-					//'$set' => array('lng'=> '-'),
-
-					'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-					'$set' => array('status'=> 'unfriend')
-
-				)
-			);
-
-			$optsu = array(
-				'http' => array(
-					'method' => "PUT",
-					'header' => "Content-type: application/json",
-					'content' => $newupdate
-				)
-			);
-
-			$contextu = stream_context_create($optsu);
-			$returnValup = file_get_contents($url_up, false, $contextu);
-
-
-			$t=array("Unfriend เราทำไม","โดนบล็อคแล้ว");
-			$random_keys=array_rand($t,1);
-			$txt = $t[$random_keys];
-			//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
-			$a = array(
-						array(
-							'type' => 'text',
-							//'text' => $txt." อัพเดท id:".$q_json_oid." count:".$count
-							'text' => $txt
-						)
-					);
-			$client->replyMessage1($event['replyToken'],$a);
-		}
-	
 
 	}
 	else if ($event['type'] == 'join') {
@@ -2096,13 +2182,7 @@ function replyMsg1($event, $client)
 		$client->replyMessage1($event['replyToken'],$a);
 
 	}
-
-
-
-
 }
-
-
 function replyMsg($event, $client)
 {
 
@@ -2128,273 +2208,20 @@ function replyMsg($event, $client)
         //ข้อความtext ที่ได้รับ
         $msg = $event['message']['text'];
  
-        $api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-        $url = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key;
- 
- 
-        //file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/kunutt?apiKey='.$api_key.'&q={ "_id" : { "$oid" : "59fc80f9c2ef163b3e8be96d"} ,"question":"'.$_question.'"}&c=true');
- 
- 
-        $msg_encode = urlencode($msg);
-        $json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$msg_encode.'"}');
-        $q_msg = json_decode($json_cmsg); 
- 
- 
-        if (preg_match('(สอนบอท)', $msg) === 1) {
- 
-            if(strstr($msg,"[") && strstr($msg,"|") && strstr($msg,"]")){
- 
-                // พบคำว่า PHP ในข้อความ
- 
-                $x_tra = str_replace("สอนบอท","", $msg);
-                $pieces = explode("|", $x_tra);
-                $_question = str_replace("[","",$pieces[0]);
-                $_answer = str_replace("]","",$pieces[1]);
- 
-                if($_question == '' || $_answer == '' ){
-                    exit();
-                }
- 
-                //count-question---------//
-                $json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$_question.'"}&c=true');
-                $count = json_decode($json_c);  //จำนวนที่นับได้
-                //count-question---------//
- 
- 
- 
-						$id = $event['source']['userId'];
-                        $urlp = 'https://api.line.me/v2/bot/profile/'.$id;
-                        $channelAccessToken2 = 't9nRyxC8yWtjxD0TEtDdpiNKCY3u+C1hCnIW4khz+OxQqI6dfYN3zQfjcnZc4nIWgjD8My1l2OG7C5qEfwjLujcqMBTUfwUdLxPv7yy7YcUeddjESBThvLErPrnyo7+Mq1PCI5wauXh3OK5PZ5aqeQdB04t89/1O/w1cDnyilFU=';
- 
-                        $header = array(
-                            "Content-Type: application/json",
-                            'Authorization: Bearer '.$channelAccessToken2,
-                        );
- 
-                        $ch = curl_init();
-                        //curl_setopt($ch, CURLOPT_HTTP_VERSION, 'CURL_HTTP_VERSION_1_1');
-                        //curl_setopt($ch, CURLOPT_VERBOSE, 1);
-                        //curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                        curl_setopt($ch, CURLOPT_FAILONERROR, 0);       ;
-                        //curl_setopt($ch, CURLOPT_HTTPGET, 1);
-                        //curl_setopt($ch, CURLOPT_USERAGENT, $agent);
-                        //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-                        curl_setopt($ch, CURLOPT_HEADER, 0);
-                        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-                        curl_setopt($ch, CURLOPT_URL, $urlp);
-                         
-                        $profile =  curl_exec($ch);
-                        curl_close($ch);
-                        $obj = json_decode($profile);
- 
- 
-                        $pathpic = explode("cdn.net/", $obj->pictureUrl);
- 
- 
- 
-                if ($count == 0){
- 
-                    //Post New Data--------------------------//
-                    $newData = json_encode(
-                      array(
-                        'question' => $_question,
-                        'answer'=> $_answer,
-                        'uid'=> $uid,
-                        'name'=> $obj->displayName,
-                        'originalContentUrl' => 'https://obs.line-apps.com/'.$pathpic[1]
-                      )
-                    );
- 
-                    $opts = array(
-                      'http' => array(
-                          'method' => "POST",
-                          'header' => "Content-type: application/json",
-                          'content' => $newData
-                       )
-                    );
-                    $context = stream_context_create($opts);
-                    $returnValue = file_get_contents($url,false,$context);
-                    //Post New Data--------------------------//
- 
- 
-                    $sec = explode('"$oid" : "', $returnValue);
-                    $sec_id = explode('"', $sec[1]);
- 
-                     
-                    $t=array("น่ารักที่สุดอ่ะเราน่ะ","ต่อไปเราจะตอบเธอแบบนี้นะ","ขอบคุณที่สอนเรานะ","เข้าใจแล้วล่ะว่าต้องตอบเธอยังไง");
-                    $random_keys=array_rand($t,1);
-                    $txt = $t[$random_keys];
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    //'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
-                                    'text' => $txt
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
- 
- 
-                }
-                else if ($count == 1){  
- 
-                    //query-คำถามที่เคยถามในdb----------------------------------//
-                    $json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$_question.'"}');
-                    $q_json_f = json_decode($json_f); 
-                    $q_json_id = $q_json_f[0]->_id;
-                    $q_json_oid = '';
-                    foreach ($q_json_id as $k=>$v){
-                        $q_json_oid = $v; // etc.
-                    }
- 
-                    //update-----------------------------------//
-                    //$_id = '59fb2268bd966f7657da67cc';
-                    $url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
- 
-                    $newupdate = json_encode(
-                        array(
-                            '$set' => array('answer'=> $_answer)
-                        )
-                    );
- 
-                    $optsu = array(
-                        'http' => array(
-                            'method' => "PUT",
-                            'header' => "Content-type: application/json",
-                            'content' => $newupdate
-                        )
-                    );
- 
-                    $contextu = stream_context_create($optsu);
-                    $returnValup = file_get_contents($url_up, false, $contextu);
- 
- 
-                    $t=array("คำถามนี้เคยสอนแล้วนะ แต่ไม่เปงไร จำใหม่ก็ได้","สอนซ้ำๆแบบนี้ เมมจะเต็มแล้วนะ");
-                    $random_keys=array_rand($t,1);
-                    $txt = $t[$random_keys];
-                    //$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    //'text' => $txt." อัพเดท id:".$q_json_oid." count:".$count
-                                    'text' => $txt
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
-            }
- 
-            else{
- 
-                    $t = 'สอนผมได้นะ เพียงพิมพ์: สอนบอท[คำถาม|คำตอบ]';  
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $t . ''               
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-            }
- 
- 
-        }
- 
-        else{
- 
+
             $ty = $event['source']['type']; //user,group
- 
-            //หากไม่มีคำว่า สอนบอทจะมีการยิง API ข้างต้นไปตรงๆ โดยมี q สำหรับ Query {question:คำถาม} ไปเลย ก็จะใช้การเรียกคือ
- 
-            if($q_msg){
-                foreach($q_msg as $rec){
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $rec->answer            
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
-            }
- 
-            else{
  
 
 				if (preg_match('(#ลบข้อมูล|#ลบข้อมูล)', $msg) === 1) {
-
-						$pieces = explode(" ", $msg);
-						$_sel = $pieces[1];
-
-						$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$_sel.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
- 
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_d = 'https://api.mlab.com/api/1/databases/linedb/collections/meter_gis/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$optsd = array(
-								'http' => array(
-								'method' => "DELETE",
-								'header' => "Content-type: application/json"
-							)
-						);
-	 
-						$contextd = stream_context_create($optsd);
-						$returnValdel = file_get_contents($url_d, false, $contextd);
-
-						$t=array("ลบให้แล้วครับ","จัดให้ครับ","ลบเรียบร้อยครับ");
-						$random_keys=array_rand($t,1);
-						$txt = $t[$random_keys];
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => $txt          
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
 
 
 				}
 
 				else if(preg_match('(#ใครสอน|#ใครสอน)', $msg) === 1) {
 
-						$pieces = explode(" ", $msg);
-						$_sel = $pieces[1];
-
-						$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-
-						$msg_encode = urlencode($_sel);
-						$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/meter_gis?apiKey='.$api_key.'&q={"question":"'.$msg_encode.'"}');
-						$q_msg = json_decode($json_cmsg); 
-				 
-						if($q_msg){
-							foreach($q_msg as $rec){
-								$a = array(
-											array(
-												'type' => 'text',
-												'text' => $rec->name     
-												//'text' => $rec->originalContentUrl 					
-											),
-											array(
-													'type' => 'image',
-													'originalContentUrl' => $rec->originalContentUrl ,
-													'previewImageUrl' => $rec->originalContentUrl 
-												)
-										);
-								$client->replyMessage1($event['replyToken'],$a);
-							}
-						}
 
 				}
+
 
                 else if (preg_match('(#bot|#bot)', $msg) === 1) {
 					$t = "คุณสามารถสอนผมให้ฉลาดได้ เพียงพิมพ์:
@@ -2917,9 +2744,11 @@ function replyMsg($event, $client)
 
 
 				}
+
 				else if(preg_match('(#เพิ่มสิทธิ|#เพิ่มสิทธิ์|#เพิ่มสิทธิ์มาตร|#เพิ่มสิทธิ์ระบบมาตร|#เพิ่มสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
+					//improve
 					$chk = chk_friend($uid);
 					if($chk == false){
 					   $a_ = array(
@@ -3099,6 +2928,7 @@ function replyMsg($event, $client)
 				else if(preg_match('(#ลบสิทธิ|#ลบสิทธิ์|#ลบสิทธิ์มาตร|#ลบสิทธิ์ระบบมาตร|#ลบสิทธิ์ระบบมาตรฯ)', $msg) === 1) {
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
+					//improve
 					$chk = chk_friend($uid);
 
 					if($chk == false){
@@ -4824,7 +4654,7 @@ function replyMsg($event, $client)
 
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
-
+					//improve
 					if (chk_friend($uid) == false){
 
 						$a = array(
@@ -7655,68 +7485,6 @@ function replyMsg($event, $client)
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
-					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-
-					//count-question---------//
-					$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
-					$count = json_decode($json_c);  //จำนวนที่นับได้
-					//count-question---------//
-
-
-					if ($count == 1){
-
-
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
-
-						//update-----------------------------------//
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$newupdate = json_encode(
-							array(
-								//'$set' => array('lineid'=> $uid),
-								//'$set' => array('name'=> $obj->displayName),
-								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-								//'$set' => array('user_id'=> '-'),
-								//'$set' => array('pwacode'=> '-'),
-								//'$set' => array('manage_db'=> 'no'),
-								//'$set' => array('chk_db'=> 'no'),
-
-								//'$set' => array('pwaarea'=> 'no'),
-								//'$set' => array('weather'=> 'no'),
-								//'$set' => array('other'=> 'no'),
-
-								//'$set' => array('lat'=> '-'),
-								//'$set' => array('lng'=> '-'),
-
-
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								//'$set' => array('status'=> 'add_friend'),
-								'$set' => array('pwaarea'=> 'yes')
-							)
-						);
-
-						$optsu = array(
-							'http' => array(
-								'method' => "PUT",
-								'header' => "Content-type: application/json",
-								'content' => $newupdate
-							)
-						);
-
-						$contextu = stream_context_create($optsu);
-						$returnValup = file_get_contents($url_up, false, $contextu);
-						
 
 
 						$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
@@ -7751,16 +7519,6 @@ function replyMsg($event, $client)
 							$client->replyMessage1($event['replyToken'],$a);
 						}
 
-					}
-					else{
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนครับ'         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-					}
 
 
 				}
@@ -7769,68 +7527,6 @@ function replyMsg($event, $client)
                     $gid = $event['source']['groupId'];
                     $uid = $event['source']['userId'];
 
-					$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-					$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-
-					//count-question---------//
-					$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}&c=true');
-					$count = json_decode($json_c);  //จำนวนที่นับได้
-					//count-question---------//
-
-
-					if ($count == 1){
-
-
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
-
-						//update-----------------------------------//
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$newupdate = json_encode(
-							array(
-								//'$set' => array('lineid'=> $uid),
-								//'$set' => array('name'=> $obj->displayName),
-								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-								//'$set' => array('user_id'=> '-'),
-								//'$set' => array('pwacode'=> '-'),
-								//'$set' => array('manage_db'=> 'no'),
-								//'$set' => array('chk_db'=> 'no'),
-
-								//'$set' => array('pwaarea'=> 'no'),
-								//'$set' => array('weather'=> 'no'),
-								//'$set' => array('other'=> 'no'),
-
-								//'$set' => array('lat'=> '-'),
-								//'$set' => array('lng'=> '-'),
-
-
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								//'$set' => array('status'=> 'add_friend'),
-								'$set' => array('weather'=> 'yes')
-							)
-						);
-
-						$optsu = array(
-							'http' => array(
-								'method' => "PUT",
-								'header' => "Content-type: application/json",
-								'content' => $newupdate
-							)
-						);
-
-						$contextu = stream_context_create($optsu);
-						$returnValup = file_get_contents($url_up, false, $contextu);
-						
 							$a = array(
 										array(
 											'type' => 'text',
@@ -7838,18 +7534,6 @@ function replyMsg($event, $client)
 										)
 									);
 							$client->replyMessage1($event['replyToken'],$a);
-
-
-					}
-					else{
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนครับ'         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-					}
 
 
 				}
@@ -8074,442 +7758,10 @@ function replyMsg($event, $client)
 					notify($ugid,$message);
 
 				}
+
 				else if(preg_match('(#ดูนัดหมาย|#เพิ่มนัดหมาย|#ลบนัดหมาย)', $msg) === 1) {
 
-                    $gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
-
-
-					if (chk_friend($uid) == true){
-						
-						if(preg_match('(#ดูนัดหมาย|#ดูนัดหมาย|#ดูนัดหมาย)', $msg) === 1){
-
-
-							$url = 'https://api.line.me/v2/bot/profile/'.$uid;
-							//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-							$profile = get_profile($url);
-							$obj = json_decode($profile);
-
-							$nameid = $obj->displayName;
-							$status = $obj->statusMessage;
-							$pathpic = explode("cdn.net/", $obj->pictureUrl);
-
-
-							$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-							$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
-							$count;
-
-							if($gid){
-								//count-question---------//
-								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.'"}&c=true');
-								$count = json_decode($json_c);  //จำนวนที่นับได้
-								//count-question---------//
-							}
-							else{
-								//count-question---------//
-								$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}&c=true');
-								$count = json_decode($json_c);  //จำนวนที่นับได้
-								//count-question---------//
-							}
-
-						 
-							if ($count == 0){
-								$t=array("ไม่พบนัดหมาย","ไม่พบนัดหมาย");
-								$random_keys=array_rand($t,1);
-								$txt = $t[$random_keys];
-								//$txt = 'มีคำถามนี้แล้ว-อัพเดท $oid:';
-								$a = array(
-											array(
-												'type' => 'text',
-												'text' => $txt
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a);
-
-							}
-							else {  
-								$count=0;
-								$memo_=array();				
-								$message='';
-								$json_f;
-								if($gid){
-									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid.'"}');
-
-									$q_json_f = json_decode($json_f);
-									foreach ($q_json_f as $i){
-										$memo_[$i->date] = $i->detail; 
-										$count++;
-									}
-
-								}
-								else{
-									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"uid":"'.$uid.'"}');
-
-									$q_json_f = json_decode($json_f);
-									foreach ($q_json_f as $i){
-										//$message.=$i->date;
-										//$message.= '|';
-										if($i->gid == '-'){
-											$memo_[$i->date] = $i->detail;
-											$count++;
-										}
-									}
-
-								}
-
-								$showmemo='';
-								foreach ($memo_ as $k=>$v){
-									$showmemo .= $k.": ".$v." 
-									\n";
-								}							
-
-							
-								$today_ = date("Y-m-d");
-								//$today_ = date("d-m-Y");
-
-								$s7d = date("Y-m-d",strtotime("+7 days",strtotime($today_)));
-								$s3d = date("Y-m-d",strtotime("+3 days",strtotime($today_)));
-								$s2d = date("Y-m-d",strtotime("+2 days",strtotime($today_)));
-								$s1d = date("Y-m-d",strtotime("+1 days",strtotime($today_)));
-
-								if(array_key_exists($s7d, $memo_))  // holiday;
-								//else if(in_array($today, $holiday))  // holiday;
-								{
-									$message .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]."(".$s7d.")"." 
-									\n";
-								}
-								if(array_key_exists($s3d, $memo_))  // holiday;
-								//else if(in_array($today, $holiday))  // holiday;
-								{
-									$message .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]."(".$s3d.")"." 
-									\n";
-								}
-								if(array_key_exists($s2d, $memo_))  // holiday;
-								//else if(in_array($today, $holiday))  // holiday;
-								{
-									$message .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]."(".$s2d.")"." 
-									\n";
-								}
-								if(array_key_exists($s1d, $memo_))  // holiday;
-								//else if(in_array($today, $holiday))  // holiday;
-								{
-									$message .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]."(".$s1d.")"." 
-									\n";
-								}
-
-								if(array_key_exists($today_, $memo_))
-								{
-									$message .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]."(".$today_.")"." 
-									\n";
-								}				
-
-								$t=array("พบนัดหมาย ".$count,"พบนัดหมายจำนวน  ".$count);
-								$random_keys=array_rand($t,1);
-								$txt = $t[$random_keys];
-
-
-								$a = array(
-											array(
-												'type' => 'text',
-												'text' => $txt
-											),
-											array(
-												'type' => 'text',
-												'text' => $message
-											),
-											array(
-												'type' => 'text',
-												'text' => $showmemo
-											)
-
-										);
-								$client->replyMessage1($event['replyToken'],$a);
-
-								
-							}
-						
-
-						}
-						else if (preg_match('(#เพิ่มนัดหมาย|#เพิ่มนัดหมาย|#เพิ่มนัดหมาย)', $msg) === 1){
-
-							$msg_split = explode("#เพิ่มนัดหมาย", $msg);
-							
-							$msg_split_use = explode(" ", $msg);
-
-							$txt = trim($msg_split[1]);
-
-							$date_memo = $msg_split_use[1];
-							$y = substr($date_memo,0,4);
-							$m = substr($date_memo,5,-3);
-							$d = substr($date_memo,-2);
-
-							$txt_memo = $msg_split_use[2];
-
-
-							if($txt ==''){
-								$reply = "ตัวอย่างการเพิ่มนัดหมาย 
-								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
-								";					
-								
-								$a_ = array(
-
-											array(
-												'type' => 'text',
-												'text' => $reply						
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a_);	
-
-							}
-
-							else if(!$date_memo|| strlen($date_memo) != 10 || substr($date_memo,4,-5) != '-' || substr($date_memo,7,-2) != '-'){
-								$reply = "รูปแบบ ปี-เดือน-วัน ตัวอย่างการเพิ่มนัดหมาย 
-								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
-								";					
-								
-								$a_ = array(
-
-											array(
-												'type' => 'text',
-												'text' => $reply						
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a_);	
-
-							}
-
-							else if(preg_match("/^[0-9]{4}$/", $y) == 0 || strlen(number_format($y)) != 5|| intval($y)>= 2500 || intval($y)< 2020){
-								$reply = "ระบุปีผิด ตัวอย่างการเพิ่มนัดหมาย 
-								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
-								";					
-								
-								$a_ = array(
-
-											array(
-												'type' => 'text',
-												'text' => $reply						
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a_);	
-
-							}
-							else if(preg_match("/^[0-9]{2}$/", $m) == 0 || strlen($m) != 2|| intval($m)> 12 || intval($m)< 1){
-								$reply = "ระบุเดือนผิด ตัวอย่างการเพิ่มนัดหมาย 
-								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
-								";					
-								
-								$a_ = array(
-
-											array(
-												'type' => 'text',
-												'text' => $reply						
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a_);	
-
-							}
-							else if(preg_match("/^[0-9]{2}$/", $d) == 0 || strlen($d) != 2|| intval($d)> 31 || intval($d)< 1){
-								$reply = "ระบุวันผิด ตัวอย่างการเพิ่มนัดหมาย 
-								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
-								";					
-								
-								$a_ = array(
-
-											array(
-												'type' => 'text',
-												'text' => $reply						
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a_);	
-
-							}
-							else if($txt_memo == ''){
-								$reply = "ตัวอย่างการเพิ่มนัดหมาย 
-								\n #เพิ่มนัดหมาย 2020-07-20 มีประชุมเวลา10โมงครับ
-								";					
-												
-								$a_ = array(
-
-											array(
-												'type' => 'text',
-												'text' => $reply						
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a_);	
-
-							}
-
-
-							else{
-
-								$gid_;
-								if(!$gid){
-									$gid_='-';
-								}
-								else{
-									$gid_= $gid;
-								}
-
-								//$date_memo = '2020-08-05';
-								//$txt_memo = 'นัดหมาย';
-
-								$url_profile = 'https://api.line.me/v2/bot/profile/'.$uid;
-								//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-								$profile = get_profile($url_profile);
-								$obj = json_decode($profile);
-
-								$nameid = $obj->displayName;
-								$status = $obj->statusMessage;
-								$pathpic = explode("cdn.net/", $obj->pictureUrl);
-								$pic = 'https://obs.line-apps.com/'.$pathpic[1];
-
-								$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-								//$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
-								$count;
-
-								if(!$gid){
-									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"-","uid":"'.$uid.'","date":"'.$date_memo.'"}&c=true');	
-									$count = json_decode($json_c);  //จำนวนที่นับได
-								}
-								else{
-									$json_c = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}&c=true');	
-									$count = json_decode($json_c);  //จำนวนที่นับได
-								}
-
-							 
-								if ($count == 0){
-
-									$gid_;
-									if(!$gid){
-										$gid_='-';
-									}
-									else{
-										$gid_= $gid;
-									}
-
-
-									$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-									$url = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key;
-
-									//Post New Data--------------------------//
-									$newData = json_encode(
-									  array(
-										'gid'=> $gid_,
-										'uid'=> $uid,
-
-										'name'=> $nameid,
-										'originalContentUrl' => $pic,
-										
-										'date'=> $date_memo,
-										'detail'=> $txt_memo,								
-
-										'datetime'=> date("Y-m-d h:i:sa")
-
-									  )
-									);
-
-									$opts = array(
-									  'http' => array(
-										  'method' => "POST",
-										  'header' => "Content-type: application/json",
-										  'content' => $newData
-									   )
-									);
-									$context = stream_context_create($opts);
-									$returnValue = file_get_contents($url,false,$context);
-									//Post New Data--------------------------//
-
-
-									//$sec = explode('"$oid" : "', $returnValue);
-									//$sec_id = explode('"', $sec[1]);
-
-
-								}
-								else{
-
-									$gid_;
-									if(!$gid){
-										$gid_='-';
-									}
-									else{
-										$gid_= $gid;
-									}
-
-									$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-									$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/memo_db?apiKey='.$api_key.'&q={"gid":"'.$gid_.'","uid":"'.$uid.'","date":"'.$date_memo.'"}');	
-
-
-									$q_json_f = json_decode($json_f); 
-									$q_json_id = $q_json_f[0]->_id;
-									$q_json_oid = '';
-									foreach ($q_json_id as $k=>$v){
-										$q_json_oid = $v; // etc.
-									}
-
-									//count($q_json_f);
-
-
-									//update-----------------------------------//
-									//$_id = '59fb2268bd966f7657da67cc';
-									$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/memo_db/'.$q_json_oid.'?apiKey='.$api_key;
-
-									$newupdate = json_encode(
-										array(
-									
-											'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-											'$set' => array('detail'=> $txt_memo),
-											'$set' => array('name'=> $nameid),
-											'$set' => array('originalContentUrl'=> $pic),
-											'$set' => array('date'=> $date_memo),
-											'$set' => array('detail'=> $txt_memo)
-
-										)
-									);
-
-									$optsu = array(
-										'http' => array(
-											'method' => "PUT",
-											'header' => "Content-type: application/json",
-											'content' => $newupdate
-										)
-									);
-
-									$contextu = stream_context_create($optsu);
-									$returnValup = file_get_contents($url_up, false, $contextu);
-
-								}
-
-					
-								$t=array("เพิ่มนัดหมายให้แล้วครับ","เพิ่มนัดหมายแล้วเสร็จ");
-								$random_keys=array_rand($t,1);
-								$txt = $t[$random_keys];
-								$a = array(
-											array(
-												'type' => 'text',
-												//'text' => $txt." เพิ่ม id:".$sec_id[0]." count:".$count
-												'text' => $txt//.'count='.$count
-											)
-										);
-								$client->replyMessage1($event['replyToken'],$a);
-							}
-
-						}
-						else if (preg_match('(#ลบนัดหมาย|#ลบนัดหมาย|#ลบนัดหมาย)', $msg) === 1){
-
-
-
-						}
-
-					}
-					else{
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'โปรดเพิ่มบอทเป็นเพื่อนก่อนครับ'         
-									)
-								);
-						$client->replyMessage1($event['replyToken'],$a);
-					}
+					//improve
 
 				}
 				// ยังไม่เสร็จ-----------------------------//
@@ -9764,9 +9016,9 @@ function replyMsg($event, $client)
 					// 
                 }
                  
-            }
+            
  
-        }
+        
     }
     //----------------------------จบเงื่อนไขข้อความtext-----------------------------------//
      //-----ถ้ามีการส่งimage------------------------------------------------------------//
@@ -9922,27 +9174,15 @@ function replyMsg($event, $client)
 		$uid = $event['source']['userId'];
 		$gid = $event['source']['groupId'];
 
+		$chk_db ='y';
+		$pwaarea ='y';
+		$weather ='y';
+		$other ='y';
 
 
+			//improve
 
-		$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-		$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-		//$lineid_encode = urlencode($uid);
-		$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-		$q_msg = json_decode($json_cmsg); 
-
-		if($q_msg){
-			foreach($q_msg as $rec){
-
-
-
-				if($rec->chk_db != 'no'){
-
-
-
-				}
-				if($rec->pwaarea != 'no'){
+				if($pwaarea == 'y'){
 
 					/*
 					$urllink = 'https://gisweb1.pwa.co.th/lineservice/line_register/check.php?id='.$uid; 
@@ -10102,58 +9342,9 @@ function replyMsg($event, $client)
 						}
 
 
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
-
-						//update-----------------------------------//
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$newupdate = json_encode(
-							array(
-								//'$set' => array('lineid'=> $uid),
-								//'$set' => array('name'=> $obj->displayName),
-								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-								//'$set' => array('user_id'=> '-'),
-								//'$set' => array('pwacode'=> '-'),
-								//'$set' => array('manage_db'=> 'no'),
-								//'$set' => array('chk_db'=> 'no'),
-
-								//'$set' => array('pwaarea'=> 'no'),
-								//'$set' => array('weather'=> 'no'),
-								//'$set' => array('other'=> 'no'),
-
-								//'$set' => array('lat'=> '-'),
-								//'$set' => array('lng'=> '-'),
-
-
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								//'$set' => array('status'=> 'add_friend'),
-								'$set' => array('pwaarea'=> 'no')
-							)
-						);
-
-						$optsu = array(
-							'http' => array(
-								'method' => "PUT",
-								'header' => "Content-type: application/json",
-								'content' => $newupdate
-							)
-						);
-
-						$contextu = stream_context_create($optsu);
-						$returnValup = file_get_contents($url_up, false, $contextu);
-						
 
 				}
-				if($rec->weather != 'no'){
+				if($weather == 'y'){
 
 
 						$url = 'https://api.airvisual.com/v2/nearest_city?lat='.$latitude.'&lon='.$longitude.'&key=271d36a7-3efd-4a54-9864-554ea6203750';
@@ -10343,126 +9534,7 @@ function replyMsg($event, $client)
 						
 
 
-
-
-
-
-
-
-
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
-
-						//update-----------------------------------//
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$newupdate = json_encode(
-							array(
-								//'$set' => array('lineid'=> $uid),
-								//'$set' => array('name'=> $obj->displayName),
-								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-								//'$set' => array('user_id'=> '-'),
-								//'$set' => array('pwacode'=> '-'),
-								//'$set' => array('manage_db'=> 'no'),
-								//'$set' => array('chk_db'=> 'no'),
-
-								//'$set' => array('pwaarea'=> 'no'),
-								//'$set' => array('weather'=> 'no'),
-								//'$set' => array('other'=> 'no'),
-
-								//'$set' => array('lat'=> '-'),
-								//'$set' => array('lng'=> '-'),
-
-
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								//'$set' => array('status'=> 'add_friend'),
-								'$set' => array('weather'=> 'no')
-							)
-						);
-
-						$optsu = array(
-							'http' => array(
-								'method' => "PUT",
-								'header' => "Content-type: application/json",
-								'content' => $newupdate
-							)
-						);
-
-						$contextu = stream_context_create($optsu);
-						$returnValup = file_get_contents($url_up, false, $contextu);
-						
 				}
-
-				if($rec->other != 'no'){
-
-
-						//query-คำถามที่เคยถามในdb----------------------------------//
-						$json_f = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-						$q_json_f = json_decode($json_f); 
-						$q_json_id = $q_json_f[0]->_id;
-						$q_json_oid = '';
-						foreach ($q_json_id as $k=>$v){
-							$q_json_oid = $v; // etc.
-						}
-
-						//update-----------------------------------//
-						//$_id = '59fb2268bd966f7657da67cc';
-						$url_up = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line/'.$q_json_oid.'?apiKey='.$api_key;
-
-						$newupdate = json_encode(
-							array(
-								//'$set' => array('lineid'=> $uid),
-								//'$set' => array('name'=> $obj->displayName),
-								//'$set' => array('originalContentUrl'=> 'https://obs.line-apps.com/'.$pathpic[1]),
-
-								//'$set' => array('user_id'=> '-'),
-								//'$set' => array('pwacode'=> '-'),
-								//'$set' => array('manage_db'=> 'no'),
-								//'$set' => array('chk_db'=> 'no'),
-
-								//'$set' => array('pwaarea'=> 'no'),
-								//'$set' => array('weather'=> 'no'),
-								//'$set' => array('other'=> 'no'),
-
-								//'$set' => array('lat'=> '-'),
-								//'$set' => array('lng'=> '-'),
-
-
-								'$set' => array('datetime'=> date("Y-m-d h:i:sa")),
-								//'$set' => array('status'=> 'add_friend'),
-								'$set' => array('other'=> 'no')
-							)
-						);
-
-						$optsu = array(
-							'http' => array(
-								'method' => "PUT",
-								'header' => "Content-type: application/json",
-								'content' => $newupdate
-							)
-						);
-
-						$contextu = stream_context_create($optsu);
-						$returnValup = file_get_contents($url_up, false, $contextu);
-						
-
-
-				}
-
-			}
-		}
-		else{
-
-		}
-
 
     }
 
@@ -10470,9 +9542,6 @@ function replyMsg($event, $client)
   //}//endif group
 }
 //----------------------------จบฟังก์ชั่น ReplyMessage----------------------------------//
- 
- 
- 
  
 //------listen--$client->parseEvents()----และเข้าฟังก์ชั่น replyMsg--------//
 foreach ($client->parseEvents() as $event) {
@@ -10536,236 +9605,11 @@ foreach ($client->parseEvents() as $event) {
             break;
     }
 };
-//----------------------------------------------------------//
+//------listen--$client->parseEvents()----และเข้าฟังก์ชั่น replyMsg--------//
  
-
-
-
-
-
-
-
-
-
-
-function tp_get_token($id) 
-{
-
-		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
-
-        $AccessToken = 'BwGlN2OsLJCMUF/YoAdKJR5GwQYCxU3BLTIPkMLLPC1IjVPH-S2LhD_P0R~GiPKA=JOP8N7MeY1U1ArA3X$LAQ0XfOiVsVxVUO2';
- 
-        $header = array(
-            "Content-Type: application/json",
-            'Authorization: Token '.$AccessToken,
-        );
- 
-         
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_VERBOSE, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_setopt( $ch, CURLOPT_POST, 1); //POST 
-        curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_URL, $fullurl);
-         
-        $returned =  curl_exec($ch);
-        curl_close($ch);
-
-		$token = json_decode($returned);
-
-		//echo $id;
-		//echo '<br>';
-		//echo  $token->token;
-		//echo '<br>';
-        //return($token->token);
-
-		$res = tp_get_track($token->token,$id);
-		return $res;
-}
-
-function tp_get_track($token_,$id_) 
-{
-		/*
-		echo 'Id: '.$id_;
-		echo '<br>';
-		echo 'token: '.$token_;
-		echo '<br>';
-		*/
-
-
-		$fullurl = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
-
-		//$token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkF1dGhvcml6YXRpb24iLCJleHAiOjE1OTM0OTY5ODAsInJvbCI6WyJST0xFX1VTRVIiXSwiZCpzaWciOnsicCI6InpXNzB4IiwicyI6bnVsbCwidSI6Ijg2OTYwNzY1MWI3YzMyNjQ1YjBiZmE3ZGFjZDA0ZmUzIiwiZiI6InhzeiM5In19.34nYYgfNSySA7cBsRomI7nO97FsPZEs7lB-Am-u3iQBXno4Bbk7T9YVGX8bIiRh8XaoZzTqQUIHt2o7OwpuAvA';
-
-        $header = array(
-            "Content-Type: application/json",
-            'Authorization: Token '.$token_
-        );
- 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_VERBOSE, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_setopt($ch, CURLOPT_POST, 1); //POST 
-        //curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-
-		//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); 
-		//curl_setopt($ch, CURLOPT_TIMEOUT, 6000); //timeout in seconds
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-
-		$data_string = json_encode(array(
-									'status' => 'all',
-									'language' => 'TH',
-									'barcode' => array($id_)
-									//'barcode' => array("EB315050240TH","EB315050240TH")
-						));
-
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-
-        curl_setopt($ch, CURLOPT_URL, $fullurl);
-         
-        $returned =  curl_exec($ch);
-        curl_close($ch);
-
-		$obj = json_decode($returned);
-		return $obj;
-
-
-
-
-			//return($returned);
-
-			/*
-				{
-					"response": {
-						"items": {
-							"EB315050240TH": [{
-								"barcode": "EB315050240TH",
-								"status": "103",
-								"status_description": "รับฝาก",
-								"status_date": "28/05/2563 14:36:00+07:00",
-								"location": "สมุทรปราการ",
-								"postcode": "10270",
-								"delivery_status": null,
-								"delivery_description": null,
-								"delivery_datetime": null,
-								"receiver_name": null,
-								"signature": null
-							}, {
-								"barcode": "EB315050240TH",
-								"status": "201",
-								"status_description": "อยู่ระหว่างการขนส่ง",
-								"status_date": "28/05/2563 16:31:23+07:00",
-								"location": "สมุทรปราการ",
-								"postcode": "10270",
-								"delivery_status": null,
-								"delivery_description": null,
-								"delivery_datetime": null,
-								"receiver_name": null,
-								"signature": null
-							}, {
-								"barcode": "EB315050240TH",
-								"status": "201",
-								"status_description": "อยู่ระหว่างการขนส่ง",
-								"status_date": "29/05/2563 00:30:59+07:00",
-								"location": "ศป.EMS",
-								"postcode": "10020",
-								"delivery_status": null,
-								"delivery_description": null,
-								"delivery_datetime": null,
-								"receiver_name": null,
-								"signature": null
-							}, {
-								"barcode": "EB315050240TH",
-								"status": "206",
-								"status_description": "ถึงที่ทำการไปรษณีย์",
-								"status_date": "29/05/2563 09:19:37+07:00",
-								"location": "จรเข้บัว",
-								"postcode": "10230",
-								"delivery_status": null,
-								"delivery_description": null,
-								"delivery_datetime": null,
-								"receiver_name": null,
-								"signature": null
-							}, {
-								"barcode": "EB315050240TH",
-								"status": "301",
-								"status_description": "อยู่ระหว่างการนำจ่าย",
-								"status_date": "29/05/2563 09:34:54+07:00",
-								"location": "จรเข้บัว",
-								"postcode": "10230",
-								"delivery_status": null,
-								"delivery_description": null,
-								"delivery_datetime": null,
-								"receiver_name": null,
-								"signature": null
-							}, {
-								"barcode": "EB315050240TH",
-								"status": "501",
-								"status_description": "นำจ่ายสำเร็จ",
-								"status_date": "29/05/2563 10:23:23+07:00",
-								"location": "จรเข้บัว",
-								"postcode": "10230",
-								"delivery_status": "S",
-								"delivery_description": "ผู้รับได้รับสิ่งของเรียบร้อยแล้ว",
-								"delivery_datetime": "29/05/2563 10:23:23+07:00",
-								"receiver_name": "40 ราม 14 /ผู้รับรับเอง",
-								"signature": "https://trackimage.thailandpost.co.th/f/signature/QDUwMjQwYjVzMGx1VDMz/QGI1c0VCMGx1VDMx/QGI1czBsVEh1VDM0/QGI1czBsdTMxNTBUMzI="
-							}]
-						},
-						"track_count": {
-							"track_date": "30/05/2563",
-							"count_number": 6,
-							"track_count_limit": 1000
-						}
-					},
-					"message": "successful",
-					"status": true
-				}
-
-
-			       รหัส	สถานะ
-			  101	เตรียมการฝากส่ง
-			  102	รับฝากผ่านตัวแทน
-			  103	รับฝาก
-			  201	อยู่ระหว่างการขนส่ง
-			  202	ดำเนินพิธีการศุลกากร
-			  203	ส่งคืนต้นทาง
-			  301	อยู่ระหว่างการนำจ่าย
-			  302	นำจ่าย ณ จุดรับสิ่งของ
-			  401	นำจ่ายไม่สำเร็จ
-			  501	นำจ่ายสำเร็จ
-			  204	ถึงที่ทำการแลกปลี่ยนระหว่างประเทศขาออก
-			  205	ถึงที่ทำการแลกปลี่ยนระหว่างประเทศขาเข้า
-			  206	ถึงที่ทำการไปรษณีย์
-			  207	เตรียมการขนส่ง
-
-
-
-
-			status					String	สถานะ
-			status_description		String	คำอธิบายสถานะ
-			status_date				String	สถานะของวันที่
-			location				String	สถานที่ตั้ง
-			postcode				String	รหัสไปรษณีย์
-			delivery_status			Int		สถานะการจัดส่ง
-
-			delivery_description	Int		คำอธิบายการจัดส่ง
-			delivery_datetime		Int		วันที่จัดส่ง
-			receiver_name			Int		ชื่อผู้รับ
-			signature				Int		ลายเซ็น
-			barcode					String	หมายเลขสิ่งของ
-			message					String	ข้อความตอบกลับ
-
-			*/
-}
-
-
-
 
 ?>
+
+
+
+
