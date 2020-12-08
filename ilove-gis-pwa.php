@@ -22,7 +22,7 @@ $channelSecret = '1d50de27a0f29d9728c29ba9ccc495b0';
 
 date_default_timezone_set('Asia/Bangkok');
 header('Content-Type: text/html; charset=utf-8');
-@ini_set('display_errors', '0'); //ไม่แสดงerror
+//@ini_set('display_errors', '0'); //ไม่แสดงerror
 
 
 ini_set("log_errors", 1);
@@ -44,7 +44,7 @@ $GISDEV= 'C6d63e07eb0065b5019b861f11073fc41';
 
 $key_notify=array("Nutty"=>"OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv","GIS_DEV"=>"gPidZUfXhBA0O2rUL1o0NBUL18EWrzIvZJJhDwOPopE","GIS_PWA"=>"6quJbwJSDQzowDEohK6XNvnrLgVKsVyDYr5x2VvCPns","METER_GIS"=>"MPUAjmRP1bHVZhWsvRsEctt59w2Gx9n0sBV51wfcnaW");
 
-
+/*
 //----------function--114 chk_db_list------------//
 function chk_db_type() {
 
@@ -102,9 +102,9 @@ function chk_db_type() {
 
 }
 //---------------------------------//
+*/
 
-
-
+/*
 //----------function--114 chk_db------------//
 function chk_db_114() {
   $curl = curl_init();
@@ -138,7 +138,7 @@ function chk_db_114() {
 
 }
 //---------------------------------//
-
+*/
 
 function tp_get_token($id) 
 {
@@ -404,30 +404,6 @@ function notify($id,$msg){
 	//Close connect 
 	curl_close( $chOne ); 
 
-}
-function chk_friend($uid){
-	//improve
-	/*
-	$api_key="zCxIftNnbizcCTl61rydbRWUcFevJ5TR";
-	$url = 'https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key;
-
-	//$lineid_encode = urlencode($uid);
-	$json_cmsg = file_get_contents('https://api.mlab.com/api/1/databases/linedb/collections/db_line?apiKey='.$api_key.'&q={"lineid":"'.$uid.'"}');
-	$q_msg = json_decode($json_cmsg); 
-	if($q_msg){
-		foreach($q_msg as $rec){
-			if($rec->status == 'add_friend'){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
-	}
-	else{
-		return false;
-	}
-	*/
 }
 
 //----------function--114------------//
