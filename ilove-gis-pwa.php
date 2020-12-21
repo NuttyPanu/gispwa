@@ -622,7 +622,7 @@ if ($_REQUEST['send'] == 'memo'){
 
 	//$key_noti =$key_notify['Nutty'];
 	//$key_noti = 'OKJrnIrqpS70Vzey8aw9O3Nfa2GbD1zVgmHvbaUsmNv';//nutty
-	$mหg = '';
+	$msg = '';
 	$memo_=array(
 		"03-06-2020"=>"วันหยุดนะครับวันหยุด (3 มิ.ย. 63)",
 		"05-06-2020"=>"หมด เวลา wfh แล้วนะจ๊ะ (5 มิ.ย. 63)",
@@ -640,30 +640,30 @@ if ($_REQUEST['send'] == 'memo'){
 	if(array_key_exists($s7d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$mหg .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
+		$msg .= "เหลือเวลาอีก 7 วัน: ".$memo_[$s7d]." ";
 	}
 	if(array_key_exists($s3d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$mหg .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
+		$msg .= "เหลือเวลาอีก 3 วัน: ".$memo_[$s3d]." ";
 	}
 	if(array_key_exists($s2d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$mหg .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
+		$msg .= "เหลือเวลาอีก 2 วัน: ".$memo_[$s2d]." ";
 	}
 	if(array_key_exists($s1d, $memo_))  // holiday;
 	//else if(in_array($today, $holiday))  // holiday;
 	{
-		$mหg .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
+		$msg .= "เหลือเวลาอีก 1 วัน: ".$memo_[$s1d]." ";
 	}
 
 	if(array_key_exists($today_, $memo_))
 	{
-		$mหg .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
+		$msg .= "อย่าลืมวันนี้นะ : ".$memo_[$today_]." ";
 	}				
 
-	notify($id,$mหg);
+	notify($id,$msg);
 }
 
 //ส่งแบบข้อความแบบ-multi----แบบ array มี sub array-------------//
