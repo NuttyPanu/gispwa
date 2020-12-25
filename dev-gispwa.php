@@ -336,19 +336,19 @@ if (!is_null($events['events'])) {
 
 
 			else if (preg_match('(#ทดสอบ|#ทดสอบ)', $text) === 1) {
+				//$gid = $event['source']['groupId'];
+				$uid = $event['source']['userId'];
 
-				if (chk_friend($event['source']['userId']) == true){
-					//$gid = $event['source']['groupId'];
-                    $uid = $event['source']['userId'];
+				$url = 'https://api.line.me/v2/bot/profile/'.$uid;
+				//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
+				$profile = get_profile($url);
+				$obj = json_decode($profile);
 
-					$url = 'https://api.line.me/v2/bot/profile/'.$uid;
-					//$url ='https://api.line.me/v2/bot/group/'.$gid.'/member/'.$uid;
-					$profile = get_profile($url);
-					$obj = json_decode($profile);
+				$nameid = $obj->displayName;
+				$status = $obj->statusMessage;
+				$pathpic = explode("cdn.net/", $obj->pictureUrl);
 
-					$nameid = $obj->displayName;
-					$status = $obj->statusMessage;
-					$pathpic = explode("cdn.net/", $obj->pictureUrl);
+				if ($nameid){
 
 					$messages = [
 					'type' => 'text',
