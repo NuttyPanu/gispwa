@@ -48,6 +48,27 @@ function emoji($input){
         curl_close($ch);
 
         echo $returned;
+	
+	$emo='';
+	$num=number_format("0.00000000",8);
+	
+	foreach($returned as $key => $val) {
+		if($emo == '' || $num == 0.00000000){
+			$emo = 	$key;
+			$num = $val;	
+		}
+		else{
+			if($val> $num)	{
+				$emo = 	$key;
+				$num = $val;			
+			}
+			else{
+				
+			}
+		}
+	}	
+	echo $emo;
+	
         return($returned);	
 	
 }
