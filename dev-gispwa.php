@@ -2935,7 +2935,7 @@ function replyMsg($event, $client)
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $event['message']['contentProvider']['originalContentUrl']
+                    'text' => $event['message']['contentProvider']['type']
                 ),
 
                 array(
