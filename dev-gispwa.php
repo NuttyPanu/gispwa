@@ -82,7 +82,7 @@ function emoji($input){
         return($emo);	
 	
 }
-
+analysis('ทำไมถึงผิดหวังล่ะ');
 function analysis($input){
 
     $fullurl = "https://api.aiforthai.in.th/ssense?text".urlencode($input);
