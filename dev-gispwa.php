@@ -2679,25 +2679,56 @@ function replyMsg($event, $client)
 			else{
 			   	$pos='';
 				if($ress->sentiment->polarity == 'positive'){
-					 $pos='เชิงบวก-'.$ress->sentiment->score;
+					 $pos='เชิงบวก('.number_format($ress->sentiment->score,2).')';
 				}
 				else if($ress->sentiment->polarity == 'negative'){
-					 $pos='เชิงลบ-'.$ress->sentiment->score;
+					 $pos='เชิงลบ('.number_format($ress->sentiment->score,2).')';
 				}
 				else{
-					 $pos='ไม่เป็นทั้งบวกและลบ-'.$ress->sentiment->score;
+					 $pos='ไม่เป็นทั้งบวกและลบ('.number_format($ress->sentiment->score,2).')';
 				}
+				
+				$typ = array();
+				$typ['request'] = number_format($ress->intention->request,2);
+				$typ['sentiment'] = number_format($ress->intention->sentiment,2);
+				$typ['question'] = number_format($ress->intention->question,2);
+				$typ['announcement'] = number_format($ress->intention->announcement,2);	
+				
+				$max = number_format(0.00,2);
+				$use='='ไม่สามารถระบุประเภทข้อความได้';
+				foreach($typ as $key => $val) {
+					if($val>$max){
+						$max=$val;
+						if($key == 'request'){
+							$use='ร้องขอ';
+						}
+						else if($key == 'sentiment'){
+							$use='แสดงความคิดเห็น';
+						}
+						else if($key == 'question'){
+							$use='คำถาม';
+						}
+						else if($key == 'announcement'){
+							$use='ประกาศหรือโฆษณา';
+						}						
+						else{
+						}
+					}
+				}
+				
 
-				   $message ='ร้องขอ:'.$ress->intention->request.'\n'.
-					  'แสดงความคิดเห็น:'.$ress->intention->sentiment.'\n'.
-					  'คำถาม:'.$ress->intention->question.'\n'.
-					  'ประกาศหรือโฆษณา:'.$ress->intention->announcement.'\n'.
-					  'ลักษณะข้อความ:'.$pos;
+				/*
+				   $message ='ร้องขอ:'.number_format($ress->intention->request,2).'/n'.
+					  'แสดงความคิดเห็น:'.number_format($ress->intention->sentiment,2).'/n'.
+					  'คำถาม:'.number_format($ress->intention->question,2).'/n'.
+					  'ประกาศหรือโฆษณา:'.number_format($ress->intention->announcement,2).'/n'.
+					  ',ลักษณะข้อความ:'.$pos;
+				*/
 
 				    $a = array(
 					array(
 					    'type' => 'text',
-					    'text' => $message         
+					    'text' => $use.'('.$max.')'.',ลักษณะข้อความ:'.$pos;         
 					)
 				    );
 				    $client->replyMessage1($event['replyToken'],$a);				
