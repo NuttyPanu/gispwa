@@ -2918,6 +2918,8 @@ function replyMsg($event, $client)
 			}
 		*/
 
+	    	$text_=json_decode($event['message']);
+	    
 		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
 		$random_keys=array_rand($sticker,1);
 		$txt = $sticker[$random_keys];
@@ -2935,7 +2937,7 @@ function replyMsg($event, $client)
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $event['message']['contentProvider']['type'].','.$event['message']['originalContentUrl'].','.$event['message']['previewImageUrl']
+                    'text' => $text_
                 ),
 
                 array(
