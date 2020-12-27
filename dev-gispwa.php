@@ -2728,7 +2728,7 @@ function replyMsg($event, $client)
 				    $a = array(
 					array(
 					    'type' => 'text',
-					    'text' => $use.'('.$max.')'.',ลักษณะข้อความ:'.$pos;         
+					    'text' => $use.'('.$max.')'.',ลักษณะข้อความ:'.$pos         
 					)
 				    );
 				    $client->replyMessage1($event['replyToken'],$a);				
