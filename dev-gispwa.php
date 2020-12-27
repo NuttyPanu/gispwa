@@ -2695,7 +2695,7 @@ function replyMsg($event, $client)
 				$typ['announcement'] = number_format($ress->intention->announcement,2);	
 				
 				$max = number_format(0.00,2);
-				$use='='ไม่สามารถระบุประเภทข้อความได้';
+				$use ='ไม่สามารถระบุประเภทข้อความได้';
 				foreach($typ as $key => $val) {
 					if($val>$max){
 						$max=$val;
