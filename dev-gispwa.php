@@ -110,8 +110,9 @@ function analysis($input){
 	  return($obj);	
 	  //echo "cURL Error #:" . $err;
 	} else {
-	  //echo $returned;
+	  echo $returned;
 	  $obj = json_decode($returned);
+	  echo  $obj;	
 	  return($obj);	
 	}	
 }
