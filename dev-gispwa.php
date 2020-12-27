@@ -82,10 +82,9 @@ function emoji($input){
         return($emo);	
 	
 }
-analysis('ทำไมถึงผิดหวังล่ะ');
+//analysis('ทำไมถึงผิดหวังล่ะ');
 function analysis($input){
-
-    $fullurl = "https://api.aiforthai.in.th/ssense?text".urlencode($input);
+    $fullurl = "https://api.aiforthai.in.th/ssense?text=".urlencode($input);
 
     $header = array(
         "Apikey: NUCyyo4koUbIFFkqxYehuyB4YSJsxFEP"
@@ -110,9 +109,9 @@ function analysis($input){
 	  return($obj);	
 	  //echo "cURL Error #:" . $err;
 	} else {
-	  echo $returned;
+	  //echo $returned;
 	  $obj = json_decode($returned);
-	  echo  $obj;	
+	  //echo  $obj;	
 	  return($obj);	
 	}	
 }
