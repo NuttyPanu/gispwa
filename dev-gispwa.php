@@ -45,8 +45,16 @@ function emoji($input){
         curl_setopt($ch, CURLOPT_URL, $fullurl);
          
         $returned =  curl_exec($ch);
+	$err = curl_error($ch);
         curl_close($ch);
-
+	
+	if ($err) {	
+	  //echo "cURL Error #:" . $err;
+	  return($err);
+	} else {
+	  //echo $response;
+	}
+	
         //echo $returned;
 	$obj = json_decode($returned);
 	
@@ -75,8 +83,38 @@ function emoji($input){
 	
 }
 
+function analysis($input){
 
+    $fullurl = "https://api.aiforthai.in.th/ssense?text".urlencode($input);
 
+    $header = array(
+        "Apikey: NUCyyo4koUbIFFkqxYehuyB4YSJsxFEP"
+    );
+ 
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);      
+        curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_URL, $fullurl);
+         
+        $returned =  curl_exec($ch);
+	$err = curl_error($ch);	
+        curl_close($ch);
+
+	if ($err) {
+	  $obj = json_decode('{"sentiment":{"Polarity":"error"}}');
+	  return($obj);	
+	  //echo "cURL Error #:" . $err;
+	} else {
+	  //echo $returned;
+	  $obj = json_decode($returned);
+	  return($obj);	
+	}	
+}
 
 
 
@@ -2632,6 +2670,44 @@ function replyMsg($event, $client)
 
 
                 else{
+			
+			$ress = analysis($msg);
+			$message ='';
+			if($ress->sentiment->polarity == 'error'){
+
+			}
+			else{
+			   	$pos='';
+				if($ress->sentiment->polarity == 'positive'){
+					 $pos='เชิงบวก-'.$ress->sentiment->score;
+				}
+				else if($ress->sentiment->polarity == 'negative'){
+					 $pos='เชิงลบ-'.$ress->sentiment->score;
+				}
+				else{
+					 $pos='ไม่เป็นทั้งบวกและลบ-'.$ress->sentiment->score;
+				}
+
+				   $message ='ร้องขอ:'.$ress->intention->request.'\n'.
+					  'แสดงความคิดเห็น:'.$ress->intention->sentiment.'\n'.
+					  'คำถาม:'.$ress->intention->question.'\n'.
+					  'ประกาศหรือโฆษณา:'.$ress->intention->announcement.'\n'.
+					  'ลักษณะข้อความ:'.$pos;
+
+				    $a = array(
+					array(
+					    'type' => 'text',
+					    'text' => $message         
+					)
+				    );
+				    $client->replyMessage1($event['replyToken'],$a);				
+				
+				
+			}
+			
+
+			
+			/*
 			$p='';
 			$s='';
 			if(emoji($msg) == 0){
@@ -2735,6 +2811,8 @@ function replyMsg($event, $client)
 				)
 				)
 			);
+			
+			*/
 			
                 }
                  
