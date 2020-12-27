@@ -24,7 +24,7 @@ require_once('LINEBotTiny.php');
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
 
-emoji('รู้สึกดีมากๆเลยครับ');
+
 
 function emoji($input){
 
@@ -47,7 +47,7 @@ function emoji($input){
         $returned =  curl_exec($ch);
         curl_close($ch);
 
-        echo $returned;
+        //echo $returned;
 	$obj = json_decode($returned);
 	
 	$emo='';
@@ -69,9 +69,9 @@ function emoji($input){
 			}
 		}
 	}	
-	echo $emo;
+	//echo $emo;
 	
-        return($obj);	
+        return($emo);	
 	
 }
 
@@ -2632,8 +2632,110 @@ function replyMsg($event, $client)
 
 
                 else{
- 
-
+			$p=
+			$s=
+			if(emoji($msg) == 0){
+				$p='11539';
+				$s='52114147';
+			}				
+			else if(emoji($msg) == 1){
+				$p='11537';
+				$s='52002755';
+			}
+			else if(emoji($msg) == 2){
+				$p='11539';
+				$s='52114142';
+			}
+			else if(emoji($msg) == 3){
+				$p='11539';
+				$s='52114133';
+			}		
+			else if(emoji($msg) == 4){
+				$p='11538';
+				$s='51626524';
+			}
+			else if(emoji($msg) == 5){
+				$p='11539';
+				$s='52114127';
+			}	
+			else if(emoji($msg) == 6){
+				$p='11537';
+				$s='52002754';
+			}	
+			else if(emoji($msg) == 7){
+				$p='11539';
+				$s='52114121';
+			}
+			else if(emoji($msg) == 8){
+				$p='11537';
+				$s='52002745';
+			}	
+			else if(emoji($msg) == 9){
+				$p='11537';
+				$s='52002736';
+			}	
+			else if(emoji($msg) == 10){
+				$p='11537';
+				$s='52002768';
+			}
+			else if(emoji($msg) == 11){
+				$p='11538';
+				$s='51626499';
+			}	
+			else if(emoji($msg) == 12){
+				$p='11539';
+				$s='52114134';
+			}
+			else if(emoji($msg) == 13){
+				$p='11538';
+				$s='51626514';
+			}	
+			else if(emoji($msg) == 14){
+				$p='11539';
+				$s='52114137';
+			}	
+			else if(emoji($msg) == 15){
+				$p='11539';
+				$s='52114149';
+			}	
+			else if(emoji($msg) == 16){
+				$p='11538';
+				$s='51626498';
+			}
+			else if(emoji($msg) == 17){
+				$p='11538';
+				$s='51626508';
+			}	
+			else if(emoji($msg) == 18){
+				$p='11538';
+				$s='51626497';
+			}
+			else if(emoji($msg) == 19){
+				$p='11538';
+				$s='51626502';
+			}	
+			else if(emoji($msg) == 20){
+				$p='11538';
+				$s='51626501';
+			}	
+			else{
+				$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
+				$random_keys=array_rand($sticker,1);
+				$txt = $sticker[$random_keys];
+				$split = explode(",", $txt);
+				$p = $split[0];
+				$s = $split[1];
+							
+			}
+			$client->replyMessage1($event['replyToken'],array(
+				array(
+				    'type' => 'sticker',
+				    'packageId' => $p,
+				    'stickerId' => $s
+				)
+				)
+			);
+			
                 }
                  
             
