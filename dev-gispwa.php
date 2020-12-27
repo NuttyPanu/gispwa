@@ -2867,7 +2867,7 @@ function replyMsg($event, $client)
 
 	    $header = array(
 		"Content-Type: image/jpeg",
-		"Authorization: Bearer ya29.a0AfH6SMAbD2Bkzcyt6eljj5bBSq5InPmy2tF3rcpiUer0qC9w1ykB8VRMbZNZRoo19F-YjHsPtR9Df5UEfmijWzsarrOYd5HwjVHch-bM4ftCMnuzfoz0Y3jjwGVwXG22NBe0fISpEpWa0rm82cXsTCabjXUqPVKaOEsaTaWfMTc",	    
+		"Authorization: Bearer ya29.a0AfH6SMDXKeG1SgkZKc-fBXmsC6L4MDdDns0zSP-ev4BnXNIv96SHV2zPqZfG6YIB60x-PykuSZRDN1XDABL5ze0COP41T-ks4vEa46aHZqoVpXeGYF9emTigVCraAVz2uPkqaobeXqZ_eE4q5IyVyzL6sD3qwAs12mLcv7jg2xg",	    
 	    );
 
 		$ch = curl_init();
@@ -2917,6 +2917,28 @@ function replyMsg($event, $client)
 			  "previewImageUrl": "https://example.com/preview.jpg"
 			}
 		*/
+	    $videoname = 'video_'.date('Ymdhis').'.mp4';
+	    $videoData = $client->getImage($event['message']['contentProvider']['originalContentUrl']);	    
+	    $fullurl = "https://www.googleapis.com/upload/drive/v3/files?uploadType=media";
+
+	    $header = array(
+		"Content-Type: video/mpeg",
+		"Authorization: Bearer ya29.a0AfH6SMDXKeG1SgkZKc-fBXmsC6L4MDdDns0zSP-ev4BnXNIv96SHV2zPqZfG6YIB60x-PykuSZRDN1XDABL5ze0COP41T-ks4vEa46aHZqoVpXeGYF9emTigVCraAVz2uPkqaobeXqZ_eE4q5IyVyzL6sD3qwAs12mLcv7jg2xg",	    
+	    );
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);      
+		curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_POSTFIELDS,  $videoData ); 	    
+		curl_setopt($ch, CURLOPT_URL, $fullurl);
+
+		$returned =  curl_exec($ch);
+		curl_close($ch);
 
 		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
 		$random_keys=array_rand($sticker,1);
@@ -2927,7 +2949,7 @@ function replyMsg($event, $client)
 		$s = $split[1];
 		//echo $split[0];
 
-		/*
+		
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
@@ -2935,7 +2957,7 @@ function replyMsg($event, $client)
                 ),
                 array(
                     'type' => 'text',
-                    'text' => $event['message']['contentProvider']['type']
+                    'text' => $event['message']['contentProvider']['originalContentUrl']
                 ),
 
                 array(
@@ -2945,7 +2967,7 @@ function replyMsg($event, $client)
                 )
 
         ));
-		*/
+		
     }
     //----------------------------จบเงื่อนไขvideo------------------------------------//
  
