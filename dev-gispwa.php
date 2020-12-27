@@ -53,6 +53,7 @@ function emoji($input){
 	$num=number_format("0.00000000",8);
 	
 	foreach($returned as $key => $val) {
+		$emo = $key;
 		if($emo == '' || $num == 0.00000000){
 			$emo = 	$key;
 			$num = number_format($val,8);	
