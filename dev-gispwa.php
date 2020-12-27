@@ -55,12 +55,12 @@ function emoji($input){
 	foreach($returned as $key => $val) {
 		if($emo == '' || $num == 0.00000000){
 			$emo = 	$key;
-			$num = $val;	
+			$num = number_format($val,8);	
 		}
 		else{
 			if($val> $num)	{
 				$emo = 	$key;
-				$num = $val;			
+				$num = number_format($val,8);			
 			}
 			else{
 				
