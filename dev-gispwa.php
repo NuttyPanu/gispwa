@@ -48,12 +48,13 @@ function emoji($input){
         curl_close($ch);
 
         echo $returned;
+	$obj = json_decode($returned);
 	
 	$emo='';
 	$num=number_format("0.00000000",8);
 	
-	foreach($returned as $key => $val) {
-		$emo = $key;
+	foreach($obj as $key => $val) {
+		
 		if($emo == '' || $num == 0.00000000){
 			$emo = 	$key;
 			$num = number_format($val,8);	
@@ -70,7 +71,7 @@ function emoji($input){
 	}	
 	echo $emo;
 	
-        return($returned);	
+        return($obj);	
 	
 }
 
