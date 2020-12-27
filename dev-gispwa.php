@@ -2632,8 +2632,8 @@ function replyMsg($event, $client)
 
 
                 else{
-			$p=
-			$s=
+			$p='';
+			$s='';
 			if(emoji($msg) == 0){
 				$p='11539';
 				$s='52114147';
