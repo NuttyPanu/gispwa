@@ -2860,11 +2860,31 @@ function replyMsg($event, $client)
 		 
 		//$imagepath = 'img/';  
 		$imagename = 'img_'.date('Ymdhis').'.jpg';
-		//$imageData = $client->getImage($event['message']['id']);
+		$imageData = $client->getImage($event['message']['id']);
 		//$save_result = file_put_contents($imagepath.$imagename, $imageData);
 		
+	    $fullurl = "https://www.googleapis.com/upload/drive/v3/files?uploadType=media";
 
-		/*
+	    $header = array(
+		"Content-Type: image/jpeg",
+		"Authorization: Bearer ya29.a0AfH6SMAbD2Bkzcyt6eljj5bBSq5InPmy2tF3rcpiUer0qC9w1ykB8VRMbZNZRoo19F-YjHsPtR9Df5UEfmijWzsarrOYd5HwjVHch-bM4ftCMnuzfoz0Y3jjwGVwXG22NBe0fISpEpWa0rm82cXsTCabjXUqPVKaOEsaTaWfMTc",	    
+	    );
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);      
+		curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_POSTFIELDS,  $imageData ); 	    
+		curl_setopt($ch, CURLOPT_URL, $fullurl);
+
+		$returned =  curl_exec($ch);
+		curl_close($ch);
+
+		
         $client->replyMessage1($event['replyToken'],array(
                 array(
                     'type' => 'text',
@@ -2880,7 +2900,7 @@ function replyMsg($event, $client)
                     'stickerId' => 232
                 )
         ));
-		*/
+		
     }
     //----------------------------จบเงื่อนไขimage------------------------------------//
  
