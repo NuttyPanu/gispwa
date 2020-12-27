@@ -24,6 +24,39 @@ require_once('LINEBotTiny.php');
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
 
+emoji('รู้สึกดีมากๆเลยครับ');
+
+function emoji($input){
+
+    $fullurl = "https://api.aiforthai.in.th/emoji?text=".urlencode($input);
+
+    $header = array(
+        "Apikey: NUCyyo4koUbIFFkqxYehuyB4YSJsxFEP"
+    );
+ 
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);      
+        curl_setopt($ch, CURLOPT_FAILONERROR, 0);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_URL, $fullurl);
+         
+        $returned =  curl_exec($ch);
+        curl_close($ch);
+
+        echo $returned;
+        return($returned);	
+	
+}
+
+
+
+
+
+
 function tp_get_token($id) 
 {
 
