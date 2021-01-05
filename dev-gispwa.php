@@ -24,7 +24,6 @@ require_once('LINEBotTiny.php');
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $botName = "BOT";
 
-hbd();
 
 function hbd(){
   $curl = curl_init();
@@ -371,6 +370,13 @@ function get_profile($fullurl)
 
 
 //-----------auto send----push message------------------//
+
+if ( $_GET['send'] == 'hbd' )
+{
+	hbd();
+}
+//----
+
 if ( $_GET['send'] == 'text' )
 {
 	$text = array(
