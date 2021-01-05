@@ -28,7 +28,7 @@ hbd();
 
 function hbd(){
   $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, "https://gisweb2.pwa.co.th/line_service/bot/gis-pwa.php");
+    curl_setopt($curl, CURLOPT_URL, "https://gisweb2.pwa.co.th/line_service/bot/gis-pwa.php?send=hbd");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 0);
     curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
 	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
