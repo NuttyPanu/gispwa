@@ -2768,57 +2768,6 @@ function replyMsg($event, $client)
 				*/
 
 				
-				if (preg_match('(คิดถึง|คิดถึงมาก|คิดถึงที่สุด)', $msg) === 1 && preg_match('(อาย|เค้า|eye)', $msg) === 1 ) {
-
-				    $t=array("มาๆ ปลอบๆ","เบื่อพวกคลั่งรัก","คิดถึงก็ไปบอกเค้าสิ","คิดถึงตลอดเลยนะเราน่ะ","ช่วยได้เท่านี้อ่ะ","ตอนคบกันไม่เคยจะบอก มาบอกเอาตอนที่สายไปนะ");
-				    $random_keys=array_rand($t,1);
-				    $txt = $t[$random_keys];
-
-				    if($random_keys == 5){
-					    $a = array(
-							array(
-							    'type' => 'text',
-							    'text' => $txt,
-							    'sender' => array(
-									'name' => 'EYE~👀',
-									'iconUrl' => 'https://gispwa.herokuapp.com/image/eye.png'
-								)
-							)	    
-						    );
-					    $client->replyMessage1($event['replyToken'],$a);			    
-				    }
-				    else if($random_keys == 4){
-					    $a = array(
-							array(
-							    'type' => 'text',
-							    'text' => $txt
-							),
-							array(
-							    'type' => 'image',
-							    'originalContentUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
-							    'previewImageUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
-							    'sender' => array(
-									'name' => 'EYE~👀',
-									'iconUrl' => 'https://gispwa.herokuapp.com/image/eye.png'
-								)						
-							)		    
-						    );
-					    $client->replyMessage1($event['replyToken'],$a);			    
-
-				    }				    
-				    else{
-					    $a = array(
-							array(
-							    'type' => 'text',
-							    'text' => $txt
-							)	    
-						    );
-					    $client->replyMessage1($event['replyToken'],$a);			    
-
-				    }
-
-				}	    
-
 				
 				else if (preg_match('(อาย)', $msg) === 1) {
 
@@ -2831,7 +2780,7 @@ function replyMsg($event, $client)
  						$t=array("เป็นไม่ได้หรอกพี่นัท","เลิกพร่ำเพ้อได้แล้วพี่นัท","เบื่อ","มันจบแล้ว");  	
 					}					    
 					else{
-						$t=array("...","ต้องการอะไรคะ","ปวดหัว","อายขอไปพักก่อนนะ");  		
+						$t=array("...","ต้องการอะไรคะ","ปวดหัว","อายขอไปพักก่อนนะ");  	
 					}
 				    }
 				    else if($use=='แสดงความคิดเห็น'){
@@ -2843,6 +2792,63 @@ function replyMsg($event, $client)
 					}					    
 					else{
 						$t=array("...","ต้องการอะไรคะ","ปวดหัว","อายขอไปพักก่อนนะ");  		
+						
+						if (preg_match('(คิดถึง|คิดถึงมาก|คิดถึงที่สุด)', $msg) === 1 && preg_match('(อาย|เค้า|eye)', $msg) === 1 ) {
+
+						    $t=array("มาๆ ปลอบๆ","เบื่อพวกคลั่งรัก","คิดถึงก็ไปบอกเค้าสิ","คิดถึงตลอดเลยนะเราน่ะ","ช่วยได้เท่านี้อ่ะ","ตอนคบกันไม่เคยจะบอก มาบอกเอาตอนที่สายไปนะ");
+						    $random_keys=array_rand($t,1);
+						    $txt = $t[$random_keys];
+
+						    if($random_keys == 5){
+							    $a = array(
+									array(
+									    'type' => 'text',
+									    'text' => $txt,
+									    'sender' => array(
+											'name' => 'EYE~👀',
+											'iconUrl' => 'https://gispwa.herokuapp.com/image/eye.png'
+										)
+									)	    
+								    );
+							    $client->replyMessage1($event['replyToken'],$a);			    
+						    }
+						    else if($random_keys == 4){
+							    $a = array(
+									array(
+									    'type' => 'text',
+									    'text' => $txt
+									),
+									array(
+									    'type' => 'image',
+									    'originalContentUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
+									    'previewImageUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
+									    'sender' => array(
+											'name' => 'EYE~👀',
+											'iconUrl' => 'https://gispwa.herokuapp.com/image/eye.png'
+										)						
+									)		    
+								    );
+							    $client->replyMessage1($event['replyToken'],$a);			    
+
+						    }				    
+						    else{
+							    $a = array(
+									array(
+									    'type' => 'text',
+									    'text' => $txt
+									)	    
+								    );
+							    $client->replyMessage1($event['replyToken'],$a);			    
+
+						    }
+
+						}	 						
+
+						
+						
+						
+						
+						
 					}    
 				    }
 				    else if($use=='คำถาม'){
@@ -2871,9 +2877,7 @@ function replyMsg($event, $client)
 						    );
 					    $client->replyMessage1($event['replyToken'],$a);	
 				}
-
-				
-				
+	
 				else{
 				
 				    $a = array(
