@@ -922,23 +922,55 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
                 }
  
-                else if (preg_match('(คิดถึง|คิดถึงมาก|คิดถึงที่สุด)', $msg) === 1 && preg_match('(อาย|eye)', $msg) === 1 ) {
+                else if (preg_match('(คิดถึง|คิดถึงมาก|คิดถึงที่สุด)', $msg) === 1 && preg_match('(อาย|เค้า|eye)', $msg) === 1 ) {
  
-                    $t=array("ช่วยได้เท่านี้อ่ะ","คิดถึงก็ไปบอกเค้าสิ","คิดถึงตลอดเลยนะเราน่ะ","เบื่อพวกคลั่งรัก");
+                    $t=array("มาๆ ปลอบๆ","เบื่อพวกคลั่งรัก","คิดถึงก็ไปบอกเค้าสิ","คิดถึงตลอดเลยนะเราน่ะ","ช่วยได้เท่านี้อ่ะ","ตอนคบกันไม่เคยจะบอก มาบอกเอาตอนที่สายไปนะ");
                     $random_keys=array_rand($t,1);
                     $txt = $t[$random_keys];
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $txt 
-                                ),
-                                array(
-                                    'type' => 'image',
-                                    'originalContentUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
-                                    'previewImageUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG'
-                                )			    
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
+			
+		    if($random_keys == 5){
+			    $a = array(
+					array(
+					    'type' => 'text',
+					    'text' => $txt,
+					    'sender' => array(
+							'name' => 'EYE~👀',
+							'iconUrl' => 'https://gispwa.herokuapp.com/image/eye.png'
+						)
+					)	    
+				    );
+			    $client->replyMessage1($event['replyToken'],$a);			    
+		    }
+		    else if($random_keys == 4){
+			    $a = array(
+					array(
+					    'type' => 'text',
+					    'text' => $txt
+					),
+					array(
+					    'type' => 'image',
+					    'originalContentUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
+					    'previewImageUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
+					    'sender' => array(
+							'name' => 'EYE~👀',
+							'iconUrl' => 'https://gispwa.herokuapp.com/image/eye.png'
+						)						
+					)		    
+				    );
+			    $client->replyMessage1($event['replyToken'],$a);			    
+  
+		    }				    
+		    else{
+			    $a = array(
+					array(
+					    'type' => 'text',
+					    'text' => $txt
+					)	    
+				    );
+			    $client->replyMessage1($event['replyToken'],$a);			    
+  			    
+		    }
+
                 }	    
 	    
 	    	    
