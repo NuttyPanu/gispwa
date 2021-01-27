@@ -986,8 +986,8 @@ function replyMsg($event, $client)
                                 ),
                                 array(
                                     'type' => 'image',
-				    "originalContentUrl": "https://example.com/original.jpg",
-				    "previewImageUrl": "https://example.com/preview.jpg"       
+				    "originalContentUrl": "https://gispwa.herokuapp.com/image/eye.JPG",
+				    "previewImageUrl": "https://gispwa.herokuapp.com/image/eye.JPG"       
                                 )			    
 			    
                             );
