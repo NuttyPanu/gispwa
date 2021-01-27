@@ -922,6 +922,24 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
                 }
  
+                else if (preg_match('(คิดถึง|คิดถึงมาก|คิดถึงที่สุด)', $msg) === 1 && preg_match('(อาย|eye)', $msg) === 1 ) {
+ 
+                    $t=array("ช่วยได้เท่านี้อ่ะ","คิดถึงก็ไปบอกเค้าสิ","คิดถึงตลอดเลยนะเราน่ะ","เบื่อพวกคลั่งรัก");
+                    $random_keys=array_rand($t,1);
+                    $txt = $t[$random_keys];
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $txt          
+                                )
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }	    
+	    
+	    	    
+	    
+	    
+	    
                 else if (preg_match('(ขี้|อึ|ห้องน้ำ)', $msg) === 1) {
  
                     $a = array(
