@@ -974,6 +974,29 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
                 }
  
+                else if (preg_match('(คิดถึง|คิดถึงมาก|คิดถึงที่สุด)', $msg) === 1 && preg_match('(อาย|eye)', $msg) === 1 ) {
+ 
+                    $t=array("ช่วยได้เท่านี้อ่ะ","คิดถึงก็ไปบอกเค้าสิ","คิดถึงตลอดเลยนะเราน่ะ","เบื่อพวกคลั่งรัก");
+                    $random_keys=array_rand($t,1);
+                    $txt = $t[$random_keys];
+                    $a = array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $txt          
+                                ),
+                                array(
+                                    'type' => 'image',
+				    "originalContentUrl": "https://example.com/original.jpg",
+				    "previewImageUrl": "https://example.com/preview.jpg"       
+                                ),			    
+			    
+                            );
+                    $client->replyMessage1($event['replyToken'],$a);
+                }	    
+	    
+	    
+	    
+	    
                 else if (preg_match('(เหงา|เหงาจัง|เหงาอ่ะ)', $msg) === 1) {
  
                     $t=array("เราพร้อมจะเป็นเพื่อนคุณนะ","เหงาเหมือนกันเลย","ให้ช่วยแก้เหงามั้ย");
