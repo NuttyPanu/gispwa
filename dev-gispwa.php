@@ -930,8 +930,13 @@ function replyMsg($event, $client)
                     $a = array(
                                 array(
                                     'type' => 'text',
-                                    'text' => $txt          
-                                )
+                                    'text' => $txt 
+                                ),
+                                array(
+                                    'type' => 'image',
+                                    'originalContentUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG',
+                                    'previewImageUrl' => 'https://gispwa.herokuapp.com/image/eye.JPG'
+                                )			    
                             );
                     $client->replyMessage1($event['replyToken'],$a);
                 }	    
